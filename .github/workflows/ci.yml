@@ -16,6 +16,7 @@ on:
       - 'force-app/**'
       - 'pmd/**'
       - 'config/**'
+      - '.github/**'
 
 # Jobs to be executed
 jobs:
