@@ -280,6 +280,7 @@ public with sharing class OrgShape {
 	 * https://github.com/SalesforceFoundation/NPSP/blob/aad20ffb747ecda9a037c4bce9cd19617b6a727b/src/classes/UTIL_Currency.cls#L79
 	 * @return      `Boolean`
 	 */
+	@SuppressWarnings('PMD.EmptyCatchBlock')
 	public Boolean isAdvancedMultiCurrencyManagementEnabled() {
 		Boolean isACMEnabled = false;
 		if (this.multiCurrencyEnabled) {
@@ -292,7 +293,6 @@ public with sharing class OrgShape {
 					isACMEnabled = true;
 				}
 			} catch (Exception e) {
-				//NOPMD
 				// Nothing to do, ACM = false
 			}
 		}
