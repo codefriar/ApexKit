@@ -4,5 +4,12 @@
     "**/bower_components": true,
     "**/.sfdx": true
   },
-  "salesforcedx-vscode-core.show-cli-success-msg": false
+  "salesforcedx-vscode-core.show-cli-success-msg": false,
+  "apexPMD.rulesets": [
+    "pmd/ruleset.xml",
+    "pmd/deployRules.xml"
+  ],
+  "apexPMD.runOnFileChange": true,
+  "apexPMD.runOnFileOpen": true,
+  "apexPMD.enableCache": true
 }
