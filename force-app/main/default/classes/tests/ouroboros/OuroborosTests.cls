@@ -25,9 +25,6 @@ class OuroborosTests {
         Test.startTest();
         system.enqueueJob(example);
         Test.stopTest();
-
-        System.debug('#$##$ ' + Limits.getDmlRows());
-
         System.assert(
             TestPolyfills.circuitBreakerTripped,
             'Expected OuroborosFinalizer to have tripped the circuitBreaker but it wasn\'t'

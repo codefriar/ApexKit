@@ -18,14 +18,6 @@ public with sharing class OrgShape {
     private static final String DEFAULTPARTITION = 'local.default';
 
     /**
-     * Enum for partition type.
-     */
-    public enum PartitionType {
-        SESSION,
-        ORG
-    }
-
-    /**
      * @description property reports whether this transaction took place
      * in a sandbox.
      */
@@ -165,7 +157,7 @@ public with sharing class OrgShape {
      * @param type  Enum of .SESSION or .ORG
      * @return     `Cache.Partition`
      */
-    public Cache.Partition getDefaultPartition(PartitionType type) {
+    public Cache.Partition getDefaultPartition(CachePartitionType type) {
         switch on type {
             when SESSION {
                 return (Cache.Partition) Cache.Session.getPartition(
@@ -195,7 +187,10 @@ public with sharing class OrgShape {
             getAvailableOrgCachePartition().getCapacity();
             cacheAvailable = true;
         } catch (Exception ex) {
-            system.debug(LoggingLevel.WARN, 'Failed to get orgCache');
+            Log.get()
+                .publish(
+                    'OrgShape was asked to get the available org cache partition capacity, but failed.'
+                );
         }
         return cacheAvailable;
     }
@@ -233,10 +228,9 @@ public with sharing class OrgShape {
             seeAllData = true;
         } catch (UnsupportedOperationException UE) {
             // this means seeAllData != true
-            System.debug(
-                LoggingLevel.INFO,
-                'Caught UnsupportedOperationException'
-            );
+            // normally I don't like empty catch blocks, but this one
+            // isn't needed, except to catch an error we're half
+            // expecting
         }
         return seeAllData;
     }
@@ -268,11 +262,11 @@ public with sharing class OrgShape {
                 partitionName
             );
         } catch (System.QueryException qe) {
-            String msg = qe.getMessage();
-            System.debug(
-                LoggingLevel.WARN,
-                'Caught QueryException looking for cache partition'
-            );
+            Log.get()
+                .publish(
+                    LogSeverity.INFO,
+                    'Caught QueryException Looking for Cache Partition. It is entirely plausible that this is intended behavior if you do not have Platform Cache Enabled. See OrgShape, line ~266'
+                );
         }
         return this.safeDefaultCachePartition;
     }

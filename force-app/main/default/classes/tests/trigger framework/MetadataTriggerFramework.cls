@@ -23,7 +23,7 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
     public MetadataTriggerFramework(
         List<sObject> triggerNew,
         List<sObject> triggerOld,
-        TriggerContext.ValidTriggerContexts context
+        ValidTriggerContexts context
     ) {
         this.triggerNew = triggerNew;
         this.triggerOld = triggerOld;
@@ -44,7 +44,9 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
     override public void run() {
-        this.standardValidation();
+        if (standardValidationFails()) {
+            return;
+        }
         this.triggers = this.mts.getMetadataTriggers();
 
         /**

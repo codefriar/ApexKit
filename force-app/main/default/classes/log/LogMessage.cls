@@ -61,10 +61,20 @@ public with sharing class LogMessage {
      * @description   Constructor accepting a message to log.
      * Severity is auto set to info
      * @param message
+     * @param severity
+     */
+    public LogMessage(LogSeverity severity, String message) {
+        this.message = message;
+        this.severity = severity;
+    }
+
+    /**
+     * @description   Constructor accepting a message to log.
+     * Severity is auto set to info
+     * @param message
      */
     public LogMessage(String message) {
-        this.message = message;
-        this.severity = LogSeverity.INFO;
+        this(LogSeverity.Info, message);
     }
 
     /**

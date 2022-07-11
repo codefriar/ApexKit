@@ -1,13 +1,14 @@
 public with sharing class Polyfills {
     private class GuaranteedNotToExist {
     }
+    private class GuaranteedNotToExistException extends Exception {
+    }
 
     public static String classNameFromInstance(Object obj) {
         String result = '';
         try {
             GuaranteedNotToExist shouldThrow = (GuaranteedNotToExist) obj;
         } catch (System.TypeException expectedException) {
-            // invalid conversion from runtime type ouroborostests.exampleouroborosimplementation to polyfills.guaranteednottoexist
             result = expectedException
                 .getMessage()
                 .toLowerCase()
@@ -87,5 +88,15 @@ public with sharing class Polyfills {
             }
         }
         return returnValues;
+    }
+
+    public static String generateStackTrace() {
+        String stackTrace = '';
+        try {
+            throw new GuaranteedNotToExistException();
+        } catch (GuaranteedNotToExistException theException) {
+            stackTrace = theException.getStackTraceString();
+        }
+        return stackTrace;
     }
 }

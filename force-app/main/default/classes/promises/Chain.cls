@@ -26,15 +26,13 @@ public class Chain implements Finalizer {
                 }
             }
             when UNHANDLED_EXCEPTION {
-                System.Debug(
-                    'Parent Queueable (Job ID: ' +
-                    parentQueueableJobId +
-                    '): FAILED!'
-                );
-                System.Debug(
-                    'Parent Queueable Exception: ' +
-                    context.getException().getMessage()
-                );
+                Log.get().publish(context.getException());
+                Log.get()
+                    .publish(
+                        'Parent Queueable (Job ID: ' +
+                        parentQueueableJobId +
+                        '): FAILED!'
+                    );
             }
         }
     }

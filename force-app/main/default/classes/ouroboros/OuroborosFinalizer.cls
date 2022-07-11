@@ -33,7 +33,7 @@ public with sharing class OuroborosFinalizer implements Finalizer {
                 }
             }
             when UNHANDLED_EXCEPTION {
-                logger.add(
+                logger.publish(
                     'Previous instance of the Ouroboros implementing class ' +
                     this.ouroboros.className() +
                     ' failed with an exception. The previous instance\'s jobId was ' +
@@ -41,7 +41,6 @@ public with sharing class OuroborosFinalizer implements Finalizer {
                     '. The exception was: ' +
                     context.getException()
                 );
-                logger.publish();
             }
         }
     }

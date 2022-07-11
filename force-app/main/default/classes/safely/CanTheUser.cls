@@ -19,19 +19,6 @@ public with sharing class CanTheUser {
     public class CanTheUserException extends Exception {
     }
 
-    public enum CrudType {
-        CREATE,
-        READ,
-        EDIT,
-        DEL,
-        UPS
-    }
-
-    public enum FLSType {
-        ACCESSIBLE,
-        UPDATABLE
-    }
-
     /**
      * @description this cachebuilder interface allows the CanTheUser class to
      * cache per-object results for each object requested. This prevents the
@@ -91,7 +78,7 @@ public with sharing class CanTheUser {
      * @param permission create, read, update or delete
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
+     * Log.get().publish(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
      **/
     public static Boolean crud(SObject obj, CrudType permission) {
         switch on permission {
@@ -129,7 +116,7 @@ public with sharing class CanTheUser {
      * @param obj Object type to check create permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.create(new Account()));
+     * Log.get().publish(CanTheUser.create(new Account()));
      **/
     public static Boolean create(SObject obj) {
         return CanTheUser.crud(obj, CrudType.CREATE);
@@ -152,7 +139,7 @@ public with sharing class CanTheUser {
      * @param String Object type to check create permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.create('Account'));
+     * Log.get().publish(CanTheUser.create('Account'));
      **/
     public static Boolean create(String objName) {
         return crud(objName, CrudType.CREATE);
@@ -164,7 +151,7 @@ public with sharing class CanTheUser {
      * @param obj object type to check read permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.read(new Account()));
+     * Log.get().publish(CanTheUser.read(new Account()));
      **/
     public static Boolean read(SObject obj) {
         return CanTheUser.crud(obj, CrudType.READ);
@@ -187,7 +174,7 @@ public with sharing class CanTheUser {
      * @param String Object type to check read permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.read('Account'));
+     * Log.get().publish(CanTheUser.read('Account'));
      **/
     public static Boolean read(String objName) {
         return crud(objName, CrudType.READ);
@@ -199,7 +186,7 @@ public with sharing class CanTheUser {
      * @param obj object type to check edit permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.edit(new Account()));
+     * Log.get().publish(CanTheUser.edit(new Account()));
      **/
     public static Boolean edit(SObject obj) {
         return CanTheUser.crud(obj, CrudType.EDIT);
@@ -222,7 +209,7 @@ public with sharing class CanTheUser {
      * @param String Object type to check edit permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.edit('Account'));
+     * Log.get().publish(CanTheUser.edit('Account'));
      **/
     public static Boolean edit(String objName) {
         return crud(objName, CrudType.EDIT);
@@ -234,7 +221,7 @@ public with sharing class CanTheUser {
      * @param obj object type to check edit permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.ups(new Account()));
+     * Log.get().publish(CanTheUser.ups(new Account()));
      **/
     public static Boolean ups(SObject obj) {
         return crud(obj, CrudType.UPS);
@@ -257,7 +244,7 @@ public with sharing class CanTheUser {
      * @param String Object type to check upsert permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.ups('Account'));
+     * Log.get().publish(CanTheUser.ups('Account'));
      **/
     public static Boolean ups(String objName) {
         return crud(objName, CrudType.UPS);
@@ -269,7 +256,7 @@ public with sharing class CanTheUser {
      * @param obj object type to check destroy permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.destroy(new Account()));
+     * Log.get().publish(CanTheUser.destroy(new Account()));
      **/
     public static Boolean destroy(SObject obj) {
         return CanTheUser.crud(obj, CrudType.DEL);
@@ -291,7 +278,7 @@ public with sharing class CanTheUser {
      * @param String Object type to check create permissions on
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.destroy('Account'));
+     * Log.get().publish(CanTheUser.destroy('Account'));
      **/
     public static Boolean destroy(String objName) {
         return crud(objName, CrudType.DEL);
@@ -304,7 +291,7 @@ public with sharing class CanTheUser {
      * @param field the field in question in SObjectField form
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.flsAccessible('Account', 'Name'));
+     * Log.get().publish(CanTheUser.flsAccessible('Account', 'Name'));
      **/
     public static Boolean flsAccessible(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.ACCESSIBLE);
@@ -317,7 +304,7 @@ public with sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
+     * Log.get().publish(CanTheUser.bulkFLSAccessible('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSAccessible(
         String obj,
@@ -337,7 +324,7 @@ public with sharing class CanTheUser {
      * @param field the field to check
      * @return Boolean
      * @example
-     * System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
+     * Log.get().publish(CanTheUser.flsUpdatable('Account', 'Name'));
      **/
     public static Boolean flsUpdatable(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.UPDATABLE);
@@ -350,7 +337,7 @@ public with sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
+     * Log.get().publish(CanTheUser.bulkFLSUpdatable('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSUpdatable(
         String obj,
@@ -402,7 +389,7 @@ public with sharing class CanTheUser {
             CanTheUser.updatableFieldsByObject.put(objType, updatableFields);
         }
 
-        if (action == CanTheUser.FLSType.ACCESSIBLE) {
+        if (action == FLSType.ACCESSIBLE) {
             return CanTheUser.accessibleFieldsByObject.get(objType);
         } else {
             return CanTheUser.updatableFieldsByObject.get(objType);
@@ -424,7 +411,7 @@ public with sharing class CanTheUser {
     ) {
         OrgShape orgShapeInstance = new OrgShape();
         Cache.Partition defaultSession = orgShapeInstance.getDefaultPartition(
-            OrgShape.PartitionType.SESSION
+            CachePartitionType.SESSION
         );
 
         Map<String, Map<FLSType, Boolean>> objResults;

@@ -6,6 +6,8 @@
  *
  */
 public with sharing class Log {
+    public static Boolean publishToStandardLogs = false;
+
     /**
      * @description private instance of this log class that backs the
      * singleton get() method.
@@ -92,15 +94,11 @@ public with sharing class Log {
         for (LogMessage msg : this.buffer) {
             rawLogs.add(msg.toEvent());
         }
-        if (QuiddityGuard.quiddityIsATestContext()) {
-            System.debug('Publishing Log via Event Bus');
-        }
+        alsoPublishToStandardLogs(rawLogs);
         List<Database.SaveResult> publishResults = EventBus.publish(rawLogs);
         if (publishResults.size() > 0) {
             for (Database.SaveResult result : publishResults) {
-                if (result.isSuccess()) {
-                    System.debug('Log published successfully');
-                } else {
+                if (!result.isSuccess()) {
                     for (Database.Error err : result.getErrors()) {
                         System.debug(
                             'Error returned: ' +
@@ -112,8 +110,27 @@ public with sharing class Log {
                 }
             }
         }
+
         system.debug('publishedResults: ' + publishResults);
         this.buffer.clear();
+    }
+
+    private void alsoPublishToStandardLogs(List<Log__e> logEvents) {
+        if (
+            QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs
+        ) {
+            for (Log__e logEvent : logEvents) {
+                String headerFooter = '######### Logging from the Log Class #########';
+                System.debug(
+                    LoggingLevel.DEBUG,
+                    headerFooter +
+                    '\n' +
+                    logEvent +
+                    '\n' +
+                    headerFooter
+                );
+            }
+        }
     }
 
     /**
@@ -138,5 +155,9 @@ public with sharing class Log {
     public void publish(String messageToLog) {
         this.buffer.add(new LogMessage(messageToLog));
         this.publish();
+    }
+
+    public void publish(LogSeverity severity, String messageToLog) {
+        this.buffer.add(new LogMessage(severity, messageToLog));
     }
 }

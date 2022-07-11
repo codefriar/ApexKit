@@ -32,28 +32,29 @@ public virtual class TriggerFramework {
      * AccountTriggerFramework.run();
      */
     public virtual void run() {
-        standardValidation();
+        if (standardValidationFails()) {
+            return;
+        }
         dispatchHandlerMethod(this.triggerContext.context);
     }
 
-    protected void standardValidation() {
+    protected Boolean standardValidationFails() {
         /**
          * Guard statements against invalid execution context and a bypassed handlerName
          */
         if (this.triggerContext.isInvalidExecutionContext()) {
-            return;
+            return true;
         }
 
         if (TriggerFramework.bypassedHandlers.contains(getHandlerName())) {
-            return;
+            return true;
         }
 
         addToLoopCount();
+        return false;
     }
 
-    private void dispatchHandlerMethod(
-        TriggerContext.ValidTriggerContexts context
-    ) {
+    private void dispatchHandlerMethod(ValidTriggerContexts context) {
         // dispatch to the correct handler method
         switch on context {
             when BEFORE_INSERT {
@@ -120,6 +121,13 @@ public virtual class TriggerFramework {
      * TriggerFramework.bypass('AccountTriggerFramework');
      */
     public static void bypass(String handlerName) {
+        String stackTrace = Polyfills.generateStackTrace();
+        Log.get()
+            .publish(
+                handlerName.toLowerCase() +
+                ' is being bypassed. This stackTrace may help you debug it. ' +
+                stackTrace
+            );
         TriggerFramework.bypassedHandlers.add(handlerName.toLowerCase());
     }
 
