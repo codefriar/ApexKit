@@ -10,7 +10,6 @@ on:
       - 'config/**'
       - 'data/**'
   workflow_dispatch:
-  push:
 # Jobs to be executed
 jobs:
   check-pmd:
