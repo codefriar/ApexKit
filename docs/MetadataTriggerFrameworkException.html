@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ASL code documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ASL code documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ASL"
+						>ASL</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Log" class="group-name">
+						<summary id="header-Log" class="nav-header">
+							<span>Log</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)">Log</a>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)">LogMessage</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+					<details id="OrgShape" class="group-name">
+						<summary id="header-OrgShape" class="nav-header">
+							<span>OrgShape</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)">OrgShape</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Ouroboros" class="group-name">
+						<summary id="header-Ouroboros" class="nav-header">
+							<span>Ouroboros</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)">Ouroboros</a>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)">OuroborosFinalizer</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Polyfills" class="group-name">
+						<summary id="header-Polyfills" class="nav-header">
+							<span>Polyfills</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)">Polyfills</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Promises" class="group-name">
+						<summary id="header-Promises" class="nav-header">
+							<span>Promises</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)">Chain</a>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)">Promise</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Quiddity_Recipes" class="group-name">
+						<summary id="header-Quiddity_Recipes" class="nav-header">
+							<span>Quiddity Recipes</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)">QuiddityGuard</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Security" class="group-name">
+						<summary id="header-Security" class="nav-header">
+							<span>Security</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)">CanTheUser</a>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)">Safely</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Test_Utilities" class="group-name">
+						<summary id="header-Test_Utilities" class="nav-header">
+							<span>Test Utilities</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)">MethodSignature</a>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)">MockedMethod</a>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)">Stub</a>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)">StubUtilities</a>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)">TestFactory</a>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)">TestPolyfills</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Tests" class="group-name">
+						<summary id="header-Tests" class="nav-header">
+							<span>Tests</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)">OuroborosTests</a>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">SampleHandler</a>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+					<details id="ToRefactor" class="group-name">
+						<summary id="header-ToRefactor" class="nav-header">
+							<span>ToRefactor</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">LogTriggerHandler</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Trigger_Framework" class="group-name">
+						<summary id="header-Trigger_Framework" class="nav-header">
+							<span>Trigger Framework</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerContext</a>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerFramework</a>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2
+							class="class-title top-level-type"
+							id="MetadataTriggerFrameworkException">
+							<span>MetadataTriggerFrameworkException</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public with sharing class MetadataTriggerFrameworkException
+								extends Exception
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

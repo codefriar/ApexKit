@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ASL code documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ASL code documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ASL"
+						>ASL</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Log" class="group-name">
+						<summary id="header-Log" class="nav-header">
+							<span>Log</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)">Log</a>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)">LogMessage</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+					<details id="OrgShape" class="group-name">
+						<summary id="header-OrgShape" class="nav-header">
+							<span>OrgShape</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)">OrgShape</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Ouroboros" class="group-name">
+						<summary id="header-Ouroboros" class="nav-header">
+							<span>Ouroboros</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)">Ouroboros</a>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)">OuroborosFinalizer</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Polyfills" class="group-name">
+						<summary id="header-Polyfills" class="nav-header">
+							<span>Polyfills</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)">Polyfills</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Promises" class="group-name">
+						<summary id="header-Promises" class="nav-header">
+							<span>Promises</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)">Chain</a>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)">Promise</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Quiddity_Recipes" class="group-name">
+						<summary id="header-Quiddity_Recipes" class="nav-header">
+							<span>Quiddity Recipes</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)">QuiddityGuard</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Security" class="group-name">
+						<summary id="header-Security" class="nav-header">
+							<span>Security</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)">CanTheUser</a>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)">Safely</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Test_Utilities" class="group-name">
+						<summary id="header-Test_Utilities" class="nav-header">
+							<span>Test Utilities</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)">MethodSignature</a>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)">MockedMethod</a>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)">Stub</a>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)">StubUtilities</a>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)">TestFactory</a>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)">TestPolyfills</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Tests" class="group-name">
+						<summary id="header-Tests" class="nav-header">
+							<span>Tests</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)">OuroborosTests</a>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">SampleHandler</a>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+					<details id="ToRefactor" class="group-name">
+						<summary id="header-ToRefactor" class="nav-header">
+							<span>ToRefactor</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">LogTriggerHandler</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Trigger_Framework" class="group-name">
+						<summary id="header-Trigger_Framework" class="nav-header">
+							<span>Trigger Framework</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerContext</a>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerFramework</a>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="CanTheUser">
+							<span>CanTheUser</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								A reusable, intuitive library for determining wether or not the
+								current use can create, read, edit, or delete objects as well as
+								determining if the user has access or update permissions on
+								specific fields. This class name was chosen to facilitate
+								easy-to-understand and read code. Whenever you need to check FLS
+								or CRUD access your code reads like this
+								<code class="code-inline"
+									>if(CanTheUser.read(new account())){}</code
+								>
+								making the calling and use of this code easy and intuitive.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public with sharing class CanTheUser
+							</div>
+						</div>
+						<div class="subsection properties CanTheUser">
+							<h3 class="subsection-title properties">CanTheUser Properties</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>accessibleFieldsByObject</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private static Map&lt;String, Set&lt;String&gt;&gt;
+											accessibleFieldsByObject
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">@testVisible</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>updatableFieldsByObject</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private static Map&lt;String, Set&lt;String&gt;&gt;
+											updatableFieldsByObject
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">@testVisible</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection enums">
+							<h3 class="subsection-title enums">Enums</h3>
+							<table class="attributes-table enums">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Values</th>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name"><span>CrudType</span></td>
+									<td>
+										<div class="attribute-signature">public enum CrudType</div>
+									</td>
+									<td class="enum-values">
+										CREATE,&nbsp;READ,&nbsp;EDIT,&nbsp;DEL,&nbsp;UPS
+									</td>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name"><span>FLSType</span></td>
+									<td>
+										<div class="attribute-signature">public enum FLSType</div>
+									</td>
+									<td class="enum-values">ACCESSIBLE,&nbsp;UPDATABLE</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CanTheUser Methods</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.getFLSForFieldOnObject">
+											getFLSForFieldOnObject (obj, field, checkType)
+										</a>
+
+										<div class="methods-toc__description">
+											Abstracted method for retrieving or calculating
+											(memoization) of the FLS for a given field on a given
+											object.
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.memoizeFLSMDC">
+											memoizeFLSMDC (objType, action)
+										</a>
+
+										<div class="methods-toc__description">
+											Utilizes the Metadata catalog to determine FLS Note: this
+											method contains a false-positive PMD violation. Normally,
+											we&#39;d want to check for FLS/CRUD here, but for metadata
+											catalog objects that admins cannot remove permissions to
+											we&#39;re ok. Additionally, even the minimum access
+											profile user has read access to the FieldPermissions
+											object.
+										</div>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.getFLSForFieldOnObject">
+										<span>getFLSForFieldOnObject(obj, field, checkType)</span>
+									</h4>
+									<div class="method-description">
+										Abstracted method for retrieving or calculating
+										(memoization) of the FLS for a given field on a given
+										object.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private static Boolean getFLSForFieldOnObject( String obj,
+										String field, FLSType checkType )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										String version of object name to check
+									</div>
+									<div class="param-name">field</div>
+									<div class="param-description">
+										String version of the field to check
+									</div>
+									<div class="param-name">checkType</div>
+									<div class="param-description">
+										Enum of Accessible or Updatable.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Boolean</code>
+									</div>
+								</div>
+								<div class="method private">
+									<h4 class="method-title" id="CanTheUser.memoizeFLSMDC">
+										<span>memoizeFLSMDC(objType, action)</span>
+									</h4>
+									<div class="method-description">
+										Utilizes the Metadata catalog to determine FLS Note: this
+										method contains a false-positive PMD violation. Normally,
+										we&#39;d want to check for FLS/CRUD here, but for metadata
+										catalog objects that admins cannot remove permissions to
+										we&#39;re ok. Additionally, even the minimum access profile
+										user has read access to the FieldPermissions object.
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">@testVisible</div>
+									<div class="method-signature">
+										private static Set&lt;String&gt; memoizeFLSMDC(String
+										objType, FLSType action)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">objType</div>
+									<div class="param-type">
+										Type: <code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										String version of the object type to check
+									</div>
+									<div class="param-name">action</div>
+									<div class="param-type">
+										Type: <code class="code-inline">FLSType</code>
+									</div>
+									<div class="param-description">
+										Enum of the FLS action to check permissions for
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">set&lt;String&gt;</code>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="CanTheUser.CanTheUserException">
+							<span>CanTheUser.CanTheUserException</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								Internal custom exception class
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class CanTheUserException extends Exception
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="CanTheUser.PermissionCache">
+							<span>CanTheUser.PermissionCache</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								this cachebuilder interface allows the CanTheUser class to cache
+								per-object results for each object requested. This prevents the
+								need to repeatedly calculate permission usage by calling
+								Schema.Describe* calls
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								private class PermissionCache implements Cache.CacheBuilder
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								CanTheUser.PermissionCache Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.bulkFLSAccessible">
+											bulkFLSAccessible (obj, fields)
+										</a>
+
+										<div class="methods-toc__description">
+											bulk form of flsAccessible
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.bulkFLSUpdatable">
+											bulkFLSUpdatable (obj, fields)
+										</a>
+
+										<div class="methods-toc__description">
+											bulk form of flsUpdatable call
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.calculateFLS">
+											calculateFLS (objType)
+										</a>
+
+										<div class="methods-toc__description">
+											Calculates the FLS for a given object type
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.create">
+											create (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											create the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.create_1">
+											create (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											create the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.create_2">
+											create (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											create the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.crud">
+											crud (obj, permission)
+										</a>
+
+										<div class="methods-toc__description">
+											This class&#39; name was chosen to facilitate
+											easy-to-understand and read code. Whenever you need to
+											check FLS or CRUD access your code reads like this
+											<code class="code-inline"
+												>if(CanTheUser.read(new account())){}</code
+											>
+											making the calling and use of this code easy and
+											intuitive.
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.crud_1">
+											crud (objs, permission)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.crud_2">
+											crud (objectName, permission)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.destroy">
+											destroy (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											delete/destroy the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.destroy_1">
+											destroy (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											delete the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.destroy_2">
+											destroy (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											delete the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.doLoad">
+											doLoad (objType)
+										</a>
+
+										<div class="methods-toc__description">
+											Required method for the CacheBuilder interface. Used here
+											to either calculate an objects per-user FLS, OR to return
+											it from Cache. The return datastructure for this is
+											Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and
+											represents: FieldName -&gt; FLStype -&gt; True/False
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.edit">
+											edit (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											edit / update the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.edit_1">
+											edit (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											edit / update the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.edit_2">
+											edit (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											edit the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.flsAccessible">
+											flsAccessible (obj, field)
+										</a>
+
+										<div class="methods-toc__description">
+											public method to determine if a given field on a given
+											object is Accessible (readable)
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.flsUpdatable">
+											flsUpdatable (obj, field)
+										</a>
+
+										<div class="methods-toc__description">
+											public method to determine if a given field on a given
+											object is Updatable.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.read">
+											read (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											read / access the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.read_1">
+											read (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											read / access the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.read_2">
+											read (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											read the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.ups">
+											ups (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											upsert (insert and update) the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.ups_1">
+											ups (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											edit / update the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.PermissionCache.ups_2">
+											ups (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if the running user can
+											upsert the specified object
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.bulkFLSAccessible">
+										<span>bulkFLSAccessible(obj, fields)</span>
+									</h4>
+									<div class="method-description">
+										bulk form of flsAccessible
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Map&lt;String, Boolean&gt; bulkFLSAccessible(
+										String obj, Set&lt;String&gt; fields )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										Obj name on which to check
+									</div>
+									<div class="param-name">fields</div>
+									<div class="param-description">
+										Set of Fields to check for accessibility.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Map&lt;String, Boolean&gt;</code>
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> String[] fields = new String[]{&#39;Name&#39;, &#39;ShippingStreet&#39;}; 
+ System.debug(CanTheUser.bulkFLSAccessible(&#39;Account&#39;, fields));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.bulkFLSUpdatable">
+										<span>bulkFLSUpdatable(obj, fields)</span>
+									</h4>
+									<div class="method-description">
+										bulk form of flsUpdatable call
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Map&lt;String, Boolean&gt; bulkFLSUpdatable(
+										String obj, Set&lt;String&gt; fields )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">Name of the object</div>
+									<div class="param-name">fields</div>
+									<div class="param-description">
+										Set of Field names to check
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Map&lt;String, Boolean&gt;</code>
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> String[] fields = new String[]{&#39;Name&#39;, &#39;ShippingStreet&#39;}; 
+ System.debug(CanTheUser.bulkFLSUpdatable(&#39;Account&#39;, fields));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.calculateFLS">
+										<span>calculateFLS(objType)</span>
+									</h4>
+									<div class="method-description">
+										Calculates the FLS for a given object type
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Map&lt;String, Map&lt;FLSType, Boolean&gt;&gt;
+										calculateFLS(string objType)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">objType</div>
+									<div class="param-type">
+										Type: <code class="code-inline">string</code>
+									</div>
+									<div class="param-description">
+										String name of the object type
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>Map&lt;String, Map&lt;FLSType, Boolean&gt;&gt;</code
+										>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.create">
+										<span>create(obj)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										create the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean create(SObject obj)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										Object type to check create permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.create(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.create_1">
+										<span>create(objs)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										create the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean create(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">objs</div>
+									<div class="param-type">
+										Type: <code class="code-inline">List&lt;SObject&gt;</code>
+									</div>
+									<div class="param-description">
+										list of objects. Only the first will be checked. (logically,
+										a list is of uniform type and, and if the user can create
+										one)
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.create_2">
+										<span>create(objName)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										create the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean create(String objName)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check create permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.create(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CanTheUser.PermissionCache.crud">
+										<span>crud(obj, permission)</span>
+									</h4>
+									<div class="method-description">
+										This class&#39; name was chosen to facilitate
+										easy-to-understand and read code. Whenever you need to check
+										FLS or CRUD access your code reads like this
+										<code class="code-inline"
+											>if(CanTheUser.read(new account())){}</code
+										>
+										making the calling and use of this code easy and intuitive.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean crud(SObject obj, CrudType permission)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.crud_1">
+										<span>crud(objs, permission)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">@testVisible</div>
+									<div class="method-signature">
+										private static Boolean crud(List&lt;SObject&gt; objs,
+										CrudType permission)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.crud_2">
+										<span>crud(objectName, permission)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">@testVisible</div>
+									<div class="method-signature">
+										private static Boolean crud(String objectName, CrudType
+										permission)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.destroy">
+										<span>destroy(obj)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										delete/destroy the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean destroy(SObject obj)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check destroy permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.destroy(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.destroy_1">
+										<span>destroy(objs)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										delete the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean destroy(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check delete permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.destroy_2">
+										<span>destroy(objName)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										delete the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean destroy(String objName)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check create permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.destroy(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.doLoad">
+										<span>doLoad(objType)</span>
+									</h4>
+									<div class="method-description">
+										Required method for the CacheBuilder interface. Used here to
+										either calculate an objects per-user FLS, OR to return it
+										from Cache. The return datastructure for this is
+										Map&lt;String, Map&lt;FLSType,Boolean&gt;&gt; and
+										represents: FieldName -&gt; FLStype -&gt; True/False
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Object doLoad(String objType)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">objType</div>
+									<div class="param-type">
+										Type: <code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										String object name used as the cache key
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Object</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CanTheUser.PermissionCache.edit">
+										<span>edit(obj)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can edit
+										/ update the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean edit(SObject obj)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.edit(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.edit_1">
+										<span>edit(objs)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can edit
+										/ update the specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean edit(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-description">
+										object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.edit_2">
+										<span>edit(objName)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can edit
+										the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean edit(String objName)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.edit(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.flsAccessible">
+										<span>flsAccessible(obj, field)</span>
+									</h4>
+									<div class="method-description">
+										public method to determine if a given field on a given
+										object is Accessible (readable)
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean flsAccessible(String obj, String
+										field)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the object in question, in string form
+									</div>
+									<div class="param-name">field</div>
+									<div class="param-type">
+										Type: <code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the field in question in SObjectField form
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.flsAccessible(&#39;Account&#39;, &#39;Name&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.flsUpdatable">
+										<span>flsUpdatable(obj, field)</span>
+									</h4>
+									<div class="method-description">
+										public method to determine if a given field on a given
+										object is Updatable.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean flsUpdatable(String obj, String field)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the string version of an object name
+									</div>
+									<div class="param-name">field</div>
+									<div class="param-type">
+										Type: <code class="code-inline">String</code>
+									</div>
+									<div class="param-description">the field to check</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.flsUpdatable(&#39;Account&#39;, &#39;Name&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CanTheUser.PermissionCache.read">
+										<span>read(obj)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can read
+										/ access the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean read(SObject obj)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check read permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.read(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.read_1">
+										<span>read(objs)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can read
+										/ access the specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean read(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-description">
+										object type to check read permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.read_2">
+										<span>read(objName)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can read
+										the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean read(String objName)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check read permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.read(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CanTheUser.PermissionCache.ups">
+										<span>ups(obj)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										upsert (insert and update) the specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean ups(SObject obj)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type: <code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.ups(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.ups_1">
+										<span>ups(objs)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can edit
+										/ update the specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean ups(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">obj</div>
+									<div class="param-description">
+										object type to check upsert permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.PermissionCache.ups_2">
+										<span>ups(objName)</span>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the running user can
+										upsert the specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean ups(String objName)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check upsert permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">Boolean</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.ups(&#39;Account&#39;));</code></pre>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

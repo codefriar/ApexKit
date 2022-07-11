@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ASL code documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ASL code documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ASL"
+						>ASL</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Log" class="group-name">
+						<summary id="header-Log" class="nav-header">
+							<span>Log</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)">Log</a>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)">LogMessage</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+					<details id="OrgShape" class="group-name">
+						<summary id="header-OrgShape" class="nav-header">
+							<span>OrgShape</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)">OrgShape</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Ouroboros" class="group-name">
+						<summary id="header-Ouroboros" class="nav-header">
+							<span>Ouroboros</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)">Ouroboros</a>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)">OuroborosFinalizer</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Polyfills" class="group-name">
+						<summary id="header-Polyfills" class="nav-header">
+							<span>Polyfills</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)">Polyfills</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Promises" class="group-name">
+						<summary id="header-Promises" class="nav-header">
+							<span>Promises</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)">Chain</a>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)">Promise</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Quiddity_Recipes" class="group-name">
+						<summary id="header-Quiddity_Recipes" class="nav-header">
+							<span>Quiddity Recipes</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)">QuiddityGuard</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Security" class="group-name">
+						<summary id="header-Security" class="nav-header">
+							<span>Security</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)">CanTheUser</a>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)">Safely</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Test_Utilities" class="group-name">
+						<summary id="header-Test_Utilities" class="nav-header">
+							<span>Test Utilities</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)">MethodSignature</a>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)">MockedMethod</a>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)">Stub</a>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)">StubUtilities</a>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)">TestFactory</a>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)">TestPolyfills</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Tests" class="group-name">
+						<summary id="header-Tests" class="nav-header">
+							<span>Tests</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)">OuroborosTests</a>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">SampleHandler</a>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+					<details id="ToRefactor" class="group-name">
+						<summary id="header-ToRefactor" class="nav-header">
+							<span>ToRefactor</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">LogTriggerHandler</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Trigger_Framework" class="group-name">
+						<summary id="header-Trigger_Framework" class="nav-header">
+							<span>Trigger Framework</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerContext</a>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerFramework</a>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="MockedMethod">
+							<span>MockedMethod</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								Represents a method call that is mocked as part of a Stub
+								object. This class is marked @isTest, as the object and it&#39;s
+								methods are not useful outside of a Test context. This file
+								contains not only the MockedMethod class, but an inner Builder
+								class. It is expected most developers will utilize the Builder
+								class to construct instances of MockedMethod.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public with sharing class MockedMethod
+							</div>
+						</div>
+						<div class="subsection properties MockedMethod">
+							<h3 class="subsection-title properties">
+								MockedMethod Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+									<th>Description</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>countOfMethodInvocations</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Integer countOfMethodInvocations
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>customException</span></td>
+									<td>
+										<div class="attribute-signature">
+											private Exception customException
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>exceptionMessage</span></td>
+									<td>
+										<div class="attribute-signature">
+											private static String exceptionMessage
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">@testVisible</div>
+									</td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>expectedParameters</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;Object&gt; expectedParameters
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>methodSignature</span></td>
+									<td>
+										<div class="attribute-signature">
+											private MethodSignature methodSignature
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">@testVisible</div>
+									</td>
+
+									<td class="attribute-description">
+										Every MockedMethod has a methodSignature defining it&#39;s
+										&#39;signature&#39; or combination of name, parameter names
+										and parameter types.
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>returnValue</span></td>
+									<td>
+										<div class="attribute-signature">
+											private Object returnValue
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>sObjectIds</span></td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;Id&gt; sObjectIds
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>throwException</span></td>
+									<td>
+										<div class="attribute-signature">
+											private Boolean throwException
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								MockedMethod Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.MockedMethod">
+											MockedMethod (methodSignature)
+										</a>
+
+										<div class="methods-toc__description">
+											Constructor requiring a method signature. This is used to
+											prevent constructing MockedMethods without a signature.
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.MockedMethod">
+										<span>MockedMethod(methodSignature)</span>
+									</h4>
+									<div class="method-description">
+										Constructor requiring a method signature. This is used to
+										prevent constructing MockedMethods without a signature.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod(MethodSignature methodSignature)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">methodSignature</div>
+									<div class="param-type">
+										Type: <code class="code-inline">MethodSignature</code>
+									</div>
+									<div class="param-description">
+										We need this to define the shape of the method being mocked.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">MockedMethod Methods</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.assertMockedMethodWasCalled">
+											assertMockedMethodWasCalled ()
+										</a>
+
+										<div class="methods-toc__description">
+											If this MockedMethod has not been called cause a failing
+											assertion.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.createMockedMethod">
+											createMockedMethod (signature)
+										</a>
+
+										<div class="methods-toc__description">
+											Responsible for returning a fully formed MockedMethod
+											instance.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.doMethodSignaturesAndParametersMatch">
+											doMethodSignaturesAndParametersMatch (methodSignature,
+											runtimeParameters)
+										</a>
+
+										<div class="methods-toc__description">
+											determines if the current method call matches on both a
+											method signature level and against specified input
+											parameters.
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.doRuntimeParametersMatch">
+											doRuntimeParametersMatch (compareTo)
+										</a>
+
+										<div class="methods-toc__description">
+											Determines if the method, as brokered by the stub object
+											is being called with an expected set of parameters. Note:
+											I thought I could replace this with
+											<code class="code-inline"
+												>return
+												this.methodParamsAtExecutionTime.equals(compareTo);</code
+											>
+											but this doesn&#39;t work, and to be honest, I&#39;m still
+											investigating why.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.handleCall">
+											handleCall ()
+										</a>
+
+										<div class="methods-toc__description">
+											This method is invoked by it&#39;s parent stub object, and
+											is responsible for returning the mocked value.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.returning">
+											returning (returnValue)
+										</a>
+
+										<div class="methods-toc__description">
+											Sets this MockedMethod&#39;s return value. This is the
+											value that will be returned by this mocked method when the
+											stub calls a method that has an identical name, signature
+											and input paramter list.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.returning_1">
+											returning (incomingIds)
+										</a>
+
+										<div class="methods-toc__description">
+											Use this variant of returning when you want the mocked
+											method to return a list of sObjects (generic) with a
+											specific set of IDs
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.returning_2">
+											returning (returnValue)
+										</a>
+
+										<div class="methods-toc__description">
+											This variant allows developers to specify the object that
+											will be returned when this mocked method is executed by
+											its parent stub.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.returning_3">
+											returning ()
+										</a>
+
+										<div class="methods-toc__description">
+											This variant allows developers to specify a void return.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.returningObjectsWithIds">
+											returningObjectsWithIds (ids)
+										</a>
+
+										<div class="methods-toc__description">
+											This variant allows developers to specify a list of IDs to
+											be assigned to the returning sObject List
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.throwingException">
+											throwingException ()
+										</a>
+
+										<div class="methods-toc__description">
+											Use this method when you need the mocked method to throw
+											an exception. Incredibly useful for testing exception
+											handling! Note: This variant results in a generic
+											StubException being thrown.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.throwingException_1">
+											throwingException (customException)
+										</a>
+
+										<div class="methods-toc__description">
+											Use this variant to have this mocked method return a
+											developer-specified exception object. Useful for testing
+											exception handling with specific exception types.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.throwingException_2">
+											throwingException ()
+										</a>
+
+										<div class="methods-toc__description">
+											This variant allows developers to throw an internally
+											generated Stub.StubException object when the method is
+											executed.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.throwingException_3">
+											throwingException (customException)
+										</a>
+
+										<div class="methods-toc__description">
+											Use this variant to have this mocked method return a
+											developer-specified exception object. Useful for testing
+											exception handling with specific exception types. Note:
+											This only works for custom exceptions. Note: Developers
+											construct your exception like this:
+											<code class="code-inline"
+												>&lt;CustomExceptioType&gt; customException =
+											</code>
+											<code class="code-inline"
+												>new
+												&lt;CustomExceptionType&gt;(&#39;message&#39;);</code
+											>
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.withParameterValues">
+											withParameterValues (args)
+										</a>
+
+										<div class="methods-toc__description">
+											Allows developers to define expected input parameters at
+											execution time. This enables developers to mock the same
+											method call N number of times, with different input
+											parameters.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.withParameterValues_1">
+											withParameterValues (parameter)
+										</a>
+
+										<div class="methods-toc__description">
+											internal method used to set the parameter values of this
+											MockedMethod instance.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.withParameterValues_2">
+											withParameterValues (parameter, parameter2)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience methodfor setting two params
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.withParameterValues_3">
+											withParameterValues (parameter, parameter2, parameter3)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience methodfor setting three params
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.withParameterValues_4">
+											withParameterValues (parameter, parameter2, parameter3,
+											parameter4)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience methodfor setting four parameters
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.assertMockedMethodWasCalled">
+										<span>assertMockedMethodWasCalled()</span>
+									</h4>
+									<div class="method-description">
+										If this MockedMethod has not been called cause a failing
+										assertion.
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('pmd.ApexUnitTestMethodShouldHaveIsTestAnnotation')
+									</div>
+									<div class="method-signature">
+										public void assertMockedMethodWasCalled()
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.createMockedMethod">
+										<span>createMockedMethod(signature)</span>
+									</h4>
+									<div class="method-description">
+										Responsible for returning a fully formed MockedMethod
+										instance.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod createMockedMethod(MethodSignature
+										signature)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">signature</div>
+									<div class="param-type">
+										Type: <code class="code-inline">MethodSignature</code>
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.doMethodSignaturesAndParametersMatch">
+										<span
+											>doMethodSignaturesAndParametersMatch(methodSignature,
+											runtimeParameters)</span
+										>
+									</h4>
+									<div class="method-description">
+										determines if the current method call matches on both a
+										method signature level and against specified input
+										parameters.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Boolean doMethodSignaturesAndParametersMatch(
+										MethodSignature methodSignature, List&lt;Object&gt;
+										runtimeParameters )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">methodSignature</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> MethodSignature</code>
+									</div>
+									<div class="param-description">
+										A method signature to match against.
+									</div>
+									<div class="param-name">runtimeParameters</div>
+									<div class="param-description">
+										a List of objects representing the actual values - at
+										runtime - of the method call.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Boolean</code>
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="MockedMethod.doRuntimeParametersMatch">
+										<span>doRuntimeParametersMatch(compareTo)</span>
+									</h4>
+									<div class="method-description">
+										Determines if the method, as brokered by the stub object is
+										being called with an expected set of parameters. Note: I
+										thought I could replace this with
+										<code class="code-inline"
+											>return
+											this.methodParamsAtExecutionTime.equals(compareTo);</code
+										>
+										but this doesn&#39;t work, and to be honest, I&#39;m still
+										investigating why.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private Boolean doRuntimeParametersMatch(List&lt;Object&gt;
+										compareTo)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">compareTo</div>
+									<div class="param-type">
+										Type: <code class="code-inline">List&lt;Object&gt;</code>
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Boolean</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.handleCall">
+										<span>handleCall()</span>
+									</h4>
+									<div class="method-description">
+										This method is invoked by it&#39;s parent stub object, and
+										is responsible for returning the mocked value.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public Object handleCall()</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Object</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.returning">
+										<span>returning(returnValue)</span>
+									</h4>
+									<div class="method-description">
+										Sets this MockedMethod&#39;s return value. This is the value
+										that will be returned by this mocked method when the stub
+										calls a method that has an identical name, signature and
+										input paramter list.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod returning(Object returnValue)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">returnValue</div>
+									<div class="param-type">
+										Type: <code class="code-inline">Object</code>
+									</div>
+									<div class="param-description">
+										This is the object you want returned.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.returning_1">
+										<span>returning(incomingIds)</span>
+									</h4>
+									<div class="method-description">
+										Use this variant of returning when you want the mocked
+										method to return a list of sObjects (generic) with a
+										specific set of IDs
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod returning(List&lt;Id&gt; incomingIds)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">incomingIds</div>
+									<div class="param-type">
+										Type: <code class="code-inline">List&lt;Id&gt;</code>
+									</div>
+									<div class="param-description">
+										A list of ID&#39;s. Note, they don&#39;t have to be ids of
+										the same sObject type. Order is preserved.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.returning_2">
+										<span>returning(returnValue)</span>
+									</h4>
+									<div class="method-description">
+										This variant allows developers to specify the object that
+										will be returned when this mocked method is executed by its
+										parent stub.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub.Builder returning(Object returnValue)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">returnValue</div>
+									<div class="param-type">
+										Type: <code class="code-inline">Object</code>
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Stub.Builder</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.returning_3">
+										<span>returning()</span>
+									</h4>
+									<div class="method-description">
+										This variant allows developers to specify a void return.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub.Builder returning()
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Stub.Builder</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.returningObjectsWithIds">
+										<span>returningObjectsWithIds(ids)</span>
+									</h4>
+									<div class="method-description">
+										This variant allows developers to specify a list of IDs to
+										be assigned to the returning sObject List
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub.Builder returningObjectsWithIds(List&lt;Id&gt;
+										ids)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">ids</div>
+									<div class="param-type">
+										Type: <code class="code-inline">List&lt;Id&gt;</code>
+									</div>
+									<div class="param-description">
+										The list of Ids to assign.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod.Builder</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.throwingException">
+										<span>throwingException()</span>
+									</h4>
+									<div class="method-description">
+										Use this method when you need the mocked method to throw an
+										exception. Incredibly useful for testing exception handling!
+										Note: This variant results in a generic StubException being
+										thrown.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod throwingException()
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.throwingException_1">
+										<span>throwingException(customException)</span>
+									</h4>
+									<div class="method-description">
+										Use this variant to have this mocked method return a
+										developer-specified exception object. Useful for testing
+										exception handling with specific exception types.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod throwingException(Exception
+										customException)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">customException</div>
+									<div class="param-type">
+										Type: <code class="code-inline">Exception</code>
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.throwingException_2">
+										<span>throwingException()</span>
+									</h4>
+									<div class="method-description">
+										This variant allows developers to throw an internally
+										generated Stub.StubException object when the method is
+										executed.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub.Builder throwingException()
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Stub.Builder</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.throwingException_3">
+										<span>throwingException(customException)</span>
+									</h4>
+									<div class="method-description">
+										Use this variant to have this mocked method return a
+										developer-specified exception object. Useful for testing
+										exception handling with specific exception types. Note: This
+										only works for custom exceptions. Note: Developers construct
+										your exception like this:
+										<code class="code-inline"
+											>&lt;CustomExceptioType&gt; customException =
+										</code>
+										<code class="code-inline"
+											>new &lt;CustomExceptionType&gt;(&#39;message&#39;);</code
+										>
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub.Builder throwingException(Exception
+										customException)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">customException</div>
+									<div class="param-type">
+										Type: <code class="code-inline">Exception</code>
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.withParameterValues">
+										<span>withParameterValues(args)</span>
+									</h4>
+									<div class="method-description">
+										Allows developers to define expected input parameters at
+										execution time. This enables developers to mock the same
+										method call N number of times, with different input
+										parameters.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod withParameterValues(List&lt;Object&gt;
+										args)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">args</div>
+									<div class="param-type">
+										Type: <code class="code-inline">List&lt;Object&gt;</code>
+									</div>
+									<div class="param-description">
+										A list of Objects that you want to this MockedMethod to to
+										respond to. These objects must exactly match what your code
+										invokes in order for your stub to return the specified mock
+										output.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.withParameterValues_1">
+										<span>withParameterValues(parameter)</span>
+									</h4>
+									<div class="method-description">
+										internal method used to set the parameter values of this
+										MockedMethod instance.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder withParameterValues(Object
+										parameter)
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">parameters</div>
+									<div class="param-description">list of System.Type</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">MockedMethod</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.withParameterValues_2">
+										<span>withParameterValues(parameter, parameter2)</span>
+									</h4>
+									<div class="method-description">
+										convenience methodfor setting two params
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder withParameterValues( Object
+										parameter, Object parameter2 )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">parameter</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> Object</code>
+									</div>
+									<div class="param-description">System.Type</div>
+									<div class="param-name">parameter2</div>
+									<div class="param-description">System.Type</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">this</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.withParameterValues_3">
+										<span
+											>withParameterValues(parameter, parameter2,
+											parameter3)</span
+										>
+									</h4>
+									<div class="method-description">
+										convenience methodfor setting three params
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder withParameterValues( Object
+										parameter, Object parameter2, Object parameter3 )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">parameter</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> Object</code>
+									</div>
+									<div class="param-description">System.Type</div>
+									<div class="param-name">parameter2</div>
+									<div class="param-description">System.Type</div>
+									<div class="param-name">parameter3</div>
+									<div class="param-description">System.Type</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										return description
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="MockedMethod.withParameterValues_4">
+										<span
+											>withParameterValues(parameter, parameter2, parameter3,
+											parameter4)</span
+										>
+									</h4>
+									<div class="method-description">
+										convenience methodfor setting four parameters
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder withParameterValues( Object
+										parameter, Object parameter2, Object parameter3, Object
+										parameter4 )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">parameter</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> Object</code>
+									</div>
+									<div class="param-description">parameter description</div>
+									<div class="param-name">parameter2</div>
+									<div class="param-description">parameter2 description</div>
+									<div class="param-name">parameter3</div>
+									<div class="param-description">parameter3 description</div>
+									<div class="param-name">parameter4</div>
+									<div class="param-description">parameter4 description</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">this</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="MockedMethod.Builder">
+							<span>MockedMethod.Builder</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								class provides a &#39;builder&#39; or fluent interface for
+								constructing MockedMethod objects. While the end-developer can
+								create MockedMethod objects directly, the point of this class is
+								to provide an intuitive and easy-to-use/comprehend interface for
+								building nuanced MockedMethod Objects.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">public class Builder</div>
+						</div>
+						<div class="subsection properties MockedMethod_Builder">
+							<h3 class="subsection-title properties">
+								MockedMethod.Builder Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>customException</span></td>
+									<td>
+										<div class="attribute-signature">
+											private Exception customException
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>methodSignatureBuilder</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private MethodSignature.Builder methodSignatureBuilder
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>returnSObjectIds</span></td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;Id&gt; returnSObjectIds
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>returnValue</span></td>
+									<td>
+										<div class="attribute-signature">
+											private Object returnValue
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>runtimeParameters</span></td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;Object&gt; runtimeParameters
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name"><span>throwException</span></td>
+									<td>
+										<div class="attribute-signature">
+											private Boolean throwException
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								MockedMethod.Builder Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#MockedMethod.Builder.Builder">
+											Builder (methodSignatureBuilder, args)
+										</a>
+
+										<div class="methods-toc__description">
+											Constructor requiring a methodSignatureBuilder object and
+											a list of runtime arguments
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="MockedMethod.Builder.Builder">
+										<span>Builder(methodSignatureBuilder, args)</span>
+									</h4>
+									<div class="method-description">
+										Constructor requiring a methodSignatureBuilder object and a
+										list of runtime arguments
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder( MethodSignature.Builder
+										methodSignatureBuilder, List&lt;System.Type&gt; args )
+									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">methodSignatureBuilder</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> MethodSignature.Builder</code>
+									</div>
+									<div class="param-name">args</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
