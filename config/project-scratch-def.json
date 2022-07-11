@@ -1,13 +1,13 @@
 {
-  "orgName": "kpoorman company",
-  "edition": "Developer",
-  "features": ["EnableSetPasswordInApi", "PlatformCache"],
-  "settings": {
-    "lightningExperienceSettings": {
-      "enableS1DesktopEnabled": true
-    },
-    "mobileSettings": {
-      "enableS1EncryptedStoragePref2": false
-    }
-  }
+	"orgName": "ASL company",
+	"edition": "Developer",
+	"features": ["EnableSetPasswordInApi", "PlatformCache"],
+	"settings": {
+		"lightningExperienceSettings": {
+			"enableS1DesktopEnabled": true
+		},
+		"mobileSettings": {
+			"enableS1EncryptedStoragePref2": false
+		}
+	}
 }

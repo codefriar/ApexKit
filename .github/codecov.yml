@@ -1,0 +1,15 @@
+coverage:
+  precision: 2
+  round: down
+  range: '75...100'
+  status:
+    patch:
+      default:
+        # basic
+        target: auto
+        threshold: 10%
+        if_ci_failed: error #success, failure, error, ignore
+    project:
+      default:
+        target: auto
+        threshold: 10%

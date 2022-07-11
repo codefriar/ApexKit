@@ -4,6 +4,8 @@
     "redhat.vscode-xml",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "financialforce.lana"
+    "financialforce.lana",
+    "chuckjonas.apex-pmd",
+    "PeterWeinberg.apexdox-vs-code"
   ]
 }

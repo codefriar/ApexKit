@@ -38,3 +38,4 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+.pmdCache

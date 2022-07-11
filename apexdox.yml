@@ -1,0 +1,35 @@
+engine:
+  source:
+    - path: '${workspaceFolder}/force-app/main/default/classes'
+      sourceUrl: https://github.com/codefriar/ASL/tree/main/force-app/main/default/classes
+  targetDirectory: '${workspaceFolder}/docs'
+  #excludes:
+  #  - "*Test.cls"
+  title: ASL code documentation
+  subtitle: Documentation for <a target="_blank" rel="noopener noreferrer" href="https://github.com/codefriar/ASL">ASL</a>
+  sortOrder: alpha
+  cleanDir: true
+  showTOCSnippets: true
+  scope:
+    - global
+    - public
+    - protected
+    - private
+    #- webService
+    - testMethod
+  #homePagePath: '${workspaceFolder}/doc-assets/readme.html'
+  #pages:
+  #- '${workspaceFolder}/doc-assets/Installation.html'
+  assets:
+    #    - '${workspaceFolder}/doc-assets/logo.png'
+    #    - '${workspaceFolder}/doc-assets/favicon.png'
+    #    - '${workspaceFolder}/doc-assets/icon.png'
+    - '${workspaceFolder}/doc-assets/index.css'
+    - '${workspaceFolder}/doc-assets/highlight.css'
+    - '${workspaceFolder}/doc-assets/highlight.js'
+    - '${workspaceFolder}/doc-assets/index.js'
+  port: 8088
+docblock:
+  alignItems: true
+  spacious: true
+  omitDescriptionTag: true
