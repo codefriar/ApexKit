@@ -24,7 +24,7 @@ class OuroborosTests {
 	static void testOuroborosFunctionalNegative() {
 		ExampleOuroborosImplementation example = new ExampleOuroborosImplementation();
 		example.passthrough = 0;
-		Boolean didCatchProperException = false;
+		//Boolean didCatchProperException = false;
 		Test.startTest();
 		system.enqueueJob(example);
 		Test.stopTest();

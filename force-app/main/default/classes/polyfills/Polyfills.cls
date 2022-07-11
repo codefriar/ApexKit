@@ -8,7 +8,7 @@ public with sharing class Polyfills {
 	public static String classNameFromInstance(Object obj) {
 		String result = '';
 		try {
-			GuaranteedNotToExist shouldThrow = (GuaranteedNotToExist) obj;
+			GuaranteedNotToExist shouldThrow = (GuaranteedNotToExist) obj; //NOPMD
 		} catch (System.TypeException expectedException) {
 			// invalid conversion from runtime type ouroborostests.exampleouroborosimplementation to polyfills.guaranteednottoexist
 			result = expectedException

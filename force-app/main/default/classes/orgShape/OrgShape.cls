@@ -264,7 +264,7 @@ public with sharing class OrgShape {
 			String msg = qe.getMessage();
 			System.debug(
 				LoggingLevel.WARN,
-				'Caught QueryException looking for cache partition'
+				'Caught QueryException looking for cache partition ' + msg
 			);
 		}
 		return this.safeDefaultCachePartition;
@@ -292,6 +292,7 @@ public with sharing class OrgShape {
 					isACMEnabled = true;
 				}
 			} catch (Exception e) {
+				//NOPMD
 				// Nothing to do, ACM = false
 			}
 		}

@@ -2,7 +2,7 @@
  * @group Trigger Framework
  */
 public with sharing class InvokeMetadataDrivenTriggerFramework {
-	public class inputs {
+	public class Inputs {
 		@InvocableVariable(
 			label='Invocation Context'
 			description='Set this to the invocation context of the current flow. ie: after update'
