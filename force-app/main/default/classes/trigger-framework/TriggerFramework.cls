@@ -1,3 +1,6 @@
+@SuppressWarnings(
+	'PMD.ExcessivePublicCount, PMD.CyclomaticComplexity, PMD.FieldDeclarationsShouldBeAtStart, PMD.EmptyStatementBlock'
+)
 /**
  * @description An opinionated trigger handler framework.
  * @group Trigger Framework
@@ -208,49 +211,42 @@ public virtual class TriggerFramework {
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void beforeInsert() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void beforeUpdate() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void beforeDelete() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterInsert() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterUpdate() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterDelete() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
 	@testVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterUndelete() {
 	}
 

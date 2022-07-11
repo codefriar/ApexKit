@@ -45,8 +45,7 @@ public with sharing class OrgShape {
 		get {
 			return UserInfo.isMultiCurrencyOrganization();
 		}
-		private set {
-		}
+		private set;
 	}
 
 	/**
