@@ -51,9 +51,9 @@ public with sharing class Log {
 	/**
 	 * @description Add a message to the buffer without publishing it.
 	 * @param messageToLog The string message to add to the buffer.
-	 * @param severity     LogSeverity enum
+	 * @param severity     LogMessage.LogSeverity enum
 	 */
-	public void add(String messageToLog, LogSeverity severity) {
+	public void add(String messageToLog, LogMessage.LogSeverity severity) {
 		LogMessage msg = new LogMessage(messageToLog);
 		if (severity != null) {
 			msg.severity = severity;
@@ -74,9 +74,9 @@ public with sharing class Log {
 	 * @description Add an formatted exception message to the buffer without
 	 * publishing it.
 	 * @param exceptionToLog Exception to format and log
-	 * @param severity       LogSeverity enum
+	 * @param severity       LogMessage.LogSeverity enum
 	 */
-	public void add(Exception exceptionToLog, LogSeverity severity) {
+	public void add(Exception exceptionToLog, LogMessage.LogSeverity severity) {
 		LogMessage msg = new LogMessage(exceptionToLog);
 		if (severity != null) {
 			msg.severity = severity;

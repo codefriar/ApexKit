@@ -83,4 +83,14 @@ public with sharing class LogMessage {
 		);
 		this.severity = LogSeverity.ERROR;
 	}
+
+	/**
+	 * @description A severity enum for Log, and LogMessage to use.
+	 */
+	public enum LogSeverity {
+		DEBUG,
+		INFO,
+		WARN,
+		ERROR
+	}
 }

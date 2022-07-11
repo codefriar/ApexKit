@@ -1,3 +1,6 @@
+/**
+ * @group Trigger Framework
+ */
 public with sharing class MetadataTriggerQueryService {
 	private String objType = '';
 

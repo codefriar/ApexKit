@@ -1,3 +1,6 @@
+/**
+ * @group Tests
+ */
 @isTest
 @testVisible
 private class TriggerFrameworkTests {

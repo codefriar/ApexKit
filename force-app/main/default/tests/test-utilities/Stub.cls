@@ -1,7 +1,7 @@
 @isTest
 /**
  * @description This class helps you construct and manage StubProvider 
- * conforming objects for use in Unit Tests. It, along with it's companion
+ * conforming objects for use in Unit Tests. It, along with its companion
  * classes: 
  * <br>  * MockedMethod 
  * <br>  * MethodSignature

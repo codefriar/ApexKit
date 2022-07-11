@@ -4,6 +4,7 @@
  * of Name, Parameter types and Parameter values. This is separate from a
  * MockedMethod, because it can be constructed at runtime for comparison against
  * established MockedMethods.
+ * @group Test Utilities
  */
 public with sharing class MethodSignature {
 	@testVisible

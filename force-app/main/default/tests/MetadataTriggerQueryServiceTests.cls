@@ -1,3 +1,6 @@
+/**
+ * @group Tests
+ */
 @isTest
 private class MetadataTriggerQueryServiceTests {
 	@isTest

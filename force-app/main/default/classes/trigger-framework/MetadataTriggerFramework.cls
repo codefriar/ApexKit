@@ -1,3 +1,6 @@
+/**
+ * @group Trigger Framework
+ */
 public with sharing class MetadataTriggerFramework extends TriggerFramework {
 	@testVisible
 	private MetadataTriggerQueryService mts;
