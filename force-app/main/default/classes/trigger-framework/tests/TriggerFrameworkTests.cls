@@ -1,5 +1,5 @@
 /**
- * @group Tests
+ * @group Trigger Framework
  */
 @isTest
 @testVisible
@@ -131,7 +131,7 @@ private class TriggerFrameworkTests {
 		afterUpdateMode();
 
 		// test a bypass and run handler
-		TriggerFramework.bypass('TriggerFrameworkTests.TestHandler');
+		TriggerFramework.bypass('TestHandler');
 		handler.run();
 		System.assertEquals(
 			null,
@@ -140,13 +140,13 @@ private class TriggerFrameworkTests {
 		);
 		System.assertEquals(
 			true,
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
+			TriggerFramework.isBypassed('TestHandler'),
 			'Test handler should be bypassed'
 		);
 		resetTest();
 
 		// clear that bypass and run handler
-		TriggerFramework.clearBypass('TriggerFrameworkTests.TestHandler');
+		TriggerFramework.clearBypass('TestHandler');
 		handler.run();
 		System.assertEquals(
 			'afterUpdate',
@@ -155,13 +155,13 @@ private class TriggerFrameworkTests {
 		);
 		System.assertEquals(
 			false,
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
+			TriggerFramework.isBypassed('TestHandler'),
 			'Test handler should be bypassed'
 		);
 		resetTest();
 
 		// test a re-bypass and run handler
-		TriggerFramework.bypass('TriggerFrameworkTests.TestHandler');
+		TriggerFramework.bypass('TestHandler');
 		handler.run();
 		System.assertEquals(
 			null,
@@ -170,7 +170,7 @@ private class TriggerFrameworkTests {
 		);
 		System.assertEquals(
 			true,
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
+			TriggerFramework.isBypassed('TestHandler'),
 			'Test handler should be bypassed'
 		);
 		resetTest();
@@ -185,7 +185,7 @@ private class TriggerFrameworkTests {
 		);
 		System.assertEquals(
 			false,
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
+			TriggerFramework.isBypassed('TestHandler'),
 			'Test handler should be bypassed'
 		);
 		resetTest();

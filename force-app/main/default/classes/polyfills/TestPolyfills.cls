@@ -1,5 +1,5 @@
 /**
- * @group Test Utilities
+ * @group Polyfills
  */
 @isTest
 public with sharing class TestPolyfills {

@@ -1,3 +1,6 @@
+/**
+ * @group Trigger Framework
+ */
 @isTest
 private class MetadataTriggerFrameworkTests {
 	@isTest

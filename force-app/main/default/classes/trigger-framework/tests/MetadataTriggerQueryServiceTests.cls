@@ -1,5 +1,5 @@
 /**
- * @group Tests
+ * @group Trigger Framework
  */
 @isTest
 private class MetadataTriggerQueryServiceTests {

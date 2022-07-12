@@ -6,7 +6,7 @@
  * still need an actual class that it can instantiate.
  * <br>Note, this class is annotated with `isTest` to prevent its use outside of
  * tests, not because it contains tests.
- * @group Tests
+ * @group Trigger Framework
  */
 @SuppressWarnings('PMD.EmptyStatementBlock')
 @isTest

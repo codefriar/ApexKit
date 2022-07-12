@@ -1,5 +1,5 @@
 /**
- * @group Tests
+ * @group Ouroboros
  */
 @isTest
 class OuroborosTests {

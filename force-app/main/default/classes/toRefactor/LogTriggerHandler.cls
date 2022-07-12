@@ -1,5 +1,5 @@
 /**
- * @group ToRefactor
+ * @group Log
  */
 public with sharing class LogTriggerHandler {
 	private List<Log__e> logs = new List<Log__e>();
