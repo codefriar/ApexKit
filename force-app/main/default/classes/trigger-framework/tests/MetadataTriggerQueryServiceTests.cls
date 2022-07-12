@@ -25,7 +25,7 @@ private class MetadataTriggerQueryServiceTests {
 		Test.startTest();
 		try {
 			MetadataTriggerQueryService.getSObjectType(null, null);
-		} catch (MetadataTriggerFrameworkException triggerEx) {
+		} catch (MetadataTriggerFramework.MetadataTriggerFrameworkException triggerEx) {
 			if (
 				triggerEx.getMessage()
 					.containsIgnoreCase(

@@ -91,4 +91,7 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
 			}
 		}
 	}
+
+	public class MetadataTriggerFrameworkException extends Exception {
+	}
 }

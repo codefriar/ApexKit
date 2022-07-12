@@ -22,7 +22,7 @@ public with sharing class TriggerContext {
 	@testVisible
 	public Boolean isInvalidExecutionContext() {
 		if (!this.isTriggerBeingTested || this.context == null) {
-			throw new TriggerFrameworkException(
+			throw new TriggerFramework.TriggerFrameworkException(
 				'Trigger handler called outside of Trigger execution'
 			);
 		}
@@ -110,7 +110,7 @@ public with sharing class TriggerContext {
 				this.context = ValidTriggerContexts.AFTER_UNDELETE;
 			}
 			when else {
-				throw new TriggerFrameworkException(
+				throw new TriggerFramework.TriggerFrameworkException(
 					'Unexpected trigger context manually set'
 				);
 			}

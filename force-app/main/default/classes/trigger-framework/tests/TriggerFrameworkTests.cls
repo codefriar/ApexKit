@@ -107,7 +107,7 @@ private class TriggerFrameworkTests {
 		try {
 			handler.run();
 			System.assert(false, 'The handler ran but should have thrown');
-		} catch (TriggerFrameworkException te) {
+		} catch (TriggerFramework.TriggerFrameworkException te) {
 			System.assertEquals(
 				TRIGGER_CONTEXT_ERROR,
 				te.getMessage(),
@@ -214,7 +214,7 @@ private class TriggerFrameworkTests {
 				false,
 				'The handler should throw on the 3rd run when maxloopcount is 3'
 			);
-		} catch (TriggerFrameworkException te) {
+		} catch (TriggerFramework.TriggerFrameworkException te) {
 			// we're expecting to get here
 			System.assertEquals(null, lastMethodCalled, 'Last method should be null');
 		} catch (Exception e) {
@@ -241,7 +241,7 @@ private class TriggerFrameworkTests {
 				lastMethodCalled,
 				'Last method should be beforeInsert'
 			);
-		} catch (TriggerFrameworkException te) {
+		} catch (TriggerFramework.TriggerFrameworkException te) {
 			System.assert(
 				false,
 				'Running the handler after clearing the loop count should not throw'

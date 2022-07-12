@@ -53,7 +53,7 @@ public with sharing class MetadataTriggerQueryService {
 		} else if (triggerOld != null) {
 			return Polyfills.getSObjectTypeFromList(triggerOld);
 		} else {
-			throw new MetadataTriggerFrameworkException(
+			throw new MetadataTriggerFramework.MetadataTriggerFrameworkException(
 				'Passed values for triggerNew and triggerOld are both null. Are you exercising this method outside of a trigger context?'
 			);
 		}

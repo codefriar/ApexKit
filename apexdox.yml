@@ -1,18 +1,18 @@
 engine:
   source:
     - path: '${workspaceFolder}/force-app/main/default/classes'
-    - path: '${workspaceFolder}/force-app/main/default/classes/exceptions'
-    - path: '${workspaceFolder}/force-app/main/default/classes/log'
+    - path: '${workspaceFolder}/force-app/main/default/classes/logger'
     - path: '${workspaceFolder}/force-app/main/default/classes/orgShape'
     - path: '${workspaceFolder}/force-app/main/default/classes/ouroboros'
+    - path: '${workspaceFolder}/force-app/main/default/classes/ouroboros/tests'
     - path: '${workspaceFolder}/force-app/main/default/classes/polyfills'
     - path: '${workspaceFolder}/force-app/main/default/classes/promises'
     - path: '${workspaceFolder}/force-app/main/default/classes/quiddity'
     - path: '${workspaceFolder}/force-app/main/default/classes/safely'
     - path: '${workspaceFolder}/force-app/main/default/classes/toRefactor'
     - path: '${workspaceFolder}/force-app/main/default/classes/trigger-framework'
-    - path: '${workspaceFolder}/force-app/main/default/tests'
-    - path: '${workspaceFolder}/force-app/main/default/tests/test-utilities'
+    - path: '${workspaceFolder}/force-app/main/default/classes/trigger-framework/tests'
+    - path: '${workspaceFolder}/force-app/main/default/classes/test-utilities'
   targetDirectory: '${workspaceFolder}/docs'
   #excludes:
   #  - "*Test.cls"

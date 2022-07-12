@@ -177,7 +177,7 @@ public virtual class TriggerFramework {
 				.increment();
 			if (exceeded) {
 				Integer max = TriggerFramework.loopCountMap.get(handlerName).max;
-				throw new TriggerFrameworkException(
+				throw new TriggerFramework.TriggerFrameworkException(
 					'Maximum loop count of ' +
 					String.valueOf(max) +
 					' reached in ' +
@@ -322,5 +322,8 @@ public virtual class TriggerFramework {
 		public void setMax(Integer max) {
 			this.max = max;
 		}
+	}
+
+	public class TriggerFrameworkException extends Exception {
 	}
 }
