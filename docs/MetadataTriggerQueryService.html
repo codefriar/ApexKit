@@ -76,24 +76,6 @@
 						<ul>
 							<!-- menu items -->
 							<li
-								title="MetadataTriggerFrameworkException"
-								id="item-MetadataTriggerFrameworkException"
-								class="nav-item class public"
-								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>MetadataTriggerFrameworkException</a
-								>
-							</li>
-							<li
-								title="TriggerFrameworkException"
-								id="item-TriggerFrameworkException"
-								class="nav-item class public"
-								onclick="goToLocation('TriggerFrameworkException.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>TriggerFrameworkException</a
-								>
-							</li>
-							<li
 								title="MetadataTriggerFrameworkTests"
 								id="item-MetadataTriggerFrameworkTests"
 								class="nav-item class private"
@@ -272,15 +254,6 @@
 						<ul>
 							<!-- menu items -->
 							<li
-								title="MetadataTriggerQueryServiceTests"
-								id="item-MetadataTriggerQueryServiceTests"
-								class="nav-item class private"
-								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>MetadataTriggerQueryServiceTests</a
-								>
-							</li>
-							<li
 								title="OuroborosTests"
 								id="item-OuroborosTests"
 								class="nav-item class private"
@@ -293,6 +266,15 @@
 								class="nav-item class public"
 								onclick="goToLocation('SampleHandler.html');">
 								<a tabindex="1" href="javascript:void(0)">SampleHandler</a>
+							</li>
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
 							</li>
 							<li
 								title="TriggerFrameworkTests"
@@ -366,15 +348,6 @@
 								class="nav-item class public"
 								onclick="goToLocation('TriggerFramework.html');">
 								<a tabindex="1" href="javascript:void(0)">TriggerFramework</a>
-							</li>
-							<li
-								title="TriggerFrameworkLoopCount"
-								id="item-TriggerFrameworkLoopCount"
-								class="nav-item class public"
-								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>TriggerFrameworkLoopCount</a
-								>
 							</li>
 						</ul>
 					</details>
@@ -497,9 +470,9 @@
 										<div class="methods-toc__description">
 											This query finds an ordered list trigger handler classes
 											to execute. It ignores any classes that are marked as
-											disabled. Note: It will exclude any triggerHandler
+											disabled. <br />Note: It will exclude any triggerHandler
 											metadata records for which the user&#39;s email address is
-											found in a related disabled_for__mdt record. Admin&#39;s
+											found in a related disabled_for__mdt record. <br />Admins
 											and Developers can selectively disable trigger handlers
 											for all or selected individuals *without* deploying.
 										</div>
@@ -526,11 +499,11 @@
 									<div class="method-description">
 										This query finds an ordered list trigger handler classes to
 										execute. It ignores any classes that are marked as disabled.
-										Note: It will exclude any triggerHandler metadata records
-										for which the user&#39;s email address is found in a related
-										disabled_for__mdt record. Admin&#39;s and Developers can
-										selectively disable trigger handlers for all or selected
-										individuals *without* deploying.
+										<br />Note: It will exclude any triggerHandler metadata
+										records for which the user&#39;s email address is found in a
+										related disabled_for__mdt record. <br />Admins and
+										Developers can selectively disable trigger handlers for all
+										or selected individuals *without* deploying.
 									</div>
 									<div class="method-subtitle">Signature</div>
 									<div class="method-annotations">
@@ -563,9 +536,17 @@
 										public static String getSObjectType( List&lt;sObject&gt;
 										triggerNew, List&lt;sObject&gt; triggerOld )
 									</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">triggerNew</div>
+									<div class="param-type">
+										Type: <code class="code-inline"> List&lt;sObject&gt;</code>
+									</div>
+									<div class="param-description">Trigger.new description</div>
+									<div class="param-name">triggerOld</div>
+									<div class="param-description">Trigger.old description</div>
 									<div class="method-subtitle">Returns</div>
 									<div class="method-subtitle-description">
-										<code class="code-inline">String</code>
+										<code class="code-inline">String</code> SObjectType (name?)
 									</div>
 								</div>
 							</div>
