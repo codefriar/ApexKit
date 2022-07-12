@@ -250,6 +250,9 @@ public virtual class TriggerFramework {
 	protected virtual void afterUndelete() {
 	}
 
+	/**
+	 * @description Inner class for managing the loop count per handler
+	 */
 	public class TriggerFrameworkLoopCount {
 		public Integer max;
 		public Integer count;
