@@ -11,5 +11,6 @@
   ],
   "apexPMD.runOnFileChange": true,
   "apexPMD.runOnFileOpen": true,
-  "apexPMD.enableCache": true
+  "apexPMD.enableCache": true,
+  "salesforcedx-vscode-core.push-or-deploy-on-save.enabled": true
 }
