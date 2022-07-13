@@ -263,11 +263,12 @@ public class TestFactory {
      * @return           `User`
      */
     public static User createTestUser(Boolean doInsert, String profileName) {
-        Profile selectedProfile = [
-            SELECT Id
-            FROM Profile
-            WHERE Name = :profileName
-        ];
+        Profile selectedProfile = (Profile) new SOQL.Builder('Profile')
+            .selectField('Id')
+            .whereCondition(new Query.Condition().equals('Name', profileName))
+            .setScopeLimit(1)
+            .build()
+            .getRecord();
         return createTestUser(selectedProfile.Id, doInsert);
     }
 
@@ -278,12 +279,22 @@ public class TestFactory {
      * @return        `User`
      */
     public static User createMinAccessUser(Boolean doInsert) {
-        Id profileId = [
-            SELECT Id
-            FROM Profile
-            WHERE Name = 'Minimum Access - Salesforce'
-        ]
-        .Id;
+        Id profileId = (Id) new SOQl.Builder('Profile')
+            .selectField('Id')
+            .whereCondition(
+                new Query.Condition()
+                    .equals('Name', 'Minimum Access - Salesforce')
+            )
+            .setScopeLimit(1)
+            .build()
+            .getRecord()
+            .Id;
+        // Id profileId = [
+        //     SELECT Id
+        //     FROM Profile
+        //     WHERE Name = 'Minimum Access - Salesforce'
+        // ]
+        // .Id;
         return TestFactory.createTestUser(profileId, doInsert);
     }
 
@@ -292,16 +303,17 @@ public class TestFactory {
      * @param usr         User to assign the permission set to.
      * @param permSetName String name of the permission set.
      */
-    public static void assignPermSetToUser(User usr, String permSetName) {
-        id permSetId = [
-            SELECT Id
-            FROM PermissionSet
-            WHERE name LIKE :permSetName
-            LIMIT 1
-        ]
-        .Id;
+    public static void assignPermSetToUser(User user, String permSetName) {
+        Id permSetId = (Id) new SOQL.Builder('PermissionSet')
+            .selectField('Id')
+            .setScopeLimit(1)
+            .whereCondition(new Query.Condition().equals('name', permSetName))
+            .build()
+            .getRecord()
+            .Id;
+
         PermissionSetAssignment psa = new PermissionSetAssignment(
-            AssigneeId = usr.Id,
+            AssigneeId = user.Id,
             PermissionSetId = permSetId
         );
         insert psa;
@@ -321,13 +333,15 @@ public class TestFactory {
     }
 
     public static User createMarketingUser(Boolean doInsert) {
-        Id profileId = [
-            SELECT Id
-            FROM Profile
-            WHERE Name = 'Marketing User'
-            LIMIT 1
-        ]
-        .Id;
+        Id profileId = (Id) new SOQL.Builder('Profile')
+            .selectField('Id')
+            .setScopeLimit(1)
+            .whereCondition(
+                new Query.Condition().equals('Name', 'Marketing User')
+            )
+            .build()
+            .getRecord()
+            .Id;
         return createTestUser(profileId, doInsert);
     }
 }

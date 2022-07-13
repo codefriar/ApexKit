@@ -19,19 +19,44 @@ public with sharing class MetadataTriggerQueryService {
      */
     @suppressWarnings('PMD.ApexCRUDViolation')
     public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers() {
-        return [
-            SELECT Class__c
-            FROM Metadata_Driven_Trigger__mdt
-            WHERE
-                Object__r.QualifiedApiName = :this.objType
-                AND Enabled__c = TRUE
-                AND Id NOT IN (
-                    SELECT Metadata_Driven_Trigger__c
-                    FROM Disabled_for__mdt
-                    WHERE User_Email__c = :UserInfo.getUsername()
-                )
-            ORDER BY Execution_Order__c
-        ];
+        return (List<Metadata_Driven_Trigger__mdt>) new SOQL.Builder(
+                'Metadata_Driven_Trigger__mdt'
+            )
+            .selectField('Class__c')
+            .whereCondition(
+                new query.Condition()
+                    .equals('Object__r.QualifiedApiName', this.objType)
+                    .equals('enabled__c', true)
+                    .isNotIn(
+                        'Id',
+                        new SOQL.Builder('Disabled_for__mdt')
+                            .selectField('Metadata_Driven_Trigger__c')
+                            .whereCondition(
+                                new query.Condition()
+                                    .equals(
+                                        'User_Email__c',
+                                        UserInfo.getUsername()
+                                    )
+                            )
+                            .build()
+                    )
+            )
+            .build()
+            .getRecords();
+
+        // return [
+        //     SELECT Class__c
+        //     FROM Metadata_Driven_Trigger__mdt
+        //     WHERE
+        //         Object__r.QualifiedApiName = :this.objType
+        //         AND Enabled__c = TRUE
+        //         AND Id NOT IN (
+        //             SELECT Metadata_Driven_Trigger__c
+        //             FROM Disabled_for__mdt
+        //             WHERE User_Email__c = :UserInfo.getUsername()
+        //         )
+        //     ORDER BY Execution_Order__c
+        // ];
     }
 
     /**

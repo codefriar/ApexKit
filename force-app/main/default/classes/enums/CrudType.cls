@@ -1,7 +1,7 @@
 public enum CrudType {
-    CREATE,
-    READ,
-    EDIT,
-    DEL,
-    UPS
+    CREATEABLE,
+    READABLE,
+    EDITABLE,
+    DELETABLE,
+    UPSERTABLE
 }

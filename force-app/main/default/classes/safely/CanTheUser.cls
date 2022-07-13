@@ -6,6 +6,7 @@
  * Whenever you need to check FLS or CRUD access your code reads like this
  * `if(CanTheUser.read(new account())){}` making the calling and use of this
  * code easy and intuitive.
+ * @group Security Recipes
  */
 public with sharing class CanTheUser {
     @testVisible
@@ -13,56 +14,26 @@ public with sharing class CanTheUser {
     @testVisible
     private static Map<String, Set<String>> updatableFieldsByObject = new Map<String, Set<String>>();
 
-    /**
-     * @description Internal custom exception class
-     */
-    public class CanTheUserException extends Exception {
+    public enum CrudType {
+        CREATEABLE,
+        READABLE,
+        EDITABLE,
+        DELETABLE,
+        UPSERTABLE
+    }
+
+    public enum FLSType {
+        ACCESSIBLE,
+        UPDATABLE
     }
 
     /**
-     * @description this cachebuilder interface allows the CanTheUser class to
-     * cache per-object results for each object requested. This prevents the
-     * need to repeatedly calculate permission usage by calling
-     * Schema.Describe* calls
+     * @description This variable stores, within the same transaction, all previously calculated
+     * FLS results for an object. This prevents multiple calls to this library within the same
+     * transaction from executing more than a single describe call.
+     * @return   return description
      */
-    private class PermissionCache implements Cache.CacheBuilder {
-        /**
-         * @description   Required method for the CacheBuilder interface. Used
-         * here to either calculate an objects per-user FLS, OR to return it
-         * from Cache.
-         * The return datastructure for this is
-         * Map<String, Map<FLSType,Boolean>> and represents:
-         * FieldName -> FLStype -> True/False
-         * @param objType String object name used as the cache key
-         * @return       `Object`
-         */
-        public Object doLoad(String objType) {
-            return calculateFLS(objType);
-        }
-
-        /**
-         * @description   Calculates the FLS for a given object type
-         * @param objType String name of the object type
-         * @return        `Map<String, Map<FLSType, Boolean>>`
-         */
-        public Map<String, Map<FLSType, Boolean>> calculateFLS(string objType) {
-            Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
-                new List<String>{ objType }
-            );
-
-            Map<String, Map<FLSType, Boolean>> results = new Map<String, Map<FLSType, Boolean>>();
-            for (SObjectField field : descResult[0].fields.getMap().values()) {
-                DescribeFieldResult fieldDetails = field.getDescribe();
-                String fieldKey = String.valueOf(field).toLowerCase();
-                results.put(fieldKey, new Map<FLSType, Boolean>());
-                results.get(fieldKey)
-                    .put(FLSType.ACCESSIBLE, fieldDetails.isAccessible());
-                results.get(fieldKey)
-                    .put(FLSType.UPDATABLE, fieldDetails.isUpdateable());
-            }
-            return results;
-        }
-    }
+    private static Map<String, Map<FLSType, Boolean>> memoizedFLSResults = new Map<String, Map<FLSType, Boolean>>();
 
     /**
      * This class' name was chosen to facilitate easy-to-understand and read
@@ -78,24 +49,32 @@ public with sharing class CanTheUser {
      * @param permission create, read, update or delete
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.crud(new Account(), CanTheUser.CrudType.READ));
+     * System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READABLE));
      **/
-    public static Boolean crud(SObject obj, CrudType permission) {
+    @testVisible
+    private static Boolean crud(SObject obj, CrudType permission) {
         switch on permission {
-            when CREATE {
+            when CREATEABLE {
                 return obj.getSObjectType().getDescribe().isCreateable();
             }
-            when READ {
+            when READABLE {
                 return obj.getSObjectType().getDescribe().isAccessible();
             }
-            when EDIT {
+            when EDITABLE {
                 return obj.getSObjectType().getDescribe().isUpdateable();
             }
-            when DEL {
+            when DELETABLE {
                 return obj.getSObjectType().getDescribe().isDeletable();
             }
+            when UPSERTABLE {
+                return obj.getSObjectType().getDescribe().isCreateable() &&
+                    obj.getSObjectType().getDescribe().isUpdateable();
+            }
+            when else {
+                // impossible, but required to return something
+                return false;
+            }
         }
-        return false;
     }
 
     @testVisible
@@ -116,10 +95,10 @@ public with sharing class CanTheUser {
      * @param obj Object type to check create permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.create(new Account()));
+     * System.debug(CanTheUser.create(new Account()));
      **/
     public static Boolean create(SObject obj) {
-        return CanTheUser.crud(obj, CrudType.CREATE);
+        return crud(obj, CrudType.CREATEABLE);
     }
 
     /**
@@ -130,7 +109,7 @@ public with sharing class CanTheUser {
      * @return Boolean
      */
     public static Boolean create(List<SObject> objs) {
-        return crud(objs?.get(0), CrudType.CREATE);
+        return crud(objs?.get(0), CrudType.CREATEABLE);
     }
 
     /**
@@ -139,10 +118,10 @@ public with sharing class CanTheUser {
      * @param String Object type to check create permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.create('Account'));
+     * System.debug(CanTheUser.create('Account'));
      **/
     public static Boolean create(String objName) {
-        return crud(objName, CrudType.CREATE);
+        return crud(objName, CrudType.CREATEABLE);
     }
 
     /**
@@ -151,10 +130,10 @@ public with sharing class CanTheUser {
      * @param obj object type to check read permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.read(new Account()));
+     * System.debug(CanTheUser.read(new Account()));
      **/
     public static Boolean read(SObject obj) {
-        return CanTheUser.crud(obj, CrudType.READ);
+        return crud(obj, CrudType.READABLE);
     }
 
     /**
@@ -165,7 +144,7 @@ public with sharing class CanTheUser {
      * @example
      **/
     public static Boolean read(List<SObject> objs) {
-        return crud(objs?.get(0), CrudType.READ);
+        return crud(objs?.get(0), CrudType.READABLE);
     }
 
     /**
@@ -174,10 +153,10 @@ public with sharing class CanTheUser {
      * @param String Object type to check read permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.read('Account'));
+     * System.debug(CanTheUser.read('Account'));
      **/
     public static Boolean read(String objName) {
-        return crud(objName, CrudType.READ);
+        return crud(objName, CrudType.READABLE);
     }
 
     /**
@@ -186,10 +165,10 @@ public with sharing class CanTheUser {
      * @param obj object type to check edit permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.edit(new Account()));
+     * System.debug(CanTheUser.edit(new Account()));
      **/
     public static Boolean edit(SObject obj) {
-        return CanTheUser.crud(obj, CrudType.EDIT);
+        return crud(obj, CrudType.EDITABLE);
     }
 
     /**
@@ -200,7 +179,7 @@ public with sharing class CanTheUser {
      * @example
      **/
     public static Boolean edit(List<SObject> objs) {
-        return crud(objs?.get(0), CrudType.EDIT);
+        return crud(objs?.get(0), CrudType.EDITABLE);
     }
 
     /**
@@ -209,10 +188,10 @@ public with sharing class CanTheUser {
      * @param String Object type to check edit permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.edit('Account'));
+     * System.debug(CanTheUser.edit('Account'));
      **/
     public static Boolean edit(String objName) {
-        return crud(objName, CrudType.EDIT);
+        return crud(objName, CrudType.EDITABLE);
     }
 
     /**
@@ -221,10 +200,10 @@ public with sharing class CanTheUser {
      * @param obj object type to check edit permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.ups(new Account()));
+     * System.debug(CanTheUser.ups(new Account()));
      **/
     public static Boolean ups(SObject obj) {
-        return crud(obj, CrudType.UPS);
+        return crud(obj, CrudType.UPSERTABLE);
     }
 
     /**
@@ -235,7 +214,7 @@ public with sharing class CanTheUser {
      * @example
      **/
     public static Boolean ups(List<SObject> objs) {
-        return crud(objs?.get(0), CrudType.UPS);
+        return crud(objs?.get(0), CrudType.UPSERTABLE);
     }
 
     /**
@@ -244,10 +223,10 @@ public with sharing class CanTheUser {
      * @param String Object type to check upsert permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.ups('Account'));
+     * System.debug(CanTheUser.ups('Account'));
      **/
     public static Boolean ups(String objName) {
-        return crud(objName, CrudType.UPS);
+        return crud(objName, CrudType.UPSERTABLE);
     }
 
     /**
@@ -256,10 +235,10 @@ public with sharing class CanTheUser {
      * @param obj object type to check destroy permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.destroy(new Account()));
+     * System.debug(CanTheUser.destroy(new Account()));
      **/
     public static Boolean destroy(SObject obj) {
-        return CanTheUser.crud(obj, CrudType.DEL);
+        return crud(obj, CrudType.DELETABLE);
     }
 
     /**
@@ -269,7 +248,7 @@ public with sharing class CanTheUser {
      * @return Boolean
      **/
     public static Boolean destroy(List<SObject> objs) {
-        return crud(objs?.get(0), CrudType.DEL);
+        return crud(objs?.get(0), CrudType.DELETABLE);
     }
 
     /**
@@ -278,20 +257,20 @@ public with sharing class CanTheUser {
      * @param String Object type to check create permissions on
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.destroy('Account'));
+     * System.debug(CanTheUser.destroy('Account'));
      **/
     public static Boolean destroy(String objName) {
-        return crud(objName, CrudType.DEL);
+        return crud(objName, CrudType.DELETABLE);
     }
 
     /**
-     * @description public method to determine if a given field on a given
+     * @description public static method to determine if a given field on a given
      * object is Accessible (readable)
      * @param obj the object in question, in string form
      * @param field the field in question in SObjectField form
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.flsAccessible('Account', 'Name'));
+     * System.debug(CanTheUser.flsAccessible('Account', 'Name'));
      **/
     public static Boolean flsAccessible(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.ACCESSIBLE);
@@ -304,7 +283,7 @@ public with sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * Log.get().publish(CanTheUser.bulkFLSAccessible('Account', fields));
+     * System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSAccessible(
         String obj,
@@ -318,13 +297,13 @@ public with sharing class CanTheUser {
     }
 
     /**
-     * @description public method to determine if a given field on a given
+     * @description public static method to determine if a given field on a given
      * object is Updatable.
      * @param obj the string version of an object name
      * @param field the field to check
      * @return Boolean
      * @example
-     * Log.get().publish(CanTheUser.flsUpdatable('Account', 'Name'));
+     * System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
      **/
     public static Boolean flsUpdatable(String obj, String field) {
         return getFLSForFieldOnObject(obj, field, FLSType.UPDATABLE);
@@ -337,7 +316,7 @@ public with sharing class CanTheUser {
      * @return      `Map<String, Boolean>`
      * @example
      * String[] fields = new String[]{'Name', 'ShippingStreet'};
-     * Log.get().publish(CanTheUser.bulkFLSUpdatable('Account', fields));
+     * System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
      */
     public static Map<String, Boolean> bulkFLSUpdatable(
         String obj,
@@ -348,52 +327,6 @@ public with sharing class CanTheUser {
             results.put(field, flsUpdatable(obj, field));
         }
         return results;
-    }
-
-    /**
-     * @description   Utilizes the Metadata catalog to determine FLS
-     *
-     * Note: this method contains a false-positive PMD violation.
-     * Normally, we'd want to check for FLS/CRUD here, but for metadata catalog
-     * objects that admins cannot remove permissions to we're ok.
-     *
-     * Additionally, even the minimum access profile user has read access
-     * to the FieldPermissions object.
-     *
-     * @param objType String version of the object type to check
-     * @param action  Enum of the FLS action to check permissions for
-     * @return       `set<String>`
-     */
-    @SuppressWarnings('PMD.ApexCRUDViolation')
-    @testVisible
-    private static Set<String> memoizeFLSMDC(String objType, FLSType action) {
-        List<FieldPermissions> fields = [
-            SELECT Id, Field, PermissionsEdit, PermissionsRead, SobjectType
-            FROM FieldPermissions
-            WHERE SobjectType = :objType
-        ];
-
-        if (!CanTheUser.accessibleFieldsByObject.containsKey(objType)) {
-            Set<String> accessibleFields = new Set<String>();
-            Set<String> updatableFields = new Set<String>();
-            for (FieldPermissions field : fields) {
-                String[] parts = field.Field.split('\\.');
-                if (field.PermissionsRead) {
-                    accessibleFields.add(parts[1].toLowerCase());
-                }
-                if (field.PermissionsEdit) {
-                    updatableFields.add(parts[1].toLowerCase());
-                }
-            }
-            CanTheUser.accessibleFieldsByObject.put(objType, accessibleFields);
-            CanTheUser.updatableFieldsByObject.put(objType, updatableFields);
-        }
-
-        if (action == FLSType.ACCESSIBLE) {
-            return CanTheUser.accessibleFieldsByObject.get(objType);
-        } else {
-            return CanTheUser.updatableFieldsByObject.get(objType);
-        }
     }
 
     /**
@@ -409,21 +342,36 @@ public with sharing class CanTheUser {
         String field,
         FLSType checkType
     ) {
-        OrgShape orgShapeInstance = new OrgShape();
-        Cache.Partition defaultSession = orgShapeInstance.getDefaultPartition(
-            CachePartitionType.SESSION
+        if (memoizedFLSResults.get(field.toLowerCase()) == null) {
+            memoizedFLSResults.putAll(calculateFLS(obj));
+        }
+        Boolean results = memoizedFLSResults.get(field.toLowerCase())
+            ?.get(checkType);
+        return (results != null && results) ? true : false;
+    }
+
+    /**
+     * @description   Calculates the FLS for a given object type
+     * @param objType String name of the object type
+     * @return        `Map<String, Map<FLSType, Boolean>>`
+     */
+    private static Map<String, Map<FLSType, Boolean>> calculateFLS(
+        String objType
+    ) {
+        Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
+            new List<String>{ objType }
         );
 
-        Map<String, Map<FLSType, Boolean>> objResults;
-
-        if (new OrgShape().isPlatformCacheEnabled()) {
-            objResults = (Map<String, Map<FLSType, Boolean>>) defaultSession
-                .get(PermissionCache.class, obj);
-        } else {
-            objResults = new PermissionCache().calculateFLS(obj);
+        Map<String, Map<FLSType, Boolean>> results = new Map<String, Map<FLSType, Boolean>>();
+        for (SObjectField field : descResult[0].fields.getMap().values()) {
+            DescribeFieldResult fieldDetails = field.getDescribe();
+            String fieldKey = String.valueOf(field).toLowerCase();
+            results.put(fieldKey, new Map<FLSType, Boolean>());
+            results.get(fieldKey)
+                .put(FLSType.ACCESSIBLE, fieldDetails.isAccessible());
+            results.get(fieldKey)
+                .put(FLSType.UPDATABLE, fieldDetails.isUpdateable());
         }
-
-        Boolean results = objResults.get(field.toLowerCase())?.get(checkType);
-        return (results != null && results) ? true : false;
+        return results;
     }
 }

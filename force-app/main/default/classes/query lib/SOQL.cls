@@ -106,6 +106,23 @@ public inherited sharing class SOQL {
             return this;
         }
 
+        public Builder selectFields(FieldSelection selection) {
+            fieldsToSelect.add('FIELDS(' + selection.name() + ')');
+            return this;
+        }
+
+        public Builder selectAll() {
+            return selectFields(FieldSelection.ALL);
+        }
+
+        public Builder selectCustom() {
+            return selectFields(FieldSelection.CUSTOM);
+        }
+
+        public Builder SelectStandard() {
+            return selectFields(FieldSelection.STANDARD);
+        }
+
         public Builder addSubQuery(SOQL subQuery) {
             fieldsToSelect.add('(' + subQuery.getQueryString() + ')');
             return this;

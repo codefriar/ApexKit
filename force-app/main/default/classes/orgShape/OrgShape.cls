@@ -251,12 +251,16 @@ public with sharing class OrgShape {
             return this.safeDefaultCachePartition;
         }
         try {
-            PlatformCachePartition partition = [
-                SELECT developerName
-                FROM PlatformCachePartition
-                WHERE NamespacePrefix = ''
-                LIMIT 1
-            ];
+            PlatformCachePartition partition = (PlatformCachePartition) new SOQL.builder(
+                    'PlatformCachePartition'
+                )
+                .selectField('developerName')
+                .whereCondition(
+                    new Query.Condition().equals('NamespacePrefix', '')
+                )
+                .setScopeLimit(1)
+                .build()
+                .getRecord();
             String partitionName = 'local.' + partition.DeveloperName;
             this.safeDefaultCachePartition = Cache.Org.getPartition(
                 partitionName
@@ -285,6 +289,9 @@ public with sharing class OrgShape {
         Boolean isACMEnabled = false;
         if (this.multiCurrencyEnabled) {
             try {
+                // This is one of the few queries exempted from the no-query rule
+                // because its a dynamic soql query, and in most orgs, it will fail
+                // on purpose.
                 Integer datedConversionRateCount = Database.query(
                         'SELECT Id FROM DatedConversionRate LIMIT 1'
                     )
@@ -308,6 +315,7 @@ public with sharing class OrgShape {
      * @return      `Organization`
      */
     @SuppressWarnings('PMD.ApexCRUDViolation')
+    @TestVisible
     private Organization getOrgShape() {
         if (isPlatformCacheEnabled()) {
             return (Organization) getAvailableOrgCachePartition()
@@ -329,7 +337,11 @@ public with sharing class OrgShape {
      * everyone to be able to pull this read-only record.
      */
     private Organization getOrgRecord() {
-        return [SELECT FIELDS(STANDARD) FROM Organization LIMIT 1];
+        return (Organization) new SOQL.Builder('Organization')
+            .selectStandard()
+            .setScopeLimit(1)
+            .build()
+            .getRecord();
     }
 
     public with sharing class CachedOrgShape implements Cache.CacheBuilder {
@@ -342,11 +354,14 @@ public with sharing class OrgShape {
             // Note: You should normally limit all your queries with
             // WITH SECURITY_ENFORCED
             // but you cannot do that for Organization.
-            Organization org = [
-                SELECT FIELDS(STANDARD)
-                FROM Organization
-                LIMIT 1
-            ];
+            Organization org = (Organization) new SOQL.Builder('Organization')
+                .selectStandard()
+                .setScopeLimit(1)
+                .build()
+                .getRecord();
+
+            System.debug('#$#$#$ ' + org);
+
             return org;
         }
     }
