@@ -23,7 +23,7 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
     public MetadataTriggerFramework(
         List<sObject> triggerNew,
         List<sObject> triggerOld,
-        ValidTriggerContexts context
+        TriggerOperation context
     ) {
         this.triggerNew = triggerNew;
         this.triggerOld = triggerOld;

@@ -35,11 +35,13 @@ public inherited sharing class SOQL {
     }
 
     public sObject getRecord() {
-        return Database.query(queryString);
+        return new Safely().doQuery(queryString).get(0);
+        // return Database.query(queryString);
     }
 
     public List<sObject> getRecords() {
-        return Database.query(queryString);
+        return new Safely().doQuery(queryString);
+        // return Database.query(queryString);
     }
 
     public Database.QueryLocator getQueryLocator() {

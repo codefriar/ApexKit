@@ -1,6 +1,10 @@
 public with sharing class TriggerContext {
-    public validTriggerContexts context;
+    public TriggerOperation context;
     public Boolean isTriggerBeingTested = false;
+
+    public TriggerContext() {
+        this.setTriggerContext(null, false);
+    }
 
     /**
      * @description internal method to forcibly set the trigger context
@@ -18,6 +22,10 @@ public with sharing class TriggerContext {
      */
     @testVisible
     public Boolean isInvalidExecutionContext() {
+        System.debug(
+            '### Is Trigger being Tested? ' + this.isTriggerBeingTested
+        );
+        System.debug('### Context: ' + this.context);
         if (!this.isTriggerBeingTested || this.context == null) {
             throw new TriggerFrameworkException(
                 'Trigger handler called outside of Trigger execution'
@@ -39,6 +47,7 @@ public with sharing class TriggerContext {
     ) {
         if (!Trigger.isExecuting && !overrideForTesting) {
             this.isTriggerBeingTested = false;
+            this.context = Trigger.OperationType;
             return;
         } else {
             this.isTriggerBeingTested = true;
@@ -58,27 +67,27 @@ public with sharing class TriggerContext {
     }
 
     private void setContextDuringNormalExecution() {
-        switch on Trigger.operationType {
+        switch on Trigger.OperationType {
             when BEFORE_INSERT {
-                this.context = ValidTriggerContexts.BEFORE_INSERT;
+                this.context = TriggerOperation.BEFORE_INSERT;
             }
             when BEFORE_UPDATE {
-                this.context = ValidTriggerContexts.BEFORE_UPDATE;
+                this.context = TriggerOperation.BEFORE_UPDATE;
             }
             when BEFORE_DELETE {
-                this.context = ValidTriggerContexts.BEFORE_DELETE;
+                this.context = TriggerOperation.BEFORE_DELETE;
             }
             when AFTER_INSERT {
-                this.context = ValidTriggerContexts.AFTER_INSERT;
+                this.context = TriggerOperation.AFTER_INSERT;
             }
             when AFTER_UPDATE {
-                this.context = ValidTriggerContexts.AFTER_UPDATE;
+                this.context = TriggerOperation.AFTER_UPDATE;
             }
             when AFTER_DELETE {
-                this.context = ValidTriggerContexts.AFTER_DELETE;
+                this.context = TriggerOperation.AFTER_DELETE;
             }
             when AFTER_UNDELETE {
-                this.context = ValidTriggerContexts.AFTER_UNDELETE;
+                this.context = TriggerOperation.AFTER_UNDELETE;
             }
         }
     }
@@ -86,25 +95,25 @@ public with sharing class TriggerContext {
     private void setManuallyOverriddenContext(String overriddenContext) {
         switch on overriddenContext {
             when 'before insert' {
-                this.context = ValidTriggerContexts.BEFORE_INSERT;
+                this.context = TriggerOperation.BEFORE_INSERT;
             }
             when 'before update' {
-                this.context = ValidTriggerContexts.BEFORE_UPDATE;
+                this.context = TriggerOperation.BEFORE_UPDATE;
             }
             when 'before delete' {
-                this.context = ValidTriggerContexts.BEFORE_DELETE;
+                this.context = TriggerOperation.BEFORE_DELETE;
             }
             when 'after insert' {
-                this.context = ValidTriggerContexts.AFTER_INSERT;
+                this.context = TriggerOperation.AFTER_INSERT;
             }
             when 'after update' {
-                this.context = ValidTriggerContexts.AFTER_UPDATE;
+                this.context = TriggerOperation.AFTER_UPDATE;
             }
             when 'after delete' {
-                this.context = ValidTriggerContexts.AFTER_DELETE;
+                this.context = TriggerOperation.AFTER_DELETE;
             }
             when 'after undelete' {
-                this.context = ValidTriggerContexts.AFTER_UNDELETE;
+                this.context = TriggerOperation.AFTER_UNDELETE;
             }
             when else {
                 throw new TriggerFrameworkException(

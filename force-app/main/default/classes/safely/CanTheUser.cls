@@ -6,7 +6,6 @@
  * Whenever you need to check FLS or CRUD access your code reads like this
  * `if(CanTheUser.read(new account())){}` making the calling and use of this
  * code easy and intuitive.
- * @group Security Recipes
  */
 public with sharing class CanTheUser {
     @testVisible

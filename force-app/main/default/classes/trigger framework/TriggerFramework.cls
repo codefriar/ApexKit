@@ -16,13 +16,13 @@ public virtual class TriggerFramework {
         bypassedHandlers = new Set<String>();
     }
 
-    /**
-     * @description Constructs a trigger handler object and ensures the context
-     * is set
-     */
-    public TriggerFramework() {
-        // this.setTriggerContext();
-    }
+    // /**
+    //  * @description Constructs a trigger handler object and ensures the context
+    //  * is set
+    //  */
+    // public TriggerFramework() {
+    //     // triggerContext.setTriggerContext();
+    // }
 
     /**
      * @description This is main brokering method that is called by the trigger.
@@ -54,7 +54,7 @@ public virtual class TriggerFramework {
         return false;
     }
 
-    private void dispatchHandlerMethod(ValidTriggerContexts context) {
+    private void dispatchHandlerMethod(TriggerOperation context) {
         // dispatch to the correct handler method
         switch on context {
             when BEFORE_INSERT {
@@ -64,6 +64,7 @@ public virtual class TriggerFramework {
                 this.beforeUpdate();
             }
             when AFTER_INSERT {
+                System.debug('Firing After Insert');
                 this.afterInsert();
             }
             when AFTER_UPDATE {

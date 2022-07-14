@@ -2,7 +2,6 @@
  * @description contains methods and static lists for rapid acceptence of a
  * particular set of quiddities
  *
- * @group Quiddity Recipes
  */
 public with sharing class QuiddityGuard {
     /**
@@ -72,7 +71,7 @@ public with sharing class QuiddityGuard {
     public static Boolean isNotAcceptableQuiddity(
         List<Quiddity> acceptableQuiddites
     ) {
-        return !QuiddityGuard.isAcceptableQuiddity(acceptableQuiddites);
+        return QuiddityGuard.isAcceptableQuiddity(acceptableQuiddites);
     }
 
     public static Quiddity quiddity() {

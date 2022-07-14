@@ -5,7 +5,7 @@ public with sharing class InvokeMetadataDrivenTriggerFramework {
             description='Set this to the invocation context of the current flow. ie: after update'
             required=true
         )
-        public ValidTriggerContexts context;
+        public TriggerOperation context;
 
         @InvocableVariable(
             label='Trigger New'
