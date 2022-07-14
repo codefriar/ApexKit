@@ -13,6 +13,10 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
 
     /**
      * @description Constructor used by live triggers.
+     * Because this constructor makes live-use of a
+     * metadata query service that will query live metatdata
+     * these two constructors are effectively un-testable without
+     * requiring you to insert custom metadata.
      */
     public MetadataTriggerFramework() {
         this.mts = new MetadataTriggerQueryService(

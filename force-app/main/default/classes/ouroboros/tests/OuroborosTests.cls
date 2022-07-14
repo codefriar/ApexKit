@@ -30,4 +30,14 @@ class OuroborosTests {
             'Expected OuroborosFinalizer to have tripped the circuitBreaker but it wasn\'t'
         );
     }
+
+    @isTest
+    static void testClassName() {
+        Test.startTest();
+        System.assertNotEquals(
+            null,
+            new OuroborosTests.ExampleOuroborosImplementation().className()
+        );
+        Test.stopTest();
+    }
 }

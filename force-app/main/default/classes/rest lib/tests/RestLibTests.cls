@@ -135,6 +135,32 @@ private class RestLibTests {
         );
     }
 
+    /**
+     * @description Positive test case for convenience method needing only
+     * path and query params.
+     */
+    @isTest
+    static void testGetWithPathPositive() {
+        RestClientLib rc = new RestClientLib('DummyNamedCredential');
+        HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
+            200,
+            'OK',
+            'OK',
+            new Map<String, String>()
+        );
+        Test.setMock(HttpCalloutMock.class, mock);
+
+        Test.startTest();
+        HttpResponse response = rc.get('/');
+        Test.stopTest();
+
+        System.assertEquals(
+            200,
+            response.getStatusCode(),
+            'Expected to get the 200 response code'
+        );
+    }
+
     @isTest
     static void testDelWithPathPositive() {
         RestClientLib rc = new RestClientLib('DummyNamedCredential');
@@ -154,6 +180,50 @@ private class RestLibTests {
             200,
             response.getStatusCode(),
             'Expected to get the 200 response code'
+        );
+    }
+
+    @isTest
+    static void testDelWithPathAndQueryPositive() {
+        RestClientLib rc = new RestClientLib('DummyNamedCredential');
+        HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
+            200,
+            'OK',
+            'OK',
+            new Map<String, String>()
+        );
+        Test.setMock(HttpCalloutMock.class, mock);
+
+        Test.startTest();
+        HttpResponse response = rc.del('/', 'foo');
+        Test.stopTest();
+
+        System.assertEquals(
+            200,
+            response.getStatusCode(),
+            'Expected to get the 200 response code'
+        );
+    }
+
+    @isTest
+    static void testPostWithPathAndBodyPositive() {
+        RestClientLib rc = new RestClientLib('DummyNamedCredential');
+        HttpCalloutMockFactory mock = new HttpCalloutMockFactory(
+            201,
+            'OK',
+            'OK',
+            new Map<String, String>()
+        );
+        Test.setMock(HttpCalloutMock.class, mock);
+
+        Test.startTest();
+        HttpResponse response = rc.post('/', '{"Id": "003ae3fn12df25k309"}');
+        Test.stopTest();
+
+        System.assertEquals(
+            201,
+            response.getStatusCode(),
+            'Expected to get the 201 response code'
         );
     }
 
