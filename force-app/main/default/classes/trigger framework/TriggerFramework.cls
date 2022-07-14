@@ -64,7 +64,6 @@ public virtual class TriggerFramework {
                 this.beforeUpdate();
             }
             when AFTER_INSERT {
-                System.debug('Firing After Insert');
                 this.afterInsert();
             }
             when AFTER_UPDATE {
