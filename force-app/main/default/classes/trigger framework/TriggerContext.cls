@@ -7,14 +7,6 @@ public with sharing class TriggerContext {
     }
 
     /**
-     * @description internal method to forcibly set the trigger context
-     */
-    @testVisible
-    private void setTriggerContext() {
-        this.setTriggerContext(null, false);
-    }
-
-    /**
      * @description make sure this trigger should continue to run
      * @return     `Boolean`
      * @exception   TriggerHandlerException thrown when executing outside of a
