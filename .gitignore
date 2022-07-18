@@ -38,3 +38,6 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+# PMD cache should not be included in GitHub
+.pmdCache
