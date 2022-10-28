@@ -12,6 +12,58 @@ private class PolyfillsTests {
     }
 
     @isTest
+    static void testPluckFieldFromList() {
+        List<Account> accounts = (List<Account>) TestFactory.createSobjectList(
+            new Account(),
+            200
+        );
+        Test.startTest();
+        List<Object> results = Polyfills.pluckFieldFromList('Name', accounts);
+        Test.stopTest();
+        System.assertEquals(200, results.size());
+    }
+
+    @isTest
+    static void testGenerateStacktracePositive() {
+        Test.startTest();
+        String results = Polyfills.generateStacktrace();
+        Test.stopTest();
+        System.assert(
+            results.containsIgnoreCase('PolyfillsTests'),
+            'expected to get stacktrace back'
+        );
+    }
+
+    @isTest
+    static void testTypeObjectFromClassNamePositive() {
+        Test.startTest();
+        Type results = Polyfills.typeObjectFromClassName('Account');
+        Test.stopTest();
+        Type expected = Account.class;
+        System.assertEquals(results, expected, 'expected to get account back');
+    }
+
+    @isTest
+    static void testTypeObjFromInstance() {
+        Test.startTest();
+        Type results = Polyfills.typeObjFromInstance(new Account());
+        Test.stopTest();
+        Type expected = Account.class;
+        System.assertEquals(results, expected, 'expected to get account back');
+    }
+
+    @isTest
+    static void testClassNameFromInstance() {
+        Test.startTest();
+        String results = Polyfills.classNameFromInstance(new Account());
+        Test.stopTest();
+        System.assert(
+            results.containsIgnoreCase('Account'),
+            'expected to get account back'
+        );
+    }
+
+    @isTest
     static void testDemonstrateIdMapFromCollectionByKeyPositiveWithList() {
         List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
             new Account(),
@@ -149,5 +201,57 @@ private class PolyfillsTests {
                 );
             }
         }
+    }
+
+    @isTest
+    static void testSetContainsAnyItemFromListPositive() {
+        Set<Id> testSet = new Set<Id>();
+        testSet.add('0011h00000xR1GfAAK');
+        testSet.add('0011h00000xR1GfAAL');
+        testSet.add('0011h00000xR1GfAAM');
+        testSet.add('0011h00000xR1GfAAN');
+        testSet.add('0011h00000xR1GfAAO');
+
+        List<Id> testList = new List<Id>();
+        testList.add('0011h00000xR1GfAAK');
+
+        Test.startTest();
+        Boolean checkResults = Polyfills.setContainsAnyItemFromList(
+            testSet,
+            testList
+        );
+        Test.stopTest();
+
+        System.assertEquals(
+            true,
+            checkResults,
+            'Expected to find at least one item in the list in the set'
+        );
+    }
+
+    @isTest
+    static void testSetDoesNOTContainsAnyItemFromListPositive() {
+        Set<Id> testSet = new Set<Id>();
+        testSet.add('0011h00000xR1GfAAK');
+        testSet.add('0011h00000xR1GfAAL');
+        testSet.add('0011h00000xR1GfAAM');
+        testSet.add('0011h00000xR1GfAAN');
+        testSet.add('0011h00000xR1GfAAO');
+
+        List<Id> testList = new List<Id>();
+        testList.add('0011h00000xR1GfAAZ');
+
+        Test.startTest();
+        Boolean checkResults = Polyfills.setContainsAnyItemFromList(
+            testSet,
+            testList
+        );
+        Test.stopTest();
+
+        System.assertEquals(
+            false,
+            checkResults,
+            'Expected to find foo is not in the set'
+        );
     }
 }

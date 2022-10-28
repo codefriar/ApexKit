@@ -39,7 +39,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FF</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>FLSType</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeatureFlag</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeatureFlagDataProvider</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FeatureFlagTests</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -253,6 +269,16 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Feature_Flag_Enabled_For__mdt.isEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Feature_Flag__mdt.isEnabled__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>LogEvent__c.Log_Data__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -281,6 +307,16 @@
         <field>Metadata_Driven_Trigger__mdt.Enabled__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout
+        >Feature_Flag_Enabled_For__mdt-Feature Flag Enabled For Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Feature_Flag__mdt-Feature Flag Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LogEvent__c-Log Event Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -727,6 +763,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageNetworks</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageOrchInstsAndWorkItems</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

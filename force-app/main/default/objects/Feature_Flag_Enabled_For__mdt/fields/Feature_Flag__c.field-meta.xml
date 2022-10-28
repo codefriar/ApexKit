@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Feature_Flag__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Feature Flag</label>
+    <referenceTo>Feature_Flag__mdt</referenceTo>
+    <relationshipLabel>Feature Flags Enabled For</relationshipLabel>
+    <relationshipName>Feature_Flags_Enabled_For</relationshipName>
+    <required>true</required>
+    <type>MetadataRelationship</type>
+    <unique>false</unique>
+</CustomField>

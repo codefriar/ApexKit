@@ -1,9 +1,25 @@
 public with sharing class Polyfills {
+    /**
+     * Class exists to reserve an object type that cannot
+     * be instantiated.  It is used for generating stack
+     * traces on demand, and other reflection operations.
+     */
     private class GuaranteedNotToExist {
     }
+    /**
+     * Exception used internally to throw exceptions that
+     * are intentional and used for unofficial reflection
+     * operations.
+     */
     private class GuaranteedNotToExistException extends Exception {
     }
 
+    /**
+     * @description Used to determine what the Class name
+     * of the passed in Object is. There are many mostly
+     * accurate ways of doing this, but this is the only
+     * one that works in all cases.
+     */
     public static String classNameFromInstance(Object obj) {
         String result = '';
         try {
@@ -98,5 +114,40 @@ public with sharing class Polyfills {
             stackTrace = theException.getStackTraceString();
         }
         return stackTrace;
+    }
+
+    public static List<String> pluckFieldFromList(
+        String fieldName,
+        List<SObject> incomingList
+    ) {
+        List<String> returnValues = new List<String>();
+        for (SObject current : incomingList) {
+            returnValues.add(String.valueOf(current.get(fieldName)));
+        }
+        return returnValues;
+    }
+
+    /**
+     * Well, as much as I'd like to make this a generic method, I can't
+     * Apex doesn't provide a way to dynamically cast a list of one type
+     * to another type. So, this is a method that will only work for Ids
+     * Future versions of this class might include methods of the same
+     * name but with different parameters to handle other types
+     *
+     * This makes me sad.
+     *
+     */
+    public static Boolean setContainsAnyItemFromList(
+        Set<Id> setToCheck,
+        List<Id> listOfPossibleOptions
+    ) {
+        Boolean setContainsAnyElementOfList = false;
+        for (Id current : listOfPossibleOptions) {
+            if (setToCheck.contains(current)) {
+                setContainsAnyElementOfList = true;
+                break;
+            }
+        }
+        return setContainsAnyElementOfList;
     }
 }
