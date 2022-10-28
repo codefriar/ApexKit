@@ -5,4 +5,8 @@ public with sharing class FF {
     public static Boolean isEnabled(String featureName) {
         return new FeatureFlag().isEnabled(featureName);
     }
+
+    public static Boolean isNotEnabled(String featureName) {
+        return !isEnabled(featureName);
+    }
 }
