@@ -150,4 +150,20 @@ public with sharing class Polyfills {
         }
         return setContainsAnyElementOfList;
     }
+
+    public static String generateUUID() {
+        Blob aesKey = Crypto.GenerateAESKey(128);
+        String hexEncodedKey = EncodingUtil.ConvertToHex(aesKey);
+        String guid =
+            hexEncodedKey.subString(0, 8) +
+            '-' +
+            hexEncodedKey.subString(8, 12) +
+            '-' +
+            hexEncodedKey.subString(12, 16) +
+            '-' +
+            hexEncodedKey.subString(16, 20) +
+            '-' +
+            hexEncodedKey.substring(20);
+        return guid;
+    }
 }

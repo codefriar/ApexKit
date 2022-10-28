@@ -12,6 +12,20 @@ private class PolyfillsTests {
     }
 
     @isTest
+    static void testGenerateUUID() {
+        Test.startTest();
+        String uuid = Polyfills.generateUUID();
+        Test.stopTest();
+        system.debug(uuid);
+        System.assert(uuid != null, 'expected to get a uuid back');
+        System.assertEquals(
+            5,
+            uuid.split('-').size(),
+            'expected to get 5 parts back'
+        );
+    }
+
+    @isTest
     static void testPluckFieldFromList() {
         List<Account> accounts = (List<Account>) TestFactory.createSobjectList(
             new Account(),
