@@ -5,6 +5,9 @@ public with sharing class FeatureFlag {
     @testVisible
     private FeatureFlagDataProvider dataProvider;
 
+    @testVisible
+    private static final String FF_NOT_ENABLED = 'FF_NOT_ENABLED';
+
     public FeatureFlag() {
         this.dataProvider = new FeatureFlagDataProvider();
     }
@@ -12,6 +15,13 @@ public with sharing class FeatureFlag {
     @testVisible
     private FeatureFlag(FeatureFlagDataProvider dataProvider) {
         this.dataProvider = dataProvider;
+    }
+
+    public String value(String featureFlagName) {
+        if (isNotEnabled(featureFlagName)) {
+            return FF_NOT_ENABLED;
+        }
+        return dataProvider.flags.get(featureFlagName).flag_value__c;
     }
 
     public Boolean isEnabled(String featureFlagName) {
@@ -26,6 +36,10 @@ public with sharing class FeatureFlag {
             // determine if the feature flag is enabled for the current user
             return isEnabledForUser(featureFlagName);
         }
+    }
+
+    public Boolean isNotEnabled(String featureFlag) {
+        return !isEnabled(featureFlag);
     }
 
     @testVisible

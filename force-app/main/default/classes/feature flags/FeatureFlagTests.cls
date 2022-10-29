@@ -11,6 +11,48 @@ class FeatureFlagTests {
     }
 
     @isTest
+    static void testFlagFoundButDisabledReturnsFixedString() {
+        FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
+        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+
+        Test.startTest();
+        String result = new FeatureFlag(dataProvider).value('TestFlag');
+        Test.stopTest();
+        System.assertEquals(
+            FeatureFlag.FF_NOT_ENABLED,
+            result,
+            'Expected to get fixed string when flag is disabled'
+        );
+    }
+
+    @isTest
+    static void testFlagNotFoundReturnsFixedString() {
+        Test.startTest();
+        String result = new FeatureFlag().value('TestFlag');
+        Test.stopTest();
+        System.assertEquals(
+            FeatureFlag.FF_NOT_ENABLED,
+            result,
+            'Expected to get fixed string when flag is disabled'
+        );
+    }
+
+    @isTest
+    static void testFlagFoundAndEnabledReturnsValue() {
+        FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
+        dataProvider.overrideFlags(getTestFlag('TestFlag', true));
+
+        Test.startTest();
+        String result = new FeatureFlag(dataProvider).value('TestFlag');
+        Test.stopTest();
+        System.assertEquals(
+            'test value',
+            result,
+            'Expected to get value when flag is enabled'
+        );
+    }
+
+    @isTest
     static void testFeatureFlagNotFoundReturnsFalse() {
         Test.startTest();
         Boolean result = FF.isEnabled('TestFlag');
@@ -25,6 +67,28 @@ class FeatureFlagTests {
 
         Test.startTest();
         Boolean result = new FeatureFlag(dataProvider).isEnabled('TestFlag');
+        Test.stopTest();
+        System.assertEquals(true, result);
+    }
+
+    @isTest
+    static void testFeatureFlagFoundIsNotEnabledReturnsTrue() {
+        FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
+        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+
+        Test.startTest();
+        Boolean result = new FeatureFlag(dataProvider).isNotEnabled('TestFlag');
+        Test.stopTest();
+        System.assertEquals(true, result);
+    }
+
+    @isTest
+    static void testFeatureFlagFoundWraperIsNotEnabledReturnsTrue() {
+        FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
+        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+
+        Test.startTest();
+        Boolean result = FF.isNotEnabled('TestFlag');
         Test.stopTest();
         System.assertEquals(true, result);
     }
@@ -115,7 +179,11 @@ class FeatureFlagTests {
         Map<String, Feature_Flag__mdt> testFlag = new Map<String, Feature_Flag__mdt>();
         testFlag.put(
             'TestFlag',
-            new Feature_Flag__mdt(Label = flagName, isEnabled__c = enabled)
+            new Feature_Flag__mdt(
+                Label = flagName,
+                isEnabled__c = enabled,
+                flag_value__c = 'test value'
+            )
         );
         return testFlag;
     }

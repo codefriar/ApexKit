@@ -9,4 +9,13 @@ public with sharing class FF {
     public static Boolean isNotEnabled(String featureName) {
         return !isEnabled(featureName);
     }
+
+    /**
+     * Law of diminishing returns here.
+     * This isn't tested, per-say. It's underlying FeatureFlag
+     * implementation *is* tested, however.
+     */
+    public static String value(string featureName) {
+        return new FeatureFlag().value(featureName);
+    }
 }
