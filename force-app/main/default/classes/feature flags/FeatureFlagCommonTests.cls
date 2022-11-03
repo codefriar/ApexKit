@@ -1,9 +1,12 @@
 /**
  * @description Class serves to DRY code for various testing methods that
- * require it.
+ * require it. It is not intended to be used directly.
  */
 @isTest
 public class FeatureFlagCommonTests {
+    static id exampleFeatureFlagId = [SELECT Id FROM Feature_Flag__mdt LIMIT 1]
+    .Id;
+
     public static Map<String, Feature_Flag__mdt> getTestFlag(
         String flagName,
         Boolean enabled
@@ -14,7 +17,7 @@ public class FeatureFlagCommonTests {
             new Feature_Flag__mdt(
                 Label = flagName,
                 DeveloperName = flagName,
-                id = 'm021h000000lDU8',
+                id = exampleFeatureFlagId,
                 isEnabled__c = enabled,
                 flag_value__c = 'test value'
             )
@@ -25,6 +28,9 @@ public class FeatureFlagCommonTests {
     public static Id getExistingPermSetId() {
         return new SOQL.Builder('PermissionSet')
             .selectField('Id')
+            .whereCondition(
+                new Query.Condition().equals('Name', 'Async_Log_Access')
+            )
             .build()
             .getRecord()
             .Id;
@@ -41,7 +47,7 @@ public class FeatureFlagCommonTests {
             new Feature_Flag_Enabled_For__mdt(
                 Label = 'TestFlag',
                 DeveloperName = 'TestFlag',
-                Feature_Flag__c = 'm021h000000lDU8',
+                Feature_Flag__c = exampleFeatureFlagId,
                 isEnabled__c = enabled,
                 Permission_Set_Id__c = permSetId
             )
