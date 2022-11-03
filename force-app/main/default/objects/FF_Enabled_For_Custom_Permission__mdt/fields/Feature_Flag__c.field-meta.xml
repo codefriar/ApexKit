@@ -5,7 +5,8 @@
     <fieldManageability>DeveloperControlled</fieldManageability>
     <label>Feature Flag</label>
     <referenceTo>Feature_Flag__mdt</referenceTo>
-    <relationshipName>Feature_Flags_Enabled_For</relationshipName>
+    <relationshipLabel>FF Enabled For Custom Permissions</relationshipLabel>
+    <relationshipName>FF_Enabled_For_Custom_Permissions</relationshipName>
     <required>true</required>
     <type>MetadataRelationship</type>
     <unique>false</unique>

@@ -138,11 +138,11 @@ public with sharing class Polyfills {
      *
      */
     public static Boolean setContainsAnyItemFromList(
-        Set<Id> setToCheck,
-        List<Id> listOfPossibleOptions
+        Set<String> setToCheck,
+        List<String> listOfPossibleOptions
     ) {
         Boolean setContainsAnyElementOfList = false;
-        for (Id current : listOfPossibleOptions) {
+        for (String current : listOfPossibleOptions) {
             if (setToCheck.contains(current)) {
                 setContainsAnyElementOfList = true;
                 break;

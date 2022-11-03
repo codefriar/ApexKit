@@ -13,7 +13,9 @@ class FeatureFlagTests {
     @isTest
     static void testFlagFoundButDisabledReturnsFixedString() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', false)
+        );
 
         Test.startTest();
         String result = new FeatureFlag(dataProvider).value('TestFlag');
@@ -40,7 +42,9 @@ class FeatureFlagTests {
     @isTest
     static void testFlagFoundAndEnabledReturnsValue() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        dataProvider.overrideFlags(getTestFlag('TestFlag', true));
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', true)
+        );
 
         Test.startTest();
         String result = new FeatureFlag(dataProvider).value('TestFlag');
@@ -63,7 +67,9 @@ class FeatureFlagTests {
     @isTest
     static void testFeatureFlagFoundReturnsTrue() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        dataProvider.overrideFlags(getTestFlag('TestFlag', true));
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', true)
+        );
 
         Test.startTest();
         Boolean result = new FeatureFlag(dataProvider).isEnabled('TestFlag');
@@ -74,7 +80,9 @@ class FeatureFlagTests {
     @isTest
     static void testFeatureFlagFoundIsNotEnabledReturnsTrue() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', false)
+        );
 
         Test.startTest();
         Boolean result = new FeatureFlag(dataProvider).isNotEnabled('TestFlag');
@@ -83,9 +91,11 @@ class FeatureFlagTests {
     }
 
     @isTest
-    static void testFeatureFlagFoundWraperIsNotEnabledReturnsTrue() {
+    static void testFeatureFlagFoundWrapperIsNotEnabledReturnsTrue() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', false)
+        );
 
         Test.startTest();
         Boolean result = FF.isNotEnabled('TestFlag');
@@ -96,16 +106,22 @@ class FeatureFlagTests {
     @isTest
     static void testFeatureFlagEnabledForPermSetFoundReturnsTrue() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        Id permSetId = getExistingPermSetId();
+        Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
 
         insert new PermissionSetAssignment(
             PermissionSetId = permSetId,
             AssigneeId = UserInfo.getUserId()
         );
 
-        dataProvider.overrideFlags(getTestFlag('TestFlag', false));
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', false)
+        );
         dataProvider.overridePerPermSetOverrides(
-            getOverriddenPerPermSet('TestFlag', permSetId, true)
+            FeatureFlagCommonTests.getOverriddenPerPermSet(
+                'TestFlag',
+                permSetId,
+                true
+            )
         );
 
         Test.startTest();
@@ -117,14 +133,13 @@ class FeatureFlagTests {
     @isTest
     static void testFetchUsersAssignedPermissionSetsPositive() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        Id permSetId = getExistingPermSetId();
+        Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
         insert new PermissionSetAssignment(
             PermissionSetId = permSetId,
             AssigneeId = UserInfo.getUserId()
         );
         Test.startTest();
-        FeatureFlag ff = new FeatureFlag();
-        List<Id> result = ff.fetchUsersAssignedPermissionSets();
+        List<Id> result = dataProvider.fetchUsersAssignedPermissionSets();
         Test.stopTest();
         System.assertEquals(
             result.contains(permSetId),
@@ -134,82 +149,45 @@ class FeatureFlagTests {
     }
 
     @isTest
-    static void buildPermissionSetIdsFromFeatureFlagEnabledforMetadata() {
+    static void testFeatureFoundEnabledViaCustomPermissionPositive() {
         FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        Id permSetId = getExistingPermSetId();
-        dataProvider.overridePerPermSetOverrides(
-            getOverriddenPerPermSet('TestFlag', permSetId, true)
+        TestFactory.enableCustomPermission(
+            'ApexKit_Example',
+            UserInfo.getUserId()
         );
-        Test.startTest();
-        FeatureFlag ff = new FeatureFlag(dataProvider);
-        Set<Id> result = ff.buildPermissionSetIdsFromFeatureFlagEnabledforMetadata(
-            'TestFlag'
+        PermissionSetAssignment[] permSetsAssigned = [
+            SELECT id, PermissionSet.Label
+            FROM PermissionSetAssignment
+            WHERE
+                AssigneeId = :UserInfo.getUserId()
+                AND PermissionSet.Label = 'Test Permission Set'
+        ];
+        System.debug(permSetsAssigned);
+        dataProvider.overrideFlags(
+            FeatureFlagCommonTests.getTestFlag('TestFlag', false)
         );
-        Test.stopTest();
-        System.assertEquals(
-            result.contains(permSetId),
-            true,
-            'User should have assigned permission set'
-        );
-    }
-
-    @isTest
-    static void testReturnEmptySetWhenNoPermSetOverridesFound() {
-        FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-        Test.startTest();
-        FeatureFlag ff = new FeatureFlag(dataProvider);
-        Set<Id> result = ff.buildPermissionSetIdsFromFeatureFlagEnabledforMetadata(
-            'TestFlag'
-        );
-        Test.stopTest();
-        System.assertEquals(
-            result.isEmpty(),
-            true,
-            'Should return empty set when no perm set overrides found'
-        );
-    }
-
-    /**
-     * HELPER METHODS
-     */
-    private static Map<String, Feature_Flag__mdt> getTestFlag(
-        String flagName,
-        Boolean enabled
-    ) {
-        Map<String, Feature_Flag__mdt> testFlag = new Map<String, Feature_Flag__mdt>();
-        testFlag.put(
-            'TestFlag',
-            new Feature_Flag__mdt(
-                Label = flagName,
-                isEnabled__c = enabled,
-                flag_value__c = 'test value'
+        Map<String, FF_Enabled_For_Custom_Permission__mdt> customPermOverrides = new Map<String, FF_Enabled_For_Custom_Permission__mdt>();
+        customPermOverrides.put(
+            'ApexKit_Example',
+            new FF_Enabled_For_Custom_Permission__mdt(
+                Label = 'ApexKit_Example',
+                DeveloperName = 'ApexKit_Example',
+                Feature_Flag__c = dataProvider.featureFlags.get('TestFlag').id
             )
         );
-        return testFlag;
-    }
+        dataProvider.overridePerCustomPermissionOverrides(customPermOverrides);
+        FeatureFlag ff = new FeatureFlag(dataProvider);
 
-    private static Id getExistingPermSetId() {
-        return new SOQL.Builder('PermissionSet')
-            .selectField('Id')
-            .build()
-            .getRecord()
-            .Id;
-    }
+        System.runAs(new User(Id = UserInfo.getUserId())) {
+            Test.startTest();
+            Boolean result = ff.isEnabled('TestFlag');
+            Test.stopTest();
+            System.assertEquals(
+                true,
+                result,
+                'Expected TestFlag to be enabled by custom permission'
+            );
+        }
 
-    private static Map<String, Feature_Flag_Enabled_For__mdt> getOverriddenPerPermSet(
-        String flagName,
-        Id permSetId,
-        Boolean enabled
-    ) {
-        Map<String, Feature_Flag_Enabled_For__mdt> overriddenPerPermSet = new Map<String, Feature_Flag_Enabled_For__mdt>();
-        overriddenPerPermSet.put(
-            flagName,
-            new Feature_Flag_Enabled_For__mdt(
-                Label = 'TestFlag',
-                isEnabled__c = enabled,
-                Permission_Set_Id__c = permSetId
-            )
-        );
-        return overriddenPerPermSet;
     }
 }

@@ -15,12 +15,8 @@
                 <field>DeveloperName</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>isEnabled__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Flag_Value__c</field>
+                <behavior>Required</behavior>
+                <field>Feature_Flag__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -61,12 +57,6 @@
         <layoutColumns />
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <fields>MasterLabel</fields>
-        <fields>DeveloperName</fields>
-        <fields>NamespacePrefix</fields>
-        <relatedList>Feature_Flag_Enabled_For__mdt.Feature_Flag__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

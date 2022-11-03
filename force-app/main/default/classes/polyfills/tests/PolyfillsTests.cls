@@ -219,14 +219,14 @@ private class PolyfillsTests {
 
     @isTest
     static void testSetContainsAnyItemFromListPositive() {
-        Set<Id> testSet = new Set<Id>();
+        Set<String> testSet = new Set<String>();
         testSet.add('0011h00000xR1GfAAK');
         testSet.add('0011h00000xR1GfAAL');
         testSet.add('0011h00000xR1GfAAM');
         testSet.add('0011h00000xR1GfAAN');
         testSet.add('0011h00000xR1GfAAO');
 
-        List<Id> testList = new List<Id>();
+        List<String> testList = new List<String>();
         testList.add('0011h00000xR1GfAAK');
 
         Test.startTest();
@@ -245,14 +245,14 @@ private class PolyfillsTests {
 
     @isTest
     static void testSetDoesNOTContainsAnyItemFromListPositive() {
-        Set<Id> testSet = new Set<Id>();
+        Set<String> testSet = new Set<String>();
         testSet.add('0011h00000xR1GfAAK');
         testSet.add('0011h00000xR1GfAAL');
         testSet.add('0011h00000xR1GfAAM');
         testSet.add('0011h00000xR1GfAAN');
         testSet.add('0011h00000xR1GfAAO');
 
-        List<Id> testList = new List<Id>();
+        List<String> testList = new List<String>();
         testList.add('0011h00000xR1GfAAZ');
 
         Test.startTest();

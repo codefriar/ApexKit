@@ -344,4 +344,45 @@ public class TestFactory {
             .Id;
         return createTestUser(profileId, doInsert);
     }
+
+    public static PermissionSet createPermissionSet(
+        String permSetName,
+        Boolean doInsert
+    ) {
+        PermissionSet newPermSet = new PermissionSet(
+            Name = permSetName,
+            Label = 'Test Permission Set'
+        );
+        if (doInsert) {
+            insert newPermSet;
+        }
+        return newPermSet;
+    }
+
+    public static void enableCustomPermission(
+        String permissionName,
+        Id forUserId
+    ) {
+        PermissionSet permSet = createPermissionSet('TestPermSet', true);
+
+        Id customPermissionId = [
+            SELECT Id
+            FROM CustomPermission
+            WHERE DeveloperName = :permissionName
+            LIMIT 1
+        ]
+        .Id;
+
+        SetupEntityAccess permSetPermission = new SetupEntityAccess(
+            ParentId = permSet.Id,
+            SetupEntityId = customPermissionId
+        );
+
+        PermissionSetAssignment permSetAssignment = new PermissionSetAssignment(
+            AssigneeId = forUserId,
+            PermissionSetId = permSet.Id
+        );
+
+        insert new List<Sobject>{ permSetPermission, permSetAssignment };
+    }
 }
