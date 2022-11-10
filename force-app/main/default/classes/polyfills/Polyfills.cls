@@ -166,4 +166,15 @@ public with sharing class Polyfills {
             hexEncodedKey.substring(20);
         return guid;
     }
+    
+    public static Blob concatenateBlobAndString (Blob someFile, String supplementalText){
+        String joinedBlobAndString = getStringifiedBlob(someFile) + supplementalText;
+        return Blob.valueOf(joinedBlobAndString);
+    }
+
+    public static String getStringifiedBlob(Blob someFile){
+        HttpRequest req = new HttpRequest();
+        req.setBodyAsBlob(someFile);
+        return req.getBody();
+    }
 }
