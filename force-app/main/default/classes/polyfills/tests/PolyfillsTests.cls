@@ -268,4 +268,14 @@ private class PolyfillsTests {
             'Expected to find foo is not in the set'
         );
     }
+
+    @isTest
+    static void givenAStringAndABlob_CanConcatenateIntoOneBlob(){
+        String oneCharacter = '1';
+        Blob oneCharacterInAFile = Blob.valueOf(oneCharacter);
+
+        Blob twoCharactersInAFile = Polyfills.concatenateBlobAndString(oneCharacterInAFile, oneCharacter);
+
+        Assert.areEqual(2, twoCharactersInAFile.size(), 'Blob did not concatenate with String');
+    }
 }
