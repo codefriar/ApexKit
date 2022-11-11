@@ -6,13 +6,6 @@ public with sharing class Polyfills {
      */
     private class GuaranteedNotToExist {
     }
-    /**
-     * Exception used internally to throw exceptions that
-     * are intentional and used for unofficial reflection
-     * operations.
-     */
-    private class GuaranteedNotToExistException extends Exception {
-    }
 
     /**
      * @description Used to determine what the Class name
@@ -107,13 +100,7 @@ public with sharing class Polyfills {
     }
 
     public static String generateStackTrace() {
-        String stackTrace = '';
-        try {
-            throw new GuaranteedNotToExistException();
-        } catch (GuaranteedNotToExistException theException) {
-            stackTrace = theException.getStackTraceString();
-        }
-        return stackTrace;
+        return new DmlException().getStackTraceString();
     }
 
     public static List<String> pluckFieldFromList(
@@ -166,7 +153,7 @@ public with sharing class Polyfills {
             hexEncodedKey.substring(20);
         return guid;
     }
-    
+
     public static Blob concatenateBlobAndString (Blob someFile, String supplementalText){
         String joinedBlobAndString = getStringifiedBlob(someFile) + supplementalText;
         return Blob.valueOf(joinedBlobAndString);
