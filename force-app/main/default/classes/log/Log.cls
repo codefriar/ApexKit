@@ -1,9 +1,6 @@
 /**
  * @description Generic logging framework that persists across DML reversions
  * by publishing a Platform Event
- *
- *  Shared Code
- *
  */
 public with sharing class Log {
     public static Boolean publishToStandardLogs = false;
@@ -111,7 +108,6 @@ public with sharing class Log {
             }
         }
 
-        system.debug('publishedResults: ' + publishResults);
         this.buffer.clear();
     }
 

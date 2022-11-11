@@ -1,0 +1,4 @@
+engine:
+  targetDirectory: "${workspaceFolder}/documentation"
+  source:
+    - path: "${workspaceFolder}/src/classes/polyfills"

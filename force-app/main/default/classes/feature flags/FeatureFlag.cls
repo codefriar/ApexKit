@@ -113,22 +113,15 @@ public with sharing class FeatureFlag {
      */
     @testVisible
     private Boolean isEnabledForUser(String featureFlagName) {
-        // Check if the user has been enabled via Permission Sets.
-        Set<String> enablingPermissionSets = dataProvider.enablingPermissionSets(
-            featureFlagName
-        );
-        List<String> permSetsAssigned = dataProvider.fetchUsersAssignedPermissionSets();
-
-        if (
-            Polyfills.setContainsAnyItemFromList(
+        // first check for enablement via custom permission because
+        // that doesn't hit the db for anything.
+        if (isEnabledByCustomPermissionForUser(featureFlagName)){
+            return true;
+        } 
+        return Polyfills.setContainsAnyItemFromList(
                 dataProvider.enablingPermissionSets(featureFlagName),
                 dataProvider.fetchUsersAssignedPermissionSets()
-            )
-        ) {
-            return true;
-        } else {
-            return isEnabledByCustomPermissionForUser(featureFlagName);
-        }
+            );
     }
 
     /**

@@ -1,7 +1,4 @@
 public with sharing class FeatureFlagDataProvider {
-    // TODO implement prod-only non-testable optimization where we can grab the FeatureFlag by it's ID
-    // instead of iterating over all of them
-
     /**
      * Fetch the feature flags from custom metadata.
      */
@@ -9,14 +6,19 @@ public with sharing class FeatureFlagDataProvider {
     private Map<String, Feature_Flag_Enabled_For__mdt> perPermSetOverrides;
     public Map<String, FF_Enabled_For_Custom_Permission__mdt> perCustomPermissionOverrides;
     private Map<String, Feature_Flag__mdt> mFeatureFlagsById;
+
     @testVisible
     private Map<String, List<Feature_Flag_Enabled_For__mdt>> mPerPermSetOverridesByFeatureFlag;
     @testVisible
     private Map<String, List<FF_Enabled_For_Custom_Permission__mdt>> mPerCustomPermissionOverridesByFeatureFlag;
 
+    /**
+     * Returns a map of known feature flag metadata records keyed
+     * by the record id, rather than the record's label.
+     */
     private Map<String, Feature_Flag__mdt> featureFlagsById {
         get {
-            if (this.mFeatureFlagsById != null) {
+            if (this.mFeatureFlagsById != null){
                 return mFeatureFlagsById;
             }
             this.mFeatureFlagsById = new Map<String, Feature_Flag__mdt>();
@@ -26,30 +28,6 @@ public with sharing class FeatureFlagDataProvider {
 
             return mFeatureFlagsById;
         }
-    }
-
-    public Map<String, List<sObject>> rekeyMapByFeatureFlagName(
-        Map<String, sObject> incomingMap,
-        Map<String, List<sObject>> memoizedMap,
-        Map<String, Feature_Flag__mdt> correlatingMap,
-        String keyField
-    ) {
-        memoizedMap = new Map<String, List<sObject>>();
-        for (sObject currentObject : incomingMap.values()) {
-            String correlationKey = correlatingMap.get(
-                    String.valueOf(currentObject.get(keyField))
-                )
-                ?.DeveloperName;
-            if (memoizedMap.containsKey(correlationKey)) {
-                memoizedMap.get(correlationKey).add(currentObject);
-            } else {
-                memoizedMap.put(
-                    correlationKey,
-                    new List<sObject>{ currentObject }
-                );
-            }
-        }
-        return memoizedMap;
     }
 
     /**
@@ -113,11 +91,6 @@ public with sharing class FeatureFlagDataProvider {
         ) {
             return new Set<String>();
         }
-
-        system.debug(
-            '### perPermSetOverridesByFeatureFlag: ' +
-            perPermSetOverridesByFeatureFlag
-        );
 
         List<Feature_Flag_Enabled_For__mdt> permSetOverrides = (List<Feature_Flag_Enabled_For__mdt>) perPermSetOverridesByFeatureFlag.get(
             featureFlagName
@@ -209,5 +182,43 @@ public with sharing class FeatureFlagDataProvider {
         Map<String, FF_Enabled_For_Custom_Permission__mdt> perCustomPermissionOverrides
     ) {
         this.perCustomPermissionOverrides = perCustomPermissionOverrides;
+    }
+
+    /**
+     * @description          given an incoming map, create and return a new map
+     * where the keys are a from the correlation map and the values are
+     * the values of the incoming map. Uses a memoized map for building
+     * and is intended to be used with a memoization pattern.
+     * @param incomingMap    This is the map that will provide the values to 
+     * the resulting map.
+     * @param memoizedMap    This is the 'working' or memoized map that is 
+     * iteratively built and ultimately returned.    
+     * @param correlatingMap This map provides the keys for the returned map
+     * @param keyField       This is the field used to correlate the 
+     * incoming map with the corresponding correlation map
+     * @return               `Map<String, List<sObject>>`
+     */
+    private Map<String, List<sObject>> rekeyMapByFeatureFlagName(
+        Map<String, sObject> incomingMap,
+        Map<String, List<sObject>> memoizedMap,
+        Map<String, Feature_Flag__mdt> correlatingMap,
+        String keyField
+    ) {
+        memoizedMap = new Map<String, List<sObject>>();
+        for (sObject currentObject : incomingMap.values()) {
+            String correlationKey = correlatingMap.get(
+                    String.valueOf(currentObject.get(keyField))
+                )
+                ?.DeveloperName;
+            if (memoizedMap.containsKey(correlationKey)) {
+                memoizedMap.get(correlationKey).add(currentObject);
+            } else {
+                memoizedMap.put(
+                    correlationKey,
+                    new List<sObject>{ currentObject }
+                );
+            }
+        }
+        return memoizedMap;
     }
 }
