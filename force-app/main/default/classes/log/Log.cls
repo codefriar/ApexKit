@@ -51,7 +51,7 @@ public with sharing class Log {
      * @param messageToLog The string message to add to the buffer.
      * @param severity     LogSeverity enum
      */
-    public void add(String messageToLog, LogSeverity severity) {
+    public void add(String messageToLog, LoggingLevel severity) {
         LogMessage msg = new LogMessage(messageToLog);
         if (severity != null) {
             msg.severity = severity;
@@ -74,7 +74,7 @@ public with sharing class Log {
      * @param exceptionToLog Exception to format and log
      * @param severity       LogSeverity enum
      */
-    public void add(Exception exceptionToLog, LogSeverity severity) {
+    public void add(Exception exceptionToLog, LoggingLevel severity) {
         LogMessage msg = new LogMessage(exceptionToLog);
         if (severity != null) {
             msg.severity = severity;
@@ -118,7 +118,7 @@ public with sharing class Log {
             for (Log__e logEvent : logEvents) {
                 String headerFooter = '######### Logging from the Log Class #########';
                 System.debug(
-                    LoggingLevel.DEBUG,
+                    LoggingLevel.valueOf(logEvent.Severity__c),
                     headerFooter +
                     '\n' +
                     logEvent +
@@ -153,7 +153,7 @@ public with sharing class Log {
         this.publish();
     }
 
-    public void publish(LogSeverity severity, String messageToLog) {
+    public void publish(LoggingLevel severity, String messageToLog) {
         this.buffer.add(new LogMessage(severity, messageToLog));
     }
 }

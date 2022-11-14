@@ -268,7 +268,7 @@ public with sharing class OrgShape {
         } catch (System.QueryException qe) {
             Log.get()
                 .publish(
-                    LogSeverity.INFO,
+                    LoggingLevel.INFO,
                     'Caught QueryException Looking for Cache Partition. It is entirely plausible that this is intended behavior if you do not have Platform Cache Enabled. See OrgShape, line ~266'
                 );
         }

@@ -42,7 +42,7 @@ public with sharing class LogMessage {
     /**
      * @description Public severity property.
      */
-    public LogSeverity severity { get; set; }
+    public LoggingLevel severity { get; set; }
 
     /**
      * @description converts this object to an event for publishing
@@ -63,7 +63,7 @@ public with sharing class LogMessage {
      * @param message
      * @param severity
      */
-    public LogMessage(LogSeverity severity, String message) {
+    public LogMessage(LoggingLevel severity, String message) {
         this.message = message;
         this.severity = severity;
     }
@@ -74,7 +74,7 @@ public with sharing class LogMessage {
      * @param message
      */
     public LogMessage(String message) {
-        this(LogSeverity.Info, message);
+        this(LoggingLevel.Info, message);
     }
 
     /**
@@ -90,6 +90,6 @@ public with sharing class LogMessage {
                 ex.getStackTraceString()
             }
         );
-        this.severity = LogSeverity.ERROR;
+        this.severity = LoggingLevel.ERROR;
     }
 }

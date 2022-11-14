@@ -49,9 +49,9 @@ private class LogTests {
         Log logger = Log.get();
         Test.startTest();
         logger.add('testing add string method');
-        logger.add('Testing 123', LogSeverity.WARN);
+        logger.add('Testing 123', LoggingLevel.WARN);
         logger.add(new DMLException('hi from exception land'));
-        logger.add(new DMLException('meh'), LogSeverity.DEBUG);
+        logger.add(new DMLException('meh'), LoggingLevel.DEBUG);
         logger.publish();
         Test.stopTest();
         // Platform Events require this to push the event in a test env
