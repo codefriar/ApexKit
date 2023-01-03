@@ -107,13 +107,7 @@ public with sharing class Polyfills {
     }
 
     public static String generateStackTrace() {
-        String stackTrace = '';
-        try {
-            throw new GuaranteedNotToExistException();
-        } catch (GuaranteedNotToExistException theException) {
-            stackTrace = theException.getStackTraceString();
-        }
-        return stackTrace;
+        return new DmlException().getStackTraceString();
     }
 
     public static List<String> pluckFieldFromList(
