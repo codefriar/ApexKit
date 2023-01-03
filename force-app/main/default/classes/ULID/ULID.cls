@@ -57,7 +57,7 @@ public with sharing class ULID {
     // This is the number of digits to encode the timestamp into.
     private static final Long TIMELENGTH = 10;
     // This is the number of digits of random character to generate
-    private static final Long RANDOMLENGTH = 16;
+    private static final Integer RANDOMLENGTH = 16;
 
     /**
      * @description Generates a ULID string according to spec.
@@ -94,12 +94,12 @@ public with sharing class ULID {
      * @param length
      * @return  `String`
      */
-    private static String generateRandomString(Long length) {
-        String retString = '';
-        for (Long l = length; length > 0; length--) {
-            retString = fetchRandomCharacterFromCharacterSet() + retString;
+    private static String generateRandomString(Integer length) {
+        Integer[] retString = new List<Integer>(length);
+        for (Integer l = 0; l < length; l++) {
+            retString[l] = fetchRandomCharacterFromCharacterSet().charAt(0);
         }
-        return retString;
+        return String.fromCharArray(retString);
     }
 
     /**
