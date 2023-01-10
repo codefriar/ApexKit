@@ -1,5 +1,7 @@
 # Apex Kit
 
+> This readme covers things at a very high level. You can find more information about individual pieces, including design philosophy and code documentation in the wiki.
+
 ## What is Apex Kit?
 
 I'm a woodworker by hobby. One of the unique things about woodworking, is we often spend a lot of time making Jigs. Jigs are ... job helpers, designed to make a tricky cut repeatable and safe. Making a tapered table leg? There's a jig for that. Need to drill the same hole in the same spot in 12 pieces of wood? There's a jig for that. 
