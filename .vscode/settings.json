@@ -7,5 +7,9 @@
   "salesforcedx-vscode-core.show-cli-success-msg": false,
   "cSpell.words": [
     "guaranteednottoexist"
+  ],
+  "apexPMD.enableCache": true,
+  "apexPMD.rulesets": [
+    "ruleset.xml"
   ]
 }
