@@ -62,7 +62,7 @@
    <!-- TESTING -->
    <rule
 		ref="category/apex/bestpractices.xml/ApexUnitTestClassShouldHaveAsserts"
-		message="Apex unit test classes should have at least one System.assert() or assertEquals() or AssertNotEquals() call">
+		message="Apex unit test classes should have at least one Assert call">
 		<priority>3</priority>
 	</rule>
 
