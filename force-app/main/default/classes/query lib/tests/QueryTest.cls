@@ -202,10 +202,7 @@ public with sharing class QueryTest {
 
 			try {
 				fieldExpression.formatValue();
-				Assert.isTrue(
-					false,
-					'Expected exception: ' + expectedErrorMessage
-				);
+				Assert.fail();
 			} catch (Query.QueryException exc) {
 				Assert.areEqual(expectedErrorMessage, exc.getMessage());
 			}
@@ -890,7 +887,7 @@ public with sharing class QueryTest {
 			'Expected only one condition expression.'
 		);
 		Query.Expression expression = condition.expressions[0];
-		Assert.isTrue(expression instanceof Query.FieldExpression, expression);
+		System.assert(expression instanceof Query.FieldExpression, expression);
 
 		Query.FieldExpression fieldExpression = (Query.FieldExpression) expression;
 		Assert.areEqual(fieldName, fieldExpression.fieldName);
@@ -917,7 +914,7 @@ public with sharing class QueryTest {
 				'Expected only one condition expression.'
 			);
 			Query.Expression expression = condition.expressions[0];
-			Assert.isTrue(
+			System.assert(
 				expression instanceof Query.ConditionExpression,
 				expression
 			);
@@ -946,7 +943,7 @@ public with sharing class QueryTest {
 				'Expected only one condition expression.'
 			);
 			Query.Expression expression = condition.expressions[0];
-			Assert.isTrue(
+			System.assert(
 				expression instanceof Query.ConditionDenialExpression,
 				expression
 			);
@@ -1014,10 +1011,7 @@ public with sharing class QueryTest {
 
 			try {
 				condition.toConditionString();
-				Assert.isTrue(
-					false,
-					'Expected error message: ' + expectedErrorMessage
-				);
+				Assert.fail();
 			} catch (Query.QueryException exc) {
 				Assert.areEqual(expectedErrorMessage, exc.getMessage());
 			}
@@ -1618,7 +1612,7 @@ public with sharing class QueryTest {
 			);
 			Assert.areNotEqual(null, typeOf.elseFieldList);
 			Assert.areEqual(1, typeOf.elseFieldList.size());
-			Assert.isTrue(
+			System.assert(
 				typeOf.elseFieldList.contains(elseField),
 				typeOf.elseFieldList
 			);
