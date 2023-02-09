@@ -185,7 +185,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
 			String expectedAgregateFunctionFormat = 'AVG(' + fieldName + ')';
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -219,7 +219,7 @@ public with sharing class SOQLAgregateTest {
 				fieldName +
 				') ' +
 				alias;
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -248,7 +248,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
 			String expectedAgregateFunctionFormat = 'COUNT(' + fieldName + ')';
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -282,7 +282,7 @@ public with sharing class SOQLAgregateTest {
 				fieldName +
 				') ' +
 				alias;
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -314,7 +314,7 @@ public with sharing class SOQLAgregateTest {
 				'COUNT_DISTINCT(' +
 				fieldName +
 				')';
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -348,7 +348,7 @@ public with sharing class SOQLAgregateTest {
 				fieldName +
 				') ' +
 				alias;
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -377,7 +377,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
 			String expectedAgregateFunctionFormat = 'MIN(' + fieldName + ')';
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -411,7 +411,7 @@ public with sharing class SOQLAgregateTest {
 				fieldName +
 				') ' +
 				alias;
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -440,7 +440,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
 			String expectedAgregateFunctionFormat = 'MAX(' + fieldName + ')';
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -474,7 +474,7 @@ public with sharing class SOQLAgregateTest {
 				fieldName +
 				') ' +
 				alias;
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -503,7 +503,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
 			String expectedAgregateFunctionFormat = 'SUM(' + fieldName + ')';
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -537,7 +537,7 @@ public with sharing class SOQLAgregateTest {
 				fieldName +
 				') ' +
 				alias;
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
 				),
@@ -557,7 +557,7 @@ public with sharing class SOQLAgregateTest {
 			Query.Condition condition = new Query.Condition()
 				.equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
 
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.whereCondition.expressions.isEmpty()
 			);
 
@@ -591,12 +591,12 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByOptions.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.groupByOptions.contains(fieldName),
 				soqlAgregateBuilder.groupByOptions
 			);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
 				soqlAgregateBuilder.fieldsToSelect
 			);
@@ -620,16 +620,16 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByRollupOptions.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.groupByRollupOptions.contains(fieldName),
 				soqlAgregateBuilder.groupByRollupOptions
 			);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
 				soqlAgregateBuilder.fieldsToSelect
 			);
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					'GROUPING(' + fieldName + ')'
 				),
@@ -656,16 +656,16 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByRollupOptions.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.groupByRollupOptions.contains(fieldName),
 				soqlAgregateBuilder.groupByRollupOptions
 			);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
 				soqlAgregateBuilder.fieldsToSelect
 			);
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					'GROUPING(' + fieldName + ') ' + groupingAlias
 				),
@@ -691,16 +691,16 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByCubeOptions.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.groupByCubeOptions.contains(fieldName),
 				soqlAgregateBuilder.groupByCubeOptions
 			);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
 				soqlAgregateBuilder.fieldsToSelect
 			);
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					'GROUPING(' + fieldName + ')'
 				),
@@ -727,16 +727,16 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByCubeOptions.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.groupByCubeOptions.contains(fieldName),
 				soqlAgregateBuilder.groupByCubeOptions
 			);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
 				soqlAgregateBuilder.fieldsToSelect
 			);
-			Assert.isTrue(
+			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					'GROUPING(' + fieldName + ') ' + groupingAlias
 				),

@@ -202,7 +202,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.fieldsToSelect.contains(fieldName),
 				builder.fieldsToSelect
 			);
@@ -227,7 +227,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.fieldsToSelect.containsAll(fieldNames),
 				builder.fieldsToSelect
 			);
@@ -252,7 +252,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.fieldsToSelect.containsAll(fieldNames),
 				builder.fieldsToSelect
 			);
@@ -473,7 +473,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.statementFor.contains('REFERENCE'),
 				builder.statementFor
 			);
@@ -493,7 +493,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.statementFor.contains('UPDATE'),
 				builder.statementFor
 			);
@@ -513,7 +513,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.statementFor.contains('VIEW'),
 				builder.statementFor
 			);
@@ -533,7 +533,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.statementUpdate.contains('TRACKING'),
 				builder.statementUpdate
 			);
@@ -553,7 +553,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.statementUpdate.contains('VIEWSTAT'),
 				builder.statementUpdate
 			);

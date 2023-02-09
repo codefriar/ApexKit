@@ -202,7 +202,7 @@ public with sharing class SOSLTest {
 			Assert.areEqual(
 				1,
 				builder.dataCategorySpecs.size(),
-				builder.dataCategorySpecs
+				(builder.dataCategorySpecs).toString()
 			);
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
@@ -228,7 +228,7 @@ public with sharing class SOSLTest {
 			Assert.areEqual(
 				1,
 				builder.dataCategorySpecs.size(),
-				builder.dataCategorySpecs
+				(builder.dataCategorySpecs).toString()
 			);
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
@@ -254,7 +254,7 @@ public with sharing class SOSLTest {
 			Assert.areEqual(
 				1,
 				builder.dataCategorySpecs.size(),
-				builder.dataCategorySpecs
+				(builder.dataCategorySpecs).toString()
 			);
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
@@ -280,7 +280,7 @@ public with sharing class SOSLTest {
 			Assert.areEqual(
 				1,
 				builder.dataCategorySpecs.size(),
-				builder.dataCategorySpecs
+				(builder.dataCategorySpecs).toString()
 			);
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
@@ -301,7 +301,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(builder.withHighlight);
+			System.assert(builder.withHighlight);
 		}
 	}
 
@@ -335,7 +335,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.networkIds.containsAll(networkIds),
 				'Expected: ' + networkIds + ', Actual: ' + builder.networkIds
 			);
@@ -355,7 +355,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				builder.networkIds.containsAll(networkIds),
 				'Expected: ' + networkIds + ', Actual: ' + builder.networkIds
 			);
@@ -777,7 +777,7 @@ public with sharing class SOSLTest {
 
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
-			Assert.isTrue(
+			System.assert(
 				expression instanceof Query.PhraseExpression,
 				expression
 			);
@@ -804,7 +804,7 @@ public with sharing class SOSLTest {
 
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
-			Assert.isTrue(
+			System.assert(
 				expression instanceof Query.SearchExpression,
 				expression
 			);
@@ -831,7 +831,7 @@ public with sharing class SOSLTest {
 
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
-			Assert.isTrue(
+			System.assert(
 				expression instanceof Query.DenialSearchExpression,
 				expression
 			);
@@ -878,7 +878,7 @@ public with sharing class SOSLTest {
 
 			try {
 				searchCondition.toConditionString();
-				Assert.isTrue(
+				System.assert(
 					false,
 					'Expected exception: ' + expectedErrorMessage
 				);
@@ -1025,7 +1025,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				returningFieldSpec.fieldsToSelect.containsAll(fieldApiNames),
 				'Expected: ' +
 					fieldApiNames +
@@ -1054,7 +1054,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.isTrue(
+			System.assert(
 				returningFieldSpec.fieldsToSelect.containsAll(fieldApiNames),
 				'Expected: ' +
 					fieldApiNames +
@@ -1080,7 +1080,7 @@ public with sharing class SOSLTest {
 	//         Test.stopTest();
 
 	//         for (Schema.FieldSetMember field: fieldSet.getFields()) {
-	//             Assert.isTrue(returningFieldSpec.fieldsToSelect.contains(field.getFieldPath()), returningFieldSpec.fieldsToSelect);
+	//             System.assert(returningFieldSpec.fieldsToSelect.contains(field.getFieldPath()), returningFieldSpec.fieldsToSelect);
 	//         }
 	//     }
 	// }
@@ -1114,7 +1114,7 @@ public with sharing class SOSLTest {
 			Query.Condition condition = new Query.Condition()
 				.equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
 
-			Assert.isTrue(
+			System.assert(
 				returningFieldSpec.whereCondition.expressions.isEmpty()
 			);
 
