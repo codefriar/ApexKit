@@ -108,9 +108,12 @@ class FeatureFlagTests {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
 
-		insert new PermissionSetAssignment(
-			PermissionSetId = permSetId,
-			AssigneeId = UserInfo.getUserId()
+		Database.insert(
+			new PermissionSetAssignment(
+				PermissionSetId = permSetId,
+				AssigneeId = UserInfo.getUserId()
+			),
+			false
 		);
 
 		dataProvider.overrideFlags(
@@ -134,9 +137,12 @@ class FeatureFlagTests {
 	private static void testFetchUsersAssignedPermissionSetsPositive() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
-		insert new PermissionSetAssignment(
-			PermissionSetId = permSetId,
-			AssigneeId = UserInfo.getUserId()
+		Database.insert(
+			new PermissionSetAssignment(
+				PermissionSetId = permSetId,
+				AssigneeId = UserInfo.getUserId()
+			),
+			false
 		);
 		Test.startTest();
 		List<Id> result = dataProvider.fetchUsersAssignedPermissionSets();
