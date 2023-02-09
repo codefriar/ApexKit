@@ -1,4 +1,4 @@
 public enum FLSType {
-    ACCESSIBLE,
-    UPDATABLE
+	ACCESSIBLE,
+	UPDATABLE
 }

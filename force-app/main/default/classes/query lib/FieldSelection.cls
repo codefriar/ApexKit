@@ -1,5 +1,5 @@
 public enum FieldSelection {
-    ALL,
-    STANDARD,
-    CUSTOM
+	ALL,
+	STANDARD,
+	CUSTOM
 }

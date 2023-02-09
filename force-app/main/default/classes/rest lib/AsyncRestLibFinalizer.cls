@@ -1,9 +1,9 @@
 public with sharing abstract class AsyncRestLibFinalizer implements Finalizer {
-    public HttpResponse response;
+	public HttpResponse response;
 
-    abstract void execute(HttpResponse response);
+	abstract void execute(HttpResponse response);
 
-    private void execute(finalizerContext fc) {
-        this.execute(this.response);
-    }
+	private void execute(finalizerContext fc) {
+		this.execute(this.response);
+	}
 }
