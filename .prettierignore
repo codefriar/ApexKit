@@ -5,6 +5,12 @@
 **/staticresources/**
 .localdevserver
 .sfdx
+.sf
 .vscode
 
 coverage/
+
+# ApexDox
+
+docs/assets/*.js
+doc-assets/*.js
