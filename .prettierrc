@@ -2,19 +2,23 @@
 	"apexInsertFinalNewline": false,
 	"bracketSameLine": true,
 	"singleAttributePerLine": false,
-  "bracketSpacing": true,
-  "singleQuote": true,
-  "tabWidth": 4,
-  "trailingComma": "none",
-  "useTabs": true,
-  "overrides": [
-    {
-      "files": "**/lwc/**/*.html",
-      "options": { "parser": "lwc" }
-    },
-    {
-      "files": "*.{cmp,page,component}",
-      "options": { "parser": "html" }
-    }
-  ]
+	"bracketSpacing": true,
+	"singleQuote": true,
+	"tabWidth": 4,
+	"trailingComma": "none",
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": "**/lwc/**/*.html",
+			"options": { "parser": "lwc" }
+		},
+		{
+			"files": "*.{cmp,page,component}",
+			"options": { "parser": "html" }
+		},
+		{
+			"files": "*.{yml,yaml}",
+			"options": { "tabWidth": 2, "useTabs": false }
+		}
+	]
 }
