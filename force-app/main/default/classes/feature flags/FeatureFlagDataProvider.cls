@@ -81,8 +81,8 @@ public with sharing class FeatureFlagDataProvider {
 	/**
 	 * @description Returns set of ids corresponding to permission set ids
 	 * that provide feature enablement for the indicated feature flag
-	 * @param flagName Name of the feature flag to calculate Perm Set Ids
-	 * @return Set<Id> of permission set ids
+	 * @param featureFlagName Name of the feature flag to calculate Perm Set Ids
+	 * @return `Set<Id>` of permission set ids
 	 */
 	public Set<String> enablingPermissionSets(String featureFlagName) {
 		if (
@@ -105,9 +105,9 @@ public with sharing class FeatureFlagDataProvider {
 	/**
 	 * @description Returns set of Strings representing custom permission
 	 * names that provide feature enablement for the indicated feature flag
-	 * @param flagName Name of the feature flag to calculate custom permission
+	 * @param featureFlagName Name of the feature flag to calculate custom permission
 	 * names
-	 * @return Set<String> of custom permission names
+	 * @return `Set<String>` of custom permission names
 	 */
 	public Set<String> enablingCustomPermissions(String featureFlagName) {
 		if (
