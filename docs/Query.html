@@ -1,0 +1,3844 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ApexKit Documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ApexKit Documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ApexKit"
+						>ApexKit</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="ULID"
+								id="item-ULID"
+								class="nav-item class public"
+								onclick="goToLocation('ULID.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULID</a
+								>
+							</li>
+							<li
+								title="ULIDTests"
+								id="item-ULIDTests"
+								class="nav-item class private"
+								onclick="goToLocation('ULIDTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULIDTests</a
+								>
+							</li>
+							<li
+								title="FF"
+								id="item-FF"
+								class="nav-item class public"
+								onclick="goToLocation('FF.html');">
+								<a tabindex="1" href="javascript:void(0)">FF</a>
+							</li>
+							<li
+								title="FeatureFlag"
+								id="item-FeatureFlag"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlag.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlag</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProvider"
+								id="item-FeatureFlagDataProvider"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagDataProvider.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProvider</a
+								>
+							</li>
+							<li
+								title="FeatureFlagCommonTests"
+								id="item-FeatureFlagCommonTests"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagCommonTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagCommonTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProviderTests"
+								id="item-FeatureFlagDataProviderTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagDataProviderTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProviderTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagTests"
+								id="item-FeatureFlagTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagTests</a
+								>
+							</li>
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Log</a
+								>
+							</li>
+							<li
+								title="LogException"
+								id="item-LogException"
+								class="nav-item class public"
+								onclick="goToLocation('LogException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogException</a
+								>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogMessage</a
+								>
+							</li>
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTriggerHandler</a
+								>
+							</li>
+							<li
+								title="LogTests"
+								id="item-LogTests"
+								class="nav-item class private"
+								onclick="goToLocation('LogTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTests</a
+								>
+							</li>
+							<li
+								title="CachePartitionType"
+								id="item-CachePartitionType"
+								class="nav-item class public"
+								onclick="goToLocation('CachePartitionType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CachePartitionType</a
+								>
+							</li>
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShape</a
+								>
+							</li>
+							<li
+								title="OrgShapeTests"
+								id="item-OrgShapeTests"
+								class="nav-item class private"
+								onclick="goToLocation('OrgShapeTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShapeTests</a
+								>
+							</li>
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Ouroboros</a
+								>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosFinalizer</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosTests</a
+								>
+							</li>
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Polyfills</a
+								>
+							</li>
+							<li
+								title="PolyfillsTests"
+								id="item-PolyfillsTests"
+								class="nav-item class private"
+								onclick="goToLocation('PolyfillsTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>PolyfillsTests</a
+								>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestPolyfills</a
+								>
+							</li>
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Chain</a
+								>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Promise</a
+								>
+							</li>
+							<li
+								title="FieldSelection"
+								id="item-FieldSelection"
+								class="nav-item class public"
+								onclick="goToLocation('FieldSelection.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FieldSelection</a
+								>
+							</li>
+							<li
+								title="Query"
+								id="item-Query"
+								class="nav-item class public"
+								onclick="goToLocation('Query.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Query</a
+								>
+							</li>
+							<li
+								title="SOQL"
+								id="item-SOQL"
+								class="nav-item class public"
+								onclick="goToLocation('SOQL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQL</a
+								>
+							</li>
+							<li
+								title="SOQLAgregate"
+								id="item-SOQLAgregate"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregate.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregate</a
+								>
+							</li>
+							<li
+								title="SOSL"
+								id="item-SOSL"
+								class="nav-item class public"
+								onclick="goToLocation('SOSL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSL</a
+								>
+							</li>
+							<li
+								title="QueryTest"
+								id="item-QueryTest"
+								class="nav-item class public"
+								onclick="goToLocation('QueryTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueryTest</a
+								>
+							</li>
+							<li
+								title="SOQLAgregateTest"
+								id="item-SOQLAgregateTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregateTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregateTest</a
+								>
+							</li>
+							<li
+								title="SOQLTest"
+								id="item-SOQLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLTest</a
+								>
+							</li>
+							<li
+								title="SOSLTest"
+								id="item-SOSLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOSLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSLTest</a
+								>
+							</li>
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuard</a
+								>
+							</li>
+							<li
+								title="QuiddityGuardTests"
+								id="item-QuiddityGuardTests"
+								class="nav-item class private"
+								onclick="goToLocation('QuiddityGuardTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuardTests</a
+								>
+							</li>
+							<li
+								title="AsyncRestClient"
+								id="item-AsyncRestClient"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestClient</a
+								>
+							</li>
+							<li
+								title="AsyncRestLibFinalizer"
+								id="item-AsyncRestLibFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestLibFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestLibFinalizer</a
+								>
+							</li>
+							<li
+								title="HttpVerb"
+								id="item-HttpVerb"
+								class="nav-item class public"
+								onclick="goToLocation('HttpVerb.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpVerb</a
+								>
+							</li>
+							<li
+								title="RestClient"
+								id="item-RestClient"
+								class="nav-item class public"
+								onclick="goToLocation('RestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClient</a
+								>
+							</li>
+							<li
+								title="RestClientLib"
+								id="item-RestClientLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestClientLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClientLib</a
+								>
+							</li>
+							<li
+								title="RestLib"
+								id="item-RestLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLib</a
+								>
+							</li>
+							<li
+								title="RestLibApiCall"
+								id="item-RestLibApiCall"
+								class="nav-item class public"
+								onclick="goToLocation('RestLibApiCall.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibApiCall</a
+								>
+							</li>
+							<li
+								title="RestLibTests"
+								id="item-RestLibTests"
+								class="nav-item class private"
+								onclick="goToLocation('RestLibTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibTests</a
+								>
+							</li>
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUser</a
+								>
+							</li>
+							<li
+								title="CrudType"
+								id="item-CrudType"
+								class="nav-item class public"
+								onclick="goToLocation('CrudType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CrudType</a
+								>
+							</li>
+							<li
+								title="FLSType"
+								id="item-FLSType"
+								class="nav-item class public"
+								onclick="goToLocation('FLSType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FLSType</a
+								>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Safely</a
+								>
+							</li>
+							<li
+								title="CanTheUserTests"
+								id="item-CanTheUserTests"
+								class="nav-item class private"
+								onclick="goToLocation('CanTheUserTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUserTests</a
+								>
+							</li>
+							<li
+								title="SafelyTests"
+								id="item-SafelyTests"
+								class="nav-item class private"
+								onclick="goToLocation('SafelyTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SafelyTests</a
+								>
+							</li>
+							<li
+								title="HttpCalloutMockFactory"
+								id="item-HttpCalloutMockFactory"
+								class="nav-item class public"
+								onclick="goToLocation('HttpCalloutMockFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MethodSignature</a
+								>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MockedMethod</a
+								>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Stub</a
+								>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>StubUtilities</a
+								>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestFactory</a
+								>
+							</li>
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerContext</a
+								>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFramework</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SampleHandler</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-webservice"
+						onclick="toggleScope('webservice', this.checked);" />
+					<label for="cbx-webservice"> webService </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="Query">
+							<span>Query</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								MIT License Copyright (c) 2020 Rafał Kopaczewski
+								Permission is hereby granted, free of charge, to
+								any person obtaining a copy of this software and
+								associated documentation files (the
+								&quot;Software&quot;), to deal in the Software
+								without restriction, including without
+								limitation the rights to use, copy, modify,
+								merge, publish, distribute, sublicense, and/or
+								sell copies of the Software, and to permit
+								persons to whom the Software is furnished to do
+								so, subject to the following conditions: The
+								above copyright notice and this permission
+								notice shall be included in all copies or
+								substantial portions of the Software. THE
+								SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT
+								WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+								INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+								MERCHANTABILITY, FITNESS FOR A PARTICULAR
+								PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+								THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+								ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+								IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+								ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+								SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+								SOFTWARE.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class Query
+							</div>
+						</div>
+						<div class="subsection enums">
+							<h3 class="subsection-title enums">Enums</h3>
+							<table class="attributes-table enums">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Values</th>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<span>LogicalOperator</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum LogicalOperator
+										</div>
+									</td>
+									<td class="enum-values">
+										AND_VALUE,&nbsp;OR_VALUE
+									</td>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<span>Scope</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum Scope
+										</div>
+									</td>
+									<td class="enum-values">
+										Delegated,&nbsp;Everything,&nbsp;Mine,&nbsp;MyTeamTerritory,&nbsp;MyTerritory,&nbsp;Queue,&nbsp;Team
+									</td>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<span>SearchGroup</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum SearchGroup
+										</div>
+									</td>
+									<td class="enum-values">
+										ALL,&nbsp;EMAIL,&nbsp;NAME,&nbsp;PHONE,&nbsp;SIDEBAR
+									</td>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<span>SortDirection</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum SortDirection
+										</div>
+									</td>
+									<td class="enum-values">
+										ASCENDING,&nbsp;DESCENDING
+									</td>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<span>SortNullRecords</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum SortNullRecords
+										</div>
+									</td>
+									<td class="enum-values">
+										FIRST,&nbsp;LAST
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.convertToStringList">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.convertToStringList_1">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.convertToStringList_2">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.convertToStringList_3">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.convertToStringList_4">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.convertToStringList_5">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.toExpressionString">
+											toExpressionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.toExpressionString_1">
+											toExpressionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.toString">
+											toString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.toString_1">
+											toString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.toString_2">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.convertToStringList">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Id&gt;
+										values)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.convertToStringList_1">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Integer&gt;
+										values)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.convertToStringList_2">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Long&gt;
+										values)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.convertToStringList_3">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Decimal&gt;
+										values)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.convertToStringList_4">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Double&gt;
+										values)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.convertToStringList_5">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(Set&lt;Set&lt;String&gt;&gt;
+										values)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.toExpressionString">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toExpressionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.toExpressionString_1">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toExpressionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.toString_1">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.toString_2">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.Condition">
+							<span>Query.Condition</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class Condition
+							</div>
+						</div>
+						<div class="subsection properties Query_Condition">
+							<h3 class="subsection-title properties">
+								Query.Condition Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>expressions</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;Expression&gt;
+											expressions
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>logicalOperator</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private LogicalOperator
+											logicalOperator
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.Condition Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.Condition">
+											Condition ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.Condition_1">
+											Condition (logicalOperator)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.Condition">
+										<span>Condition()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.Condition_1">
+										<span>Condition(logicalOperator)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition(LogicalOperator
+										logicalOperator)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.Condition Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.convertToStringList">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.equals">
+											equals (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.excludes">
+											excludes (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.excludes_1">
+											excludes (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.greaterOrEqual">
+											greaterOrEqual (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.greaterThan">
+											greaterThan (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.includes">
+											includes (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.includes_1">
+											includes (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.isIn">
+											isIn (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.isLike">
+											isLike (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.isNotIn">
+											isNotIn (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.lessOrEqual">
+											lessOrEqual (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.lessThan">
+											lessThan (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.negateSubcondition">
+											negateSubcondition (condition)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.notEquals">
+											notEquals (fieldName, value)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.subcondition">
+											subcondition (condition)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.toConditionString">
+											toConditionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Condition.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.Condition.convertToStringList">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Datetime&gt;
+										values)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.equals">
+										<span>equals(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition equals(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.excludes">
+										<span>excludes(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition excludes(String
+										fieldName, Set&lt;Set&lt;String&gt;&gt;
+										value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.excludes_1">
+										<span>excludes(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition excludes(String
+										fieldName, Set&lt;String&gt; value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.greaterOrEqual">
+										<span
+											>greaterOrEqual(fieldName,
+											value)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition greaterOrEqual(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.greaterThan">
+										<span
+											>greaterThan(fieldName, value)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition greaterThan(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.includes">
+										<span>includes(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition includes(String
+										fieldName, Set&lt;Set&lt;String&gt;&gt;
+										value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.includes_1">
+										<span>includes(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition includes(String
+										fieldName, Set&lt;String&gt; value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.isIn">
+										<span>isIn(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition isIn(String fieldName,
+										Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.isLike">
+										<span>isLike(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition isLike(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.isNotIn">
+										<span>isNotIn(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition isNotIn(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.lessOrEqual">
+										<span
+											>lessOrEqual(fieldName, value)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition lessOrEqual(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.lessThan">
+										<span>lessThan(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition lessThan(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.negateSubcondition">
+										<span
+											>negateSubcondition(condition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition
+										negateSubcondition(Condition condition)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.notEquals">
+										<span>notEquals(fieldName, value)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition notEquals(String
+										fieldName, Object value)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.subcondition">
+										<span>subcondition(condition)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Condition subcondition(Condition
+										condition)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.toConditionString">
+										<span>toConditionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toConditionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.Condition.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2
+							class="class-title"
+							id="Query.ConditionDenialExpression">
+							<span>Query.ConditionDenialExpression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class ConditionDenialExpression
+								implements Expression
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_ConditionDenialExpression">
+							<h3 class="subsection-title properties">
+								Query.ConditionDenialExpression Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>condition</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Condition condition
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.ConditionDenialExpression Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ConditionDenialExpression.ConditionDenialExpression">
+											ConditionDenialExpression
+											(condition)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ConditionDenialExpression.ConditionDenialExpression">
+										<span
+											>ConditionDenialExpression(condition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private
+										ConditionDenialExpression(Condition
+										condition)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.ConditionExpression">
+							<span>Query.ConditionExpression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class ConditionExpression implements
+								Expression
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_ConditionExpression">
+							<h3 class="subsection-title properties">
+								Query.ConditionExpression Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>condition</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Condition condition
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.ConditionExpression Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ConditionExpression.ConditionExpression">
+											ConditionExpression (condition)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ConditionExpression.ConditionExpression">
+										<span
+											>ConditionExpression(condition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private ConditionExpression(Condition
+										condition)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.DateLiteral">
+							<span>Query.DateLiteral</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class DateLiteral
+							</div>
+						</div>
+						<div class="subsection properties Query_DateLiteral">
+							<h3 class="subsection-title properties">
+								Query.DateLiteral Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>dateLiteralName</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String dateLiteralName
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>numberOfUnits</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Integer numberOfUnits
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.DateLiteral Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DateLiteral.DateLiteral">
+											DateLiteral (dateLiteralName)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DateLiteral.DateLiteral_1">
+											DateLiteral (dateLiteralName,
+											numberOfUnits)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.DateLiteral.DateLiteral">
+										<span
+											>DateLiteral(dateLiteralName)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public DateLiteral(String
+										dateLiteralName)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.DateLiteral.DateLiteral_1">
+										<span
+											>DateLiteral(dateLiteralName,
+											numberOfUnits)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public DateLiteral(String
+										dateLiteralName, Integer numberOfUnits)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.DateLiteral Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DateLiteral.convertToStringList">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DateLiteral.toDateLiteralString">
+											toDateLiteralString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DateLiteral.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.DateLiteral.convertToStringList">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;Date&gt;
+										values)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.DateLiteral.toDateLiteralString">
+										<span>toDateLiteralString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										public String toDateLiteralString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.DateLiteral.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2
+							class="class-title"
+							id="Query.DenialSearchExpression">
+							<span>Query.DenialSearchExpression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class DenialSearchExpression implements
+								Expression
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_DenialSearchExpression">
+							<h3 class="subsection-title properties">
+								Query.DenialSearchExpression Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>searchCondition</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private SearchCondition
+											searchCondition
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.DenialSearchExpression Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DenialSearchExpression.DenialSearchExpression">
+											DenialSearchExpression
+											(searchCondition)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.DenialSearchExpression.DenialSearchExpression">
+										<span
+											>DenialSearchExpression(searchCondition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private
+										DenialSearchExpression(SearchCondition
+										searchCondition)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.DenialSearchExpression Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DenialSearchExpression.toExpressionString">
+											toExpressionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.DenialSearchExpression.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.DenialSearchExpression.toExpressionString">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toExpressionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.DenialSearchExpression.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.Expression">
+							<span>Query.Expression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private interface Expression
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.Expression Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.Expression.toExpressionString">
+											toExpressionString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.Expression.toExpressionString">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										String toExpressionString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.FieldExpression">
+							<span>Query.FieldExpression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class FieldExpression implements
+								Expression
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_FieldExpression">
+							<h3 class="subsection-title properties">
+								Query.FieldExpression Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>comparisonOperator</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String comparisonOperator
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>fieldName</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String fieldName
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>value</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Object value
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.FieldExpression Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.FieldExpression.FieldExpression">
+											FieldExpression (fieldName,
+											comparisonOperator, value)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.FieldExpression.FieldExpression">
+										<span
+											>FieldExpression(fieldName,
+											comparisonOperator, value)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private FieldExpression( String
+										fieldName, String comparisonOperator,
+										Object value )
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.PhraseExpression">
+							<span>Query.PhraseExpression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class PhraseExpression implements
+								Expression
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_PhraseExpression">
+							<h3 class="subsection-title properties">
+								Query.PhraseExpression Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>searchPhrase</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String searchPhrase
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.PhraseExpression Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.PhraseExpression.PhraseExpression">
+											PhraseExpression (searchPhrase)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.PhraseExpression.PhraseExpression">
+										<span
+											>PhraseExpression(searchPhrase)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private PhraseExpression(String
+										searchPhrase)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.PhraseExpression Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.PhraseExpression.toExpressionString">
+											toExpressionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.PhraseExpression.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.PhraseExpression.toExpressionString">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toExpressionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.PhraseExpression.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.QueryException">
+							<span>Query.QueryException</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class QueryException extends Exception
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.ReturningFieldSpec">
+							<span>Query.ReturningFieldSpec</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class ReturningFieldSpec
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_ReturningFieldSpec">
+							<h3 class="subsection-title properties">
+								Query.ReturningFieldSpec Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>fieldsToSelect</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Set&lt;String&gt;
+											fieldsToSelect
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>listViewName</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String listViewName
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>numberOfRows</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Integer numberOfRows
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>objectTypeName</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String objectTypeName
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>offset</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Integer offset
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>sortOrders</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;SortOrder&gt;
+											sortOrders
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>whereCondition</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Condition whereCondition
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.ReturningFieldSpec Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.ReturningFieldSpec">
+											ReturningFieldSpec (sobjectType)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.ReturningFieldSpec_1">
+											ReturningFieldSpec (objectTypeName)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.ReturningFieldSpec">
+										<span
+											>ReturningFieldSpec(sobjectType)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec(SobjectType
+										sobjectType)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.ReturningFieldSpec_1">
+										<span
+											>ReturningFieldSpec(objectTypeName)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec(String
+										objectTypeName)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.ReturningFieldSpec Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.addFieldListStatement">
+											addFieldListStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.addLimitStatement">
+											addLimitStatement (queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.addOffsetStatement">
+											addOffsetStatement (queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.addOrderByStatement">
+											addOrderByStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.addUsingListViewStatement">
+											addUsingListViewStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.addWhereStatement">
+											addWhereStatement (queryStatements)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.offset">
+											offset (offset)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.orderBy">
+											orderBy (sortOrder)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.scopeLimit">
+											scopeLimit (numberOfRows)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.selectField">
+											selectField (fieldApiName)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.selectFields">
+											selectFields (fieldApiNames)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.selectFields_1">
+											selectFields (fieldApiNames)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.selectFields_2">
+											selectFields (fieldSet)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.toReturningFieldSpecString">
+											toReturningFieldSpecString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.toString">
+											toString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.usingListView">
+											usingListView (listViewName)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ReturningFieldSpec.whereCondition">
+											whereCondition (condition)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.addFieldListStatement">
+										<span
+											>addFieldListStatement(queryStatements)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addFieldListStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.addLimitStatement">
+										<span
+											>addLimitStatement(queryStatements)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addLimitStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.addOffsetStatement">
+										<span
+											>addOffsetStatement(queryStatements)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addOffsetStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.addOrderByStatement">
+										<span
+											>addOrderByStatement(queryStatements)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addOrderByStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.addUsingListViewStatement">
+										<span
+											>addUsingListViewStatement(queryStatements)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addUsingListViewStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.addWhereStatement">
+										<span
+											>addWhereStatement(queryStatements)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addWhereStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.offset">
+										<span>offset(offset)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec offset(Integer
+										offset)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.orderBy">
+										<span>orderBy(sortOrder)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										orderBy(SortOrder sortOrder)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.scopeLimit">
+										<span>scopeLimit(numberOfRows)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										scopeLimit(Integer numberOfRows)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.selectField">
+										<span>selectField(fieldApiName)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										selectField(String fieldApiName)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.selectFields">
+										<span>selectFields(fieldApiNames)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										selectFields(List&lt;String&gt;
+										fieldApiNames)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.selectFields_1">
+										<span>selectFields(fieldApiNames)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										selectFields(Set&lt;String&gt;
+										fieldApiNames)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.selectFields_2">
+										<span>selectFields(fieldSet)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										selectFields(Schema.FieldSet fieldSet)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.toReturningFieldSpecString">
+										<span
+											>toReturningFieldSpecString()</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String
+										toReturningFieldSpecString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.usingListView">
+										<span>usingListView(listViewName)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										usingListView(String listViewName)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ReturningFieldSpec.whereCondition">
+										<span>whereCondition(condition)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ReturningFieldSpec
+										whereCondition(Condition condition)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.ScriptVariable">
+							<span>Query.ScriptVariable</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class ScriptVariable
+							</div>
+						</div>
+						<div class="subsection properties Query_ScriptVariable">
+							<h3 class="subsection-title properties">
+								Query.ScriptVariable Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>variableName</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String variableName
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.ScriptVariable Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ScriptVariable.ScriptVariable">
+											ScriptVariable (variableName)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ScriptVariable.ScriptVariable">
+										<span
+											>ScriptVariable(variableName)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public ScriptVariable(String
+										variableName)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.ScriptVariable Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ScriptVariable.formatValue">
+											formatValue ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ScriptVariable.toScriptVariableString">
+											toScriptVariableString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.ScriptVariable.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.ScriptVariable.formatValue">
+										<span>formatValue()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private String formatValue()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ScriptVariable.toScriptVariableString">
+										<span>toScriptVariableString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										public String toScriptVariableString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.ScriptVariable.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.SearchCondition">
+							<span>Query.SearchCondition</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class SearchCondition
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_SearchCondition">
+							<h3 class="subsection-title properties">
+								Query.SearchCondition Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>logicalOperator</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private LogicalOperator
+											logicalOperator
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>searchExpressions</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;Expression&gt;
+											searchExpressions
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.SearchCondition Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.SearchCondition">
+											SearchCondition ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.SearchCondition_1">
+											SearchCondition (logicalOperator)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.SearchCondition">
+										<span>SearchCondition()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SearchCondition()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.SearchCondition_1">
+										<span
+											>SearchCondition(logicalOperator)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SearchCondition(LogicalOperator
+										logicalOperator)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.SearchCondition Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.find">
+											find (searchPhrase)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.negateSubSearchCondition">
+											negateSubSearchCondition
+											(searchCondition)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.subSearchCondition">
+											subSearchCondition (searchCondition)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.toConditionString">
+											toConditionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchCondition.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.find">
+										<span>find(searchPhrase)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SearchCondition find(String
+										searchPhrase)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.negateSubSearchCondition">
+										<span
+											>negateSubSearchCondition(searchCondition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SearchCondition
+										negateSubSearchCondition(
+										SearchCondition searchCondition )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.subSearchCondition">
+										<span
+											>subSearchCondition(searchCondition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SearchCondition
+										subSearchCondition( SearchCondition
+										searchCondition )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.toConditionString">
+										<span>toConditionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toConditionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchCondition.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.SearchExpression">
+							<span>Query.SearchExpression</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class SearchExpression implements
+								Expression
+							</div>
+						</div>
+						<div
+							class="subsection properties Query_SearchExpression">
+							<h3 class="subsection-title properties">
+								Query.SearchExpression Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>searchCondition</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private SearchCondition
+											searchCondition
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.SearchExpression Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchExpression.SearchExpression">
+											SearchExpression (searchCondition)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.SearchExpression.SearchExpression">
+										<span
+											>SearchExpression(searchCondition)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private SearchExpression(SearchCondition
+										searchCondition)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.SearchExpression Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchExpression.toExpressionString">
+											toExpressionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SearchExpression.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchExpression.toExpressionString">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toExpressionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SearchExpression.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.SortOrder">
+							<span>Query.SortOrder</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class SortOrder
+							</div>
+						</div>
+						<div class="subsection properties Query_SortOrder">
+							<h3 class="subsection-title properties">
+								Query.SortOrder Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>direction</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private SortDirection direction
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>fieldname</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String fieldname
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>nullRecords</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private SortNullRecords nullRecords
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.SortOrder Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SortOrder.SortOrder">
+											SortOrder (fieldName)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SortOrder.SortOrder_1">
+											SortOrder (fieldName, direction)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SortOrder.SortOrder_2">
+											SortOrder (fieldName, direction,
+											nullRecords)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SortOrder.SortOrder">
+										<span>SortOrder(fieldName)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SortOrder(String fieldName)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SortOrder.SortOrder_1">
+										<span
+											>SortOrder(fieldName,
+											direction)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SortOrder(String fieldName,
+										SortDirection direction)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SortOrder.SortOrder_2">
+										<span
+											>SortOrder(fieldName, direction,
+											nullRecords)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SortOrder( String fieldName,
+										SortDirection direction, SortNullRecords
+										nullRecords )
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.SortOrder Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SortOrder.convertToStringList">
+											convertToStringList (values)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SortOrder.toSortOrderString">
+											toSortOrderString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.SortOrder.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="Query.SortOrder.convertToStringList">
+										<span>convertToStringList(values)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private List&lt;String&gt;
+										convertToStringList(List&lt;String&gt;
+										values)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SortOrder.toSortOrderString">
+										<span>toSortOrderString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toSortOrderString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.SortOrder.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Query.TypeOf">
+							<span>Query.TypeOf</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class TypeOf
+							</div>
+						</div>
+						<div class="subsection properties Query_TypeOf">
+							<h3 class="subsection-title properties">
+								Query.TypeOf Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>elseFieldList</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Set&lt;String&gt;
+											elseFieldList
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>polymorphicReference</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String polymorphicReference
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>sobjectType2FieldList</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Map&lt;String,
+											Set&lt;String&gt;&gt;
+											sobjectType2FieldList
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.TypeOf Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.TypeOf">
+											TypeOf (polymorphicReference)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.TypeOf">
+										<span
+											>TypeOf(polymorphicReference)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public TypeOf(String
+										polymorphicReference)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Query.TypeOf Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.elseFieldList">
+											elseFieldList (elseFieldList)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.elseFieldList_1">
+											elseFieldList (elseFieldList)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.elseFieldList_2">
+											elseFieldList (elseField)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.toExpressionString">
+											toExpressionString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.toString">
+											toString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.toTypeOfString">
+											toTypeOfString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.whenSObjectType">
+											whenSObjectType (sobjectType,
+											whenFieldList)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Query.TypeOf.whenSObjectType_1">
+											whenSObjectType (sobjectType,
+											whenFieldList)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.elseFieldList">
+										<span
+											>elseFieldList(elseFieldList)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public TypeOf
+										elseFieldList(Set&lt;String&gt;
+										elseFieldList)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.elseFieldList_1">
+										<span
+											>elseFieldList(elseFieldList)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public TypeOf
+										elseFieldList(List&lt;String&gt;
+										elseFieldList)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.elseFieldList_2">
+										<span>elseFieldList(elseField)</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public TypeOf elseFieldList(String
+										elseField)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.toExpressionString">
+										<span>toExpressionString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toExpressionString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.toString">
+										<span>toString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.toTypeOfString">
+										<span>toTypeOfString()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toTypeOfString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.whenSObjectType">
+										<span
+											>whenSObjectType(sobjectType,
+											whenFieldList)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public TypeOf whenSObjectType( String
+										sobjectType, Set&lt;String&gt;
+										whenFieldList )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Query.TypeOf.whenSObjectType_1">
+										<span
+											>whenSObjectType(sobjectType,
+											whenFieldList)</span
+										>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public TypeOf whenSObjectType( String
+										sobjectType, List&lt;String&gt;
+										whenFieldList )
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

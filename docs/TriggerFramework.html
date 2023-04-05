@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ApexKit Documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ApexKit Documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ApexKit"
+						>ApexKit</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="ULID"
+								id="item-ULID"
+								class="nav-item class public"
+								onclick="goToLocation('ULID.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULID</a
+								>
+							</li>
+							<li
+								title="ULIDTests"
+								id="item-ULIDTests"
+								class="nav-item class private"
+								onclick="goToLocation('ULIDTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULIDTests</a
+								>
+							</li>
+							<li
+								title="FF"
+								id="item-FF"
+								class="nav-item class public"
+								onclick="goToLocation('FF.html');">
+								<a tabindex="1" href="javascript:void(0)">FF</a>
+							</li>
+							<li
+								title="FeatureFlag"
+								id="item-FeatureFlag"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlag.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlag</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProvider"
+								id="item-FeatureFlagDataProvider"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagDataProvider.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProvider</a
+								>
+							</li>
+							<li
+								title="FeatureFlagCommonTests"
+								id="item-FeatureFlagCommonTests"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagCommonTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagCommonTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProviderTests"
+								id="item-FeatureFlagDataProviderTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagDataProviderTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProviderTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagTests"
+								id="item-FeatureFlagTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagTests</a
+								>
+							</li>
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Log</a
+								>
+							</li>
+							<li
+								title="LogException"
+								id="item-LogException"
+								class="nav-item class public"
+								onclick="goToLocation('LogException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogException</a
+								>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogMessage</a
+								>
+							</li>
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTriggerHandler</a
+								>
+							</li>
+							<li
+								title="LogTests"
+								id="item-LogTests"
+								class="nav-item class private"
+								onclick="goToLocation('LogTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTests</a
+								>
+							</li>
+							<li
+								title="CachePartitionType"
+								id="item-CachePartitionType"
+								class="nav-item class public"
+								onclick="goToLocation('CachePartitionType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CachePartitionType</a
+								>
+							</li>
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShape</a
+								>
+							</li>
+							<li
+								title="OrgShapeTests"
+								id="item-OrgShapeTests"
+								class="nav-item class private"
+								onclick="goToLocation('OrgShapeTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShapeTests</a
+								>
+							</li>
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Ouroboros</a
+								>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosFinalizer</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosTests</a
+								>
+							</li>
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Polyfills</a
+								>
+							</li>
+							<li
+								title="PolyfillsTests"
+								id="item-PolyfillsTests"
+								class="nav-item class private"
+								onclick="goToLocation('PolyfillsTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>PolyfillsTests</a
+								>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestPolyfills</a
+								>
+							</li>
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Chain</a
+								>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Promise</a
+								>
+							</li>
+							<li
+								title="FieldSelection"
+								id="item-FieldSelection"
+								class="nav-item class public"
+								onclick="goToLocation('FieldSelection.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FieldSelection</a
+								>
+							</li>
+							<li
+								title="Query"
+								id="item-Query"
+								class="nav-item class public"
+								onclick="goToLocation('Query.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Query</a
+								>
+							</li>
+							<li
+								title="SOQL"
+								id="item-SOQL"
+								class="nav-item class public"
+								onclick="goToLocation('SOQL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQL</a
+								>
+							</li>
+							<li
+								title="SOQLAgregate"
+								id="item-SOQLAgregate"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregate.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregate</a
+								>
+							</li>
+							<li
+								title="SOSL"
+								id="item-SOSL"
+								class="nav-item class public"
+								onclick="goToLocation('SOSL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSL</a
+								>
+							</li>
+							<li
+								title="QueryTest"
+								id="item-QueryTest"
+								class="nav-item class public"
+								onclick="goToLocation('QueryTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueryTest</a
+								>
+							</li>
+							<li
+								title="SOQLAgregateTest"
+								id="item-SOQLAgregateTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregateTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregateTest</a
+								>
+							</li>
+							<li
+								title="SOQLTest"
+								id="item-SOQLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLTest</a
+								>
+							</li>
+							<li
+								title="SOSLTest"
+								id="item-SOSLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOSLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSLTest</a
+								>
+							</li>
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuard</a
+								>
+							</li>
+							<li
+								title="QuiddityGuardTests"
+								id="item-QuiddityGuardTests"
+								class="nav-item class private"
+								onclick="goToLocation('QuiddityGuardTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuardTests</a
+								>
+							</li>
+							<li
+								title="AsyncRestClient"
+								id="item-AsyncRestClient"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestClient</a
+								>
+							</li>
+							<li
+								title="AsyncRestLibFinalizer"
+								id="item-AsyncRestLibFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestLibFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestLibFinalizer</a
+								>
+							</li>
+							<li
+								title="HttpVerb"
+								id="item-HttpVerb"
+								class="nav-item class public"
+								onclick="goToLocation('HttpVerb.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpVerb</a
+								>
+							</li>
+							<li
+								title="RestClient"
+								id="item-RestClient"
+								class="nav-item class public"
+								onclick="goToLocation('RestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClient</a
+								>
+							</li>
+							<li
+								title="RestClientLib"
+								id="item-RestClientLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestClientLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClientLib</a
+								>
+							</li>
+							<li
+								title="RestLib"
+								id="item-RestLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLib</a
+								>
+							</li>
+							<li
+								title="RestLibApiCall"
+								id="item-RestLibApiCall"
+								class="nav-item class public"
+								onclick="goToLocation('RestLibApiCall.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibApiCall</a
+								>
+							</li>
+							<li
+								title="RestLibTests"
+								id="item-RestLibTests"
+								class="nav-item class private"
+								onclick="goToLocation('RestLibTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibTests</a
+								>
+							</li>
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUser</a
+								>
+							</li>
+							<li
+								title="CrudType"
+								id="item-CrudType"
+								class="nav-item class public"
+								onclick="goToLocation('CrudType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CrudType</a
+								>
+							</li>
+							<li
+								title="FLSType"
+								id="item-FLSType"
+								class="nav-item class public"
+								onclick="goToLocation('FLSType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FLSType</a
+								>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Safely</a
+								>
+							</li>
+							<li
+								title="CanTheUserTests"
+								id="item-CanTheUserTests"
+								class="nav-item class private"
+								onclick="goToLocation('CanTheUserTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUserTests</a
+								>
+							</li>
+							<li
+								title="SafelyTests"
+								id="item-SafelyTests"
+								class="nav-item class private"
+								onclick="goToLocation('SafelyTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SafelyTests</a
+								>
+							</li>
+							<li
+								title="HttpCalloutMockFactory"
+								id="item-HttpCalloutMockFactory"
+								class="nav-item class public"
+								onclick="goToLocation('HttpCalloutMockFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MethodSignature</a
+								>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MockedMethod</a
+								>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Stub</a
+								>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>StubUtilities</a
+								>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestFactory</a
+								>
+							</li>
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerContext</a
+								>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFramework</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SampleHandler</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-webservice"
+						onclick="toggleScope('webservice', this.checked);" />
+					<label for="cbx-webservice"> webService </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2
+							class="class-title top-level-type"
+							id="TriggerFramework">
+							<span>TriggerFramework</span>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								An opinionated trigger handler framework.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public virtual class TriggerFramework
+							</div>
+						</div>
+						<div class="subsection properties TriggerFramework">
+							<h3 class="subsection-title properties">
+								TriggerFramework Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property public">
+									<td class="attribute-name">
+										<span>bypassedHandlers</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public static Set&lt;String&gt;
+											bypassedHandlers
+										</div>
+									</td>
+									<td></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<span>loopCountMap</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private static Map&lt;String,
+											TriggerFrameworkLoopCount&gt;
+											loopCountMap
+										</div>
+									</td>
+									<td></td>
+								</tr>
+								<tr class="property protected">
+									<td class="attribute-name">
+										<span>triggerContext</span>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											protected TriggerContext
+											triggerContext
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@testVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								TriggerFramework Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.addToLoopCount">
+											addToLoopCount ()
+										</a>
+
+										<div class="methods-toc__description">
+											private instance methods
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.afterDelete">
+											afterDelete ()
+										</a>
+
+										<div class="methods-toc__description">
+											Virtual method for the implementing
+											class to override
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.afterInsert">
+											afterInsert ()
+										</a>
+
+										<div class="methods-toc__description">
+											Virtual method for the implementing
+											class to override
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.afterUndelete">
+											afterUndelete ()
+										</a>
+
+										<div class="methods-toc__description">
+											Virtual method for the implementing
+											class to override
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.afterUpdate">
+											afterUpdate ()
+										</a>
+
+										<div class="methods-toc__description">
+											Virtual method for the implementing
+											class to override
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.beforeDelete">
+											beforeDelete ()
+										</a>
+
+										<div class="methods-toc__description">
+											Virtual method for the implementing
+											class to override
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.beforeInsert">
+											beforeInsert ()
+										</a>
+
+										<div class="methods-toc__description">
+											context methods
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.beforeUpdate">
+											beforeUpdate ()
+										</a>
+
+										<div class="methods-toc__description">
+											Virtual method for the implementing
+											class to override
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.bypass">
+											bypass (handlerName)
+										</a>
+
+										<div class="methods-toc__description">
+											Allows developers to conditionally
+											bypass (disable) other triggers that
+											*also* implement this
+											TriggerFramework
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.clearAllBypasses">
+											clearAllBypasses ()
+										</a>
+
+										<div class="methods-toc__description">
+											removes all classes from the bypass
+											list
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.clearBypass">
+											clearBypass (handlerName)
+										</a>
+
+										<div class="methods-toc__description">
+											Removes a given trigger handler
+											class name from the list of bypassed
+											trigger handlers.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.clearMaxLoopCount">
+											clearMaxLoopCount ()
+										</a>
+
+										<div class="methods-toc__description">
+											Allows developers to turn off the
+											max loop count
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.dispatchHandlerMethod">
+											dispatchHandlerMethod (context)
+										</a>
+
+										<div class="methods-toc__description">
+											Guard statements against invalid
+											execution context and a bypassed
+											handlerName
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.getHandlerName">
+											getHandlerName ()
+										</a>
+
+										<div class="methods-toc__description">
+											Returns the string version of the
+											handler class being invoked
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.isBypassed">
+											isBypassed (handlerName)
+										</a>
+
+										<div class="methods-toc__description">
+											Allows developers to check whether a
+											given trigger handler class is
+											currently bypassed.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.run">
+											run ()
+										</a>
+
+										<div class="methods-toc__description">
+											This is main brokering method that
+											is called by the trigger. It&#39;s
+											responsible for determining the
+											proper context, and calling the
+											correct method
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.setMaxLoopCount">
+											setMaxLoopCount (max)
+										</a>
+
+										<div class="methods-toc__description">
+											Allows developers to prevent trigger
+											loops, or allow a limited number of
+											them by setting the maximum number
+											of times this trigger is called.
+										</div>
+									</li>
+									<li class="method protected">
+										<a
+											class="methods-toc__entry"
+											href="#TriggerFramework.standardValidationFails">
+											standardValidationFails ()
+										</a>
+									</li>
+								</ul>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.addToLoopCount">
+										<span>addToLoopCount()</span>
+									</h4>
+									<div class="method-description">
+										private instance methods
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@testVisible
+									</div>
+									<div class="method-signature">
+										protected void addToLoopCount()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.afterDelete">
+										<span>afterDelete()</span>
+									</h4>
+									<div class="method-description">
+										Virtual method for the implementing
+										class to override
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void afterDelete()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.afterInsert">
+										<span>afterInsert()</span>
+									</h4>
+									<div class="method-description">
+										Virtual method for the implementing
+										class to override
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void afterInsert()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.afterUndelete">
+										<span>afterUndelete()</span>
+									</h4>
+									<div class="method-description">
+										Virtual method for the implementing
+										class to override
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void afterUndelete()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.afterUpdate">
+										<span>afterUpdate()</span>
+									</h4>
+									<div class="method-description">
+										Virtual method for the implementing
+										class to override
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void afterUpdate()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.beforeDelete">
+										<span>beforeDelete()</span>
+									</h4>
+									<div class="method-description">
+										Virtual method for the implementing
+										class to override
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void beforeDelete()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.beforeInsert">
+										<span>beforeInsert()</span>
+									</h4>
+									<div class="method-description">
+										context methods
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void beforeInsert()
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.beforeUpdate">
+										<span>beforeUpdate()</span>
+									</h4>
+									<div class="method-description">
+										Virtual method for the implementing
+										class to override
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@SuppressWarnings('PMD.EmptyStatementBlock')
+									</div>
+									<div class="method-signature">
+										protected virtual void beforeUpdate()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.bypass">
+										<span>bypass(handlerName)</span>
+									</h4>
+									<div class="method-description">
+										Allows developers to conditionally
+										bypass (disable) other triggers that
+										*also* implement this TriggerFramework
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static void bypass(String
+										handlerName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">handlerName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										Class name (String) of the trigger
+										handler to bypass
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> TriggerFramework.bypass(&#39;AccountTriggerFramework&#39;);</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.clearAllBypasses">
+										<span>clearAllBypasses()</span>
+									</h4>
+									<div class="method-description">
+										removes all classes from the bypass list
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static void clearAllBypasses()
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> TriggerFramework.clearAllBypasses();</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.clearBypass">
+										<span>clearBypass(handlerName)</span>
+									</h4>
+									<div class="method-description">
+										Removes a given trigger handler class
+										name from the list of bypassed trigger
+										handlers.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static void clearBypass(String
+										handlerName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">handlerName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										Handler class name to remove from the
+										bypass list
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> TriggerFramework.clearBypass(&#39;AccountTriggerFramework&#39;);</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.clearMaxLoopCount">
+										<span>clearMaxLoopCount()</span>
+									</h4>
+									<div class="method-description">
+										Allows developers to turn off the max
+										loop count
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public void clearMaxLoopCount()
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> In the context of a TriggerFramework class, 
+ this.clearMaxLoopCount();</code></pre>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="TriggerFramework.dispatchHandlerMethod">
+										<span
+											>dispatchHandlerMethod(context)</span
+										>
+									</h4>
+									<div class="method-description">
+										Guard statements against invalid
+										execution context and a bypassed
+										handlerName
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										dispatchHandlerMethod(TriggerOperation
+										context)
+									</div>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.getHandlerName">
+										<span>getHandlerName()</span>
+									</h4>
+									<div class="method-description">
+										Returns the string version of the
+										handler class being invoked
+									</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@testVisible
+									</div>
+									<div class="method-signature">
+										protected String getHandlerName()
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">String</code>
+										Name of the Handler
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.isBypassed">
+										<span>isBypassed(handlerName)</span>
+									</h4>
+									<div class="method-description">
+										Allows developers to check whether a
+										given trigger handler class is currently
+										bypassed.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean isBypassed(String
+										handlerName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">handlerName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										The name of the trigger handler class to
+										check for
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Boolean</code>
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> TriggerFramework.isBypassed(&#39;AccountTriggerFramework&#39;);</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.run">
+										<span>run()</span>
+									</h4>
+									<div class="method-description">
+										This is main brokering method that is
+										called by the trigger. It&#39;s
+										responsible for determining the proper
+										context, and calling the correct method
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public virtual void run()
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> AccountTriggerFramework.run();</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="TriggerFramework.setMaxLoopCount">
+										<span>setMaxLoopCount(max)</span>
+									</h4>
+									<div class="method-description">
+										Allows developers to prevent trigger
+										loops, or allow a limited number of them
+										by setting the maximum number of times
+										this trigger is called.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public void setMaxLoopCount(Integer max)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">max</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">Integer</code>
+									</div>
+									<div class="param-description">
+										A valid number (generally 1) of times
+										you&#39;d like to allow the trigger to
+										run.
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> In the context of a TriggerFramework class, 
+ this.setMaxLoopCount(5);</code></pre>
+								</div>
+								<div class="method protected">
+									<h4
+										class="method-title"
+										id="TriggerFramework.standardValidationFails">
+										<span>standardValidationFails()</span>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										protected Boolean
+										standardValidationFails()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -6,7 +6,7 @@ engine:
   # excludes:
   #   - '*Test.cls'
   title: ApexKit Documentation
-  subtitle: Documentation for <a target="_blank" rel="noopener noreferrer" href="https://github.com/dschach/QuoteCustomSync">ApexKit</a>
+  subtitle: Documentation for <a target="_blank" rel="noopener noreferrer" href="https://github.com/codefriar/ApexKit">ApexKit</a>
   sortOrder: alpha
   cleanDir: true
   showTOCSnippets: true
@@ -17,17 +17,15 @@ engine:
     - private
     - webService
     - testMethod
-  #homePagePath: '${workspaceFolder}/doc-assets/main.html'
-  #pages:
-  #- '${workspaceFolder}/doc-assets/Installation.html'
-  #assets:
-  #- '${workspaceFolder}/doc-assets/logo.png'
-  #- '${workspaceFolder}/doc-assets/favicon.png'
-  #- '${workspaceFolder}/doc-assets/icon.png'
-  #- '${workspaceFolder}/doc-assets/index.css'
-  #- '${workspaceFolder}/doc-assets/highlight.css'
-  #- '${workspaceFolder}/doc-assets/styling.css'
-  #- '${workspaceFolder}/doc-assets/highlight.js'
+  homePagePath: '${workspaceFolder}/doc-assets/files/main.html'
+  assets:
+    #- '${workspaceFolder}/doc-assets/logo.png'
+    #- '${workspaceFolder}/doc-assets/favicon.png'
+    #- '${workspaceFolder}/doc-assets/icon.png'
+    #- '${workspaceFolder}/doc-assets/index.css'
+    #- '${workspaceFolder}/doc-assets/highlight.css'
+    - '${workspaceFolder}/doc-assets/styling.css'
+    - '${workspaceFolder}/doc-assets/highlight.js'
   #- '${workspaceFolder}/doc-assets/index.js'
   port: 8088
 docblock:
