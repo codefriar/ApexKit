@@ -15,20 +15,20 @@ engine:
     - public
     - protected
     - private
-    #- webService
+    - webService
     - testMethod
-  homePagePath: '${workspaceFolder}/doc-assets/main.html'
+  #homePagePath: '${workspaceFolder}/doc-assets/main.html'
   #pages:
   #- '${workspaceFolder}/doc-assets/Installation.html'
-  assets:
-    - '${workspaceFolder}/doc-assets/logo.png'
-    - '${workspaceFolder}/doc-assets/favicon.png'
-    - '${workspaceFolder}/doc-assets/icon.png'
-    - '${workspaceFolder}/doc-assets/index.css'
-    - '${workspaceFolder}/doc-assets/highlight.css'
-    - '${workspaceFolder}/doc-assets/styling.css'
-    - '${workspaceFolder}/doc-assets/highlight.js'
-    - '${workspaceFolder}/doc-assets/index.js'
+  #assets:
+  #- '${workspaceFolder}/doc-assets/logo.png'
+  #- '${workspaceFolder}/doc-assets/favicon.png'
+  #- '${workspaceFolder}/doc-assets/icon.png'
+  #- '${workspaceFolder}/doc-assets/index.css'
+  #- '${workspaceFolder}/doc-assets/highlight.css'
+  #- '${workspaceFolder}/doc-assets/styling.css'
+  #- '${workspaceFolder}/doc-assets/highlight.js'
+  #- '${workspaceFolder}/doc-assets/index.js'
   port: 8088
 docblock:
   alignItems: true
