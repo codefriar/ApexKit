@@ -15,7 +15,8 @@ updates:
     - package-ecosystem: 'github-actions' # See documentation for possible values
       directory: '/' # Location of package manifests
       commit-message:
-          prefix: 'build(actions)'
+          prefix: 'ci'
+          include: 'scope'
       rebase-strategy: 'auto'
       schedule:
           interval: 'daily'
