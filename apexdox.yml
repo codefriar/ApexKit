@@ -1,7 +1,7 @@
 engine:
   source:
     - path: '${workspaceFolder}/force-app/main/default/classes'
-      #sourceUrl: https://fixthis.com
+      sourceUrl: https://github.com/codefriar/ApexKit/blob/main
   targetDirectory: '${workspaceFolder}/docs'
   # excludes:
   #   - '*Test.cls'
