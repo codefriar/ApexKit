@@ -1,7 +1,7 @@
 /**
  * @description Class handles the post-insert processing of Log events
- * Extends the TriggerFramework class
- * Enables the user to define if this handler should silently
+ * <br>Extends the TriggerFramework class
+ * <br>Enables the user to define if this handler should silently
  * ignore errors thrown by dml, or if it should throw a log
  * exception
  */

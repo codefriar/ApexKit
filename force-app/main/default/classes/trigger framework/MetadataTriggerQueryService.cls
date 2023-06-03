@@ -1,6 +1,14 @@
 public with sharing class MetadataTriggerQueryService {
+	/**
+	 * Initialize objectTypeName as an empty string to avoid null errors
+	 */
 	private String objType = '';
 
+	/**
+	 * @description          Constructor for trigger query service
+	 *
+	 * @param objectTypeName
+	 */
 	public MetadataTriggerQueryService(String objectTypeName) {
 		this.objType = objectTypeName;
 	}
@@ -9,11 +17,11 @@ public with sharing class MetadataTriggerQueryService {
 	 * @description This query finds an ordered list trigger handler classes
 	 * to execute. It ignores any classes that are marked as disabled.
 	 *
-	 * Note: It will exclude any triggerHandler metadata records for which
-	 * the user's email address is found in a related disabled_for__mdt
+	 * <br>Note: It will exclude any triggerHandler metadata records for which
+	 * the user's email address is found in a related `disabled_for__mdt`
 	 * record.
 	 *
-	 * Admin's and Developers can selectively disable trigger handlers
+	 * <br>Admins and Developers can selectively disable trigger handlers
 	 * for all or selected individuals *without* deploying.
 	 * @return      `List<Metadata_Driven_Trigger__mdt>`
 	 */
@@ -60,9 +68,13 @@ public with sharing class MetadataTriggerQueryService {
 	}
 
 	/**
-	 * @description This determines the active sObject type by describing the first
+	 * @description      This determines the active sObject type by describing the first
 	 * record in the trigger New / Old list
-	 * @return      `String`
+	 *
+	 * @param triggerNew
+	 * @param triggerOld
+	 * @return           `String`
+	 * @exception        MetadataTriggerFrameworkException
 	 */
 	public static String getSObjectType(
 		List<sObject> triggerNew,

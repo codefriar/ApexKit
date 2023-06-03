@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ApexKit Documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ApexKit Documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ApexKit"
+						>ApexKit</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="ULID"
+								id="item-ULID"
+								class="nav-item class public"
+								onclick="goToLocation('ULID.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULID</a
+								>
+							</li>
+							<li
+								title="ULIDTests"
+								id="item-ULIDTests"
+								class="nav-item class private"
+								onclick="goToLocation('ULIDTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULIDTests</a
+								>
+							</li>
+							<li
+								title="FF"
+								id="item-FF"
+								class="nav-item class public"
+								onclick="goToLocation('FF.html');">
+								<a tabindex="1" href="javascript:void(0)">FF</a>
+							</li>
+							<li
+								title="FeatureFlag"
+								id="item-FeatureFlag"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlag.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlag</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProvider"
+								id="item-FeatureFlagDataProvider"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagDataProvider.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProvider</a
+								>
+							</li>
+							<li
+								title="FeatureFlagCommonTests"
+								id="item-FeatureFlagCommonTests"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagCommonTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagCommonTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProviderTests"
+								id="item-FeatureFlagDataProviderTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagDataProviderTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProviderTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagTests"
+								id="item-FeatureFlagTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagTests</a
+								>
+							</li>
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Log</a
+								>
+							</li>
+							<li
+								title="LogException"
+								id="item-LogException"
+								class="nav-item class public"
+								onclick="goToLocation('LogException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogException</a
+								>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogMessage</a
+								>
+							</li>
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTriggerHandler</a
+								>
+							</li>
+							<li
+								title="LogTests"
+								id="item-LogTests"
+								class="nav-item class private"
+								onclick="goToLocation('LogTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTests</a
+								>
+							</li>
+							<li
+								title="CachePartitionType"
+								id="item-CachePartitionType"
+								class="nav-item class public"
+								onclick="goToLocation('CachePartitionType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CachePartitionType</a
+								>
+							</li>
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShape</a
+								>
+							</li>
+							<li
+								title="OrgShapeTests"
+								id="item-OrgShapeTests"
+								class="nav-item class private"
+								onclick="goToLocation('OrgShapeTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShapeTests</a
+								>
+							</li>
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Ouroboros</a
+								>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosFinalizer</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosTests</a
+								>
+							</li>
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Polyfills</a
+								>
+							</li>
+							<li
+								title="PolyfillsTests"
+								id="item-PolyfillsTests"
+								class="nav-item class private"
+								onclick="goToLocation('PolyfillsTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>PolyfillsTests</a
+								>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestPolyfills</a
+								>
+							</li>
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Chain</a
+								>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Promise</a
+								>
+							</li>
+							<li
+								title="FieldSelection"
+								id="item-FieldSelection"
+								class="nav-item class public"
+								onclick="goToLocation('FieldSelection.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FieldSelection</a
+								>
+							</li>
+							<li
+								title="Query"
+								id="item-Query"
+								class="nav-item class public"
+								onclick="goToLocation('Query.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Query</a
+								>
+							</li>
+							<li
+								title="SOQL"
+								id="item-SOQL"
+								class="nav-item class public"
+								onclick="goToLocation('SOQL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQL</a
+								>
+							</li>
+							<li
+								title="SOQLAgregate"
+								id="item-SOQLAgregate"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregate.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregate</a
+								>
+							</li>
+							<li
+								title="SOSL"
+								id="item-SOSL"
+								class="nav-item class public"
+								onclick="goToLocation('SOSL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSL</a
+								>
+							</li>
+							<li
+								title="QueryTest"
+								id="item-QueryTest"
+								class="nav-item class public"
+								onclick="goToLocation('QueryTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueryTest</a
+								>
+							</li>
+							<li
+								title="SOQLAgregateTest"
+								id="item-SOQLAgregateTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregateTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregateTest</a
+								>
+							</li>
+							<li
+								title="SOQLTest"
+								id="item-SOQLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLTest</a
+								>
+							</li>
+							<li
+								title="SOSLTest"
+								id="item-SOSLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOSLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSLTest</a
+								>
+							</li>
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuard</a
+								>
+							</li>
+							<li
+								title="QuiddityGuardTests"
+								id="item-QuiddityGuardTests"
+								class="nav-item class private"
+								onclick="goToLocation('QuiddityGuardTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuardTests</a
+								>
+							</li>
+							<li
+								title="AsyncRestClient"
+								id="item-AsyncRestClient"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestClient</a
+								>
+							</li>
+							<li
+								title="AsyncRestLibFinalizer"
+								id="item-AsyncRestLibFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestLibFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestLibFinalizer</a
+								>
+							</li>
+							<li
+								title="HttpVerb"
+								id="item-HttpVerb"
+								class="nav-item class public"
+								onclick="goToLocation('HttpVerb.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpVerb</a
+								>
+							</li>
+							<li
+								title="RestClient"
+								id="item-RestClient"
+								class="nav-item class public"
+								onclick="goToLocation('RestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClient</a
+								>
+							</li>
+							<li
+								title="RestClientLib"
+								id="item-RestClientLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestClientLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClientLib</a
+								>
+							</li>
+							<li
+								title="RestLib"
+								id="item-RestLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLib</a
+								>
+							</li>
+							<li
+								title="RestLibApiCall"
+								id="item-RestLibApiCall"
+								class="nav-item class public"
+								onclick="goToLocation('RestLibApiCall.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibApiCall</a
+								>
+							</li>
+							<li
+								title="RestLibTests"
+								id="item-RestLibTests"
+								class="nav-item class private"
+								onclick="goToLocation('RestLibTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibTests</a
+								>
+							</li>
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUser</a
+								>
+							</li>
+							<li
+								title="CrudType"
+								id="item-CrudType"
+								class="nav-item class public"
+								onclick="goToLocation('CrudType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CrudType</a
+								>
+							</li>
+							<li
+								title="FLSType"
+								id="item-FLSType"
+								class="nav-item class public"
+								onclick="goToLocation('FLSType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FLSType</a
+								>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Safely</a
+								>
+							</li>
+							<li
+								title="CanTheUserTests"
+								id="item-CanTheUserTests"
+								class="nav-item class private"
+								onclick="goToLocation('CanTheUserTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUserTests</a
+								>
+							</li>
+							<li
+								title="SafelyTests"
+								id="item-SafelyTests"
+								class="nav-item class private"
+								onclick="goToLocation('SafelyTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SafelyTests</a
+								>
+							</li>
+							<li
+								title="HttpCalloutMockFactory"
+								id="item-HttpCalloutMockFactory"
+								class="nav-item class public"
+								onclick="goToLocation('HttpCalloutMockFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MethodSignature</a
+								>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MockedMethod</a
+								>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Stub</a
+								>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>StubUtilities</a
+								>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestFactory</a
+								>
+							</li>
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerContext</a
+								>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFramework</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SampleHandler</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-webservice"
+						onclick="toggleScope('webservice', this.checked);" />
+					<label for="cbx-webservice"> webService </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="CanTheUser">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L16">
+								CanTheUser
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								A reusable, intuitive library for determining
+								wether or not the current use can create, read,
+								edit, or delete objects as well as determining
+								if the user has access or update permissions on
+								specific fields. This class name was chosen to
+								facilitate easy-to-understand and read code.
+								Whenever you need to check FLS or CRUD access
+								your code reads like this
+								<code class="code-inline"
+									>if(CanTheUser.read(new account())){}</code
+								>
+								making the calling and use of this code easy and
+								intuitive. <br />
+								This class&#39; name was chosen to facilitate
+								easy-to-understand and read code. Whenever you
+								need to check FLS or CRUD access your code reads
+								like this
+								<code class="code-inline"
+									>if(CanTheUser.read(new account())){}</code
+								>
+								making the calling and use of this code easy and
+								intuitive.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public with sharing class CanTheUser
+							</div>
+						</div>
+						<div class="subsection properties CanTheUser">
+							<h3 class="subsection-title properties">
+								CanTheUser Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+									<th>Description</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L18">
+											accessibleFieldsByObject
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private static Map&lt;String,
+											Set&lt;String&gt;&gt;
+											accessibleFieldsByObject
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@testVisible
+										</div>
+									</td>
+
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L41">
+											memoizedFLSResults
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private static Map&lt;String,
+											Map&lt;FLSType, Boolean&gt;&gt;
+											memoizedFLSResults
+										</div>
+									</td>
+									<td></td>
+
+									<td class="attribute-description">
+										This variable stores, within the same
+										transaction, all previously calculated
+										FLS results for an object. This prevents
+										multiple calls to this library within
+										the same transaction from executing more
+										than a single describe call.
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L20">
+											updatableFieldsByObject
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private static Map&lt;String,
+											Set&lt;String&gt;&gt;
+											updatableFieldsByObject
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@testVisible
+										</div>
+									</td>
+
+									<td class="attribute-description"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection enums">
+							<h3 class="subsection-title enums">Enums</h3>
+							<table class="attributes-table enums">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Values</th>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L22">
+											CrudType
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum CrudType
+										</div>
+									</td>
+									<td class="enum-values">
+										CREATEABLE,&nbsp;READABLE,&nbsp;EDITABLE,&nbsp;DELETABLE,&nbsp;UPSERTABLE
+									</td>
+								</tr>
+								<tr class="enum public">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L30">
+											FLSType
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											public enum FLSType
+										</div>
+									</td>
+									<td class="enum-values">
+										ACCESSIBLE,&nbsp;UPDATABLE
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								CanTheUser Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.bulkFLSAccessible">
+											bulkFLSAccessible (obj, fields)
+										</a>
+
+										<div class="methods-toc__description">
+											bulk form of flsAccessible
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.bulkFLSUpdatable">
+											bulkFLSUpdatable (obj, fields)
+										</a>
+
+										<div class="methods-toc__description">
+											bulk form of flsUpdatable call
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.calculateFLS">
+											calculateFLS (objType)
+										</a>
+
+										<div class="methods-toc__description">
+											Calculates the FLS for a given
+											object type
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.create">
+											create (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can create the
+											specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.create_1">
+											create (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can create the
+											specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.create_2">
+											create (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can create the
+											specified object
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.crud">
+											crud (obj, permission)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.crud_1">
+											crud (objs, permission)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.crud_2">
+											crud (objectName, permission)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.destroy">
+											destroy (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can delete/destroy
+											the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.destroy_1">
+											destroy (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can delete the
+											specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.destroy_2">
+											destroy (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can delete the
+											specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.edit">
+											edit (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can edit / update
+											the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.edit_1">
+											edit (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can edit / update
+											the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.edit_2">
+											edit (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can edit the
+											specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.flsAccessible">
+											flsAccessible (obj, field)
+										</a>
+
+										<div class="methods-toc__description">
+											public static method to determine if
+											a given field on a given object is
+											Accessible (readable)
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.flsUpdatable">
+											flsUpdatable (obj, field)
+										</a>
+
+										<div class="methods-toc__description">
+											public static method to determine if
+											a given field on a given object is
+											Updatable.
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.getFLSForFieldOnObject">
+											getFLSForFieldOnObject (obj, field,
+											checkType)
+										</a>
+
+										<div class="methods-toc__description">
+											Abstracted method for retrieving or
+											calculating (memoization) of the FLS
+											for a given field on a given object.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.read">
+											read (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can read / access
+											the specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.read_1">
+											read (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can read / access
+											the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.read_2">
+											read (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can read the
+											specified object
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.ups">
+											ups (obj)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can upsert (insert
+											and update) the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.ups_1">
+											ups (objs)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can edit / update
+											the specified objects
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#CanTheUser.ups_2">
+											ups (objName)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience api for determining if
+											the running user can upsert the
+											specified object
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.bulkFLSAccessible">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L285">
+											bulkFLSAccessible(obj, fields)
+										</a>
+									</h4>
+									<div class="method-description">
+										bulk form of flsAccessible
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Map&lt;String, Boolean&gt;
+										bulkFLSAccessible( String obj,
+										Set&lt;String&gt; fields )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										Obj name on which to check
+									</div>
+									<div class="param-name">fields</div>
+									<div class="param-description">
+										Set of Fields to check for
+										accessibility.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>Map&lt;String, Boolean&gt;</code
+										>
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> String[] fields = new String[]{&#39;Name&#39;, &#39;ShippingStreet&#39;}; 
+ System.debug(CanTheUser.bulkFLSAccessible(&#39;Account&#39;, fields));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.bulkFLSUpdatable">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L318">
+											bulkFLSUpdatable(obj, fields)
+										</a>
+									</h4>
+									<div class="method-description">
+										bulk form of flsUpdatable call
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Map&lt;String, Boolean&gt;
+										bulkFLSUpdatable( String obj,
+										Set&lt;String&gt; fields )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										Name of the object
+									</div>
+									<div class="param-name">fields</div>
+									<div class="param-description">
+										Set of Field names to check
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>Map&lt;String, Boolean&gt;</code
+										>
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> String[] fields = new String[]{&#39;Name&#39;, &#39;ShippingStreet&#39;}; 
+ System.debug(CanTheUser.bulkFLSUpdatable(&#39;Account&#39;, fields));</code></pre>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.calculateFLS">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L355">
+											calculateFLS(objType)
+										</a>
+									</h4>
+									<div class="method-description">
+										Calculates the FLS for a given object
+										type
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private static Map&lt;String,
+										Map&lt;FLSType, Boolean&gt;&gt;
+										calculateFLS( String objType )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">objType</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										String name of the object type
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>Map&lt;String, Map&lt;FLSType,
+											Boolean&gt;&gt;</code
+										>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.create">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L97">
+											create(obj)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can create the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean create(SObject
+										obj)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										Object type to check create permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.create(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.create_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L108">
+											create(objs)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can create the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										create(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">objs</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"
+											>List&lt;SObject&gt;</code
+										>
+									</div>
+									<div class="param-description">
+										list of objects. Only the first will be
+										checked. (logically, a list is of
+										uniform type and, and if the user can
+										create one)
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.create_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L120">
+											create(objName)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can create the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean create(String
+										objName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check create permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.create(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.crud">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L52">
+											crud(obj, permission)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@testVisible
+									</div>
+									<div class="method-signature">
+										private static Boolean crud(SObject obj,
+										CrudType permission)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										the object type to check
+									</div>
+									<div class="param-name">permission</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"
+											>CrudType</code
+										>
+									</div>
+									<div class="param-description">
+										create, read, update or delete
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READABLE));</code></pre>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.crud_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L78">
+											crud(objs, permission)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@testVisible
+									</div>
+									<div class="method-signature">
+										private static Boolean
+										crud(List&lt;SObject&gt; objs, CrudType
+										permission)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.crud_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L83">
+											crud(objectName, permission)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@testVisible
+									</div>
+									<div class="method-signature">
+										private static Boolean crud(String
+										objectName, CrudType permission)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.destroy">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L237">
+											destroy(obj)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can delete/destroy the
+										specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean destroy(SObject
+										obj)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check destroy permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.destroy(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.destroy_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L247">
+											destroy(objs)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can delete the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										destroy(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check delete permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.destroy_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L259">
+											destroy(objName)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can delete the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean destroy(String
+										objName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check create permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.destroy(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.edit">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L167">
+											edit(obj)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can edit / update the
+										specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean edit(SObject obj)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.edit(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.edit_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L178">
+											edit(objs)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can edit / update the
+										specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										edit(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-description">
+										object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.edit_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L190">
+											edit(objName)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can edit the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean edit(String
+										objName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.edit(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.flsAccessible">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L272">
+											flsAccessible(obj, field)
+										</a>
+									</h4>
+									<div class="method-description">
+										public static method to determine if a
+										given field on a given object is
+										Accessible (readable)
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										flsAccessible(String obj, String field)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the object in question, in string form
+									</div>
+									<div class="param-name">field</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the field in question in SObjectField
+										form
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.flsAccessible(&#39;Account&#39;, &#39;Name&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.flsUpdatable">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L305">
+											flsUpdatable(obj, field)
+										</a>
+									</h4>
+									<div class="method-description">
+										public static method to determine if a
+										given field on a given object is
+										Updatable.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										flsUpdatable(String obj, String field)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the string version of an object name
+									</div>
+									<div class="param-name">field</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										the field to check
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.flsUpdatable(&#39;Account&#39;, &#39;Name&#39;));</code></pre>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="CanTheUser.getFLSForFieldOnObject">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L337">
+											getFLSForFieldOnObject(obj, field,
+											checkType)
+										</a>
+									</h4>
+									<div class="method-description">
+										Abstracted method for retrieving or
+										calculating (memoization) of the FLS for
+										a given field on a given object.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private static Boolean
+										getFLSForFieldOnObject( String obj,
+										String field, FLSType checkType )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										String version of object name to check
+									</div>
+									<div class="param-name">field</div>
+									<div class="param-description">
+										String version of the field to check
+									</div>
+									<div class="param-name">checkType</div>
+									<div class="param-description">
+										Enum of Accessible or Updatable.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Boolean</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.read">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L132">
+											read(obj)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can read / access the
+										specified object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean read(SObject obj)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check read permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.read(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.read_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L143">
+											read(objs)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can read / access the
+										specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										read(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-description">
+										object type to check read permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.read_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L155">
+											read(objName)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can read the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean read(String
+										objName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check read permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.read(&#39;Account&#39;));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.ups">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L202">
+											ups(obj)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can upsert (insert and
+										update) the specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean ups(SObject obj)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">SObject</code>
+									</div>
+									<div class="param-description">
+										object type to check edit permissions on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.ups(new Account()));</code></pre>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.ups_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L213">
+											ups(objs)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can edit / update the
+										specified objects
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean
+										ups(List&lt;SObject&gt; objs)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-description">
+										object type to check upsert permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="CanTheUser.ups_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/safely/CanTheUser.cls#L225">
+											ups(objName)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience api for determining if the
+										running user can upsert the specified
+										object
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public static Boolean ups(String
+										objName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">String</div>
+									<div class="param-description">
+										Object type to check upsert permissions
+										on
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Boolean
+									</div>
+									<div class="method-subtitle">Example</div>
+									<pre
+										class="code-example"><code> System.debug(CanTheUser.ups(&#39;Account&#39;));</code></pre>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

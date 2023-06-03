@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ApexKit Documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ApexKit Documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ApexKit"
+						>ApexKit</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="ULID"
+								id="item-ULID"
+								class="nav-item class public"
+								onclick="goToLocation('ULID.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULID</a
+								>
+							</li>
+							<li
+								title="ULIDTests"
+								id="item-ULIDTests"
+								class="nav-item class private"
+								onclick="goToLocation('ULIDTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULIDTests</a
+								>
+							</li>
+							<li
+								title="FF"
+								id="item-FF"
+								class="nav-item class public"
+								onclick="goToLocation('FF.html');">
+								<a tabindex="1" href="javascript:void(0)">FF</a>
+							</li>
+							<li
+								title="FeatureFlag"
+								id="item-FeatureFlag"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlag.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlag</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProvider"
+								id="item-FeatureFlagDataProvider"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagDataProvider.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProvider</a
+								>
+							</li>
+							<li
+								title="FeatureFlagCommonTests"
+								id="item-FeatureFlagCommonTests"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagCommonTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagCommonTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProviderTests"
+								id="item-FeatureFlagDataProviderTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagDataProviderTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProviderTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagTests"
+								id="item-FeatureFlagTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagTests</a
+								>
+							</li>
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Log</a
+								>
+							</li>
+							<li
+								title="LogException"
+								id="item-LogException"
+								class="nav-item class public"
+								onclick="goToLocation('LogException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogException</a
+								>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogMessage</a
+								>
+							</li>
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTriggerHandler</a
+								>
+							</li>
+							<li
+								title="LogTests"
+								id="item-LogTests"
+								class="nav-item class private"
+								onclick="goToLocation('LogTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTests</a
+								>
+							</li>
+							<li
+								title="CachePartitionType"
+								id="item-CachePartitionType"
+								class="nav-item class public"
+								onclick="goToLocation('CachePartitionType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CachePartitionType</a
+								>
+							</li>
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShape</a
+								>
+							</li>
+							<li
+								title="OrgShapeTests"
+								id="item-OrgShapeTests"
+								class="nav-item class private"
+								onclick="goToLocation('OrgShapeTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShapeTests</a
+								>
+							</li>
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Ouroboros</a
+								>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosFinalizer</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosTests</a
+								>
+							</li>
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Polyfills</a
+								>
+							</li>
+							<li
+								title="PolyfillsTests"
+								id="item-PolyfillsTests"
+								class="nav-item class private"
+								onclick="goToLocation('PolyfillsTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>PolyfillsTests</a
+								>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestPolyfills</a
+								>
+							</li>
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Chain</a
+								>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Promise</a
+								>
+							</li>
+							<li
+								title="FieldSelection"
+								id="item-FieldSelection"
+								class="nav-item class public"
+								onclick="goToLocation('FieldSelection.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FieldSelection</a
+								>
+							</li>
+							<li
+								title="Query"
+								id="item-Query"
+								class="nav-item class public"
+								onclick="goToLocation('Query.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Query</a
+								>
+							</li>
+							<li
+								title="SOQL"
+								id="item-SOQL"
+								class="nav-item class public"
+								onclick="goToLocation('SOQL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQL</a
+								>
+							</li>
+							<li
+								title="SOQLAgregate"
+								id="item-SOQLAgregate"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregate.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregate</a
+								>
+							</li>
+							<li
+								title="SOSL"
+								id="item-SOSL"
+								class="nav-item class public"
+								onclick="goToLocation('SOSL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSL</a
+								>
+							</li>
+							<li
+								title="QueryTest"
+								id="item-QueryTest"
+								class="nav-item class public"
+								onclick="goToLocation('QueryTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueryTest</a
+								>
+							</li>
+							<li
+								title="SOQLAgregateTest"
+								id="item-SOQLAgregateTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregateTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregateTest</a
+								>
+							</li>
+							<li
+								title="SOQLTest"
+								id="item-SOQLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLTest</a
+								>
+							</li>
+							<li
+								title="SOSLTest"
+								id="item-SOSLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOSLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSLTest</a
+								>
+							</li>
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuard</a
+								>
+							</li>
+							<li
+								title="QuiddityGuardTests"
+								id="item-QuiddityGuardTests"
+								class="nav-item class private"
+								onclick="goToLocation('QuiddityGuardTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuardTests</a
+								>
+							</li>
+							<li
+								title="AsyncRestClient"
+								id="item-AsyncRestClient"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestClient</a
+								>
+							</li>
+							<li
+								title="AsyncRestLibFinalizer"
+								id="item-AsyncRestLibFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestLibFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestLibFinalizer</a
+								>
+							</li>
+							<li
+								title="HttpVerb"
+								id="item-HttpVerb"
+								class="nav-item class public"
+								onclick="goToLocation('HttpVerb.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpVerb</a
+								>
+							</li>
+							<li
+								title="RestClient"
+								id="item-RestClient"
+								class="nav-item class public"
+								onclick="goToLocation('RestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClient</a
+								>
+							</li>
+							<li
+								title="RestClientLib"
+								id="item-RestClientLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestClientLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClientLib</a
+								>
+							</li>
+							<li
+								title="RestLib"
+								id="item-RestLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLib</a
+								>
+							</li>
+							<li
+								title="RestLibApiCall"
+								id="item-RestLibApiCall"
+								class="nav-item class public"
+								onclick="goToLocation('RestLibApiCall.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibApiCall</a
+								>
+							</li>
+							<li
+								title="RestLibTests"
+								id="item-RestLibTests"
+								class="nav-item class private"
+								onclick="goToLocation('RestLibTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibTests</a
+								>
+							</li>
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUser</a
+								>
+							</li>
+							<li
+								title="CrudType"
+								id="item-CrudType"
+								class="nav-item class public"
+								onclick="goToLocation('CrudType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CrudType</a
+								>
+							</li>
+							<li
+								title="FLSType"
+								id="item-FLSType"
+								class="nav-item class public"
+								onclick="goToLocation('FLSType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FLSType</a
+								>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Safely</a
+								>
+							</li>
+							<li
+								title="CanTheUserTests"
+								id="item-CanTheUserTests"
+								class="nav-item class private"
+								onclick="goToLocation('CanTheUserTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUserTests</a
+								>
+							</li>
+							<li
+								title="SafelyTests"
+								id="item-SafelyTests"
+								class="nav-item class private"
+								onclick="goToLocation('SafelyTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SafelyTests</a
+								>
+							</li>
+							<li
+								title="HttpCalloutMockFactory"
+								id="item-HttpCalloutMockFactory"
+								class="nav-item class public"
+								onclick="goToLocation('HttpCalloutMockFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MethodSignature</a
+								>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MockedMethod</a
+								>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Stub</a
+								>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>StubUtilities</a
+								>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestFactory</a
+								>
+							</li>
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerContext</a
+								>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFramework</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SampleHandler</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-webservice"
+						onclick="toggleScope('webservice', this.checked);" />
+					<label for="cbx-webservice"> webService </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="Stub">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L23">
+								Stub
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								This class helps you construct and manage
+								StubProvider conforming objects for use in Unit
+								Tests. It, along with it&#39;s companion
+								classes: * MockedMethod * MethodSignature and
+								their builder-pattern inner classes are designed
+								to work together with a fluent API style like
+								this: <code class="code-inline"></code>&#96;apex
+								StubObject fooStub = new
+								StubObject.Builder(&#39;foo.class&#39;)
+								.mockingMethodCall(&#39;someMethodName&#39;,
+								List&lt;Object&gt; Params) .withParameterTypes()
+								.returning() || .throwingException() ||
+								.throwingException(ExceptionObj)
+								.mockingMethodCall(&#39;secondMethodName&#39;,
+								...) .withParameterTypes() .returning() ||
+								.throwingException() ||
+								.throwingException(ExceptionObj) .createStub()
+								<code class="code-inline"></code>&#96;
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public with sharing class Stub implements
+								System.StubProvider
+							</div>
+						</div>
+						<div class="subsection properties Stub">
+							<h3 class="subsection-title properties">
+								Stub Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L38">
+											mockedMethods
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;MockedMethod&gt;
+											mockedMethods
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@testVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L34">
+											objectType
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private final Type objectType
+										</div>
+									</td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Stub Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.Stub">
+											Stub (objectType)
+										</a>
+
+										<div class="methods-toc__description">
+											required constructor finalizing the
+											object type.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.Stub_1">
+											Stub (objectType, mockedMethods)
+										</a>
+
+										<div class="methods-toc__description">
+											convenience construtor that accepts
+											a pre-built list of MockedMethod
+											objects.
+										</div>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.Stub_2">
+											Stub ()
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="Stub.Stub">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L44">
+											Stub(objectType)
+										</a>
+									</h4>
+									<div class="method-description">
+										required constructor finalizing the
+										object type.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub(Type objectType)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">objectType</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">Type</code>
+									</div>
+									<div class="param-description">
+										Type class: ie: Foo.class
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="Stub.Stub_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L54">
+											Stub(objectType, mockedMethods)
+										</a>
+									</h4>
+									<div class="method-description">
+										convenience construtor that accepts a
+										pre-built list of MockedMethod objects.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub(Type objectType,
+										List&lt;MockedMethod&gt; mockedMethods)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">objectType</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">Type</code>
+									</div>
+									<div class="param-description">
+										type class: ie. Foo.class
+									</div>
+									<div class="param-name">mockedMethods</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"
+											>List&lt;MockedMethod&gt;</code
+										>
+									</div>
+									<div class="param-description">
+										List of MockedMethod objects
+									</div>
+								</div>
+								<div class="method private">
+									<h4 class="method-title" id="Stub.Stub_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L318">
+											Stub()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										return new Stub(objectType,
+										mockedMethods)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Stub Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.assertAllMockedMethodsWereCalled">
+											assertAllMockedMethodsWereCalled ()
+										</a>
+
+										<div class="methods-toc__description">
+											Useful for asserting the methods you
+											mocked were, in fact, called. It
+											does this by invoking the
+											assertMockedMethodWasCalled on each
+											individual mocked method.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.createStub">
+											createStub ()
+										</a>
+
+										<div class="methods-toc__description">
+											returns the this constructed class
+											with it&#39;s mocked methods as a
+											single stub object to be used in a
+											unit test.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.defineStub">
+											defineStub (generateInjectableStub)
+										</a>
+
+										<div class="methods-toc__description">
+											Generates a Stub object from this
+											builder object.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.defineStub_1">
+											defineStub ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.handleMethodCall">
+											handleMethodCall (obj, methodName,
+											returnType, paramTypes, paramNames,
+											args)
+										</a>
+
+										<div class="methods-toc__description">
+											method required by the StubProvider
+											interface. Handles the mock
+											execution of the given method call.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.mockingMethodCall">
+											mockingMethodCall (methodName,
+											paramTypes)
+										</a>
+
+										<div class="methods-toc__description">
+											This method, and it&#39;s overloaded
+											variants below, all work to add a
+											new MockedMethod to the stub object.
+											Semantically the idea is that
+											you&#39;ll invoke one of these
+											&#39;mockingMethodCall&#39; methods
+											for every method you want your stub
+											to react to. Because this builder
+											class is designed around method
+											chaining, you can invoke a number of
+											these in a row. See the example
+											invocation at the top of this class.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.mockingMethodCall_1">
+											mockingMethodCall (methodName)
+										</a>
+
+										<div class="methods-toc__description">
+											Overloaded variant of the main
+											&#39;mockingMethodCall&#39; method.
+											See docs for the first instance of
+											mockingMethodCall in this class.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.mockingMethodCall_2">
+											mockingMethodCall (methodName,
+											paramType)
+										</a>
+
+										<div class="methods-toc__description">
+											Overloaded variant of the main
+											&#39;mockingMethodCall&#39; method.
+											See docs for the first instance of
+											mockingMethodCall in this class.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.mockingMethodCall_3">
+											mockingMethodCall (methodName,
+											paramType, paramType2)
+										</a>
+
+										<div class="methods-toc__description">
+											Overloaded variant of the main
+											&#39;mockingMethodCall&#39; method.
+											See docs for the first instance of
+											mockingMethodCall in this class.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.mockingMethodCall_4">
+											mockingMethodCall (methodName,
+											paramType, paramType2, paramType3)
+										</a>
+
+										<div class="methods-toc__description">
+											Overloaded variant of the main
+											&#39;mockingMethodCall&#39; method.
+											See docs for the first instance of
+											mockingMethodCall in this class.
+										</div>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.mockingMethodCall_5">
+											mockingMethodCall (methodName,
+											paramType, paramType2, paramType3,
+											paramType4)
+										</a>
+
+										<div class="methods-toc__description">
+											Overloaded variant of the main
+											&#39;mockingMethodCall&#39; method.
+											See docs for the first instance of
+											mockingMethodCall in this class.
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.assertAllMockedMethodsWereCalled">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L127">
+											assertAllMockedMethodsWereCalled()
+										</a>
+									</h4>
+									<div class="method-description">
+										Useful for asserting the methods you
+										mocked were, in fact, called. It does
+										this by invoking the
+										assertMockedMethodWasCalled on each
+										individual mocked method.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public void
+										assertAllMockedMethodsWereCalled()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.createStub">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L138">
+											createStub()
+										</a>
+									</h4>
+									<div class="method-description">
+										returns the this constructed class with
+										it&#39;s mocked methods as a single stub
+										object to be used in a unit test.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Object createStub()
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Object</code>
+										Needs to be cast back to the type of
+										object used.
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.defineStub">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L309">
+											defineStub(generateInjectableStub)
+										</a>
+									</h4>
+									<div class="method-description">
+										Generates a Stub object from this
+										builder object.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Object defineStub(Boolean
+										generateInjectableStub)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">If</div>
+									<div class="param-description">
+										true, calls the stub objects&#39;
+										createStub method automatically
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Stub</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.defineStub_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L313">
+											defineStub()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Stub defineStub()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.handleMethodCall">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L76">
+											handleMethodCall(obj, methodName,
+											returnType, paramTypes, paramNames,
+											args)
+										</a>
+									</h4>
+									<div class="method-description">
+										method required by the StubProvider
+										interface. Handles the mock execution of
+										the given method call.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Object handleMethodCall( Object
+										obj, String methodName, Type returnType,
+										List&lt;Type&gt; paramTypes,
+										List&lt;String&gt; paramNames,
+										List&lt;Object&gt; args )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">obj</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> Object</code>
+									</div>
+									<div class="param-description">
+										dependency injected by Apex, object the
+										mock method was call upon
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-description">
+										dependency injected by Apex, string
+										representation of the name of the method
+										used to construct a MethodSignature
+										object for comparison.
+									</div>
+									<div class="param-name">returnType</div>
+									<div class="param-description">
+										dependency injected by Apex, not
+										currently used.
+									</div>
+									<div class="param-name">paramTypes</div>
+									<div class="param-description">
+										dependency injected by Apex, list of
+										parameter types used to construct a
+										MethodSignature object for comparison.
+									</div>
+									<div class="param-name">paramNames</div>
+									<div class="param-description">
+										dependency injected by Apex, not
+										currently used.
+									</div>
+									<div class="param-name">args</div>
+									<div class="param-description">
+										dependency injected by Apex, not
+										currently used.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Object</code>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.mockingMethodCall">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L187">
+											mockingMethodCall(methodName,
+											paramTypes)
+										</a>
+									</h4>
+									<div class="method-description">
+										This method, and it&#39;s overloaded
+										variants below, all work to add a new
+										MockedMethod to the stub object.
+										Semantically the idea is that you&#39;ll
+										invoke one of these
+										&#39;mockingMethodCall&#39; methods for
+										every method you want your stub to react
+										to. Because this builder class is
+										designed around method chaining, you can
+										invoke a number of these in a row. See
+										the example invocation at the top of
+										this class.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MethodSignature.Builder
+										mockingMethodCall( String methodName,
+										List&lt;Type&gt; paramTypes )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										Required, name of the method that will
+										be mocked
+									</div>
+									<div class="param-name">paramTypes</div>
+									<div class="param-description">
+										List of System.Types that the mocked
+										method should respond to.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>MethodSignature.Builder</code
+										>
+										- returns the builder object for
+										chaining.
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.mockingMethodCall_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L207">
+											mockingMethodCall(methodName)
+										</a>
+									</h4>
+									<div class="method-description">
+										Overloaded variant of the main
+										&#39;mockingMethodCall&#39; method. See
+										docs for the first instance of
+										mockingMethodCall in this class.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MethodSignature.Builder
+										mockingMethodCall(String methodName)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										Method name to be mocked.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>MethodSignature.Builder</code
+										>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.mockingMethodCall_2">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L219">
+											mockingMethodCall(methodName,
+											paramType)
+										</a>
+									</h4>
+									<div class="method-description">
+										Overloaded variant of the main
+										&#39;mockingMethodCall&#39; method. See
+										docs for the first instance of
+										mockingMethodCall in this class.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder
+										mockingMethodCall( String methodName,
+										Type paramType )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										required. method name to be mocked.
+									</div>
+									<div class="param-name">paramType</div>
+									<div class="param-description">
+										Type of single parameter.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>MethodSignature.Builder</code
+										>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.mockingMethodCall_3">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L236">
+											mockingMethodCall(methodName,
+											paramType, paramType2)
+										</a>
+									</h4>
+									<div class="method-description">
+										Overloaded variant of the main
+										&#39;mockingMethodCall&#39; method. See
+										docs for the first instance of
+										mockingMethodCall in this class.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder
+										mockingMethodCall( String methodName,
+										Type paramType, Type paramType2 )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										required. method name to be mocked.
+									</div>
+									<div class="param-name">paramType</div>
+									<div class="param-description">
+										param type 1.
+									</div>
+									<div class="param-name">paramType2</div>
+									<div class="param-description">
+										param type 2.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>MethodSignature.Builder</code
+										>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.mockingMethodCall_4">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L259">
+											mockingMethodCall(methodName,
+											paramType, paramType2, paramType3)
+										</a>
+									</h4>
+									<div class="method-description">
+										Overloaded variant of the main
+										&#39;mockingMethodCall&#39; method. See
+										docs for the first instance of
+										mockingMethodCall in this class.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder
+										mockingMethodCall( String methodName,
+										Type paramType, Type paramType2, Type
+										paramType3 )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										required. method name to be mocked.
+									</div>
+									<div class="param-name">paramType</div>
+									<div class="param-description">
+										param type 1.
+									</div>
+									<div class="param-name">paramType2</div>
+									<div class="param-description">
+										param type 2.
+									</div>
+									<div class="param-name">paramType3</div>
+									<div class="param-description">
+										param type 3.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>MethodSignature.Builder</code
+										>
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.mockingMethodCall_5">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L284">
+											mockingMethodCall(methodName,
+											paramType, paramType2, paramType3,
+											paramType4)
+										</a>
+									</h4>
+									<div class="method-description">
+										Overloaded variant of the main
+										&#39;mockingMethodCall&#39; method. See
+										docs for the first instance of
+										mockingMethodCall in this class.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public MockedMethod.Builder
+										mockingMethodCall( String methodName,
+										Type paramType, Type paramType2, Type
+										paramType3, Type paramType4 )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">methodName</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"> String</code>
+									</div>
+									<div class="param-description">
+										required. method name to be mocked.
+									</div>
+									<div class="param-name">paramType</div>
+									<div class="param-description">
+										param type 1.
+									</div>
+									<div class="param-name">paramType2</div>
+									<div class="param-description">
+										param type 2.
+									</div>
+									<div class="param-name">paramType3</div>
+									<div class="param-description">
+										param type 3.
+									</div>
+									<div class="param-name">paramType4</div>
+									<div class="param-description">
+										param type 4.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline"
+											>MethodSignature.Builder</code
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Stub.Builder">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L151">
+								Stub.Builder
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								Builder pattern for creating stubs with a fluent
+								interface. Note, there are three
+								&#39;Builder&#39; classes, each an inner class
+								of the object that the builder builds. In this
+								case, this builder inner class is responsible
+								for building Stub objects. While you can
+								directly instantiate the Stub class, the idea is
+								that you will actually use the Builder
+								class/interface to create Stubs
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class Builder
+							</div>
+						</div>
+						<div class="subsection properties Stub_Builder">
+							<h3 class="subsection-title properties">
+								Stub.Builder Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+
+									<th>Description</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L156">
+											objectType
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Type objectType
+										</div>
+									</td>
+
+									<td class="attribute-description">
+										holds the System.Type reference for the
+										object that you&#39;re building a stub
+										for.
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								Stub.Builder Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#Stub.Builder.Builder">
+											Builder (objType)
+										</a>
+
+										<div class="methods-toc__description">
+											Internally, we need to maintain a
+											list of signature builder objects so
+											that we can roll-up the creation of
+											objects.
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="Stub.Builder.Builder">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L169">
+											Builder(objType)
+										</a>
+									</h4>
+									<div class="method-description">
+										Internally, we need to maintain a list
+										of signature builder objects so that we
+										can roll-up the creation of objects.
+									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder(Type objType)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="Stub.StubException">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/test utilities/Stub.cls#L29">
+								Stub.StubException
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								Class is used by Stub, MethodSignature and
+								MockedMethod classes for throwing when an
+								exception occurs that is specifically related to
+								building, using or asserting against the Super
+								Stub framework
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class StubException extends Exception
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

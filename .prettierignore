@@ -10,7 +10,8 @@
 
 coverage/
 
-# ApexDox
+*-meta.xml
 
-docs/assets/*.js
+# ApexDox
 doc-assets/*.js
+docs/assets/*.js

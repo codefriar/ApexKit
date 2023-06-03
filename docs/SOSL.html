@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ApexKit Documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link
+			rel="shortcut icon"
+			type="image/png"
+			href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">ApexKit Documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://github.com/codefriar/ApexKit"
+						>ApexKit</a
+					>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input
+					id="search-input"
+					type="text"
+					autocomplete="off"
+					placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a
+						class="nav-header"
+						id="home"
+						href="javascript:void(0)"
+						onclick="goToLocation('index.html');">
+						Home
+					</a>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li
+								title="ULID"
+								id="item-ULID"
+								class="nav-item class public"
+								onclick="goToLocation('ULID.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULID</a
+								>
+							</li>
+							<li
+								title="ULIDTests"
+								id="item-ULIDTests"
+								class="nav-item class private"
+								onclick="goToLocation('ULIDTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>ULIDTests</a
+								>
+							</li>
+							<li
+								title="FF"
+								id="item-FF"
+								class="nav-item class public"
+								onclick="goToLocation('FF.html');">
+								<a tabindex="1" href="javascript:void(0)">FF</a>
+							</li>
+							<li
+								title="FeatureFlag"
+								id="item-FeatureFlag"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlag.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlag</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProvider"
+								id="item-FeatureFlagDataProvider"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagDataProvider.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProvider</a
+								>
+							</li>
+							<li
+								title="FeatureFlagCommonTests"
+								id="item-FeatureFlagCommonTests"
+								class="nav-item class public"
+								onclick="goToLocation('FeatureFlagCommonTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagCommonTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagDataProviderTests"
+								id="item-FeatureFlagDataProviderTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagDataProviderTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagDataProviderTests</a
+								>
+							</li>
+							<li
+								title="FeatureFlagTests"
+								id="item-FeatureFlagTests"
+								class="nav-item class private"
+								onclick="goToLocation('FeatureFlagTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FeatureFlagTests</a
+								>
+							</li>
+							<li
+								title="Log"
+								id="item-Log"
+								class="nav-item class public"
+								onclick="goToLocation('Log.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Log</a
+								>
+							</li>
+							<li
+								title="LogException"
+								id="item-LogException"
+								class="nav-item class public"
+								onclick="goToLocation('LogException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogException</a
+								>
+							</li>
+							<li
+								title="LogMessage"
+								id="item-LogMessage"
+								class="nav-item class public"
+								onclick="goToLocation('LogMessage.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogMessage</a
+								>
+							</li>
+							<li
+								title="LogTriggerHandler"
+								id="item-LogTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('LogTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTriggerHandler</a
+								>
+							</li>
+							<li
+								title="LogTests"
+								id="item-LogTests"
+								class="nav-item class private"
+								onclick="goToLocation('LogTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>LogTests</a
+								>
+							</li>
+							<li
+								title="CachePartitionType"
+								id="item-CachePartitionType"
+								class="nav-item class public"
+								onclick="goToLocation('CachePartitionType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CachePartitionType</a
+								>
+							</li>
+							<li
+								title="OrgShape"
+								id="item-OrgShape"
+								class="nav-item class public"
+								onclick="goToLocation('OrgShape.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShape</a
+								>
+							</li>
+							<li
+								title="OrgShapeTests"
+								id="item-OrgShapeTests"
+								class="nav-item class private"
+								onclick="goToLocation('OrgShapeTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OrgShapeTests</a
+								>
+							</li>
+							<li
+								title="Ouroboros"
+								id="item-Ouroboros"
+								class="nav-item class public"
+								onclick="goToLocation('Ouroboros.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Ouroboros</a
+								>
+							</li>
+							<li
+								title="OuroborosFinalizer"
+								id="item-OuroborosFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('OuroborosFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosFinalizer</a
+								>
+							</li>
+							<li
+								title="OuroborosTests"
+								id="item-OuroborosTests"
+								class="nav-item class private"
+								onclick="goToLocation('OuroborosTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>OuroborosTests</a
+								>
+							</li>
+							<li
+								title="Polyfills"
+								id="item-Polyfills"
+								class="nav-item class public"
+								onclick="goToLocation('Polyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Polyfills</a
+								>
+							</li>
+							<li
+								title="PolyfillsTests"
+								id="item-PolyfillsTests"
+								class="nav-item class private"
+								onclick="goToLocation('PolyfillsTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>PolyfillsTests</a
+								>
+							</li>
+							<li
+								title="TestPolyfills"
+								id="item-TestPolyfills"
+								class="nav-item class public"
+								onclick="goToLocation('TestPolyfills.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestPolyfills</a
+								>
+							</li>
+							<li
+								title="Chain"
+								id="item-Chain"
+								class="nav-item class public"
+								onclick="goToLocation('Chain.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Chain</a
+								>
+							</li>
+							<li
+								title="Promise"
+								id="item-Promise"
+								class="nav-item class public"
+								onclick="goToLocation('Promise.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Promise</a
+								>
+							</li>
+							<li
+								title="FieldSelection"
+								id="item-FieldSelection"
+								class="nav-item class public"
+								onclick="goToLocation('FieldSelection.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FieldSelection</a
+								>
+							</li>
+							<li
+								title="Query"
+								id="item-Query"
+								class="nav-item class public"
+								onclick="goToLocation('Query.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Query</a
+								>
+							</li>
+							<li
+								title="SOQL"
+								id="item-SOQL"
+								class="nav-item class public"
+								onclick="goToLocation('SOQL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQL</a
+								>
+							</li>
+							<li
+								title="SOQLAgregate"
+								id="item-SOQLAgregate"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregate.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregate</a
+								>
+							</li>
+							<li
+								title="SOSL"
+								id="item-SOSL"
+								class="nav-item class public"
+								onclick="goToLocation('SOSL.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSL</a
+								>
+							</li>
+							<li
+								title="QueryTest"
+								id="item-QueryTest"
+								class="nav-item class public"
+								onclick="goToLocation('QueryTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueryTest</a
+								>
+							</li>
+							<li
+								title="SOQLAgregateTest"
+								id="item-SOQLAgregateTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLAgregateTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLAgregateTest</a
+								>
+							</li>
+							<li
+								title="SOQLTest"
+								id="item-SOQLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOQLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOQLTest</a
+								>
+							</li>
+							<li
+								title="SOSLTest"
+								id="item-SOSLTest"
+								class="nav-item class public"
+								onclick="goToLocation('SOSLTest.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SOSLTest</a
+								>
+							</li>
+							<li
+								title="QuiddityGuard"
+								id="item-QuiddityGuard"
+								class="nav-item class public"
+								onclick="goToLocation('QuiddityGuard.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuard</a
+								>
+							</li>
+							<li
+								title="QuiddityGuardTests"
+								id="item-QuiddityGuardTests"
+								class="nav-item class private"
+								onclick="goToLocation('QuiddityGuardTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QuiddityGuardTests</a
+								>
+							</li>
+							<li
+								title="AsyncRestClient"
+								id="item-AsyncRestClient"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestClient</a
+								>
+							</li>
+							<li
+								title="AsyncRestLibFinalizer"
+								id="item-AsyncRestLibFinalizer"
+								class="nav-item class public"
+								onclick="goToLocation('AsyncRestLibFinalizer.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>AsyncRestLibFinalizer</a
+								>
+							</li>
+							<li
+								title="HttpVerb"
+								id="item-HttpVerb"
+								class="nav-item class public"
+								onclick="goToLocation('HttpVerb.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpVerb</a
+								>
+							</li>
+							<li
+								title="RestClient"
+								id="item-RestClient"
+								class="nav-item class public"
+								onclick="goToLocation('RestClient.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClient</a
+								>
+							</li>
+							<li
+								title="RestClientLib"
+								id="item-RestClientLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestClientLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestClientLib</a
+								>
+							</li>
+							<li
+								title="RestLib"
+								id="item-RestLib"
+								class="nav-item class public"
+								onclick="goToLocation('RestLib.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLib</a
+								>
+							</li>
+							<li
+								title="RestLibApiCall"
+								id="item-RestLibApiCall"
+								class="nav-item class public"
+								onclick="goToLocation('RestLibApiCall.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibApiCall</a
+								>
+							</li>
+							<li
+								title="RestLibTests"
+								id="item-RestLibTests"
+								class="nav-item class private"
+								onclick="goToLocation('RestLibTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>RestLibTests</a
+								>
+							</li>
+							<li
+								title="CanTheUser"
+								id="item-CanTheUser"
+								class="nav-item class public"
+								onclick="goToLocation('CanTheUser.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUser</a
+								>
+							</li>
+							<li
+								title="CrudType"
+								id="item-CrudType"
+								class="nav-item class public"
+								onclick="goToLocation('CrudType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CrudType</a
+								>
+							</li>
+							<li
+								title="FLSType"
+								id="item-FLSType"
+								class="nav-item class public"
+								onclick="goToLocation('FLSType.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>FLSType</a
+								>
+							</li>
+							<li
+								title="Safely"
+								id="item-Safely"
+								class="nav-item class public"
+								onclick="goToLocation('Safely.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Safely</a
+								>
+							</li>
+							<li
+								title="CanTheUserTests"
+								id="item-CanTheUserTests"
+								class="nav-item class private"
+								onclick="goToLocation('CanTheUserTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>CanTheUserTests</a
+								>
+							</li>
+							<li
+								title="SafelyTests"
+								id="item-SafelyTests"
+								class="nav-item class private"
+								onclick="goToLocation('SafelyTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SafelyTests</a
+								>
+							</li>
+							<li
+								title="HttpCalloutMockFactory"
+								id="item-HttpCalloutMockFactory"
+								class="nav-item class public"
+								onclick="goToLocation('HttpCalloutMockFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="MethodSignature"
+								id="item-MethodSignature"
+								class="nav-item class public"
+								onclick="goToLocation('MethodSignature.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MethodSignature</a
+								>
+							</li>
+							<li
+								title="MockedMethod"
+								id="item-MockedMethod"
+								class="nav-item class public"
+								onclick="goToLocation('MockedMethod.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MockedMethod</a
+								>
+							</li>
+							<li
+								title="Stub"
+								id="item-Stub"
+								class="nav-item class public"
+								onclick="goToLocation('Stub.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>Stub</a
+								>
+							</li>
+							<li
+								title="StubUtilities"
+								id="item-StubUtilities"
+								class="nav-item class public"
+								onclick="goToLocation('StubUtilities.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>StubUtilities</a
+								>
+							</li>
+							<li
+								title="TestFactory"
+								id="item-TestFactory"
+								class="nav-item class public"
+								onclick="goToLocation('TestFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TestFactory</a
+								>
+							</li>
+							<li
+								title="InvokeMetadataDrivenTriggerFramework"
+								id="item-InvokeMetadataDrivenTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('InvokeMetadataDrivenTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>InvokeMetadataDrivenTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFramework"
+								id="item-MetadataTriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFramework</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkException"
+								id="item-MetadataTriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerFrameworkTests"
+								id="item-MetadataTriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerFrameworkTests</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryService"
+								id="item-MetadataTriggerQueryService"
+								class="nav-item class public"
+								onclick="goToLocation('MetadataTriggerQueryService.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryService</a
+								>
+							</li>
+							<li
+								title="MetadataTriggerQueryServiceTests"
+								id="item-MetadataTriggerQueryServiceTests"
+								class="nav-item class private"
+								onclick="goToLocation('MetadataTriggerQueryServiceTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>MetadataTriggerQueryServiceTests</a
+								>
+							</li>
+							<li
+								title="TriggerContext"
+								id="item-TriggerContext"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerContext.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerContext</a
+								>
+							</li>
+							<li
+								title="TriggerFramework"
+								id="item-TriggerFramework"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFramework.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFramework</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkException"
+								id="item-TriggerFrameworkException"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkException.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkException</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkLoopCount"
+								id="item-TriggerFrameworkLoopCount"
+								class="nav-item class public"
+								onclick="goToLocation('TriggerFrameworkLoopCount.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkLoopCount</a
+								>
+							</li>
+							<li
+								title="SampleHandler"
+								id="item-SampleHandler"
+								class="nav-item class public"
+								onclick="goToLocation('SampleHandler.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>SampleHandler</a
+								>
+							</li>
+							<li
+								title="TriggerFrameworkTests"
+								id="item-TriggerFrameworkTests"
+								class="nav-item class private"
+								onclick="goToLocation('TriggerFrameworkTests.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>TriggerFrameworkTests</a
+								>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show:
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-all"
+						onclick="toggleAllScopes(this.checked);" />
+					<label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input
+						type="checkbox"
+						checked="true"
+						id="cbx-global"
+						onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-public"
+						onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-protected"
+						onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-private"
+						onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-webservice"
+						onclick="toggleScope('webservice', this.checked);" />
+					<label for="cbx-webservice"> webService </label
+					>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="SOSL">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L24">
+								SOSL
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">
+								MIT License Copyright (c) 2020 Rafał Kopaczewski
+								Permission is hereby granted, free of charge, to
+								any person obtaining a copy of this software and
+								associated documentation files (the
+								&quot;Software&quot;), to deal in the Software
+								without restriction, including without
+								limitation the rights to use, copy, modify,
+								merge, publish, distribute, sublicense, and/or
+								sell copies of the Software, and to permit
+								persons to whom the Software is furnished to do
+								so, subject to the following conditions: The
+								above copyright notice and this permission
+								notice shall be included in all copies or
+								substantial portions of the Software. THE
+								SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT
+								WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+								INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+								MERCHANTABILITY, FITNESS FOR A PARTICULAR
+								PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+								THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+								ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+								IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+								ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+								SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+								SOFTWARE.
+							</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public inherited sharing class SOSL
+							</div>
+						</div>
+						<div class="subsection properties SOSL">
+							<h3 class="subsection-title properties">
+								SOSL Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L26">
+											queryString
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String queryString
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								SOSL Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.SOSL">
+											SOSL (queryString)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.SOSL_1">
+											SOSL (')
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4 class="method-title" id="SOSL.SOSL">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L29">
+											SOSL(queryString)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private SOSL(String queryString)
+									</div>
+								</div>
+								<div class="method private">
+									<h4 class="method-title" id="SOSL.SOSL_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L208">
+											SOSL(')
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										return new
+										SOSL(String.join(queryStatements, &#39;
+										&#39;))
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								SOSL Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addDataCategoryStatement">
+											addDataCategoryStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addDivisionStatement">
+											addDivisionStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addFindStatement">
+											addFindStatement (queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addHighlightStatement">
+											addHighlightStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addLimitStatement">
+											addLimitStatement (queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addNetworkStatement">
+											addNetworkStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addPricebookIdStatement">
+											addPricebookIdStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addReturningStatement">
+											addReturningStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addSearchGroupStatement">
+											addSearchGroupStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addSnippetStatement">
+											addSnippetStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addSpellCorrectionStatement">
+											addSpellCorrectionStatement
+											(queryStatements)
+										</a>
+									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.addUpdateStatement">
+											addUpdateStatement (queryStatements)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.build">
+											build ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.find">
+											find ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.getQueryString">
+											getQueryString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.query">
+											query ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.setScopeLimit">
+											setScopeLimit (numberOfRows)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.setUpdateTracking">
+											setUpdateTracking ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.setUpdateViewStat">
+											setUpdateViewStat ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.toString">
+											toString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.toString_1">
+											toString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withDataCategoryAbove">
+											withDataCategoryAbove (groupName,
+											category)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withDataCategoryAboveOrBelow">
+											withDataCategoryAboveOrBelow
+											(groupName, category)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withDataCategoryAt">
+											withDataCategoryAt (groupName,
+											category)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withDataCategoryBelow">
+											withDataCategoryBelow (groupName,
+											category)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withDivision">
+											withDivision (division)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withHighlight">
+											withHighlight ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withNetworkId">
+											withNetworkId (networkId)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withNetworkIds">
+											withNetworkIds (networkIds)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withNetworkIds_1">
+											withNetworkIds (networkIds)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withPricebookId">
+											withPricebookId (pricebookId)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withSnippet">
+											withSnippet (snippetTargetLength)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.withSpellCorrection">
+											withSpellCorrection
+											(isSpellCorrectionEnabled)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addDataCategoryStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L245">
+											addDataCategoryStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addDataCategoryStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addDivisionStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L239">
+											addDivisionStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addDivisionStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addFindStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L211">
+											addFindStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addFindStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addHighlightStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L260">
+											addHighlightStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addHighlightStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addLimitStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L307">
+											addLimitStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addLimitStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addNetworkStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L266">
+											addNetworkStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addNetworkStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addPricebookIdStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L283">
+											addPricebookIdStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addPricebookIdStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addReturningStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L223">
+											addReturningStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addReturningStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addSearchGroupStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L217">
+											addSearchGroupStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addSearchGroupStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addSnippetStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L291">
+											addSnippetStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addSnippetStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addSpellCorrectionStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L299">
+											addSpellCorrectionStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addSpellCorrectionStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.addUpdateStatement">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L313">
+											addUpdateStatement(queryStatements)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private void
+										addUpdateStatement(List&lt;String&gt;
+										queryStatements)
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="SOSL.build">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L194">
+											build()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public SOSL build()
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="SOSL.find">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L41">
+											find()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Search.SearchResults find()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.getQueryString">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L33">
+											getQueryString()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String getQueryString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="SOSL.query">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L37">
+											query()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public List&lt;List&lt;SObject&gt;&gt;
+										query()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.setScopeLimit">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L179">
+											setScopeLimit(numberOfRows)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder setScopeLimit(Integer
+										numberOfRows)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.setUpdateTracking">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L184">
+											setUpdateTracking()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder setUpdateTracking()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.setUpdateViewStat">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L189">
+											setUpdateViewStat()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder setUpdateViewStat()
+									</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="SOSL.toString">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L45">
+											toString()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.toString_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L322">
+											toString()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withDataCategoryAbove">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L114">
+											withDataCategoryAbove(groupName,
+											category)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withDataCategoryAbove(
+										String groupName, String category )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withDataCategoryAboveOrBelow">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L134">
+											withDataCategoryAboveOrBelow(groupName,
+											category)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder
+										withDataCategoryAboveOrBelow( String
+										groupName, String category )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withDataCategoryAt">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L107">
+											withDataCategoryAt(groupName,
+											category)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withDataCategoryAt(String
+										groupName, String category)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withDataCategoryBelow">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L124">
+											withDataCategoryBelow(groupName,
+											category)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withDataCategoryBelow(
+										String groupName, String category )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withDivision">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L102">
+											withDivision(division)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withDivision(String
+										division)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withHighlight">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L144">
+											withHighlight()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withHighlight()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withNetworkId">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L149">
+											withNetworkId(networkId)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withNetworkId(String
+										networkId)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withNetworkIds">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L154">
+											withNetworkIds(networkIds)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder
+										withNetworkIds(List&lt;String&gt;
+										networkIds)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withNetworkIds_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L159">
+											withNetworkIds(networkIds)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder
+										withNetworkIds(Set&lt;String&gt;
+										networkIds)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withPricebookId">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L164">
+											withPricebookId(pricebookId)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withPricebookId(String
+										pricebookId)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withSnippet">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L169">
+											withSnippet(snippetTargetLength)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder withSnippet(Integer
+										snippetTargetLength)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.withSpellCorrection">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L174">
+											withSpellCorrection(isSpellCorrectionEnabled)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder
+										withSpellCorrection(Boolean
+										isSpellCorrectionEnabled)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="SOSL.Builder">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L49">
+								SOSL.Builder
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">
+								public class Builder
+							</div>
+						</div>
+						<div class="subsection properties SOSL_Builder">
+							<h3 class="subsection-title properties">
+								SOSL.Builder Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L59">
+											dataCategorySpecs
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private List&lt;DataCategorySpec&gt;
+											dataCategorySpecs
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L57">
+											division
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String division
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L63">
+											networkIds
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Set&lt;String&gt; networkIds
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L73">
+											numberOfRows
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Integer numberOfRows
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L65">
+											pricebookId
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String pricebookId
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L55">
+											returningFieldSpecs
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private
+											List&lt;Query.ReturningFieldSpec&gt;
+											returningFieldSpecs
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L51">
+											searchCondition
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Query.SearchCondition
+											searchCondition
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L53">
+											searchGroup
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Query.SearchGroup
+											searchGroup
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L61">
+											snippet
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String snippet
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L69">
+											snippetTargetLength
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Integer snippetTargetLength
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L71">
+											spellCorrection
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String spellCorrection
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L75">
+											statementUpdate
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Set&lt;String&gt;
+											statementUpdate
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L67">
+											withHighlight
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private Boolean withHighlight
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								SOSL.Builder Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.Builder.Builder">
+											Builder (searchPhrase)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.Builder.Builder_1">
+											Builder (searchCondition)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.Builder.Builder">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L77">
+											Builder(searchPhrase)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder(String searchPhrase)
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.Builder.Builder_1">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L81">
+											Builder(searchCondition)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder(Query.SearchCondition
+										searchCondition)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								SOSL.Builder Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.Builder.addReturningFieldSpec">
+											addReturningFieldSpec
+											(returningFieldSpec)
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.Builder.withSearchGroup">
+											withSearchGroup (searchGroup)
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.Builder.addReturningFieldSpec">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L95">
+											addReturningFieldSpec(returningFieldSpec)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder addReturningFieldSpec(
+										Query.ReturningFieldSpec
+										returningFieldSpec )
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.Builder.withSearchGroup">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L90">
+											withSearchGroup(searchGroup)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public Builder
+										withSearchGroup(Query.SearchGroup
+										searchGroup)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="SOSL.DataCategorySpec">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L328">
+								SOSL.DataCategorySpec
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-subtitle">Signature</div>
+							<div class="class-annotations">@TestVisible</div>
+							<div class="class-signature">
+								private class DataCategorySpec
+							</div>
+						</div>
+						<div
+							class="subsection properties SOSL_DataCategorySpec">
+							<h3 class="subsection-title properties">
+								SOSL.DataCategorySpec Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L334">
+											category
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String category
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L330">
+											groupName
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String groupName
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L332">
+											operator
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private String operator
+										</div>
+									</td>
+									<td>
+										<div class="prop-annotations">
+											@TestVisible
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								SOSL.DataCategorySpec Constructors
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.DataCategorySpec.DataCategorySpec">
+											DataCategorySpec (groupName,
+											operator, category)
+										</a>
+									</li>
+								</ul>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="SOSL.DataCategorySpec.DataCategorySpec">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L337">
+											DataCategorySpec(groupName,
+											operator, category)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										private DataCategorySpec( String
+										groupName, String operator, String
+										category )
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">
+								SOSL.DataCategorySpec Methods
+							</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.DataCategorySpec.toDataCategorySpecString">
+											toDataCategorySpecString ()
+										</a>
+									</li>
+									<li class="method public">
+										<a
+											class="methods-toc__entry"
+											href="#SOSL.DataCategorySpec.toString">
+											toString ()
+										</a>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.DataCategorySpec.toDataCategorySpecString">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L347">
+											toDataCategorySpecString()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public String toDataCategorySpecString()
+									</div>
+								</div>
+								<div class="method public">
+									<h4
+										class="method-title"
+										id="SOSL.DataCategorySpec.toString">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/query lib/SOSL.cls#L351">
+											toString()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">
+										public override String toString()
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a
+							href="https://github.com/no-stack-dub-sack/apexdox-vs-code"
+							target="_blank"
+							rel="noopener noreferrer">
+							Powered By ApexDox VS Code
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -2,16 +2,21 @@
 
 # Install script
 echo "Cleaning previous scratch org..."
-sfdx force:org:delete -p -u ApexKit
+sf org delete scratch --no-prompt --target-org=ApexKit
 
 echo "Creating new scratch org"
-sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias ApexKit --nonamespace --setdefaultusername --noancestors
+sf org create scratch --definition-file config/project-scratch-def.json --durationdays 10 -a ApexKit --nonamespace --setdefaultusername --noancestors
 
 echo "Push unmanaged main metadata"
-sfdx force:source:push
+sf deploy metadata
 
 echo "Assigning permission set"
-sfdx force:user:permset:assign -n Async_Log_Access
+sf org assign permset --name Async_Log_Access
 
-echo "opening org"
-sfdx force:org:open
+# echo "Adding sample data"
+# sf apex run --file ./data/Apexkit-data-plan.json
+
+echo "Opening org"
+sf org open
+
+echo "Org is set up"

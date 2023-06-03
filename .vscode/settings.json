@@ -10,6 +10,6 @@
   ],
   "apexPMD.enableCache": true,
   "apexPMD.rulesets": [
-    "ruleset.xml"
+    "pmd/ruleset.xml"
   ]
 }

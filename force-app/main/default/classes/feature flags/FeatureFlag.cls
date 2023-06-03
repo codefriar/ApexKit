@@ -50,12 +50,12 @@ public with sharing class FeatureFlag {
 	 * @description          Returns true if the specified feature flag is enabled
 	 * This is the main method of the FeatureFlag library. It checks three methods
 	 * of feature enablement:
-	 * 1. Global metadata enablement on the Feature_Flag__mdt record
-	 * 2. Enablement through a permission set that is shared between the running
-	 *  user and the feature flag's related list of Feature_Flag_Enabled_For__mdt
+	 * <br>1. Global metadata enablement on the `Feature_Flag__mdt` record
+	 * <br>2. Enablement through a permission set that is shared between the running
+	 *  user and the feature flag's related list of `Feature_Flag_Enabled_For__mdt`
 	 *  records
-	 * 3. Enablement through a list of custom permissions defined by
-	 *  FF_Enabled_For_Custom_Permission__mdt records.
+	 * <br>3. Enablement through a list of custom permissions defined by
+	 *  `FF_Enabled_For_Custom_Permission__mdt` records.
 	 * @param featureFlagName String name of the feature flag
 	 * @return                `Boolean`
 	 */

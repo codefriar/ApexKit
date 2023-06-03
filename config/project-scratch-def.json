@@ -1,6 +1,7 @@
 {
 	"orgName": "ApexKit Company",
 	"edition": "Developer",
+	"hasSampleData": true,
 	"features": ["EnableSetPasswordInApi", "PlatformCache"],
 	"settings": {
 		"lightningExperienceSettings": {
