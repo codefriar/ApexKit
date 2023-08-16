@@ -45,7 +45,6 @@ jobs:
 
   scratch-org-test:
     runs-on: ubuntu-latest
-    needs: format-tests
     if: ${{ github.actor != 'dependabot[bot]' }}
     steps:
       # Checkout the source code
