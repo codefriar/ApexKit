@@ -7,6 +7,7 @@
 	"tabWidth": 4,
 	"trailingComma": "none",
 	"useTabs": true,
+	"htmlWhitespaceSensitivity": "css",
 	"overrides": [
 		{
 			"files": "**/lwc/**/*.html",
@@ -20,5 +21,6 @@
 			"files": "*.{yml,yaml}",
 			"options": { "tabWidth": 2, "useTabs": false }
 		}
-	]
+	],
+	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"]
 }

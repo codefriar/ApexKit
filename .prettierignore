@@ -13,5 +13,5 @@ coverage/
 *-meta.xml
 
 # ApexDox
-doc-assets/*.js
-docs/assets/*.js
+doc-assets/**/*.js
+docs/**/*.js
