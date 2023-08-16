@@ -1,0 +1,103 @@
+# Unique name for this workflow
+name: CI on PR
+
+# Definition when the workflow should run
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    paths:
+      - 'force-app/**'
+# Jobs to be executed
+jobs:
+  # Formatting and linting only runs on human-submitted PRs
+  format-tests:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      # Checkout the source code
+      - name: 'Checkout source code'
+        uses: actions/checkout@v3
+
+      # Install Volta to enforce proper node and package manager versions
+      - name: 'Install Volta'
+        uses: volta-cli/action@v4
+
+      # Cache node_modules to speed up the process
+      - name: 'Restore node_modules cache'
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-${{ env.cache-name }}-
+            npm-
+
+      # Install npm dependencies for Prettier and Jest
+      - name: 'Install npm dependencies'
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: npm ci
+
+      # Prettier formatting
+      - name: 'Code formatting verification with Prettier'
+        run: npm run prettier:apex:verify
+
+  scratch-org-test:
+    runs-on: ubuntu-latest
+    needs: format-tests
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      # Checkout the source code
+      - name: 'Checkout source code'
+        uses: actions/checkout@v3
+
+      # Install Salesforce CLI
+      - name: 'Install Salesforce CLI'
+        run: |
+          npm install @salesforce/cli --global
+          nodeInstallPath=$(npm config get prefix)
+          echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+          sf --version
+
+      # Store secret for dev hub
+      - name: 'Populate auth file with SALESFORCE_AUTH_URL secret'
+        shell: bash
+        run: |
+          echo ${{ secrets.SALESFORCE_AUTH_URL}} > ./SALESFORCE_AUTH_URL.txt
+          secretFileSize=$(wc -c "./SALESFORCE_AUTH_URL.txt" | awk '{print $1}')
+          if [ $secretFileSize == 1 ]; then
+              echo "Missing SALESFORCE_AUTH_URL secret. Is this workflow running on a fork?";
+              exit 1;
+          fi
+
+      # Authenticate dev hub
+      - name: 'Authenticate Dev Hub'
+        run: sf org login sfdx-url --sfdx-url-file ./SALESFORCE_AUTH_URL.txt --alias devhub --set-default-dev-hub
+
+      # Create scratch org
+      - name: 'Create scratch org'
+        run: sf force org create scratch --definition-file config/project-scratch-def.json --alias ApexKit --set-default --duration-days 1
+
+      # Deploy source to scratch org
+      - name: 'Push source to scratch org'
+        run: sf project deploy start
+
+      # Run Apex tests in scratch org
+      - name: 'Run Apex tests'
+        run: sf apex run test --code-coverage --result-format human --output-dir ./tests/apex --wait 20
+
+      # Delete temporary test file that Codecov is unable to parse
+      #- name: "Delete coverage file (temporary step)"
+      #  run: rm ./tests/apex/test-result-707*-codecoverage.json
+
+      # Upload code coverage data
+      - name: 'Upload code coverage for Apex to Codecov.io'
+        uses: codecov/codecov-action@v3
+        with:
+          flags: Apex
+
+      # Housekeeping
+      - name: 'Delete scratch org'
+        if: always()
+        run: sf force org delete scratch --no-prompt --target-org ApexKit
