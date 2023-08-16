@@ -77,7 +77,7 @@ jobs:
 
       # Create scratch org
       - name: 'Create scratch org'
-        run: sf force org create scratch --definition-file config/project-scratch-def.json --alias ApexKit --set-default --duration-days 1
+        run: sf org create scratch --definition-file config/project-scratch-def.json --alias ApexKit --set-default --duration-days 1
 
       # Deploy source to scratch org
       - name: 'Push source to scratch org'
@@ -100,4 +100,4 @@ jobs:
       # Housekeeping
       - name: 'Delete scratch org'
         if: always()
-        run: sf force org delete scratch --no-prompt --target-org ApexKit
+        run: sf org delete scratch --no-prompt --target-org ApexKit
