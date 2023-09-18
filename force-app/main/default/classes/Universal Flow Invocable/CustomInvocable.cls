@@ -1,3 +1,9 @@
+/**
+ * @description This class is an example of how to implement the Invocable Abstract Class.
+ * It doesn't do much, but it does illustrate how Invocable, UniversalInvocable, UniversalFlowInputOutput and
+ * UniversalFlowInputOutputParameter work together to expose multiple methods to Flow.
+ */
+
 public class CustomInvocable extends Invocable {
 	public Integer daysTillChristmas(Date startingDate) {
 		return startingDate.daysBetween(

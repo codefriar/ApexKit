@@ -1,7 +1,7 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="PMDApex" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="PMDApex" enabled="false" level="WARNING" enabled_by_default="false">
       <option name="pmdPath" value="/Applications/pmd-bin-7.0.0-rc3" />
       <option name="rulesetPath" value="$USER_HOME$/Documents/ruleset.xml" />
       <option name="showDescription" value="true" />

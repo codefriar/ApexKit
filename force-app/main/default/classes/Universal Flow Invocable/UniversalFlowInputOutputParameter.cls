@@ -125,7 +125,7 @@ public class UniversalFlowInputOutputParameter {
 				sobjects = (List<SObject>) value;
 			}
 			when else {
-				throw new Invocable.MallformedCallableException(
+				throw new Invocable.MalformedCallableException(
 					'Unable to wrap ' + returnType + ' in CustomObjectWrapper'
 				);
 			}
