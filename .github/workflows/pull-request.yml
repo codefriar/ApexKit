@@ -49,7 +49,7 @@ jobs:
     steps:
       # Checkout the source code
       - name: 'Checkout source code'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Install Salesforce CLI
       - name: 'Install Salesforce CLI'
@@ -76,7 +76,7 @@ jobs:
 
       # Create scratch org
       - name: 'Create scratch org'
-        run: sf org create scratch --definition-file config/project-scratch-def.json --alias ApexKit --set-default --duration-days 1
+        run: sf org create scratch --definition-file config/project-scratch-def.json --alias ApexKit --set-default --duration-days 1 --no-track-source
 
       # Deploy source to scratch org
       - name: 'Push source to scratch org'
