@@ -1,5 +1,5 @@
 {
-	"apexInsertFinalNewline": false,
+	"apexInsertFinalNewline": true,
 	"bracketSameLine": true,
 	"singleAttributePerLine": false,
 	"bracketSpacing": true,
