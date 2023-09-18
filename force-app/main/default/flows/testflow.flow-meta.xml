@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>testing123</name>
-        <label>testing123</label>
+        <name>Invoke_custom_universal_invocable</name>
+        <label>Invoke custom universal invocable</label>
         <locationX>176</locationX>
         <locationY>647</locationY>
         <actionName>UniversalInvocable</actionName>
         <actionType>apex</actionType>
         <connector>
-            <targetReference>update</targetReference>
+            <targetReference>set_SLA_serial</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -33,86 +33,58 @@
     </actionCalls>
     <apiVersion>58.0</apiVersion>
     <assignments>
-        <name>coalesce_params_into_list_of_params</name>
-        <label>coalesce params into list of params</label>
+        <name>create_list_of_parameters</name>
+        <label>create list of parameters</label>
         <locationX>176</locationX>
         <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>params</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>param1</elementReference>
+                <elementReference>startDate</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>params</assignToReference>
             <operator>Add</operator>
             <value>
-                <elementReference>param2</elementReference>
+                <elementReference>endDate</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>testing123</targetReference>
+            <targetReference>Invoke_custom_universal_invocable</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>set_ending_date</name>
-        <label>set ending date</label>
+        <name>set_endDate</name>
+        <label>set endDate</label>
         <locationX>176</locationX>
         <locationY>431</locationY>
         <assignmentItems>
-            <assignToReference>param2.parameterName</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>endingDate</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>param2.parameterType</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>date</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>param2.dateValue</assignToReference>
+            <assignToReference>endDate.dateValue</assignToReference>
             <operator>Assign</operator>
             <value>
                 <dateValue>2023-12-25</dateValue>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>coalesce_params_into_list_of_params</targetReference>
+            <targetReference>create_list_of_parameters</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>StartingDate</name>
-        <label>Starting Date</label>
+        <name>set_startDate</name>
+        <label>set startDate</label>
         <locationX>176</locationX>
         <locationY>323</locationY>
         <assignmentItems>
-            <assignToReference>param1.parameterName</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>startingDate</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>param1.dateValue</assignToReference>
+            <assignToReference>startDate.dateValue</assignToReference>
             <operator>Assign</operator>
             <value>
                 <dateValue>2023-05-28</dateValue>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>param1.parameterType</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>date</stringValue>
-            </value>
-        </assignmentItems>
         <connector>
-            <targetReference>set_ending_date</targetReference>
+            <targetReference>set_endDate</targetReference>
         </connector>
     </assignments>
     <environments>Default</environments>
@@ -138,15 +110,15 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordUpdates>
-        <name>update</name>
-        <label>update</label>
+        <description>seriously this is a dumb example. This sets the sla serial # to the # of days between my birthday
+            and christmas.
+        </description>
+        <name>set_SLA_serial</name>
+        <label>set SLA serial #</label>
         <locationX>176</locationX>
         <locationY>755</locationY>
         <inputAssignments>
             <field>SLASerialNumber__c</field>
-            <value>
-                <elementReference>testing123.result.integerValue</elementReference>
-            </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
@@ -154,7 +126,7 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>StartingDate</targetReference>
+            <targetReference>set_startDate</targetReference>
         </connector>
         <object>Account</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
@@ -162,15 +134,7 @@
     </start>
     <status>Draft</status>
     <variables>
-        <name>param1</name>
-        <apexClass>UniversalFlowInputOutputParameter</apexClass>
-        <dataType>Apex</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>param2</name>
+        <name>endDate</name>
         <apexClass>UniversalFlowInputOutputParameter</apexClass>
         <dataType>Apex</dataType>
         <isCollection>false</isCollection>
@@ -183,6 +147,14 @@
         <dataType>Apex</dataType>
         <isCollection>true</isCollection>
         <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>startDate</name>
+        <apexClass>UniversalFlowInputOutputParameter</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
         <isOutput>false</isOutput>
     </variables>
 </Flow>

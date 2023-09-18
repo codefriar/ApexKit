@@ -40,23 +40,23 @@ public abstract class Invocable implements Callable {
 	);
 
 	/**
-	 * @description This is a common exception object shared by all classes that extend this class. Used primarially
+	 * @description This is a common exception object shared by all classes that extend this class. Used primarily
 	 * by this class to throw exceptions when the call() method is not implemented, or when the call() method doesn't
 	 * handle the method name or parameters passed to it.
 	 */
-	public class MallformedCallableException extends Exception {
+	public class MalformedCallableException extends Exception {
 	}
 
 	/**
 	 * @description Method is responsible for constructing and throwing a structured exception when the call() method
-	 * is not implemented, or when the call() method doesn't handle the method name or parameters passed to it.
+	 * is not implemented, or when the call() method does not handle the method name or parameters passed to it.
 	 */
 	protected void throwMalformedCallableException() {
 		String className = Polyfills.classNameFromInstance(this);
-		throw new MallformedCallableException(
+		throw new MalformedCallableException(
 			'Unable to call ' +
 				className +
-				'.call() because it is not implemented, or call() doesn\'t handle the ' +
+				'.call() because it is not implemented, or call() does not handle the ' +
 				this.methodName +
 				' method or parameters'
 		);
@@ -219,7 +219,7 @@ public abstract class Invocable implements Callable {
 						);
 					}
 					when else {
-						throw new MallformedCallableException(
+						throw new MalformedCallableException(
 							'Unable to determine type of ' +
 								parameter.parameterType +
 								' for parameter ' +
