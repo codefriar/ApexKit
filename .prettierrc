@@ -1,4 +1,5 @@
 {
+	"apexInsertFinalNewline": false,
 	"bracketSameLine": true,
 	"singleAttributePerLine": false,
 	"bracketSpacing": true,
@@ -6,10 +7,7 @@
 	"tabWidth": 4,
 	"trailingComma": "none",
 	"useTabs": true,
-	"plugins": [
-		"prettier-plugin-apex",
-		"@prettier/plugin-xml"
-	],
+	"htmlWhitespaceSensitivity": "css",
 	"overrides": [
 		{
 			"files": "**/lwc/**/*.html",
@@ -23,5 +21,7 @@
 			"files": "*.{yml,yaml}",
 			"options": { "tabWidth": 2, "useTabs": false }
 		}
-	]
+	],
+	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"],
+	"$schema": "https://json.schemastore.org/prettierrc"
 }
