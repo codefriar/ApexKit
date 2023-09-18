@@ -22,5 +22,6 @@
 			"options": { "tabWidth": 2, "useTabs": false }
 		}
 	],
-	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"]
+	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"],
+	"$schema": "https://json.schemastore.org/prettierrc"
 }
