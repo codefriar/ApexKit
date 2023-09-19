@@ -1,10 +1,10 @@
-@isTest
+@IsTest
 private class LogTests {
-	@isTest
+	@IsTest
 	private static void testDirectPublishMethodsPositive() {
 		Test.startTest();
 		Log.get().publish('This is a test');
-		Log.get().publish(new DMLException('hi from exception land'));
+		Log.get().publish(new DmlException('hi from exception land'));
 		Test.stopTest();
 		Test.getEventBus().deliver();
 		String currentRequestId = Request.getCurrent().getRequestId();
@@ -44,14 +44,14 @@ private class LogTests {
 		}
 	}
 
-	@isTest
+	@IsTest
 	private static void testLogMultipleItemPositive() {
 		Log logger = Log.get();
 		Test.startTest();
 		logger.add('testing add string method');
 		logger.add('Testing 123', LoggingLevel.WARN);
-		logger.add(new DMLException('hi from exception land'));
-		logger.add(new DMLException('meh'), LoggingLevel.DEBUG);
+		logger.add(new DmlException('hi from exception land'));
+		logger.add(new DmlException('meh'), LoggingLevel.DEBUG);
 		logger.publish();
 		Test.stopTest();
 		// Platform Events require this to push the event in a test env
