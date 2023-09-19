@@ -60,75 +60,108 @@ public class UniversalFlowInputOutputParameter {
 	@AuraEnabled
 	@InvocableVariable
 	public String[] strings;
+	@AuraEnabled
 	@InvocableVariable
 	public SObject sobjectValue;
+	@AuraEnabled
 	@InvocableVariable
 	public SObject[] sobjects;
 
 	public UniversalFlowInputOutputParameter() {
 	} //NOPMD
+	/**
+	 * @description Wraps an Object into different property types that will be used by flows.
+	 *
+	 * @param value The value to convert into native data types
+	 */
 	public UniversalFlowInputOutputParameter(Object value) {
-		String returnType = Polyfills.classNameFromInstance(value);
-		switch on returnType.toLowerCase() {
-			when 'boolean' {
-				booleanValue = (Boolean) value;
-			}
-			when 'list<boolean>' {
-				booleans = (List<Boolean>) value;
-			}
-			when 'date' {
-				dateValue = (Date) value;
-			}
-			when 'list<date>' {
-				dates = (List<Date>) value;
-			}
-			when 'datetime' {
-				dateTimeValue = (Datetime) value;
-			}
-			when 'list<datetime>' {
-				datetimes = (List<Datetime>) value;
-			}
-			when 'decimal' {
-				decimalValue = (Decimal) value;
-			}
-			when 'list<decimal>' {
-				decimals = (List<Decimal>) value;
-			}
-			when 'double' {
-				doubleValue = (Double) value;
-			}
-			when 'list<double>' {
-				doubles = (List<Double>) value;
-			}
-			when 'integer' {
-				integerValue = (Integer) value;
-			}
-			when 'list<integer>' {
-				integers = (List<Integer>) value;
-			}
-			when 'long' {
-				longValue = (Long) value;
-			}
-			when 'list<long>' {
-				longs = (List<Long>) value;
-			}
-			when 'string' {
-				stringValue = (String) value;
-			}
-			when 'list<string>' {
-				strings = (List<String>) value;
-			}
-			when 'sobject' {
-				sobjectValue = (SObject) value;
-			}
-			when 'list<sobject>' {
-				sobjects = (List<SObject>) value;
-			}
-			when else {
-				throw new Invocable.MalformedCallableException(
-					'Unable to wrap ' + returnType + ' in CustomObjectWrapper'
-				);
-			}
+		Boolean isBoolean = value instanceof Boolean;
+		Boolean isDateTime = value instanceof DateTime;
+		Boolean isDate = value instanceof Date;
+		Boolean isLong = value instanceof Long;
+		Boolean isInteger = value instanceof Integer;
+		Boolean isDecimal = value instanceof Decimal;
+		Boolean isDouble = value instanceof Double;
+		Boolean issObject = value instanceof SObject;
+		Boolean isBooleanList = value instanceof List<Boolean>;
+		Boolean isDateTimeList = value instanceof List<DateTime>;
+		Boolean isDateList = value instanceof List<Date>;
+		Boolean isLongList = value instanceof List<Long>;
+		Boolean isIntegerList = value instanceof List<Integer>;
+		Boolean isDecimalList = value instanceof List<Decimal>;
+		Boolean isDoubleList = value instanceof List<Double>;
+		Boolean issObjectList = value instanceof List<sObject>;
+
+		if (isBoolean) {
+			BooleanValue = (Boolean) value;
 		}
+		if (isDateTime) {
+			DateTimeValue = (DateTime) value;
+		}
+		if (isDate) {
+			DateValue = (Date) value;
+		}
+		if (isLong) {
+			LongValue = (Long) value;
+		}
+		if (isInteger) {
+			IntegerValue = (Integer) value;
+		}
+		if (isDecimal) {
+			DecimalValue = (Decimal) value;
+		}
+		if (isDouble) {
+			DoubleValue = (Double) value;
+		}
+		if (issObject) {
+			sObjectValue = (sObject) value;
+		}
+		if (isBooleanList) {
+			Booleans = (List<Boolean>) value;
+		}
+		if (isDateTimeList) {
+			DateTimes = (List<DateTime>) value;
+		}
+		if (isDateList) {
+			Dates = (List<Date>) value;
+		}
+		if (isLongList) {
+			Longs = (List<Long>) value;
+		}
+		if (isIntegerList) {
+			Integers = (List<Integer>) value;
+		}
+		if (isDecimalList) {
+			Decimals = (List<Decimal>) value;
+		}
+		if (isDoubleList) {
+			Doubles = (List<Double>) value;
+		}
+		if (issObjectList) {
+			sObjects = (List<sObject>) value;
+		}
+		if (
+			isBoolean ||
+			isDateTime ||
+			isDate ||
+			isLong ||
+			isInteger ||
+			isDecimal ||
+			isDouble ||
+			issObject ||
+			isBooleanList ||
+			isDateTimeList ||
+			isDateList ||
+			isLongList ||
+			isIntegerList ||
+			isDecimalList ||
+			isDoubleList ||
+			issObjectList
+		) {
+			return;
+		}
+		throw new Invocable.MalformedCallableException(
+			'Unable to wrap ' + String.valueOf(value) + ' in CustomObjectWrapper'
+		);
 	}
 }

@@ -14,7 +14,7 @@
  * It should be noted that you should consider this a pattern. Modifying this pattern on a per-class basis would offer
  * more flexibility, additional focus on input types and output types, and more control over the flow experience.
  */
-public abstract class Invocable implements Callable {
+public abstract class Invocable implements BulkCallable {
 	/**
 	 * @description This is the class name of the class that extends this class. It's primary use is for logging
 	 * exceptions.
@@ -34,10 +34,7 @@ public abstract class Invocable implements Callable {
 	 *
 	 * @return Object This returns a generic Object. This is the return value of the method you're calling.
 	 */
-	abstract public Object call(
-		String methodName,
-		Map<String, Object> passedParameters
-	);
+	abstract public List<Object> call(String methodName, List<Map<String, Object>> passedParameters);
 
 	/**
 	 * @description This is a common exception object shared by all classes that extend this class. Used primarily
@@ -106,11 +103,7 @@ public abstract class Invocable implements Callable {
 		 * @param parameter UniversalFlowInputOutputParameter The return value of the called method is automatically
 		 * cast to it's respective primitive type and stored in this object.
 		 */
-		public UniversalFlowInputOutput(
-			String className,
-			String methodName,
-			Object parameter
-		) {
+		public UniversalFlowInputOutput(String className, String methodName, Object parameter) {
 			this.className = className;
 			this.methodName = methodName;
 			this.result = new UniversalFlowInputOutputParameter(parameter);
@@ -126,109 +119,96 @@ public abstract class Invocable implements Callable {
 		 */
 		public Map<String, Object> toCallableParamMap() {
 			Map<String, Object> paramMap = new Map<String, Object>();
+			if (parameters == null) {
+				return paramMap;
+			}
 			for (UniversalFlowInputOutputParameter parameter : parameters) {
-				switch on parameter.parameterType.toLowerCase() {
-					when 'boolean' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.booleanValue
-						);
-					}
-					when 'list<boolean>' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.booleans
-						);
-					}
-					when 'date' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.dateValue
-						);
-					}
-					when 'list<date>' {
-						paramMap.put(parameter.parameterName, parameter.dates);
-					}
-					when 'datetime' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.dateTimeValue
-						);
-					}
-					when 'list<datetime>' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.datetimes
-						);
-					}
-					when 'decimal' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.decimalValue
-						);
-					}
-					when 'list<decimal>' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.decimals
-						);
-					}
-					when 'double' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.doubleValue
-						);
-					}
-					when 'list<double>' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.doubles
-						);
-					}
-					when 'integer' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.integerValue
-						);
-					}
-					when 'list<integer>' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.integers
-						);
-					}
-					when 'long' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.longValue
-						);
-					}
-					when 'list<long>' {
-						paramMap.put(parameter.parameterName, parameter.longs);
-					}
-					when 'string' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.stringValue
-						);
-					}
-					when 'list<string>' {
-						paramMap.put(
-							parameter.parameterName,
-							parameter.strings
-						);
-					}
-					when else {
-						throw new MalformedCallableException(
-							'Unable to determine type of ' +
-								parameter.parameterType +
-								' for parameter ' +
-								parameter.parameterName
-						);
-					}
+				Object value;
+
+				if (parameter.booleanValue != null) {
+					value = parameter.booleanValue;
 				}
+				if (parameter.booleans != null) {
+					value = parameter.booleans;
+				}
+				if (parameter.dateTimeValue != null) {
+					value = parameter.dateTimeValue;
+				}
+				if (parameter.datetimes != null) {
+					value = parameter.datetimes;
+				}
+				if (parameter.dateValue != null) {
+					value = parameter.dateValue;
+				}
+				if (parameter.dates != null) {
+					value = parameter.dates;
+				}
+				if (parameter.integerValue != null) {
+					value = parameter.integerValue;
+				}
+				if (parameter.integers != null) {
+					value = parameter.integers;
+				}
+				if (parameter.longValue != null) {
+					value = parameter.longValue;
+				}
+				if (parameter.longs != null) {
+					value = parameter.longs;
+				}
+				if (parameter.doubleValue != null) {
+					value = parameter.doubleValue;
+				}
+				if (parameter.doubles != null) {
+					value = parameter.doubles;
+				}
+				if (parameter.decimalValue != null) {
+					value = parameter.decimalValue;
+				}
+				if (parameter.decimals != null) {
+					value = parameter.decimals;
+				}
+				if (parameter.sobjectValue != null) {
+					value = parameter.sobjectValue;
+				}
+				if (parameter.sobjects != null) {
+					value = parameter.sobjects;
+				}
+				if (parameter.stringValue != null) {
+					value = parameter.stringValue;
+				}
+				if (parameter.strings != null) {
+					value = parameter.strings;
+				}
+				paramMap.put(parameter.parameterName, value);
 			}
 			return paramMap;
 		}
+		/**
+		 * @description Used to provide a usable key for the Map that uses this method.
+		 *
+		 * @return      `String`  This value maps unique class/method names
+		 */
+		public override String toString() {
+			return (className + '/' + methodName).toLowerCase();
+		}
+	}
+	/**
+	 * @description             Extracts values from a list of parameters. Used by implementations of the Invocable framework.
+	 *
+	 * @param parameterName     the parameter name to extract into the list
+	 * @param parameters        the parameters provided by the flow framework
+	 * @param parameterListType the Type of the new list to create
+	 * @return                  `List<Object>` The list of extracted values, in the same data type as requested
+	 */
+	protected List<Object> extractParameter(
+		String parameterName,
+		List<Map<String, Object>> parameters,
+		Type parameterListType
+	) {
+		List<Object> results = (List<Object>) parameterListType.newInstance();
+		for (Map<String, Object> parameter : parameters) {
+			results.add(parameter.get(parameterName));
+		}
+		return results;
 	}
 }
