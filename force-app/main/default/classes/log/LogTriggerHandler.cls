@@ -33,7 +33,8 @@ public with sharing class LogTriggerHandler extends TriggerFramework {
 	 * @description Overridden from TriggerFramework.
 	 * TriggerFramework executes this method when the trigger
 	 * context is after insert
-	 * @exception   throws LogException on Database.insert
+	 *
+	 * @throws LogException on Database.insert failure
 	 * isSuccess is false
 	 */
 	public override void afterInsert() {
