@@ -109,7 +109,7 @@ public with sharing class FeatureFlag {
 	@TestVisible
 	private Boolean isEnabledOnOrAfterToday(String featureFlagName) {
 		return Date.today() >=
-			dataProvider.featureFlags.get(featureFlagName).Is_Enabled_After__c;
+			dataProvider.featureFlags.get(featureFlagName).isEnabled_After__c;
 	}
 
 	/**

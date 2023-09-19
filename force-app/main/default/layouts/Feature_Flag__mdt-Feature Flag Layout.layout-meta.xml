@@ -24,7 +24,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Is_Enabled_After__c</field>
+                <field>isEnabled_After__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
