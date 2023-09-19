@@ -5,34 +5,34 @@
  */
 
 public class CustomInvocable extends Invocable {
-	public Integer daysTillChristmas(Date startingDate) {
-		return startingDate.daysBetween(
-			Date.newInstance(12, 25, startingDate.year())
-		);
+	public List<Integer> daysTillChristmas(List<Date> startingDates) {
+		List<Integer> results = new List<Integer>();
+		for (Date startingDate : startingDates) {
+			results.add(startingDate.daysBetween(Date.newInstance(startingDate.year(), 12, 25)));
+		}
+		return results;
 	}
 
-	public Integer daysBetweenDates(Date startingDate, Date endingDate) {
-		return startingDate.daysBetween(endingDate);
+	public List<Integer> daysBetweenDates(List<Date> startingDates, List<Date> endingDates) {
+		List<Integer> results = new List<Integer>();
+		for (Integer index = 0; index < endingDates.size(); index++) {
+			results.add(startingDates[index].daysBetween(endingDates[index]));
+		}
+		return results;
 	}
 
-	public override Object call(String methodName, Map<String, Object> param2) {
+	public override List<Object> call(String methodName, List<Map<String, Object>> param2) {
 		switch on methodName.toLowerCase() {
 			when 'daystillchristmas' {
-				return daysTillChristmas(
-					Date.valueOf(param2.get('startingDate'))
-				);
+				return daysTillChristmas((List<Date>) extractParameter('startingDate', param2, List<Date>.class));
 			}
 			when 'daysbetweendates' {
 				return daysBetweenDates(
-					Date.valueOf(param2.get('startingDate')),
-					Date.valueOf(param2.get('endingDate'))
+					(List<Date>) extractParameter('startingDate', param2, List<Date>.class),
+					(List<Date>) extractParameter('endingDate', param2, List<Date>.class)
 				);
 			}
-			when else {
-				throwMalformedCallableException();
-			}
 		}
-		// We'll never get here, but the compiler doesn't know that.
-		return null;
+		throw new Invocable.MalformedCallableException('Unsupported method: ' + methodName);
 	}
 }
