@@ -1,8 +1,7 @@
 /**
- * @description Provides a similar interface to Callable, but with multiple sets of parameters
+ * @description Provides a similar interface to Callable, but bulkified to handle multiple sets of parameters.
  *
- * @author      Brian Fear
- * @since       2023-09-18
+ * @author Brian Fear
  */
 public interface BulkCallable {
 	List<Object> call(String methodName, List<Map<String, Object>> parameters);
