@@ -12,7 +12,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   Body to send with this call.
 	 * @return      `HttpResponse`
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.ExcessiveParameterList')
 	protected HttpResponse makeApiCall(
 		HttpVerb method,
@@ -31,7 +31,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param query  Query component of the URL ie: after `?foo=bar`
 	 * @return      `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse makeApiCall(
 		HttpVerb method,
 		String path,
@@ -48,7 +48,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param path   Http path component of the URL. ie: `/path/to/resource`
 	 * @return      `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse makeApiCall(HttpVerb method, String path) {
 		return this.makeApiCall(new RestLibApiCall(method, path, '', ''));
 	}
@@ -58,7 +58,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param path   Http path component of the URL. ie: `/path/to/resource`
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse get(String path) {
 		return this.makeApiCall(HttpVerb.GET, path);
 	}
@@ -70,7 +70,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param query  Query component of the URL ie: after `?foo=bar`
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse get(String path, String query) {
 		return this.makeApiCall(HttpVerb.GET, path, query);
 	}
@@ -81,7 +81,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param path   Http path component of the URL. ie: `/path/to/resource`
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse del(String path) {
 		return this.makeApiCall(HttpVerb.DEL, path);
 	}
@@ -93,7 +93,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param query  Query component of the URL ie: after `?foo=bar`
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse del(String path, String query) {
 		return this.makeApiCall(HttpVerb.DEL, path, query);
 	}
@@ -105,7 +105,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   JSON string to post
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse post(String path, String body) {
 		return this.makeApiCall(HttpVerb.POST, path, '', body);
 	}
@@ -118,7 +118,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   JSON string to post
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse post(String path, String query, String body) {
 		return this.makeApiCall(HttpVerb.POST, path, query, body);
 	}
@@ -130,7 +130,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   JSON string to post
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse put(String path, String body) {
 		return this.makeApiCall(HttpVerb.PUT, path, '', body);
 	}
@@ -143,7 +143,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   JSON string to post
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse put(String path, String query, String body) {
 		return this.makeApiCall(HttpVerb.PUT, path, query, body);
 	}
@@ -155,7 +155,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   JSON string to post
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse patch(String path, String body) {
 		return this.makeApiCall(HttpVerb.PATCH, path, '', body);
 	}
@@ -168,7 +168,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @param body   JSON string to post
 	 * @return     `HTTPResponse`
 	 */
-	@testVisible
+	@TestVisible
 	protected HttpResponse patch(String path, String query, String body) {
 		return this.makeApiCall(HttpVerb.PATCH, path, query, body);
 	}

@@ -4,15 +4,13 @@ public virtual class RestClient extends RestLib {
 	}
 
 	/**
-	 * @description           A static wrapper for the main makeApiCall method
+	 * @description A static wrapper for the main makeApiCall method
+	 *
 	 * @param namedCredential The named credential to use
-	 * @param method          HTTPVerb enum value. See Enum above
-	 * @param path           Http path component of the URL. ie: `/path/to/resource`
-	 * @param query           Query component of the URL ie: after `?foo=bar`
-	 * @param body            JSON string to post
-	 * @param headers         Map<String,String> representing outgoing Request
-	 * headers
-	 * @return               `HTTPResponse`
+	 * @param apiCall HTTPVerb enum value. See Enum above
+	 *
+	 * @return `HTTPResponse`
+	 *
 	 * @example
 	 * Log.get().publish(RestClient.makeApiCall('MockBin',
 	 *                                      RestClient.HttpVerb.GET,

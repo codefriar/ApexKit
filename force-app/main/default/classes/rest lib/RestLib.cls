@@ -2,7 +2,7 @@ public with sharing virtual class RestLib {
 	/**
 	 * @description The name of the Named Credential to use
 	 */
-	@testVisible
+	@TestVisible
 	protected String namedCredentialName { get; set; }
 
 	/**
@@ -22,7 +22,7 @@ public with sharing virtual class RestLib {
 	 * but unavailable to anything but inner classes and classes that
 	 * extend this one.
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected RestLib() {
 	}
@@ -31,14 +31,12 @@ public with sharing virtual class RestLib {
 	 * @description Omnibus callout method. This is the primary method for
 	 * making a REST callout. Most of the other methods in this class serve
 	 * as convenient, syntactic sugar on this method.
-	 * @param   method Enum HTTP verb to use. i.e. GET
-	 * @param   path patch component of the callout url i.e. `/services/data/v39.0/SObjects`
-	 * @param   query Query portion of the URL i.e. `?q=SELECT Id FROM Account`
-	 * @param   body JSON string representing the body of the callout in post/patch situations
-	 * @param   headers A map<String,String> of headers to use while making this callout
+	 *
+	 * @param apiCall Enum HTTP verb to use. i.e. GET
+	 *
 	 * @return HttpResponse  HttpResponse Obj
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.ExcessiveParameterList')
 	protected HttpResponse makeApiCall(RestLibApiCall apiCall) {
 		HttpRequest apiRequest = new HttpRequest();

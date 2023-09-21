@@ -2,7 +2,6 @@ public with sharing class RestLibApiCall {
 	/**
 	 * @description The default headers to use, when none are specified
 	 */
-	@testVisible
 	public static Map<String, String> defaultHeaders = new Map<String, String>{
 		'Content-Type' => 'application/json',
 		'Accept' => 'application/json'
@@ -20,7 +19,7 @@ public with sharing class RestLibApiCall {
 				method == HttpVerb.PUT);
 		}
 	}
-	Map<String, String> headers { get; private set; }
+	final Map<String, String> headers { get; private set; }
 	public Map<String, String> functionalHeaders {
 		get {
 			if (headers == null) {
@@ -30,7 +29,7 @@ public with sharing class RestLibApiCall {
 		}
 	}
 
-	@testVisible
+	@TestVisible
 	private RestLibApiCall() {
 	}
 
@@ -54,6 +53,10 @@ public with sharing class RestLibApiCall {
 		}
 	}
 
+	public RestLibApiCall(HttpVerb method, String path) {
+		this(method, path, null, null, RestLibApiCall.defaultHeaders);
+	}
+
 	public RestLibApiCall(
 		HttpVerb method,
 		String path,
@@ -70,8 +73,8 @@ public with sharing class RestLibApiCall {
 	 * @param   resource string to ensure ends in `/`
 	 * @return  inputted string with `/` if it didn't already end in one.
 	 */
-	@testVisible
-	private String ensureStringEndsInSlash(String resource) {
+	@TestVisible
+	private static String ensureStringEndsInSlash(String resource) {
 		if (resource.endsWith('/')) {
 			return resource;
 		}
