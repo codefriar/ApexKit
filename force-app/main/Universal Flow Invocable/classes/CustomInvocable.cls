@@ -8,7 +8,7 @@
  *
  */
 
-public class CustomInvocable extends Invocable {
+public class CustomInvocable extends UFInvocable {
 	/**
 	 * @description Method exposes the Apex Date method daysBetween to Flow. It accepts a single list of parameter
 	 * for the start date, then calculates the days between the start date and Christmas.
@@ -88,7 +88,7 @@ public class CustomInvocable extends Invocable {
 				);
 			}
 			when else {
-				throw new Invocable.MalformedCallableException(
+				throw new UFInvocable.MalformedCallableException(
 					'Unsupported method: ' + methodName
 				);
 			}
