@@ -16,17 +16,6 @@
  */
 public abstract class Invocable implements BulkCallable {
 	/**
-	 * @description This is the class name of the class that extends this class. It's primary use is for logging
-	 * exceptions.
-	 */
-	public String className;
-	/**
-	 * @description This is the method name of the method called by flow. It's primary use is for logging
-	 * exceptions.
-	 */
-	public String methodName;
-
-	/**
 	 * @description This is a required method of the callable interface that this class implements.
 	 * You'll need to extend the class you intend to expose to flow with this one, and implement this method.
 	 * @param methodName This is a string representing the name of the method you want to call.
@@ -45,153 +34,198 @@ public abstract class Invocable implements BulkCallable {
 	}
 
 	/**
-	 * @description Method is responsible for constructing and throwing a structured exception when the call() method
-	 * is not implemented, or when the call() method does not handle the method name or parameters passed to it.
+	 * @description   a 2D point.
+	 *
+	 * @param x       the x coordinate
+	 * @param y       the y coordinate
 	 */
-	protected void throwMalformedCallableException() {
-		String className = Polyfills.classNameFromInstance(this);
-		throw new MalformedCallableException(
-			'Unable to call ' +
-				className +
-				'.call() because it is not implemented, or call() does not handle the ' +
-				this.methodName +
-				' method or parameters'
-		);
-	}
-
-	/**
-	 * @description This is a common object for passing data from a flow, into a class method, and back out to flow.
-	 */
-	public class UniversalFlowInputOutput {
-		/**
-		 * @description String representing Apex recognized name of the class you're instantiating.
-		 */
-		@InvocableVariable(Required=true)
-		public String className;
-		/**
-		 * @description String representing the method name you're calling
-		 */
-		@InvocableVariable(Required=true)
-		public String methodName;
-		/**
-		 * @description This is a list of individual parameters you're passing to the method you're calling.
-		 * @see UniversalFlowInputOutputParameter
-		 */
-		@InvocableVariable
-		public List<UniversalFlowInputOutputParameter> parameters;
-		/**
-		 * @description While the parameters list is used for passing parameters to the method you're calling,
-		 * this single object is used for passing the return value of the method you're calling back to flow.
-		 * As a side effect of the way this works, you can build aggregating methods that call multiple methods
-		 * and return multiple values - of different types - to the flow via this object.
-		 * @see UniversalFlowInputOutputParameter
-		 */
-		@InvocableVariable
-		public UniversalFlowInputOutputParameter result;
-
-		/**
-		 * @description Flow requires a 0 argument constructor, so we provide one here.
-		 */
-		public UniversalFlowInputOutput() {
-		} //NOPMD
-
-		/**
-		 * @description This constructor variant is used by this class, and the the UniversalInvocable class to
-		 * construct the return object.
-		 * @param className String Name of the class called
-		 * @param methodName String Name of the method called
-		 * @param parameter UniversalFlowInputOutputParameter The return value of the called method is automatically
-		 * cast to it's respective primitive type and stored in this object.
-		 */
-		public UniversalFlowInputOutput(String className, String methodName, Object parameter) {
-			this.className = className;
-			this.methodName = methodName;
-			this.result = new UniversalFlowInputOutputParameter(parameter);
-		}
-
-		/**
-		 * @description Method is responsible for converting the list of UniversalFlowInputOutputParameter objects
-		 * delivered by the Flow action framework, to a Map<String, Object> needed by the Callable interface. Note, this
-		 * is a hard limitation of the Flow action framework and the Apex Defined Data Types. This is not a limitation
-		 * of this pattern / framework. If you want to, say pass a list of records to a method, you'll need to pass a
-		 * list of strings, and query for the objects in the Apex. #sorryNothingICanDo.
-		 * @return Map<String, Object> This returns a map of parameters you're passing to your method.
-		 */
-		public Map<String, Object> toCallableParamMap() {
-			Map<String, Object> paramMap = new Map<String, Object>();
-			if (parameters == null) {
-				return paramMap;
-			}
-			for (UniversalFlowInputOutputParameter parameter : parameters) {
-				Object value;
-
-				if (parameter.booleanValue != null) {
-					value = parameter.booleanValue;
-				}
-				if (parameter.booleans != null) {
-					value = parameter.booleans;
-				}
-				if (parameter.dateTimeValue != null) {
-					value = parameter.dateTimeValue;
-				}
-				if (parameter.datetimes != null) {
-					value = parameter.datetimes;
-				}
-				if (parameter.dateValue != null) {
-					value = parameter.dateValue;
-				}
-				if (parameter.dates != null) {
-					value = parameter.dates;
-				}
-				if (parameter.integerValue != null) {
-					value = parameter.integerValue;
-				}
-				if (parameter.integers != null) {
-					value = parameter.integers;
-				}
-				if (parameter.longValue != null) {
-					value = parameter.longValue;
-				}
-				if (parameter.longs != null) {
-					value = parameter.longs;
-				}
-				if (parameter.doubleValue != null) {
-					value = parameter.doubleValue;
-				}
-				if (parameter.doubles != null) {
-					value = parameter.doubles;
-				}
-				if (parameter.decimalValue != null) {
-					value = parameter.decimalValue;
-				}
-				if (parameter.decimals != null) {
-					value = parameter.decimals;
-				}
-				if (parameter.sobjectValue != null) {
-					value = parameter.sobjectValue;
-				}
-				if (parameter.sobjects != null) {
-					value = parameter.sobjects;
-				}
-				if (parameter.stringValue != null) {
-					value = parameter.stringValue;
-				}
-				if (parameter.strings != null) {
-					value = parameter.strings;
-				}
-				paramMap.put(parameter.parameterName, value);
-			}
-			return paramMap;
+	class Point implements Comparable {
+		Integer x;
+		Integer y;
+		Integer hashCode;
+		Point(Integer x, Integer y) {
+			this.x = x;
+			this.y = y;
+			hashCode = x << 16 | y;
 		}
 		/**
-		 * @description Used to provide a usable key for the Map that uses this method.
+		 * @description Used by Map/Set to identify unique values quickly
 		 *
-		 * @return      `String`  This value maps unique class/method names
+		 * @return      `Integer` returns a unique value based on x, y coordinates
 		 */
-		public override String toString() {
-			return (className + '/' + methodName).toLowerCase();
+		public Integer hashCode() {
+			return hashCode;
+		}
+		/**
+		 * @description checks if the current instance is equal to another
+		 *
+		 * @param other The object to check for equality
+		 * @return      `Boolean` returns `true` if the objects are equal, `false` otherwise
+		 */
+		public Boolean equals(Object other) {
+			return hashCode == ((Point) other).hashCode;
+		}
+		/**
+		 * @description
+		 *
+		 * @param other the other object to determine sort order
+		 * @return      `Integer` negative when `this` is smaller, positive when greater, 0 when equal
+		 */
+		public Integer compareTo(Object other) {
+			return hashCode - ((Point) other).hashCode;
 		}
 	}
+	/**
+	 * @description Processes flow input values and returns flow output values
+	 */
+	public class Processor {
+		Map<String, String> typeErrors;
+		Map<String, BulkCallable> controllers;
+		List<List<UniversalFlowInputOutput>> outputs;
+		List<List<UniversalFlowInputOutput>> inputs;
+		Map<String, Map<Point, UniversalFlowInputOutput>> inputsByClassMethodByIndex;
+    /**
+     * @description Default constructor for shared initialization
+     */    
+    Processor() {
+			typeErrors = new Map<String, String>();
+			controllers = new Map<String, BulkCallable>();
+			inputsByClassMethodByIndex = new Map<String, Map<Point, UniversalFlowInputOutput>>();
+    }
+		/**
+		 * @description  Constructor used for bulk flow processing
+		 *
+		 * @param inputs the flow inputs from a collection of bulk flow inputs
+		 */
+		public Processor(List<List<UniversalFlowInputOutput>> inputs) {
+      this();
+			this.inputs = inputs;
+		}
+		/**
+		 * @description  Constructor used for single bulkified flow processing
+		 *
+		 * @param inputs the flow inputs from a collection of flow inputs
+		 */
+		public Processor(List<UniversalFlowInputOutput> inputs) {
+      this();
+			this.inputs = new List<List<UniversalFlowInputOutput>>{ inputs };
+		}
+		/**
+		 * @description processes a single bulkified flow
+		 *
+		 * @return      `List<UniversalFlowInputOutput>` the flow inputs from a bulkified flow transaction
+		 */
+		public List<UniversalFlowInputOutput> execute() {
+			return executeBulk()[0];
+		}
+		/**
+		 * @description
+		 *
+		 * @return      `List<List<UniversalFlowInputOutput>>` the flow inputs from a collection of flow inputs
+		 */
+		public List<List<UniversalFlowInputOutput>> executeBulk() {
+      System.debug(JSON.serialize(this));
+			prepare();
+      System.debug(JSON.serialize(this));
+			loadClasses();
+      System.debug(JSON.serialize(this));
+			processInputs();
+			return outputs;
+		}
+  /**
+   * @description prepares the data structures we need to process
+   */
+		void prepare() {
+			Integer size1 = inputs.size();
+      // Allocate the top-level outputs
+			outputs = new List<List<UniversalFlowInputOutput>>(size1);
+			for (Integer index1 = 0; index1 < size1; index1++) {
+				Integer size2 = inputs[index1].size();
+        // Allocate the inner-level outputs
+				outputs[index1] = new List<UniversalFlowInputOutput>(size2);
+				for (Integer index2 = 0; index2 < size2; index2++) {
+					UniversalFlowInputOutput input = inputs[index1][index2];
+					String classMethodName = input.toString();
+					controllers.put(input.className, null);
+          // Keep track of each request that uses the same method
+					Map<Point, UniversalFlowInputOutput> inputsByClassMethod = inputsByClassMethodByIndex.get(
+						classMethodName
+					);
+					if (inputsByClassMethod == null) {
+						inputsByClassMethod = new Map<Point, UniversalFlowInputOutput>();
+						inputsByClassMethodByIndex.put(classMethodName, inputsByClassMethod);
+					}
+					inputsByClassMethod.put(new Point(index1, index2), input);
+				}
+			}
+		}
+  /**
+   * @description Attempts to instantiate controllers and records errors
+   */    
+		void loadClasses() {
+			for (String className : controllers.keySet()) {
+				try {
+					controllers.put(className, (BulkCallable) (Type.forName(className)).newInstance());
+				} catch (Exception e) {
+					typeErrors.put(className, e.getMessage());
+				}
+			}
+		}
+  /**
+   * @description runs each of the requested methods with the related inputs
+   */    
+		void processInputs() {
+			for (String classMethodName : inputsByClassMethodByIndex.keySet()) {
+				Map<Point, UniversalFlowInputOutput> inputsByPoint = inputsByClassMethodByIndex.get(classMethodName);
+				List<Point> pointIndexes = new List<Point>(inputsByPoint.keySet());
+				List<UniversalFlowInputOutput> inputsForMethod = new List<UniversalFlowInputOutput>();
+				for (Point pointIndex : pointIndexes) {
+					inputsForMethod.add(inputsByPoint.get(pointIndex));
+				}
+				Integer inputSize = inputsForMethod.size();
+				String className = inputsForMethod[0].className;
+        String methodName = inputsForMethod[0].methodName;
+				try {
+          // Abort this method early if the class could not load
+					if (typeErrors.containsKey(className)) {
+						throw new MalformedCallableException(
+							'Error loading ' + className + ':' + typeErrors.get(className)
+						);
+					}
+          // Load the parameters for BulkCallable
+					List<Map<String, Object>> parameterMapping = new List<Map<String, Object>>();
+					for (UniversalFlowInputOutput input : inputsForMethod) {
+						parameterMapping.add(input.toCallableParamMap());
+					}
+					BulkCallable controller = controllers.get(className);
+          // Attempt to call the method
+					List<Object> results = controller.call(methodName, parameterMapping);
+					for (Integer index = 0; index < inputSize; index++) {
+						Point inputPoint = pointIndexes[index];
+						outputs[inputPoint.x][inputPoint.y] = new UniversalFlowInputOutput(
+							className,
+							methodName,
+							results[index],
+							false
+						);
+					}
+				} catch (Exception e) {
+          // Record errors to report to the flow
+					String errorMessage = e.getMessage();
+					for (Integer index = 0; index < inputSize; index++) {
+						Point inputPoint = pointIndexes[index];
+						outputs[inputPoint.x][inputPoint.y] = new UniversalFlowInputOutput(
+							className,
+							methodName,
+							errorMessage,
+							true
+						);
+					}
+				}
+			}
+		}
+	}
+
 	/**
 	 * @description             Extracts values from a list of parameters. Used by implementations of the Invocable framework.
 	 *
