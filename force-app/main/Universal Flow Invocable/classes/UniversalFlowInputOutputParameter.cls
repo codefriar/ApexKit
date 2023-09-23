@@ -140,28 +140,5 @@ public class UniversalFlowInputOutputParameter {
 		if (issObjectList) {
 			sObjects = (List<sObject>) value;
 		}
-		if (
-			isBoolean ||
-			isDateTime ||
-			isDate ||
-			isLong ||
-			isInteger ||
-			isDecimal ||
-			isDouble ||
-			issObject ||
-			isBooleanList ||
-			isDateTimeList ||
-			isDateList ||
-			isLongList ||
-			isIntegerList ||
-			isDecimalList ||
-			isDoubleList ||
-			issObjectList
-		) {
-			return;
-		}
-		throw new Invocable.MalformedCallableException(
-			'Unable to wrap ' + String.valueOf(value) + ' in CustomObjectWrapper'
-		);
 	}
 }
