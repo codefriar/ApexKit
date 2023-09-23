@@ -4,6 +4,19 @@
  */
 public with sharing class IdFactory {
 	/**
+	 * @description This property gives us an authentic ID for this org which we can use to grab the Instance ID
+	 * according to the latest release notes:
+	 * What constitutes a valid Salesforce Object ID is being redefined as Salesforce expands out the instance ID
+	 * (also known as a pod identifier or server ID). The 4th, 5th, and 6th characters would be used for server ID.
+	 * The 7th character still remains reserved. Any coded assumptions about the structure of a valid or invalid ID
+	 * should be reevaluated going forward. Note: Existing Apex functionality around IDs will transition to the new
+	 * format.
+	 */
+	private static final String serverID = UserInfo.getUserId()
+		.left(7)
+		.right(4);
+
+	/**
 	 * @description Integer to be appended to the end of the Id. Incremented each time a new Id is generated.
 	 */
 	private static Integer idiosyncrasy = 0;
@@ -58,7 +71,7 @@ public with sharing class IdFactory {
 	 */
 	public static Id get(Schema.SObjectType incomingType) {
 		idiosyncrasy++;
-		String prefix = incomingType.getDescribe().getKeyPrefix();
+		String prefix = incomingType.getDescribe().getKeyPrefix() + serverID;
 		Integer padLength =
 			defaultIdLength -
 			prefix.length() -
