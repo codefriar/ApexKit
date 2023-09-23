@@ -13,8 +13,13 @@ public class UniversalInvocable {
 	 * @return List<UniversalFlowInputOutput> output objects. Every input receives one output, even if
 	 * non-fatal exceptions are encountered.
 	 */
-	@InvocableMethod(Label='Universal Invocable' Description='Universal Invocable')
-	public static List<UniversalFlowInputOutput> invoke(List<UniversalFlowInputOutput> inputs) {
-		return new Invocable.Processor(inputs).execute();
+	@InvocableMethod(
+		Label='Universal Invocable'
+		Description='Universal Invocable'
+	)
+	public static List<UniversalFlowInputOutput> invoke(
+		List<UniversalFlowInputOutput> inputs
+	) {
+		return new UFInvocable.Processor(inputs).execute();
 	}
 }
