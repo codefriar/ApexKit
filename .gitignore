@@ -41,3 +41,5 @@ $RECYCLE.BIN/
 
 # PMD cache should not be included in GitHub
 .pmdCache
+/IlluminatedCloud/ApexKit_Company/OfflineSymbolTable.zip
+/force-app/main/default/profiles/*.profile-meta.xml

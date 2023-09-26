@@ -8,22 +8,22 @@ public with sharing class FeatureFlag {
 	 * that has to be deployed, I needed to provide a way to inject a
 	 * data provider.
 	 */
-	@testVisible
+	@TestVisible
 	private FeatureFlagDataProvider dataProvider;
 
 	/**
-	 * The API of this library enables an enabled feature to have
+	 * @description  The API of this library enables an enabled feature to have
 	 * an optional String value. However, if the feature is not
 	 * defined in metadata, the value will be null. This ... could
 	 * be less than deterministic, so this will *always* return a
 	 * string. When undefined by metadata, the value returned is
 	 * defined here.
 	 */
-	@testVisible
+	@TestVisible
 	private static final String FF_NOT_ENABLED = 'FF_NOT_ENABLED';
 
 	/**
-	 * @description Default constructor.
+	 * @description     Default constructor.
 	 * defaults to setting the dataProvider to a new instance
 	 * of the FeatureFlagDataProvider
 	 */
@@ -43,7 +43,7 @@ public with sharing class FeatureFlag {
 		if (isNotEnabled(featureFlagName)) {
 			return FF_NOT_ENABLED;
 		}
-		return dataProvider.featureFlags.get(featureFlagName).flag_value__c;
+		return dataProvider.featureFlags.get(featureFlagName).Flag_Value__c;
 	}
 
 	/**
@@ -59,7 +59,6 @@ public with sharing class FeatureFlag {
 	 * @param featureFlagName String name of the feature flag
 	 * @return                `Boolean`
 	 */
-
 	public Boolean isEnabled(String featureFlagName) {
 		// GUARD CLAUSE: If the feature flag is not in the custom metadata, return false
 		if (!dataProvider.featureFlags.containsKey(featureFlagName)) {
@@ -89,9 +88,9 @@ public with sharing class FeatureFlag {
 	/**
 	 * @description        Private constructor. Accepts a previously constructed
 	 * Feature Flag Data Provider object. Used only during testing.
-	 * @param dataProvider
+	 * @param dataProvider FeatureFlagDataProvider a previously constructed FFDataProvider object
 	 */
-	@testVisible
+	@TestVisible
 	private FeatureFlag(FeatureFlagDataProvider dataProvider) {
 		this.dataProvider = dataProvider;
 	}
@@ -101,9 +100,16 @@ public with sharing class FeatureFlag {
 	 * @param featureFlagName String name of the feature flag
 	 * @return                `Boolean`
 	 */
-	@testVisible
+	@TestVisible
 	private Boolean isUniversallyEnabled(String featureFlagName) {
-		return dataProvider.featureFlags.get(featureFlagName).isEnabled__c;
+		return (dataProvider.featureFlags.get(featureFlagName).isEnabled__c ||
+		isEnabledOnOrAfterToday(featureFlagName));
+	}
+
+	@TestVisible
+	private Boolean isEnabledOnOrAfterToday(String featureFlagName) {
+		return Date.today() >=
+			dataProvider.featureFlags.get(featureFlagName).isEnabled_After__c;
 	}
 
 	/**
@@ -111,7 +117,7 @@ public with sharing class FeatureFlag {
 	 * @param featureFlagName String name of the feature flag
 	 * @return                `Boolean`
 	 */
-	@testVisible
+	@TestVisible
 	private Boolean isEnabledForUser(String featureFlagName) {
 		// first check for enablement via custom permission because
 		// that doesn't hit the db for anything.
@@ -130,7 +136,7 @@ public with sharing class FeatureFlag {
 	 * @param featureFlagName String name of the feature flag
 	 * @return                `Boolean`
 	 */
-	@testVisible
+	@TestVisible
 	private Boolean isEnabledByCustomPermissionForUser(String featureFlagName) {
 		Boolean isEnabledByCustomPermission = false;
 

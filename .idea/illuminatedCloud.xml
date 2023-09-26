@@ -4,10 +4,10 @@
     <option name="connections">
       <list>
         <IlluminatedCloudConnection>
-          <option name="connectionName" value="ApexKit_Company" />
+          <option name="connectionName" value="Apexkit" />
           <option name="connectionType" value="SFDX" />
           <option name="defaultModuleName" value="ApexKit" />
-          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/ApexKit_Company/OfflineSymbolTable.zip" />
+          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/Apexkit/OfflineSymbolTable.zip" />
         </IlluminatedCloudConnection>
       </list>
     </option>

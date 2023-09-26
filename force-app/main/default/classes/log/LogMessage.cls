@@ -2,8 +2,9 @@
  * @description A class for automatically attaching metadata to log messages
  * like Quiddity and RequestID
  *
- *  Shared Code
- *
+ * @see Log
+ * @see LogException
+ * @see LogTriggerHandler
  */
 public with sharing class LogMessage {
 	private static final String EXCEPTION_STRING_FORMAT = 'Exception: [{0}] {1} \n StackTrace: {2}';
@@ -58,10 +59,11 @@ public with sharing class LogMessage {
 	}
 
 	/**
-	 * @description   Constructor accepting a message to log.
+	 * @description Constructor accepting a message to log.
 	 * Severity is auto set to info
-	 * @param message
-	 * @param severity
+	 *
+	 * @param severity LoggingLevel the severity of the message
+	 * @param message String the string to log
 	 */
 	public LogMessage(LoggingLevel severity, String message) {
 		this.message = message;
@@ -69,17 +71,19 @@ public with sharing class LogMessage {
 	}
 
 	/**
-	 * @description   Constructor accepting a message to log.
+	 * @description Constructor accepting a message to log.
 	 * Severity is auto set to info
-	 * @param message
+	 *
+	 * @param message String the string to log
 	 */
 	public LogMessage(String message) {
-		this(LoggingLevel.Info, message);
+		this(LoggingLevel.INFO, message);
 	}
 
 	/**
 	 * @description Constructor accepting an exception object.
-	 * @param ex
+	 *
+	 * @param ex any exception object
 	 */
 	public LogMessage(Exception ex) {
 		this.message = String.format(

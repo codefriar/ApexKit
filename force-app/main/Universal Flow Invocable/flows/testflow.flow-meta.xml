@@ -7,9 +7,9 @@
         <locationY>647</locationY>
         <actionName>UniversalInvocable</actionName>
         <actionType>apex</actionType>
-        <connector>
-            <targetReference>set_SLA_serial</targetReference>
-        </connector>
+        <!--        <connector>-->
+        <!--            <targetReference>set_SLA_serial</targetReference>-->
+        <!--        </connector>-->
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>className</name>
@@ -109,19 +109,19 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordUpdates>
-        <description>seriously this is a dumb example. This sets the sla serial # to the # of days between my birthday
-            and christmas.
-        </description>
-        <name>set_SLA_serial</name>
-        <label>set SLA serial #</label>
-        <locationX>176</locationX>
-        <locationY>755</locationY>
-        <inputAssignments>
-            <field>SLASerialNumber__c</field>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
+    <!--    <recordUpdates>-->
+    <!--        <description>seriously this is a dumb example. This sets the sla serial # to the # of days between my birthday-->
+    <!--            and christmas.-->
+    <!--        </description>-->
+    <!--        <name>set_SLA_serial</name>-->
+    <!--        <label>set SLA serial #</label>-->
+    <!--        <locationX>176</locationX>-->
+    <!--        <locationY>755</locationY>-->
+    <!--        <inputAssignments>-->
+    <!--            <field>SLASerialNumber__c</field>-->
+    <!--        </inputAssignments>-->
+    <!--        <inputReference>$Record</inputReference>-->
+    <!--    </recordUpdates>-->
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>

@@ -1,6 +1,10 @@
 /**
  * @description Generic logging framework that persists across DML reversions
  * by publishing a Platform Event
+ *
+ * @see LogMessage
+ * @see LogException
+ * @see LogTriggerHandler
  */
 public with sharing class Log {
 	public static Boolean publishToStandardLogs = false;
@@ -15,7 +19,7 @@ public with sharing class Log {
 	 * @description private list of LogMessage objects to be published in the
 	 * future
 	 */
-	private List<LogMessage> buffer;
+	final private List<LogMessage> buffer;
 
 	/**
 	 * @description establishes the buffer, if one doesn't yet exist
@@ -111,7 +115,7 @@ public with sharing class Log {
 		this.buffer.clear();
 	}
 
-	private void alsoPublishToStandardLogs(List<Log__e> logEvents) {
+	private static void alsoPublishToStandardLogs(List<Log__e> logEvents) {
 		if (
 			QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs
 		) {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isEnabled_After__c</fullName>
+    <description>true if this feature is enabled on or after a given date</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <label>isEnabled On or After a given date</label>
+    <type>Date</type>
+</CustomField>
