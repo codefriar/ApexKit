@@ -1,4 +1,4 @@
-@IsTest
+//@IsTest
 /**
  * @description A factory class for generating bogus Ids for testing purposes.
  */
@@ -20,6 +20,7 @@ public with sharing class IdFactory {
 	 * @description Integer to be appended to the end of the Id. Incremented each time a new Id is generated.
 	 */
 	private static Integer idiosyncrasy = 0;
+
 	/**
 	 * @description Integer representing the length of the Id. Default is 18.
 	 */
@@ -71,7 +72,13 @@ public with sharing class IdFactory {
 	 */
 	public static Id get(Schema.SObjectType incomingType) {
 		idiosyncrasy++;
-		String prefix = incomingType.getDescribe().getKeyPrefix() + serverID;
+		String prefix = incomingType.getDescribe().getKeyPrefix();
+		if (prefix == null) {
+			throw new IDFactoryException(
+				'The incoming data type does not return a prefix. Certian data types such as *__Share or *History do not return a prefix. Because of this, they\'re not supported by IDFactory'
+			);
+		}
+		prefix += serverID;
 		Integer padLength =
 			defaultIdLength -
 			prefix.length() -
@@ -81,5 +88,8 @@ public with sharing class IdFactory {
 			'0'.repeat(padLength) +
 			String.valueOf(idiosyncrasy);
 		return (Id) bogusId;
+	}
+
+	public class IDFactoryException extends Exception {
 	}
 }
