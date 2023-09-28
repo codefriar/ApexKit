@@ -57,6 +57,24 @@
 						<ul>
 							<!-- menu items -->
 							<li
+								title="EnqueueNextQueueableProcessStep"
+								id="item-EnqueueNextQueueableProcessStep"
+								class="nav-item class public"
+								onclick="goToLocation('EnqueueNextQueueableProcessStep.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>EnqueueNextQueueableProcessStep</a
+								>
+							</li>
+							<li
+								title="QueueableProcess"
+								id="item-QueueableProcess"
+								class="nav-item class public"
+								onclick="goToLocation('QueueableProcess.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueueableProcess</a
+								>
+							</li>
+							<li
 								title="ULID"
 								id="item-ULID"
 								class="nav-item class public"
@@ -250,24 +268,6 @@
 								onclick="goToLocation('TestPolyfills.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>TestPolyfills</a
-								>
-							</li>
-							<li
-								title="Chain"
-								id="item-Chain"
-								class="nav-item class public"
-								onclick="goToLocation('Chain.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Chain</a
-								>
-							</li>
-							<li
-								title="Promise"
-								id="item-Promise"
-								class="nav-item class public"
-								onclick="goToLocation('Promise.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Promise</a
 								>
 							</li>
 							<li
@@ -505,6 +505,15 @@
 								>
 							</li>
 							<li
+								title="IdFactory"
+								id="item-IdFactory"
+								class="nav-item class public"
+								onclick="goToLocation('IdFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>IdFactory</a
+								>
+							</li>
+							<li
 								title="MethodSignature"
 								id="item-MethodSignature"
 								class="nav-item class public"
@@ -710,14 +719,16 @@
 			<tr>
 				<td class="doc-page">
 					<div class="section">
-						<h2 class="class-title top-level-type" id="Chain">
+						<h2
+							class="class-title top-level-type"
+							id="EnqueueNextQueueableProcessStep">
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Chain.cls#L8">
-								Chain
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/EnqueueNextQueueableProcessStep.cls#L6">
+								EnqueueNextQueueableProcessStep
 							</a>
 						</h2>
 						<div class="class-container">
@@ -725,81 +736,217 @@
 								This class implements the Apex Transaction
 								Finalizer interface. It&#39;s used to implement
 								promises. This class is constructed with a list
-								of Promise Objects, and any passthrough data.
-								The first promise in the list is executed. The
-								Promise implementing class automatically
+								of QueueableProcess Objects, and any passthrough
+								data. The first promise in the list is executed.
+								The QueueableProcess class automatically
 								attaches this finalizer to it&#39;s execution.
 							</div>
 							<div class="class-subtitle">Signature</div>
 
 							<div class="class-signature">
-								public class Chain implements Finalizer
+								public class EnqueueNextQueueableProcessStep
+								implements System.Finalizer
 							</div>
+						</div>
+						<div
+							class="subsection properties EnqueueNextQueueableProcessStep">
+							<h3 class="subsection-title properties">
+								EnqueueNextQueueableProcessStep Properties
+							</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+
+									<th>Description</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/EnqueueNextQueueableProcessStep.cls#L15">
+											dataPassthrough
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private final Object dataPassthrough
+										</div>
+									</td>
+
+									<td class="attribute-description">
+										This field allows you to pass
+										information into your initial
+										QueueableProcessStep. This is also the
+										field that is passed to the next
+										QueueableProcessStep in the list.
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/EnqueueNextQueueableProcessStep.cls#L10">
+											processSteps
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">
+											private final
+											List&lt;QueueableProcess&gt;
+											processSteps
+										</div>
+									</td>
+
+									<td class="attribute-description">
+										A list of QueueableProcess Objects. The
+										first step in the list is executed.
+									</td>
+								</tr>
+							</table>
 						</div>
 						<div class="subsection methods">
 							<h3 class="subsection-title methods">
-								Chain Constructors
+								EnqueueNextQueueableProcessStep Constructors
 							</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
 										<a
 											class="methods-toc__entry"
-											href="#Chain.Chain">
-											Chain (promises, passthrough)
+											href="#EnqueueNextQueueableProcessStep.EnqueueNextQueueableProcessStep">
+											EnqueueNextQueueableProcessStep
+											(processSteps, dataPassthrough)
 										</a>
+
+										<div class="methods-toc__description">
+											Constructor for the
+											EnqueueNextQueueableProcessStep
+											class.
+										</div>
 									</li>
 								</ul>
 								<div class="method public">
-									<h4 class="method-title" id="Chain.Chain">
+									<h4
+										class="method-title"
+										id="EnqueueNextQueueableProcessStep.EnqueueNextQueueableProcessStep">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Chain.cls#L12">
-											Chain(promises, passthrough)
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/EnqueueNextQueueableProcessStep.cls#L24">
+											EnqueueNextQueueableProcessStep(processSteps,
+											dataPassthrough)
 										</a>
 									</h4>
+									<div class="method-description">
+										Constructor for the
+										EnqueueNextQueueableProcessStep class.
+									</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">
-										public Chain(Promise[] promises, Object
-										passthrough)
+										public EnqueueNextQueueableProcessStep(
+										List&lt;QueueableProcess&gt;
+										processSteps, Object dataPassthrough )
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">processSteps</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">
+											List&lt;QueueableProcess&gt;</code
+										>
+									</div>
+									<div class="param-description">
+										List&lt;QueueableProcess&gt; A list of
+										QueueableProcess Objects. The first step
+										in the list is executed.
+									</div>
+									<div class="param-name">
+										dataPassthrough
+									</div>
+									<div class="param-description">
+										Object this is either the initial data
+										passed into the first
+										QueueableProcessStep, or the data passed
+										from the previous QueueableProcessStep.
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="subsection methods">
 							<h3 class="subsection-title methods">
-								Chain Methods
+								EnqueueNextQueueableProcessStep Methods
 							</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
 										<a
 											class="methods-toc__entry"
-											href="#Chain.execute">
+											href="#EnqueueNextQueueableProcessStep.execute">
 											execute (context)
 										</a>
+
+										<div class="methods-toc__description">
+											This method is required by the Apex
+											Transaction Finalizer interface.
+											It&#39;s used to enqueue the next
+											QueueableProcessStep in the list, if
+											one exists.
+										</div>
 									</li>
 								</ul>
 								<div class="method public">
-									<h4 class="method-title" id="Chain.execute">
+									<h4
+										class="method-title"
+										id="EnqueueNextQueueableProcessStep.execute">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Chain.cls#L17">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/EnqueueNextQueueableProcessStep.cls#L39">
 											execute(context)
 										</a>
 									</h4>
+									<div class="method-description">
+										This method is required by the Apex
+										Transaction Finalizer interface.
+										It&#39;s used to enqueue the next
+										QueueableProcessStep in the list, if one
+										exists.
+									</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">
 										public void execute(FinalizerContext
 										context)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">context</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"
+											>FinalizerContext</code
+										>
+									</div>
+									<div class="param-description">
+										FinalizerContext Dependency injected by
+										Salesforce at execution time. Contains
+										the result of the QueueableProcessStep
+										that just executed.
 									</div>
 								</div>
 							</div>

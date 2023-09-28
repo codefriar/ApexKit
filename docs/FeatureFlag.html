@@ -57,6 +57,24 @@
 						<ul>
 							<!-- menu items -->
 							<li
+								title="EnqueueNextQueueableProcessStep"
+								id="item-EnqueueNextQueueableProcessStep"
+								class="nav-item class public"
+								onclick="goToLocation('EnqueueNextQueueableProcessStep.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>EnqueueNextQueueableProcessStep</a
+								>
+							</li>
+							<li
+								title="QueueableProcess"
+								id="item-QueueableProcess"
+								class="nav-item class public"
+								onclick="goToLocation('QueueableProcess.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueueableProcess</a
+								>
+							</li>
+							<li
 								title="ULID"
 								id="item-ULID"
 								class="nav-item class public"
@@ -250,24 +268,6 @@
 								onclick="goToLocation('TestPolyfills.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>TestPolyfills</a
-								>
-							</li>
-							<li
-								title="Chain"
-								id="item-Chain"
-								class="nav-item class public"
-								onclick="goToLocation('Chain.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Chain</a
-								>
-							</li>
-							<li
-								title="Promise"
-								id="item-Promise"
-								class="nav-item class public"
-								onclick="goToLocation('Promise.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Promise</a
 								>
 							</li>
 							<li
@@ -502,6 +502,15 @@
 								onclick="goToLocation('HttpCalloutMockFactory.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="IdFactory"
+								id="item-IdFactory"
+								class="nav-item class public"
+								onclick="goToLocation('IdFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>IdFactory</a
 								>
 							</li>
 							<li
@@ -761,7 +770,7 @@
 									</td>
 									<td>
 										<div class="prop-annotations">
-											@testVisible
+											@TestVisible
 										</div>
 									</td>
 
@@ -792,7 +801,7 @@
 									</td>
 									<td>
 										<div class="prop-annotations">
-											@testVisible
+											@TestVisible
 										</div>
 									</td>
 
@@ -878,7 +887,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L95">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L94">
 											FeatureFlag(dataProvider)
 										</a>
 									</h4>
@@ -890,7 +899,7 @@
 									</div>
 									<div class="method-subtitle">Signature</div>
 									<div class="method-annotations">
-										@testVisible
+										@TestVisible
 									</div>
 									<div class="method-signature">
 										private
@@ -906,6 +915,10 @@
 										<code class="code-inline"
 											>FeatureFlagDataProvider</code
 										>
+									</div>
+									<div class="param-description">
+										FeatureFlagDataProvider a previously
+										constructed FFDataProvider object
 									</div>
 								</div>
 							</div>
@@ -983,6 +996,14 @@
 											of a feature
 										</div>
 									</li>
+									<li class="method private">
+										<a
+											class="methods-toc__entry"
+											href="#FeatureFlag.isEnabledOnOrAfterToday">
+											isEnabledOnOrAfterToday
+											(featureFlagName)
+										</a>
+									</li>
 									<li class="method public">
 										<a
 											class="methods-toc__entry"
@@ -1036,7 +1057,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L138">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L144">
 											dataProvider.enablingCustomPermissions()
 										</a>
 									</h4>
@@ -1057,7 +1078,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L63">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L62">
 											isEnabled(featureFlagName)
 										</a>
 									</h4>
@@ -1118,7 +1139,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L134">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L140">
 											isEnabledByCustomPermissionForUser(featureFlagName)
 										</a>
 									</h4>
@@ -1129,7 +1150,7 @@
 									</div>
 									<div class="method-subtitle">Signature</div>
 									<div class="method-annotations">
-										@testVisible
+										@TestVisible
 									</div>
 									<div class="method-signature">
 										private Boolean
@@ -1163,7 +1184,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L115">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L121">
 											isEnabledForUser(featureFlagName)
 										</a>
 									</h4>
@@ -1173,7 +1194,7 @@
 									</div>
 									<div class="method-subtitle">Signature</div>
 									<div class="method-annotations">
-										@testVisible
+										@TestVisible
 									</div>
 									<div class="method-signature">
 										private Boolean isEnabledForUser(String
@@ -1197,6 +1218,29 @@
 										<code class="code-inline">Boolean</code>
 									</div>
 								</div>
+								<div class="method private">
+									<h4
+										class="method-title"
+										id="FeatureFlag.isEnabledOnOrAfterToday">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L110">
+											isEnabledOnOrAfterToday(featureFlagName)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">
+										@TestVisible
+									</div>
+									<div class="method-signature">
+										private Boolean
+										isEnabledOnOrAfterToday(String
+										featureFlagName)
+									</div>
+								</div>
 								<div class="method public">
 									<h4
 										class="method-title"
@@ -1206,7 +1250,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L83">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L82">
 											isNotEnabled(featureFlag)
 										</a>
 									</h4>
@@ -1245,7 +1289,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L105">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/feature flags/FeatureFlag.cls#L104">
 											isUniversallyEnabled(featureFlagName)
 										</a>
 									</h4>
@@ -1255,7 +1299,7 @@
 									</div>
 									<div class="method-subtitle">Signature</div>
 									<div class="method-annotations">
-										@testVisible
+										@TestVisible
 									</div>
 									<div class="method-signature">
 										private Boolean
