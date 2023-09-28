@@ -1,0 +1,28 @@
+name: Feature request
+description: Suggest an idea for this project
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **NOTICE:** Please use this form only for requesting features for ApexKit itself.
+  - type: textarea
+    attributes:
+      label: Summary
+      description: A concise description of what's missing from ApexKit.
+      placeholder: |
+        Ex. I'd like to see an implementation of [...]
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Suggested Solution
+      description: A concise description of what you want to happen.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Alternative Solutions
+      description: A concise description of any alternative solutions or features you've considered.
+    validations:
+      required: false
