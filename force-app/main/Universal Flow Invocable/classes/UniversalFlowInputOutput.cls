@@ -5,20 +5,20 @@ public class UniversalFlowInputOutput {
 	/**
 	 * @description String representing Apex recognized name of the class you're instantiating.
 	 */
-  @AuraEnabled
+	@AuraEnabled
 	@InvocableVariable(Required=true)
 	public String className;
 	/**
 	 * @description String representing the method name you're calling
 	 */
-  @AuraEnabled
+	@AuraEnabled
 	@InvocableVariable(Required=true)
 	public String methodName;
 	/**
 	 * @description This is a list of individual parameters you're passing to the method you're calling.
 	 * @see UniversalFlowInputOutputParameter
 	 */
-  @AuraEnabled
+	@AuraEnabled
 	@InvocableVariable
 	public List<UniversalFlowInputOutputParameter> parameters;
 	/**
@@ -28,12 +28,12 @@ public class UniversalFlowInputOutput {
 	 * and return multiple values - of different types - to the flow via this object.
 	 * @see UniversalFlowInputOutputParameter
 	 */
-  @AuraEnabled
+	@AuraEnabled
 	@InvocableVariable
 	public UniversalFlowInputOutputParameter result;
-  @AuraEnabled
-  @InvocableVariable
-  public Boolean success;
+	@AuraEnabled
+	@InvocableVariable
+	public Boolean success;
 
 	/**
 	 * @description Flow requires a 0 argument constructor, so we provide one here.
@@ -44,21 +44,23 @@ public class UniversalFlowInputOutput {
 	/**
 	 * @description This constructor variant is used by this class, and the the UniversalInvocable class to
 	 * construct the return object.
+	 *
 	 * @param className String Name of the class called
 	 * @param methodName String Name of the method called
-	 * @param parameter UniversalFlowInputOutputParameter The return value of the called method is automatically
+	 * @param returnValue UniversalFlowInputOutputParameter The return value of the called method is automatically
 	 * cast to it's respective primitive type and stored in this object.
+	 * @param isError boolean If the method called threw an exception, this should be true. Otherwise, false.
 	 */
 	public UniversalFlowInputOutput(
 		String className,
 		String methodName,
 		Object returnValue,
-    Boolean isError
+		Boolean isError
 	) {
 		this.className = className;
 		this.methodName = methodName;
 		this.result = new UniversalFlowInputOutputParameter(returnValue);
-    this.success = !isError;
+		this.success = !isError;
 	}
 
 	/**
@@ -143,5 +145,4 @@ public class UniversalFlowInputOutput {
 	public override String toString() {
 		return (className + '/' + methodName).toLowerCase();
 	}
-  
 }
