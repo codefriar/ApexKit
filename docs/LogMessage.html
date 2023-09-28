@@ -57,6 +57,24 @@
 						<ul>
 							<!-- menu items -->
 							<li
+								title="EnqueueNextQueueableProcessStep"
+								id="item-EnqueueNextQueueableProcessStep"
+								class="nav-item class public"
+								onclick="goToLocation('EnqueueNextQueueableProcessStep.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>EnqueueNextQueueableProcessStep</a
+								>
+							</li>
+							<li
+								title="QueueableProcess"
+								id="item-QueueableProcess"
+								class="nav-item class public"
+								onclick="goToLocation('QueueableProcess.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueueableProcess</a
+								>
+							</li>
+							<li
 								title="ULID"
 								id="item-ULID"
 								class="nav-item class public"
@@ -250,24 +268,6 @@
 								onclick="goToLocation('TestPolyfills.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>TestPolyfills</a
-								>
-							</li>
-							<li
-								title="Chain"
-								id="item-Chain"
-								class="nav-item class public"
-								onclick="goToLocation('Chain.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Chain</a
-								>
-							</li>
-							<li
-								title="Promise"
-								id="item-Promise"
-								class="nav-item class public"
-								onclick="goToLocation('Promise.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Promise</a
 								>
 							</li>
 							<li
@@ -505,6 +505,15 @@
 								>
 							</li>
 							<li
+								title="IdFactory"
+								id="item-IdFactory"
+								class="nav-item class public"
+								onclick="goToLocation('IdFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>IdFactory</a
+								>
+							</li>
+							<li
 								title="MethodSignature"
 								id="item-MethodSignature"
 								class="nav-item class public"
@@ -716,20 +725,37 @@
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L8">
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L9">
 								LogMessage
 							</a>
 						</h2>
 						<div class="class-container">
 							<div class="class-description">
 								A class for automatically attaching metadata to
-								log messages like Quiddity and RequestID Shared
-								Code
+								log messages like Quiddity and RequestID
 							</div>
 							<div class="class-subtitle">Signature</div>
 
 							<div class="class-signature">
 								public with sharing class LogMessage
+							</div>
+							<div class="class-subtitle">See</div>
+							<div class="class-subtitle-description">
+								<a
+									href="javascript:void(0)"
+									onclick="goToLocation('Log.html')"
+									>Log</a
+								>,
+								<a
+									href="javascript:void(0)"
+									onclick="goToLocation('LogException.html')"
+									>LogException</a
+								>,
+								<a
+									href="javascript:void(0)"
+									onclick="goToLocation('LogTriggerHandler.html')"
+									>LogTriggerHandler</a
+								>
 							</div>
 						</div>
 						<div class="subsection properties LogMessage">
@@ -750,7 +776,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L9">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L10">
 											EXCEPTION_STRING_FORMAT
 										</a>
 									</td>
@@ -770,7 +796,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L40">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L41">
 											message
 										</a>
 									</td>
@@ -791,7 +817,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L27">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L28">
 											quiddity
 										</a>
 									</td>
@@ -813,7 +839,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L14">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L15">
 											requestId
 										</a>
 									</td>
@@ -835,7 +861,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L21">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L22">
 											set
 										</a>
 									</td>
@@ -854,7 +880,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L34">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L35">
 											set
 										</a>
 									</td>
@@ -873,7 +899,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L45">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L46">
 											severity
 										</a>
 									</td>
@@ -941,7 +967,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L66">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L68">
 											LogMessage(severity, message)
 										</a>
 									</h4>
@@ -958,17 +984,23 @@
 									<div class="method-subtitle">
 										Parameters
 									</div>
-									<div class="param-name">message</div>
-									<div class="param-type">
-										Type:
-										<code class="code-inline">String</code>
-									</div>
 									<div class="param-name">severity</div>
 									<div class="param-type">
 										Type:
 										<code class="code-inline"
 											>LoggingLevel</code
 										>
+									</div>
+									<div class="param-description">
+										LoggingLevel the severity of the message
+									</div>
+									<div class="param-name">message</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">String</code>
+									</div>
+									<div class="param-description">
+										String the string to log
 									</div>
 								</div>
 								<div class="method public">
@@ -980,7 +1012,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L76">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L79">
 											LogMessage(message)
 										</a>
 									</h4>
@@ -1001,6 +1033,9 @@
 										Type:
 										<code class="code-inline">String</code>
 									</div>
+									<div class="param-description">
+										String the string to log
+									</div>
 								</div>
 								<div class="method public">
 									<h4
@@ -1011,7 +1046,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L84">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L88">
 											LogMessage(ex)
 										</a>
 									</h4>
@@ -1033,6 +1068,9 @@
 										<code class="code-inline"
 											>Exception</code
 										>
+									</div>
+									<div class="param-description">
+										any exception object
 									</div>
 								</div>
 							</div>
@@ -1065,7 +1103,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L51">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogMessage.cls#L52">
 											toEvent()
 										</a>
 									</h4>

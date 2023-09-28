@@ -57,6 +57,24 @@
 						<ul>
 							<!-- menu items -->
 							<li
+								title="EnqueueNextQueueableProcessStep"
+								id="item-EnqueueNextQueueableProcessStep"
+								class="nav-item class public"
+								onclick="goToLocation('EnqueueNextQueueableProcessStep.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>EnqueueNextQueueableProcessStep</a
+								>
+							</li>
+							<li
+								title="QueueableProcess"
+								id="item-QueueableProcess"
+								class="nav-item class public"
+								onclick="goToLocation('QueueableProcess.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueueableProcess</a
+								>
+							</li>
+							<li
 								title="ULID"
 								id="item-ULID"
 								class="nav-item class public"
@@ -250,24 +268,6 @@
 								onclick="goToLocation('TestPolyfills.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>TestPolyfills</a
-								>
-							</li>
-							<li
-								title="Chain"
-								id="item-Chain"
-								class="nav-item class public"
-								onclick="goToLocation('Chain.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Chain</a
-								>
-							</li>
-							<li
-								title="Promise"
-								id="item-Promise"
-								class="nav-item class public"
-								onclick="goToLocation('Promise.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Promise</a
 								>
 							</li>
 							<li
@@ -502,6 +502,15 @@
 								onclick="goToLocation('HttpCalloutMockFactory.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>HttpCalloutMockFactory</a
+								>
+							</li>
+							<li
+								title="IdFactory"
+								id="item-IdFactory"
+								class="nav-item class public"
+								onclick="goToLocation('IdFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>IdFactory</a
 								>
 							</li>
 							<li
@@ -918,7 +927,9 @@
 											Overridden from TriggerFramework.
 											TriggerFramework executes this
 											method when the trigger context is
-											after insert
+											after insert @throws LogException on
+											Database.insert failure isSuccess is
+											false
 										</div>
 									</li>
 								</ul>
@@ -931,7 +942,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogTriggerHandler.cls#L39">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/log/LogTriggerHandler.cls#L40">
 											afterInsert()
 										</a>
 									</h4>
@@ -939,18 +950,13 @@
 										Overridden from TriggerFramework.
 										TriggerFramework executes this method
 										when the trigger context is after insert
+										@throws LogException on Database.insert
+										failure isSuccess is false
 									</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">
 										public override void afterInsert()
-									</div>
-									<div class="method-subtitle">
-										Exceptions
-									</div>
-									<div class="method-subtitle-description">
-										throws LogException on Database.insert
-										isSuccess is false
 									</div>
 								</div>
 							</div>

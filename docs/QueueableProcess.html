@@ -57,6 +57,24 @@
 						<ul>
 							<!-- menu items -->
 							<li
+								title="EnqueueNextQueueableProcessStep"
+								id="item-EnqueueNextQueueableProcessStep"
+								class="nav-item class public"
+								onclick="goToLocation('EnqueueNextQueueableProcessStep.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>EnqueueNextQueueableProcessStep</a
+								>
+							</li>
+							<li
+								title="QueueableProcess"
+								id="item-QueueableProcess"
+								class="nav-item class public"
+								onclick="goToLocation('QueueableProcess.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>QueueableProcess</a
+								>
+							</li>
+							<li
 								title="ULID"
 								id="item-ULID"
 								class="nav-item class public"
@@ -250,24 +268,6 @@
 								onclick="goToLocation('TestPolyfills.html');">
 								<a tabindex="1" href="javascript:void(0)"
 									>TestPolyfills</a
-								>
-							</li>
-							<li
-								title="Chain"
-								id="item-Chain"
-								class="nav-item class public"
-								onclick="goToLocation('Chain.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Chain</a
-								>
-							</li>
-							<li
-								title="Promise"
-								id="item-Promise"
-								class="nav-item class public"
-								onclick="goToLocation('Promise.html');">
-								<a tabindex="1" href="javascript:void(0)"
-									>Promise</a
 								>
 							</li>
 							<li
@@ -505,6 +505,15 @@
 								>
 							</li>
 							<li
+								title="IdFactory"
+								id="item-IdFactory"
+								class="nav-item class public"
+								onclick="goToLocation('IdFactory.html');">
+								<a tabindex="1" href="javascript:void(0)"
+									>IdFactory</a
+								>
+							</li>
+							<li
 								title="MethodSignature"
 								id="item-MethodSignature"
 								class="nav-item class public"
@@ -710,30 +719,42 @@
 			<tr>
 				<td class="doc-page">
 					<div class="section">
-						<h2 class="class-title top-level-type" id="Promise">
+						<h2
+							class="class-title top-level-type"
+							id="QueueableProcess">
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Promise.cls#L13">
-								Promise
+								href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/QueueableProcess.cls#L13">
+								QueueableProcess
 							</a>
 						</h2>
 						<div class="class-container">
 							<div class="class-description">
-								This class provides an implementation of the
-								Promise pattern. The promise pattern allows
-								developers to have asynchronous flow control
-								without the need to handle callbacks. Developers
-								will extend this class, implementing the
+								This class provides a way for developers to
+								create a process of Queueable classes. This
+								implementation facilitates the handoff of data
+								into the overarching process and from one
+								process step to the next. While functionally
+								similar to the way a &#39;Promise&#39; pattern
+								allows you chain async methods together.
+								However, a true Promise pattern resolves itself,
+								one way or another, within the same transaction.
+								Therefore, this is not a true Promise pattern,
+								but an elegant way to logically chain Salesforce
+								Queueables together. As a Developer, you&#39;ll
+								need to extend this class, implementing the
 								necessary
 								<code class="code-inline">execute</code> method.
-								The contents of your execute method will be
-								executed asynchronously. Using the
-								<code class="code-inline">then</code> method of
-								this class, you can construct chains of
-								asynchronous operations. As each &#39;step&#39;
+								Your
+								<code class="code-inline">execute</code> method
+								will be invoked asynchronously as part of a
+								Queueable. You can then chain additional
+								Queueables together using the
+								<code class="code-inline">then</code> method
+								provided by this class. As each &#39;step&#39;
 								of the chain is completed the transaction
 								finalizer will be constructed with the remaining
 								steps and any passthrough data you specify.
@@ -743,13 +764,13 @@
 							<div class="class-subtitle">Signature</div>
 
 							<div class="class-signature">
-								public abstract class Promise implements
-								Queueable, Database.AllowsCallouts
+								public abstract class QueueableProcess
+								implements Queueable, Database.AllowsCallouts
 							</div>
 						</div>
-						<div class="subsection properties Promise">
+						<div class="subsection properties QueueableProcess">
 							<h3 class="subsection-title properties">
-								Promise Properties
+								QueueableProcess Properties
 							</h3>
 							<table class="attributes-table properties">
 								<tr>
@@ -763,13 +784,13 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Promise.cls#L15">
-											passthrough
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/QueueableProcess.cls#L15">
+											dataPassthrough
 										</a>
 									</td>
 									<td>
 										<div class="attribute-signature">
-											public Object passthrough
+											public Object dataPassthrough
 										</div>
 									</td>
 								</tr>
@@ -780,13 +801,14 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Promise.cls#L14">
-											promises
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/QueueableProcess.cls#L14">
+											processSteps
 										</a>
 									</td>
 									<td>
 										<div class="attribute-signature">
-											public List&lt;Promise&gt; promises
+											public List&lt;QueueableProcess&gt;
+											processSteps
 										</div>
 									</td>
 								</tr>
@@ -794,45 +816,71 @@
 						</div>
 						<div class="subsection methods">
 							<h3 class="subsection-title methods">
-								Promise Methods
+								QueueableProcess Methods
 							</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method private">
 										<a
 											class="methods-toc__entry"
-											href="#Promise.execute">
+											href="#QueueableProcess.execute">
 											execute ()
 										</a>
+
+										<div class="methods-toc__description">
+											This must be implemented by
+											extending classes. Developers -
+											implement this method with the work
+											you want executed asynchronously.
+										</div>
 									</li>
 									<li class="method public">
 										<a
 											class="methods-toc__entry"
-											href="#Promise.execute_1">
+											href="#QueueableProcess.execute_1">
 											execute (context)
 										</a>
+
+										<div class="methods-toc__description">
+											This is required by the Queueable
+											interface. It&#39;s the essence of
+											how the QueueableProcess pattern is
+											implemented in Apex.
+										</div>
 									</li>
 									<li class="method protected">
 										<a
 											class="methods-toc__entry"
-											href="#Promise.then">
+											href="#QueueableProcess.then">
 											then (toAdd)
 										</a>
+
+										<div class="methods-toc__description">
+											This method provides a syntatic
+											sugar for adding a new
+											QueueableProcess to the chain.
+										</div>
 									</li>
 								</ul>
 								<div class="method private">
 									<h4
 										class="method-title"
-										id="Promise.execute">
+										id="QueueableProcess.execute">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Promise.cls#L25">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/QueueableProcess.cls#L33">
 											execute()
 										</a>
 									</h4>
+									<div class="method-description">
+										This must be implemented by extending
+										classes. Developers - implement this
+										method with the work you want executed
+										asynchronously.
+									</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">
@@ -842,38 +890,87 @@
 								<div class="method public">
 									<h4
 										class="method-title"
-										id="Promise.execute_1">
+										id="QueueableProcess.execute_1">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Promise.cls#L29">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/QueueableProcess.cls#L41">
 											execute(context)
 										</a>
 									</h4>
+									<div class="method-description">
+										This is required by the Queueable
+										interface. It&#39;s the essence of how
+										the QueueableProcess pattern is
+										implemented in Apex.
+									</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">
 										public virtual void
 										execute(QueueableContext context)
 									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">context</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline"
+											>QueueableContext</code
+										>
+									</div>
+									<div class="param-description">
+										QueueableContext - dependency injected
+										by Salesforce at execution time.
+									</div>
 								</div>
 								<div class="method protected">
-									<h4 class="method-title" id="Promise.then">
+									<h4
+										class="method-title"
+										id="QueueableProcess.then">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/promises/Promise.cls#L17">
+											href="https://github.com/codefriar/ApexKit/blob/main/force-app/main/default/classes/QueueableProcess/QueueableProcess.cls#L24">
 											then(toAdd)
 										</a>
 									</h4>
+									<div class="method-description">
+										This method provides a syntatic sugar
+										for adding a new QueueableProcess to the
+										chain.
+									</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">
-										protected Promise then(object toAdd)
+										protected QueueableProcess then(Object
+										toAdd)
+									</div>
+									<div class="method-subtitle">
+										Parameters
+									</div>
+									<div class="param-name">toAdd</div>
+									<div class="param-type">
+										Type:
+										<code class="code-inline">Object</code>
+									</div>
+									<div class="param-description">
+										An instance of a class that extends this
+										QueueableProcess class and implements
+										the
+										<code class="code-inline">execute</code>
+										method.
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										Returns a Queueable Process instance
+										that can be used to chain additional
+										QueueableProcess instances.
 									</div>
 								</div>
 							</div>
