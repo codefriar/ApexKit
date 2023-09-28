@@ -12,9 +12,23 @@ public with sharing class IdFactory {
 	 * should be reevaluated going forward. Note: Existing Apex functionality around IDs will transition to the new
 	 * format.
 	 */
-	private static final String serverID = UserInfo.getUserId()
+	private static final String SERVER_ID = UserInfo.getUserId()
 		.left(7)
 		.right(4);
+
+	/**
+	 * @description There are certain types of objects that do not return a prefix. This map contains string keys that
+	 * map to known values for these 'unstable' types. This map is used to identify the correct prefix when a developer
+	 * requests an Id for an unstable type.
+	 *
+	 * This is likely an incomplete list. If you find an unstable type that is not in this list, please add it, and
+	 * submit a PR.
+	 */
+	private static final Map<String, String> UNSTABLE_TYPE_PREFIX_OVERRIDES = new Map<String, String>{
+		'OpportunityHistory' => '008',
+		'OtherHistory' => '017',
+		'SharingRule' => '02c'
+	};
 
 	/**
 	 * @description Integer to be appended to the end of the Id. Incremented each time a new Id is generated.
@@ -24,7 +38,7 @@ public with sharing class IdFactory {
 	/**
 	 * @description Integer representing the length of the Id. Default is 18.
 	 */
-	private static final Integer defaultIdLength = 18;
+	private static final Integer DEFAULT_ID_LENGTH = 18;
 
 	/**
 	 * @description this method accepts a String representation of the sObject type and defers to it's sister methods to generate a bogus Id.
@@ -36,6 +50,10 @@ public with sharing class IdFactory {
 	 * @example `IdFactory.get('Account');`
 	 */
 	public static Id get(String objectType) {
+		String prefix = getUnstableObjectPrefix(objectType);
+		if (prefix != null) {
+			return getWithPrefixOverride(prefix);
+		}
 		return get(Type.forName(objectType));
 	}
 
@@ -49,6 +67,11 @@ public with sharing class IdFactory {
 	 * @example `IdFactory.get(Type.forName('Account'));`
 	 */
 	public static Id get(Type incomingType) {
+		if (incomingType == null) {
+			throw new IDFactoryException(
+				'The incoming data type was null. Please ensure that you are passing a valid string or Type object to IDFactory.get()'
+			);
+		}
 		return get((SObject) incomingType.newInstance());
 	}
 
@@ -75,12 +98,18 @@ public with sharing class IdFactory {
 		String prefix = incomingType.getDescribe().getKeyPrefix();
 		if (prefix == null) {
 			throw new IDFactoryException(
-				'The incoming data type does not return a prefix. Certian data types such as *__Share or *History do not return a prefix. Because of this, they\'re not supported by IDFactory'
+				'The incoming data type did not return a prefix. Certian data types such as *__Share or *History do not return a prefix. Because of this, they\'re not supported by IDFactory'
 			);
 		}
-		prefix += serverID;
+		prefix += SERVER_ID;
+		return getWithPrefixOverride(prefix);
+	}
+
+	private static Id getWithPrefixOverride(String prefix) {
+		idiosyncrasy++;
+		prefix += SERVER_ID;
 		Integer padLength =
-			defaultIdLength -
+			DEFAULT_ID_LENGTH -
 			prefix.length() -
 			String.valueOf(idiosyncrasy).length();
 		String bogusId =
@@ -88,6 +117,19 @@ public with sharing class IdFactory {
 			'0'.repeat(padLength) +
 			String.valueOf(idiosyncrasy);
 		return (Id) bogusId;
+	}
+
+	private static String getUnstableObjectPrefix(String objectType) {
+		String prefix;
+		// we have an unstable type.
+		if (objectType == 'OpportunityHistory') {
+			prefix = UNSTABLE_TYPE_PREFIX_OVERRIDES.get('OpportunityHistory');
+		} else if (objectType.endsWithIgnoreCase('History')) {
+			prefix = UNSTABLE_TYPE_PREFIX_OVERRIDES.get('OtherHistory');
+		} else if (objectType.endsWithIgnoreCase('__Share')) {
+			prefix = UNSTABLE_TYPE_PREFIX_OVERRIDES.get('SharingRule');
+		}
+		return prefix;
 	}
 
 	public class IDFactoryException extends Exception {
