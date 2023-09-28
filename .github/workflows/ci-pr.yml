@@ -83,7 +83,7 @@ jobs:
         with:
           version: '6.55.0'
           sourcePath: 'force-app'
-          rulesets: 'ruleset.xml'
+          rulesets: 'pmd/ruleset.xml'
 
       # Check for PMD violations
       - name: 'Check for PMD violations'
