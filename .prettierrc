@@ -8,6 +8,7 @@
 	"trailingComma": "none",
 	"useTabs": true,
 	"htmlWhitespaceSensitivity": "css",
+	"xmlSelfClosingSpace": true,
 	"overrides": [
 		{
 			"files": "**/lwc/**/*.html",
