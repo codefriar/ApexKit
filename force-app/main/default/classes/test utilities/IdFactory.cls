@@ -23,6 +23,8 @@ public with sharing class IdFactory {
 	 *
 	 * This is likely an incomplete list. If you find an unstable type that is not in this list, please add it, and
 	 * submit a PR.
+	 * Daniel Ballinger has a great blog post useful for filling in the gaps when an object doesn't return a prefix.
+	 * http://www.fishofprey.com/2011/09/obscure-salesforce-object-key-prefixes.html
 	 */
 	private static final Map<String, String> UNSTABLE_TYPE_PREFIX_OVERRIDES = new Map<String, String>{
 		'OpportunityHistory' => '008',
