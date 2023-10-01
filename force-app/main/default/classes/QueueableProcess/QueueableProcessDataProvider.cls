@@ -1,4 +1,7 @@
 public with sharing class QueueableProcessDataProvider {
+	@SuppressWarnings('PMD.EmptyStatementBlock')
+	public QueueableProcessDataProvider() {
+	}
 	public String getClassName(Id jobId) {
 		return [
 			SELECT ApexClass.Name

@@ -26,7 +26,7 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	}
 
 	/**
-	 * @description This method provides a syntatic sugar for adding a new QueueableProcess to the chain.
+	 * @description This method provides a syntactic sugar for adding a new QueueableProcess to the chain.
 	 *
 	 * @param toAdd An instance of a class that extends this QueueableProcess class and implements the `execute` method.
 	 *
@@ -49,13 +49,13 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	/**
 	 * @description This method starts the QueueableProcess chain. It's the entry point for the process.
 	 *
-	 * @param intialPassthroughData Object - this is the initial passthrough data that will be passed to the first
+	 * @param initialPassthrough Object - this is the initial passthrough data that will be passed to the first
 	 * QueueableProcess in the chain.
 	 *
 	 * @return Id - Id of the Enqueued job.
 	 */
-	public Id start(Object intialPassthroughData) {
-		this.dataPassthrough = intialPassthroughData;
+	public Id start(Object initialPassthrough) {
+		this.dataPassthrough = initialPassthrough;
 		return System.enqueueJob(this);
 	}
 

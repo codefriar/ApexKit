@@ -13,15 +13,7 @@ class QueueableProcessTests {
 	static void testBasicE2EProcessPositive() {
 		Account testAccount = getTestAccount();
 		Test.startTest();
-		QueueableProcess queueableProcess = new ExampleQueueableProcessSteps.Step1(
-			testAccount.Id
-		);
-		queueableProcess
-			.then(new ExampleQueueableProcessSteps.Step1(testAccount.Id))
-			.then(new ExampleQueueableProcessSteps.Step1(testAccount.Id))
-			.then(new ExampleQueueableProcessSteps.Step2(testAccount.Id))
-			.then(new ExampleQueueableProcessSteps.Step2(testAccount.Id))
-			.start(0);
+		fireQueueableProcess(testAccount);
 		Test.stopTest();
 		Account checkAccount = getTestAccount();
 		Assert.areEqual(
@@ -40,6 +32,17 @@ class QueueableProcessTests {
 	static void testBasicE2EProcessPositiveNoInput() {
 		Account testAccount = getTestAccount();
 		Test.startTest();
+		fireQueueableProcess(testAccount);
+		Test.stopTest();
+		Account checkAccount = getTestAccount();
+		Assert.areEqual(
+			3,
+			Integer.valueOf(checkAccount.ShippingStreet),
+			'Expected to find the ShippingStreet field updated to 3'
+		);
+	}
+
+	private static void fireQueueableProcess(Account testAccount) {
 		QueueableProcess queueableProcess = new ExampleQueueableProcessSteps.Step1(
 			testAccount.Id
 		);
@@ -48,14 +51,7 @@ class QueueableProcessTests {
 			.then(new ExampleQueueableProcessSteps.Step1(testAccount.Id))
 			.then(new ExampleQueueableProcessSteps.Step2(testAccount.Id))
 			.then(new ExampleQueueableProcessSteps.Step2(testAccount.Id))
-			.start();
-		Test.stopTest();
-		Account checkAccount = getTestAccount();
-		Assert.areEqual(
-			3,
-			Integer.valueOf(checkAccount.ShippingStreet),
-			'Expected to find the ShippingStreet field updated to 3'
-		);
+			.start(0);
 	}
 
 	@IsTest

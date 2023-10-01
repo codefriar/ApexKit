@@ -4,6 +4,7 @@ public class QueueableProcessMockDataProvider implements System.StubProvider {
 	public QueueableProcessMockDataProvider(String returnString) {
 		this.returnString = returnString;
 	}
+	@SuppressWarnings('PMD.ExcessiveParameterList')
 	public Object handleMethodCall(
 		Object stubbedObject,
 		String stubbedMethodName,

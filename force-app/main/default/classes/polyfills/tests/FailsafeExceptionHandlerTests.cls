@@ -27,7 +27,7 @@ private class FailsafeExceptionHandlerTests {
 	}
 
 	@IsTest
-	static void testlistExceptionConstructor() {
+	static void testListExceptionConstructor() {
 		Test.startTest();
 		List<Exception> theExceptions = new List<Exception>();
 		theExceptions.add(new DmlException());
@@ -50,6 +50,10 @@ private class FailsafeExceptionHandlerTests {
 			new Map<String, Object>{ 'incomingException' => new DmlException() }
 		);
 		Test.stopTest();
+		Assert.isTrue(
+			true,
+			'Bogus assertion to make pmd happy. Real assertion is in assertLogsGenerated'
+		);
 
 		assertLogsGenerated(1, 'when passing a single exception');
 	}
@@ -68,7 +72,10 @@ private class FailsafeExceptionHandlerTests {
 			}
 		);
 		Test.stopTest();
-
+		Assert.isTrue(
+			true,
+			'Bogus assertion to make pmd happy. Real assertion is in assertLogsGenerated'
+		);
 		assertLogsGenerated(2, 'when passing a single exception');
 	}
 

@@ -5,6 +5,7 @@ public with sharing class ExampleQueueableProcessSteps {
 	public with sharing class Step1 extends QueueableProcess {
 		final private Id accountId;
 
+		@SuppressWarnings('PMD.EmptyStatementBlock')
 		public Step1() {
 		}
 		public Step1(Id accountId) {
@@ -23,13 +24,13 @@ public with sharing class ExampleQueueableProcessSteps {
 
 		public override void handleException(Exception e) {
 			ExampleQueueableProcessSteps.handleExceptionCalled = true;
-			System.debug('Step1.handleError: ' + e.getMessage());
 		}
 	}
 
 	public with sharing class Step2 extends QueueableProcess {
 		final private Id accountId;
 
+		@SuppressWarnings('PMD.EmptyStatementBlock')
 		public Step2() {
 		}
 		public Step2(Id accountId) {
