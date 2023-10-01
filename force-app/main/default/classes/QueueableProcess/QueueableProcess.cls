@@ -13,6 +13,17 @@
 public abstract class QueueableProcess implements Queueable, Database.AllowsCallouts {
 	public List<QueueableProcess> processSteps = new List<QueueableProcess>();
 	public Object dataPassthrough;
+	public List<QueueableContext> queueableContextHistory;
+	public List<FinalizerContext> finalizerContextHistory;
+	@TestVisible
+	private static Boolean defaultHandleExceptionCalled = false;
+
+	/**
+	 * @description this is a constructor that is used by extension classes;
+	 */
+	@SuppressWarnings('PMD.EmptyStatementBlock')
+	protected QueueableProcess() {
+	}
 
 	/**
 	 * @description This method provides a syntatic sugar for adding a new QueueableProcess to the chain.
@@ -21,9 +32,31 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	 *
 	 * @return Returns a Queueable Process instance that can be used to chain additional QueueableProcess instances.
 	 */
-	protected QueueableProcess then(Object toAdd) {
-		processSteps.add((QueueableProcess) toAdd);
+	public QueueableProcess then(QueueableProcess toAdd) {
+		processSteps.add(toAdd);
 		return this;
+	}
+
+	/**
+	 * @description This method starts the QueueableProcess chain. It's the entry point for the process.
+	 *
+	 * @return Id - Id of the Enqueued job.
+	 */
+	public Id start() {
+		return start(null);
+	}
+
+	/**
+	 * @description This method starts the QueueableProcess chain. It's the entry point for the process.
+	 *
+	 * @param intialPassthroughData Object - this is the initial passthrough data that will be passed to the first
+	 * QueueableProcess in the chain.
+	 *
+	 * @return Id - Id of the Enqueued job.
+	 */
+	public Id start(Object intialPassthroughData) {
+		this.dataPassthrough = intialPassthroughData;
+		return System.enqueueJob(this);
 	}
 
 	/**
@@ -32,6 +65,11 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	 */
 	abstract public void execute();
 
+	virtual public void handleException(Exception incomingException) {
+		QueueableProcess.defaultHandleExceptionCalled = true;
+		System.debug(incomingException.getMessage()); // NOPMD
+	}
+
 	/**
 	 * @description This is required by the Queueable interface. It's the essence of how the QueueableProcess pattern is
 	 * implemented in Apex.
@@ -39,16 +77,23 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	 * @param context QueueableContext - dependency injected by Salesforce at execution time.
 	 */
 	public virtual void execute(QueueableContext context) {
+		// if the queueableContextHistory is null, initialize it.
+		if (this.queueableContextHistory == null) {
+			this.queueableContextHistory = new List<QueueableContext>();
+		}
+		this.queueableContextHistory.add(context);
 		// invoke the abstract method `execute`. see the comment above.
 		execute();
 		// create a new instance of the finalizer class. Note that we're passing in the list of remaining steps and the
 		// passthrough data.
-		Finalizer chain = new EnqueueNextQueueableProcessStep(
+		Finalizer nextStep = new EnqueueNextQueueableProcessStep(
 			this.processSteps,
-			this.dataPassthrough
+			this.dataPassthrough,
+			this.queueableContextHistory,
+			this.finalizerContextHistory
 		);
 		// Attach the finalizer to system context. This will take care of enqueueing the next QueueableProcess step in
-		// the chain.
-		System.attachFinalizer(chain);
+		// the nextStep.
+		System.attachFinalizer(nextStep);
 	}
 }
