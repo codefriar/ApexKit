@@ -15,6 +15,8 @@ on:
 jobs:
   format-lint-lwc-tests:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     steps:
       # Checkout the source code
       - name: 'Checkout source code'
@@ -62,6 +64,8 @@ jobs:
   #        run: npm run lint
   scratch-org-test:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     needs: format-lint-lwc-tests
     steps:
       # Checkout the source code
@@ -138,6 +142,8 @@ jobs:
 
   publish-docs-to-wiki:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     needs: scratch-org-test
     steps:
       # Checkout the code
@@ -158,6 +164,8 @@ jobs:
 
   trigger-packaging:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     needs: publish-docs-to-wiki
     steps:
       # Checkout the source code

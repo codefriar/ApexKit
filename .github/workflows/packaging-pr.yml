@@ -16,6 +16,8 @@ env:
 jobs:
   packaging:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     steps:
       # Install Volta to enforce proper node and package manager versions
       - name: 'Install Volta'

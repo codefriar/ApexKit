@@ -11,6 +11,8 @@ on:
 jobs:
   release-package-version:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     steps:
       # Install Salesforce CLI
       - name: 'Install Salesforce CLI'
