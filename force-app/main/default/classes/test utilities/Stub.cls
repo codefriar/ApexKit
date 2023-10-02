@@ -1,44 +1,37 @@
-@isTest
+@IsTest
 /**
- * @description This class helps you construct and manage StubProvider 
+ * @description This class helps you construct and manage StubProvider
  * conforming objects for use in Unit Tests. It, along with it's companion
- * classes: 
- *   * MockedMethod 
+ * classes:
+ *   * MockedMethod
  *   * MethodSignature
  * and their builder-pattern inner classes are designed to work together
  * with a fluent API style like this:
- * 
+ *
  * ```apex
  * StubObject fooStub = new StubObject.Builder('foo.class')
-    .mockingMethodCall('someMethodName', List<Object> Params)
-    .withParameterTypes()
-    .returning() || .throwingException() || .throwingException(ExceptionObj)
-    .mockingMethodCall('secondMethodName', ...)
-    .withParameterTypes()
-    .returning() || .throwingException() || .throwingException(ExceptionObj)
-    .createStub()
+	.mockingMethodCall('someMethodName', List<Object> Params)
+	.withParameterTypes()
+	.returning() || .throwingException() || .throwingException(ExceptionObj)
+	.mockingMethodCall('secondMethodName', ...)
+	.withParameterTypes()
+	.returning() || .throwingException() || .throwingException(ExceptionObj)
+	.createStub()
 
  * ```
  */
 public with sharing class Stub implements System.StubProvider {
-	/**
-	 * @description Class is used by Stub, MethodSignature and MockedMethod
-	 * classes for throwing when an exception occurs that is specifically
-	 * related to building, using or asserting against the Super Stub framework
-	 */
-	public class StubException extends Exception {
-	}
-
 	// marked final, because we don't ever want to be in a situation where we're
 	// changing the Stub object type.
 	private final Type objectType;
 	// marked private, because only this class should be able to directly
 	// interact with this list of MockedMethod
-	@testVisible
+	@TestVisible
 	private List<MockedMethod> mockedMethods = new List<MockedMethod>();
 
 	/**
-	 * @description      required constructor finalizing the object type.
+	 * @description required constructor finalizing the object type.
+	 *
 	 * @param objectType Type class: ie: Foo.class
 	 */
 	public Stub(Type objectType) {
@@ -46,9 +39,10 @@ public with sharing class Stub implements System.StubProvider {
 	}
 
 	/**
-	 * @description         convenience construtor that accepts a pre-built
+	 * @description convenience constructor that accepts a pre-built
 	 * list of MockedMethod objects.
-	 * @param objectType    type class: ie. Foo.class
+	 *
+	 * @param objectType type class: ie. Foo.class
 	 * @param mockedMethods List of MockedMethod objects
 	 */
 	public Stub(Type objectType, List<MockedMethod> mockedMethods) {
@@ -57,9 +51,10 @@ public with sharing class Stub implements System.StubProvider {
 	}
 
 	/**
-	 * @description      method required by the StubProvider interface. Handles
+	 * @description method required by the StubProvider interface. Handles
 	 * the mock execution of the given method call.
-	 * @param obj        dependency injected by Apex, object the mock method
+	 *
+	 * @param obj dependency injected by Apex, object the mock method
 	 *                      was call upon
 	 * @param methodName dependency injected by Apex, string representation
 	 *                      of the name of the method used to construct a
@@ -69,8 +64,9 @@ public with sharing class Stub implements System.StubProvider {
 	 *                      used to construct a MethodSignature object for
 	 *                      comparison.
 	 * @param paramNames dependency injected by Apex, not currently used.
-	 * @param args       dependency injected by Apex, not currently used.
-	 * @return           `Object`
+	 * @param args dependency injected by Apex, not currently used.
+	 *
+	 * @return `Object`
 	 */
 	@SuppressWarnings('PMD.ExcessiveParameterList')
 	public Object handleMethodCall(
@@ -133,7 +129,8 @@ public with sharing class Stub implements System.StubProvider {
 	/**
 	 * @description returns the this constructed class with it's mocked methods
 	 * as a single stub object to be used in a unit test.
-	 * @return      `Object` Needs to be cast back to the type of object used.
+	 *
+	 * @return `Object` Needs to be cast back to the type of object used.
 	 */
 	public Object createStub() {
 		return Test.createStub(objectType, this);
@@ -153,35 +150,38 @@ public with sharing class Stub implements System.StubProvider {
 		 * @description holds the System.Type reference for the object that
 		 * you're building a stub for.
 		 */
-		private Type objectType;
+		private final Type objectType;
 
 		/**
 		 * @description Internally, we need to maintain a list of signature
 		 * builder objects so that we can roll-up the creation of objects.
 		 */
-		List<MethodSignature.Builder> signatureBuilders = new List<MethodSignature.Builder>();
+		final List<MethodSignature.Builder> signatureBuilders = new List<MethodSignature.Builder>();
 
 		/**
-		 * @description   Constructor requiring the objectType. We do that to
+		 * @description Constructor requiring the objectType. We do that to
 		 * enforce that all Stub builders have an object type.
-		 * @param objType
+		 *
+		 * @param objType Type class: ie. Foo.class
 		 */
 		public Builder(Type objType) {
 			this.objectType = objType;
 		}
 
 		/**
-		 * @description      This method, and it's overloaded variants below,
+		 * @description This method, and it's overloaded variants below,
 		 * all work to add a new MockedMethod to the stub object. Semantically
 		 * the idea is that you'll invoke one of these 'mockingMethodCall'
 		 * methods for every method you want your stub to react to. Because this
 		 * builder class is designed around method chaining, you can invoke a
 		 * number of these in a row. See the example invocation at the top of
 		 * this class.
+		 *
 		 * @param methodName Required, name of the method that will be mocked
 		 * @param paramTypes List of System.Types that the mocked method should
 		 * respond to.
-		 * @return           `MethodSignature.Builder` - returns the builder
+		 *
+		 * @return `MethodSignature.Builder` - returns the builder
 		 * object for chaining.
 		 */
 		public MethodSignature.Builder mockingMethodCall(
@@ -198,23 +198,27 @@ public with sharing class Stub implements System.StubProvider {
 		}
 
 		/**
-		 * @description      Overloaded variant of the main 'mockingMethodCall'
+		 * @description Overloaded variant of the main 'mockingMethodCall'
 		 * method. See docs for the first instance of mockingMethodCall in this
 		 * class.
+		 *
 		 * @param methodName Method name to be mocked.
-		 * @return           `MethodSignature.Builder`
+		 *
+		 * @return `MethodSignature.Builder`
 		 */
 		public MethodSignature.Builder mockingMethodCall(String methodName) {
 			return mockingMethodCall(methodName, new List<Type>());
 		}
 
 		/**
-		 * @description      Overloaded variant of the main 'mockingMethodCall'
+		 * @description Overloaded variant of the main 'mockingMethodCall'
 		 * method. See docs for the first instance of mockingMethodCall in this
 		 * class.
+		 *
 		 * @param methodName required. method name to be mocked.
-		 * @param paramType  Type of single parameter.
-		 * @return           `MethodSignature.Builder`
+		 * @param paramType Type of single parameter.
+		 *
+		 * @return `MethodSignature.Builder`
 		 */
 		public MockedMethod.Builder mockingMethodCall(
 			String methodName,
@@ -225,13 +229,15 @@ public with sharing class Stub implements System.StubProvider {
 		}
 
 		/**
-		 * @description      Overloaded variant of the main 'mockingMethodCall'
+		 * @description Overloaded variant of the main 'mockingMethodCall'
 		 * method. See docs for the first instance of mockingMethodCall in this
 		 * class.
+		 *
 		 * @param methodName required. method name to be mocked.
-		 * @param paramType  param type 1.
+		 * @param paramType param type 1.
 		 * @param paramType2 param type 2.
-		 * @return           `MethodSignature.Builder`
+		 *
+		 * @return `MethodSignature.Builder`
 		 */
 		public MockedMethod.Builder mockingMethodCall(
 			String methodName,
@@ -246,14 +252,16 @@ public with sharing class Stub implements System.StubProvider {
 		}
 
 		/**
-		 * @description      Overloaded variant of the main 'mockingMethodCall'
+		 * @description Overloaded variant of the main 'mockingMethodCall'
 		 * method. See docs for the first instance of mockingMethodCall in this
 		 * class.
+		 *
 		 * @param methodName required. method name to be mocked.
-		 * @param paramType  param type 1.
+		 * @param paramType param type 1.
 		 * @param paramType2 param type 2.
 		 * @param paramType3 param type 3.
-		 * @return           `MethodSignature.Builder`
+		 *
+		 * @return `MethodSignature.Builder`
 		 */
 		@SuppressWarnings('PMD.ExcessiveParameterList')
 		public MockedMethod.Builder mockingMethodCall(
@@ -270,15 +278,17 @@ public with sharing class Stub implements System.StubProvider {
 		}
 
 		/**
-		 * @description      Overloaded variant of the main 'mockingMethodCall'
+		 * @description Overloaded variant of the main 'mockingMethodCall'
 		 * method. See docs for the first instance of mockingMethodCall in this
 		 * class.
+		 *
 		 * @param methodName required. method name to be mocked.
-		 * @param paramType  param type 1.
+		 * @param paramType param type 1.
 		 * @param paramType2 param type 2.
 		 * @param paramType3 param type 3.
 		 * @param paramType4 param type 4.
-		 * @return           `MethodSignature.Builder`
+		 *
+		 * @return `MethodSignature.Builder`
 		 */
 		@SuppressWarnings('PMD.ExcessiveParameterList')
 		public MockedMethod.Builder mockingMethodCall(
@@ -301,10 +311,11 @@ public with sharing class Stub implements System.StubProvider {
 		}
 
 		/**
-		 * @description    Generates a Stub object from this builder object.
-		 * @param If true, calls the stub objects' createStub method
-		 * automatically
-		 * @return                       `Stub`
+		 * @description Generates a Stub object from this builder object.
+		 *
+		 * @param generateInjectableStub true, calls the stub objects' createStub method automatically
+		 *
+		 * @return `Stub`
 		 */
 		public Object defineStub(Boolean generateInjectableStub) {
 			return this.defineStub().createStub();
@@ -317,5 +328,13 @@ public with sharing class Stub implements System.StubProvider {
 			}
 			return new Stub(objectType, mockedMethods);
 		}
+	}
+
+	/**
+	 * @description Class is used by Stub, MethodSignature and MockedMethod
+	 * classes for throwing when an exception occurs that is specifically
+	 * related to building, using or asserting against the Super Stub framework
+	 */
+	public class StubException extends Exception {
 	}
 }

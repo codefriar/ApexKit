@@ -15,7 +15,7 @@ public with sharing class OrgShape {
 	/**
 	 * @description Defines the default cache partition for use in this class.
 	 */
-	private static final String DEFAULTPARTITION = 'local.default';
+	private static final String DEFAULT_PARTITION = 'local.default';
 
 	/**
 	 * @description property reports whether this transaction took place
@@ -23,7 +23,7 @@ public with sharing class OrgShape {
 	 */
 	public Boolean isSandbox {
 		get {
-			return getOrgShape().isSandbox;
+			return getOrgShape().IsSandbox;
 		}
 	}
 
@@ -35,8 +35,6 @@ public with sharing class OrgShape {
 	public Boolean multiCurrencyEnabled {
 		get {
 			return UserInfo.isMultiCurrencyOrganization();
-		}
-		private set {
 		}
 	}
 
@@ -74,7 +72,7 @@ public with sharing class OrgShape {
 	 */
 	public Boolean isReadOnly {
 		get {
-			return getOrgShape().isReadOnly;
+			return getOrgShape().IsReadOnly;
 		}
 	}
 
@@ -84,7 +82,7 @@ public with sharing class OrgShape {
 	 */
 	public String instanceName {
 		get {
-			return getOrgShape().instanceName;
+			return getOrgShape().InstanceName;
 		}
 	}
 
@@ -102,7 +100,7 @@ public with sharing class OrgShape {
 	 */
 	public Integer getFiscalYearStartMonth {
 		get {
-			return getOrgShape().fiscalYearStartMonth;
+			return getOrgShape().FiscalYearStartMonth;
 		}
 	}
 
@@ -121,7 +119,7 @@ public with sharing class OrgShape {
 	 */
 	public Id id {
 		get {
-			return getOrgShape().id;
+			return getOrgShape().Id;
 		}
 	}
 
@@ -130,7 +128,7 @@ public with sharing class OrgShape {
 	 */
 	public String locale {
 		get {
-			return getOrgShape().languageLocaleKey;
+			return getOrgShape().LanguageLocaleKey;
 		}
 	}
 
@@ -139,7 +137,7 @@ public with sharing class OrgShape {
 	 */
 	public String name {
 		get {
-			return getOrgShape().name;
+			return getOrgShape().Name;
 		}
 	}
 
@@ -148,7 +146,7 @@ public with sharing class OrgShape {
 	 */
 	public String timeZoneKey {
 		get {
-			return getOrgShape().timeZoneSidKey;
+			return getOrgShape().TimeZoneSidKey;
 		}
 	}
 
@@ -161,11 +159,11 @@ public with sharing class OrgShape {
 		switch on type {
 			when SESSION {
 				return (Cache.Partition) Cache.Session.getPartition(
-					DEFAULTPARTITION
+					DEFAULT_PARTITION
 				);
 			}
 		}
-		return (Cache.Partition) Cache.Org.getPartition(DEFAULTPARTITION);
+		return (Cache.Partition) Cache.Org.getPartition(DEFAULT_PARTITION);
 	}
 
 	/**
@@ -227,6 +225,7 @@ public with sharing class OrgShape {
 			);
 			seeAllData = true;
 		} catch (UnsupportedOperationException UE) {
+			System.debug('See all data is not true'); // NOPMD
 			// this means seeAllData != true
 			// normally I don't like empty catch blocks, but this one
 			// isn't needed, except to catch an error we're half
@@ -251,7 +250,7 @@ public with sharing class OrgShape {
 			return this.safeDefaultCachePartition;
 		}
 		try {
-			PlatformCachePartition partition = (PlatformCachePartition) new SOQL.builder(
+			PlatformCachePartition partition = (PlatformCachePartition) new SOQL.Builder(
 					'PlatformCachePartition'
 				)
 				.selectField('developerName')
@@ -300,6 +299,7 @@ public with sharing class OrgShape {
 					isACMEnabled = true;
 				}
 			} catch (Exception e) {
+				//NOPMD
 				// Nothing to do, ACM = false
 			}
 		}
@@ -321,7 +321,7 @@ public with sharing class OrgShape {
 			return (Organization) getAvailableOrgCachePartition()
 				.get(CachedOrgShape.class, 'requiredButNotUsed');
 		} else {
-			if (this.OrgShape != null) {
+			if (this.orgShape != null) {
 				return this.orgShape;
 			} else {
 				this.orgShape = getOrgRecord();
@@ -336,14 +336,17 @@ public with sharing class OrgShape {
 	 * Note: We're suppressing PMD warning on Crud Checking because we want
 	 * everyone to be able to pull this read-only record.
 	 */
-	private Organization getOrgRecord() {
+	private static Organization getOrgRecord() {
 		return (Organization) new SOQL.Builder('Organization')
-			.selectStandard()
+			.SelectStandard()
 			.setScopeLimit(1)
 			.build()
 			.getRecord();
 	}
 
+	/**
+	 * @description this class is used to marshall / return the cached org shape data, if available
+	 */
 	public with sharing class CachedOrgShape implements Cache.CacheBuilder {
 		@SuppressWarnings('PMD.ApexCRUDViolation')
 		/**
@@ -355,12 +358,10 @@ public with sharing class OrgShape {
 			// WITH SECURITY_ENFORCED
 			// but you cannot do that for Organization.
 			Organization org = (Organization) new SOQL.Builder('Organization')
-				.selectStandard()
+				.SelectStandard()
 				.setScopeLimit(1)
 				.build()
 				.getRecord();
-
-			System.debug('#$#$#$ ' + org);
 
 			return org;
 		}

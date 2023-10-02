@@ -2,7 +2,6 @@ public with sharing class RestLibApiCall {
 	/**
 	 * @description The default headers to use, when none are specified
 	 */
-	@testVisible
 	public static Map<String, String> defaultHeaders = new Map<String, String>{
 		'Content-Type' => 'application/json',
 		'Accept' => 'application/json'
@@ -30,10 +29,21 @@ public with sharing class RestLibApiCall {
 		}
 	}
 
-	@testVisible
+	@TestVisible
+	@SuppressWarnings('PMD.EmptyStatementBlock')
 	private RestLibApiCall() {
 	}
 
+	/**
+	 * @description Basic constructor that builds an instance with the necessary information to make a callout.
+	 *
+	 * @param method HttpVerb enum value ie: GET, POST, PUT, PATCH, DEL
+	 * @param path String of the path to the resource
+	 * @param query String of the query parameters to be appended to the path
+	 * @param body String of the body to be sent with the request
+	 * @param headers Map<String, String> of the headers to be sent with the request
+	 */
+	@SuppressWarnings('PMD.ExcessiveParameterList')
 	public RestLibApiCall(
 		HttpVerb method,
 		String path,
@@ -54,6 +64,15 @@ public with sharing class RestLibApiCall {
 		}
 	}
 
+	/**
+	 * @description Basic constructor that builds an instance with the necessary information to make a callout.
+	 *
+	 * @param method HttpVerb enum value ie: GET, POST, PUT, PATCH, DEL
+	 * @param path String of the path to the resource
+	 * @param query String of the query parameters to be appended to the path
+	 * @param body String of the body to be sent with the request
+	 */
+	@SuppressWarnings('PMD.ExcessiveParameterList')
 	public RestLibApiCall(
 		HttpVerb method,
 		String path,
@@ -70,8 +89,8 @@ public with sharing class RestLibApiCall {
 	 * @param   resource string to ensure ends in `/`
 	 * @return  inputted string with `/` if it didn't already end in one.
 	 */
-	@testVisible
-	private String ensureStringEndsInSlash(String resource) {
+	@TestVisible
+	private static String ensureStringEndsInSlash(String resource) {
 		if (resource.endsWith('/')) {
 			return resource;
 		}

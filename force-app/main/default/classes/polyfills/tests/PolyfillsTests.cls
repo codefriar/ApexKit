@@ -3,7 +3,9 @@ private class PolyfillsTests {
 	@isTest
 	private static void testGetSObjectTypeFromListPositiveNoType() {
 		Test.startTest();
-		String results = Polyfills.getSObjectTypeFromList(new List<SObject>());
+		String results = Polyfills.getSObjectTypeFromListsFirstObject(
+			new List<SObject>()
+		);
 		Test.stopTest();
 		Assert.isTrue(
 			results.containsIgnoreCase('sObject'),
@@ -46,15 +48,6 @@ private class PolyfillsTests {
 			results.containsIgnoreCase('PolyfillsTests'),
 			'expected to get stacktrace back'
 		);
-	}
-
-	@isTest
-	private static void testTypeObjectFromClassNamePositive() {
-		Test.startTest();
-		Type results = Polyfills.typeObjectFromClassName('Account');
-		Test.stopTest();
-		Type expected = Account.class;
-		Assert.areEqual(results, expected, 'expected to get account back');
 	}
 
 	@isTest

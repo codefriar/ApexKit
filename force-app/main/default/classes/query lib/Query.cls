@@ -1,3 +1,4 @@
+@SuppressWarnings('PMD.ApexDoc')
 /**
  * MIT License
  *
@@ -20,33 +21,50 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
+ * @description A class that helps to build SOQL/SOSL queries in Apex.
  */
 public class Query {
+	/**
+	 * @description Enum for logical operators
+	 */
 	public enum LogicalOperator {
 		AND_VALUE,
 		OR_VALUE
 	}
 
+	/**
+	 * @description Enum for sorting functions
+	 */
 	public enum SortDirection {
 		ASCENDING,
 		DESCENDING
 	}
 
+	/**
+	 * @description Enum for null records sorting
+	 */
 	public enum SortNullRecords {
 		FIRST,
 		LAST
 	}
 
+	/**
+	 * @description Enum for Scopes
+	 */
 	public enum Scope {
-		Delegated,
-		Everything,
-		Mine,
-		MyTeamTerritory,
-		MyTerritory,
-		Queue,
-		Team
+		DELEGATED,
+		EVERYTHING,
+		MINE,
+		MY_TEAM_TERRITORY,
+		MY_TERRITORY,
+		QUEUE,
+		TEAM
 	}
 
+	/**
+	 * @description Enum for searching groups
+	 */
 	public enum SearchGroup {
 		ALL,
 		EMAIL,
@@ -55,6 +73,9 @@ public class Query {
 		SIDEBAR
 	}
 
+	/**
+	 * @description Class encompassing the soql sorting information
+	 */
 	public class SortOrder {
 		@TestVisible
 		private String fieldname;
@@ -64,7 +85,7 @@ public class Query {
 		private SortNullRecords nullRecords;
 
 		public SortOrder(String fieldName) {
-			this.fieldname = fieldname;
+			this.fieldname = fieldName;
 		}
 
 		public SortOrder(String fieldName, SortDirection direction) {
@@ -111,7 +132,7 @@ public class Query {
 		private List<Expression> expressions;
 
 		public Condition() {
-			this(QUERY.LogicalOperator.AND_VALUE);
+			this(Query.LogicalOperator.AND_VALUE);
 		}
 
 		public Condition(LogicalOperator logicalOperator) {
@@ -233,7 +254,6 @@ public class Query {
 			this.numberOfUnits = numberOfUnits;
 		}
 
-		@TestVisible
 		public String toDateLiteralString() {
 			return dateLiteralName +
 				(numberOfUnits == null ? '' : ':' + numberOfUnits);
@@ -252,7 +272,6 @@ public class Query {
 			this.variableName = variableName;
 		}
 
-		@TestVisible
 		public String toScriptVariableString() {
 			return ':' + variableName;
 		}
@@ -349,7 +368,7 @@ public class Query {
 		private List<Expression> searchExpressions;
 
 		public SearchCondition() {
-			this(QUERY.LogicalOperator.AND_VALUE);
+			this(Query.LogicalOperator.AND_VALUE);
 		}
 
 		public SearchCondition(LogicalOperator logicalOperator) {
@@ -417,7 +436,7 @@ public class Query {
 		@TestVisible
 		private Integer offset;
 
-		public ReturningFieldSpec(SobjectType sobjectType) {
+		public ReturningFieldSpec(SObjectType sobjectType) {
 			this(sobjectType.getDescribe().getName());
 		}
 

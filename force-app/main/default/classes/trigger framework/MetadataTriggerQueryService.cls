@@ -1,13 +1,17 @@
+/**
+ * @description Class encapsulates the querying of Metadata_Driven_Trigger__mdt records on behalf of the
+ * MetadataTriggerHandlerClass class. It is not intended to be used directly by developers.
+ */
 public with sharing class MetadataTriggerQueryService {
 	/**
-	 * Initialize objectTypeName as an empty string to avoid null errors
+	 * @description Initialize objectTypeName as an empty string to avoid null errors
 	 */
 	private String objType = '';
 
 	/**
-	 * @description          Constructor for trigger query service
+	 * @description Constructor for trigger query service
 	 *
-	 * @param objectTypeName
+	 * @param objectTypeName String The object Type name
 	 */
 	public MetadataTriggerQueryService(String objectTypeName) {
 		this.objType = objectTypeName;
@@ -25,14 +29,14 @@ public with sharing class MetadataTriggerQueryService {
 	 * for all or selected individuals *without* deploying.
 	 * @return      `List<Metadata_Driven_Trigger__mdt>`
 	 */
-	@suppressWarnings('PMD.ApexCRUDViolation')
+	@SuppressWarnings('PMD.ApexCRUDViolation')
 	public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers() {
 		return (List<Metadata_Driven_Trigger__mdt>) new SOQL.Builder(
 				'Metadata_Driven_Trigger__mdt'
 			)
 			.selectField('Class__c')
 			.whereCondition(
-				new query.Condition()
+				new Query.Condition()
 					.equals('Object__r.QualifiedApiName', this.objType)
 					.equals('enabled__c', true)
 					.isNotIn(
@@ -40,10 +44,10 @@ public with sharing class MetadataTriggerQueryService {
 						new SOQL.Builder('Disabled_for__mdt')
 							.selectField('Metadata_Driven_Trigger__c')
 							.whereCondition(
-								new query.Condition()
+								new Query.Condition()
 									.equals(
 										'User_Email__c',
-										UserInfo.getUsername()
+										UserInfo.getUserName()
 									)
 							)
 							.build()
@@ -68,22 +72,24 @@ public with sharing class MetadataTriggerQueryService {
 	}
 
 	/**
-	 * @description      This determines the active sObject type by describing the first
+	 * @description This determines the active sObject type by describing the first
 	 * record in the trigger New / Old list
 	 *
-	 * @param triggerNew
-	 * @param triggerOld
-	 * @return           `String`
-	 * @exception        MetadataTriggerFrameworkException
+	 * @param triggerNew List<sObject> The trigger.new list
+	 * @param triggerOld List<sObject> The trigger.old list
+	 *
+	 * @return `String` the ObjectType name
+	 *
+	 * @throws MetadataTriggerFrameworkException when both triggerNew and triggerOld are null
 	 */
 	public static String getSObjectType(
-		List<sObject> triggerNew,
-		List<sObject> triggerOld
+		List<SObject> triggerNew,
+		List<SObject> triggerOld
 	) {
 		if (triggerNew != null) {
-			return Polyfills.getSObjectTypeFromList(triggerNew);
+			return Polyfills.getSObjectTypeFromListsFirstObject(triggerNew);
 		} else if (triggerOld != null) {
-			return Polyfills.getSObjectTypeFromList(triggerOld);
+			return Polyfills.getSObjectTypeFromListsFirstObject(triggerOld);
 		} else {
 			throw new MetadataTriggerFrameworkException(
 				'Passed values for triggerNew and triggerOld are both null. Are you exercising this method outside of a trigger context?'

@@ -1,6 +1,7 @@
-@isTest
+@IsTest
+@SuppressWarnings('PMD.ApexUnitTestClassShouldHaveAsserts')
 private class MetadataTriggerFrameworkTests {
-	@isTest
+	@IsTest
 	private static void testMetadataTriggerFrameworkNoOppWithoutRecordsPositive() {
 		MetadataTriggerQueryService metadataTriggerQueryServiceStub = (MetadataTriggerQueryService) new Stub.Builder(
 				MetadataTriggerQueryService.class
@@ -27,49 +28,49 @@ private class MetadataTriggerFrameworkTests {
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesBeforeInsertPositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'before insert'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesBeforeUpdatePositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'before update'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesBeforeDeletePositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'before delete'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesAfterInsertPositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'after insert'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesAfterUpdatePositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'after update'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesAfterDeletePositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'after delete'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testExecutesAfterUndeletePositive() {
 		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
 			'after undelete'
@@ -78,10 +79,10 @@ private class MetadataTriggerFrameworkTests {
 
 	private static void exerciseTriggerHandlerPositive(String context) {
 		Metadata_Driven_Trigger__mdt sampleHandler = new Metadata_Driven_Trigger__mdt();
-		sampleHandler.class__c = 'sampleHandler';
-		sampleHandler.enabled__c = true;
-		sampleHandler.execution_Order__c = 1;
-		sampleHandler.object__c = 'contact';
+		sampleHandler.Class__c = 'sampleHandler';
+		sampleHandler.Enabled__c = true;
+		sampleHandler.Execution_Order__c = 1;
+		sampleHandler.Object__c = 'contact';
 
 		MetadataTriggerQueryService metadataTriggerQueryServiceStub = (MetadataTriggerQueryService) new Stub.Builder(
 				MetadataTriggerQueryService.class

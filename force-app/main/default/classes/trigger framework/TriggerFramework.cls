@@ -2,17 +2,24 @@
  * @description An opinionated trigger handler framework.
  */
 public virtual class TriggerFramework {
-	// static map of handlerName, times run() was invoked
-	private static Map<String, TriggerFrameworkLoopCount> loopCountMap;
+	/**
+	 * @description A map of loop counters by handler name
+	 */
+	private static final Map<String, TriggerFrameworkLoopCount> LOOP_COUNT_MAP;
+	/**
+	 * @description a set of handler names that are bypassed
+	 */
 	public static Set<String> bypassedHandlers;
 
-	// the current context of the trigger, override-able in tests
-	@testVisible
+	/**
+	 * @description the current context of the trigger, override-able in tests
+	 */
+	@TestVisible
 	protected TriggerContext triggerContext = new TriggerContext();
 
 	// static initialization
 	static {
-		loopCountMap = new Map<String, TriggerFrameworkLoopCount>();
+		LOOP_COUNT_MAP = new Map<String, TriggerFrameworkLoopCount>();
 		bypassedHandlers = new Set<String>();
 	}
 
@@ -38,6 +45,11 @@ public virtual class TriggerFramework {
 		dispatchHandlerMethod(this.triggerContext.context);
 	}
 
+	/**
+	 * @description A method to guard against invalid execution contexts
+	 *
+	 * @return true if the execution context is invalid or if this trigger handler is bypassed
+	 */
 	protected Boolean standardValidationFails() {
 		/**
 		 * Guard statements against invalid execution context and a bypassed handlerName
@@ -54,6 +66,11 @@ public virtual class TriggerFramework {
 		return false;
 	}
 
+	/**
+	 * @description A method to dispatch the correct handler method within the handler class, based on the context
+	 *
+	 * @param context The context of the trigger
+	 */
 	private void dispatchHandlerMethod(TriggerOperation context) {
 		// dispatch to the correct handler method
 		switch on context {
@@ -93,13 +110,13 @@ public virtual class TriggerFramework {
 	 */
 	public void setMaxLoopCount(Integer max) {
 		String handlerName = getHandlerName();
-		if (!TriggerFramework.loopCountMap.containsKey(handlerName)) {
-			TriggerFramework.loopCountMap.put(
+		if (!TriggerFramework.LOOP_COUNT_MAP.containsKey(handlerName)) {
+			TriggerFramework.LOOP_COUNT_MAP.put(
 				handlerName,
 				new TriggerFrameworkLoopCount(max)
 			);
 		} else {
-			TriggerFramework.loopCountMap.get(handlerName).setMax(max);
+			TriggerFramework.LOOP_COUNT_MAP.get(handlerName).setMax(max);
 		}
 	}
 
@@ -171,16 +188,17 @@ public virtual class TriggerFramework {
 
 	/**
 	 * @description increment the loop count
-	 * @exception   Throws loop count exception if the max loop count is reached
+	 *
+	 * @throws TriggerFrameworkException loop count exception if the max loop count is reached
 	 */
-	@testVisible
+	@TestVisible
 	protected void addToLoopCount() {
 		String handlerName = getHandlerName();
-		if (TriggerFramework.loopCountMap.containsKey(handlerName)) {
-			Boolean exceeded = TriggerFramework.loopCountMap.get(handlerName)
+		if (TriggerFramework.LOOP_COUNT_MAP.containsKey(handlerName)) {
+			Boolean exceeded = TriggerFramework.LOOP_COUNT_MAP.get(handlerName)
 				.increment();
 			if (exceeded) {
-				Integer max = TriggerFramework.loopCountMap.get(handlerName)
+				Integer max = TriggerFramework.LOOP_COUNT_MAP.get(handlerName)
 					.max;
 				throw new TriggerFrameworkException(
 					'Maximum loop count of ' +
@@ -197,7 +215,7 @@ public virtual class TriggerFramework {
 	 * invoked
 	 * @return     `String` Name of the Handler
 	 */
-	@testVisible
+	@TestVisible
 	protected String getHandlerName() {
 		return Polyfills.classNameFromInstance(this).toLowerCase();
 	}
@@ -215,49 +233,49 @@ public virtual class TriggerFramework {
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void beforeInsert() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void beforeUpdate() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void beforeDelete() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterInsert() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterUpdate() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterDelete() {
 	}
 	/**
 	 * @description Virtual method for the implementing class to override
 	 */
-	@testVisible
+	@TestVisible
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	protected virtual void afterUndelete() {
 	}

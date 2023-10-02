@@ -1,9 +1,7 @@
-@isTest
+@IsTest
 class OuroborosTests {
-	private Boolean codeDidTryToReEnqueue = false;
-
 	public class ExampleOuroborosImplementation extends Ouroboros {
-		Integer executionCount = 1;
+		final Integer executionCount = 1;
 		Integer completedExecutions = 0;
 		public override Boolean hasExitCriteriaBeenMet() {
 			if ((Integer) this.passthrough >= executionCount) {
@@ -17,26 +15,26 @@ class OuroborosTests {
 		}
 	}
 
-	@isTest
+	@IsTest
 	private static void testOuroborosFunctionalNegative() {
 		ExampleOuroborosImplementation example = new ExampleOuroborosImplementation();
 		example.passthrough = 0;
-		Boolean didCatchProperException = false;
 		Test.startTest();
-		system.enqueueJob(example);
+		System.enqueueJob(example);
 		Test.stopTest();
 		Assert.isTrue(
 			TestPolyfills.circuitBreakerTripped,
-			'Expected OuroborosFinalizer to have tripped the circuitBreaker but it wasn\'t'
+			'Expected OuroborosFinalizer to have tripped the circuitBreaker but it was not'
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testClassName() {
 		Test.startTest();
 		Assert.areNotEqual(
 			null,
-			new OuroborosTests.ExampleOuroborosImplementation().className()
+			new OuroborosTests.ExampleOuroborosImplementation().className(),
+			'Expected className to return a non-null value'
 		);
 		Test.stopTest();
 	}

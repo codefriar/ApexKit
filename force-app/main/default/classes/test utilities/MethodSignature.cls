@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 /**
  * @description Class models a callable apex method's 'signature' or combination
  * of Name, Parameter types and Parameter values. This is separate from a
@@ -6,16 +6,17 @@
  * established MockedMethods.
  */
 public with sharing class MethodSignature {
-	@testVisible
+	@TestVisible
 	private String methodName;
-	@testVisible
+	@TestVisible
 	private List<Type> methodParameterTypes;
 
 	/**
-	 * @description      Constructor requiring a method name and list of
-	 * parameters. This method cannot be constructed without these.
-	 * @param methodName
-	 * @param paramTypes
+	 * @description Constructor requiring a method name and list of parameters. This method cannot be constructed
+	 * without these.
+	 *
+	 * @param methodName String Name of the method to be mocked
+	 * @param paramTypes List<System.Type> of the parameters for the method
 	 */
 	public MethodSignature(String methodName, List<Type> paramTypes) {
 		this.methodName = methodName;
@@ -23,11 +24,13 @@ public with sharing class MethodSignature {
 	}
 
 	/**
-	 * @description         This is used to compare the signature of a
+	 * @description This is used to compare the signature of a
 	 * MockedMethod, against another instance. Used at runtime to compare
 	 * an actually requested method call against pre-defined mocks.
-	 * @param otherInstance
-	 * @return              `Boolean`
+	 *
+	 * @param otherSignature the secondary MethodSignature object to compare against
+	 *
+	 * @return `Boolean` true if the signatures match, false if they do not
 	 */
 	public Boolean verifySignatureMatch(MethodSignature otherSignature) {
 		return verifyMethodNamesMatch(
@@ -38,39 +41,45 @@ public with sharing class MethodSignature {
 	}
 
 	/**
-	 * @description                Returns true if the current MethodSignature's
+	 * @description Returns true if the current MethodSignature's
 	 * methodName is a case insensitive match to the comparison's methodName
-	 * @param originalMethodName
-	 * @param comparitorMethodName
-	 * @return                     `Boolean`
+	 *
+	 * @param originalMethodName String name of the method name called
+	 * @param comparatorMethodName String name of the method name to compare
+	 *
+	 * @return `Boolean` true if the method names match,
 	 */
-	private Boolean verifyMethodNamesMatch(
+	private static Boolean verifyMethodNamesMatch(
 		String originalMethodName,
-		String comparitorMethodName
+		String comparatorMethodName
 	) {
-		return originalMethodName.equalsIgnoreCase(comparitorMethodName);
+		return originalMethodName.equalsIgnoreCase(comparatorMethodName);
 	}
 
+	/**
+	 * @description returns the method name for this signature
+	 *
+	 * @return String method name
+	 */
 	public String getMethodName() {
 		return this.methodName;
 	}
 
 	/**
 	 * @description While a MethodSignature object can be created directly the
-	 * more common usecase is to use this Builder class to construct the
+	 * more common use case is to use this Builder class to construct the
 	 * MethodSignature object in a Fluent api style.
 	 */
 	public class Builder {
-		private Stub.Builder stubBuilder;
-		@testVisible
+		private final Stub.Builder stubBuilder;
+		@TestVisible
 		private String methodName;
-		@testVisible
 		public List<Type> parameterTypes;
 
 		// A list of MockedMethod.Builders that have this signature.
 		// One MethodSignature may have multiple MockedMethods because the
 		// runtime parameter *values* differ.
-		List<MockedMethod.Builder> methodBuilders = new List<MockedMethod.Builder>();
+		final List<MockedMethod.Builder> methodBuilders = new List<MockedMethod.Builder>();
 
 		/**
 		 * @description      Constructor.
@@ -100,10 +109,12 @@ public with sharing class MethodSignature {
 		}
 
 		/**
-		 * @description      Omnibus variant that handles a list(N) of
+		 * @description Omnibus variant that handles a list(N) of
 		 * parameters.
-		 * @param parameters
-		 * @return           `MockedMethod.Builder`
+		 *
+		 * @param parameters List<System.Type> of parameters
+		 *
+		 * @return `MockedMethod.Builder`
 		 */
 		public MockedMethod.Builder withParameterTypes(
 			List<System.Type> parameters
@@ -119,20 +130,23 @@ public with sharing class MethodSignature {
 		}
 
 		/**
-		 * @description This variant handles a single parameter, brokers to
-		 * omnibus method.
-		 * @param parameter
-		 * @return      `MockedMethod.Builder`
+		 * @description This variant handles a single parameter, brokers to omnibus method.
+		 *
+		 * @param parameter Type of the parameter
+		 *
+		 * @return `MockedMethod.Builder`
 		 */
-		public MockedMethod.Builder withParameterTypes(System.Type paramater) {
-			return withParameterTypes(new List<System.Type>{ paramater });
+		public MockedMethod.Builder withParameterTypes(System.Type parameter) {
+			return withParameterTypes(new List<System.Type>{ parameter });
 		}
 
 		/**
 		 * @description Two parameter variant. Brokers to omnibus method.
-		 * @param parameter
-		 * @param parameter2
-		 * @return      `MockedMethod.Builder`
+		 *
+		 * @param parameter Type of the parameter
+		 * @param parameter2 Type of the second parameter
+		 *
+		 * @return `MockedMethod.Builder`
 		 */
 		public MockedMethod.Builder withParameterTypes(
 			System.Type parameter,
@@ -145,10 +159,12 @@ public with sharing class MethodSignature {
 
 		/**
 		 * @description Three parameter variant. Brokers to omnibus method.
-		 * @param parameter
-		 * @param parameter2
-		 * @param parameter3
-		 * @return      `MockedMethod.Builder`
+		 *
+		 * @param parameter Type of the parameter
+		 * @param parameter2 Type of the second parameter
+		 * @param parameter3 Type of the third parameter
+		 *
+		 * @return `MockedMethod.Builder`
 		 */
 		public MockedMethod.Builder withParameterTypes(
 			System.Type parameter,
@@ -162,11 +178,13 @@ public with sharing class MethodSignature {
 
 		/**
 		 * @description Four parameter variant. Brokers to omnibus method.
-		 * @param parameter
-		 * @param parameter2
-		 * @param parameter3
-		 * @param parameter4
-		 * @return      `MockedMethod.Builder`
+		 *
+		 * @param parameter Type of the parameter
+		 * @param parameter2 Type of the second parameter
+		 * @param parameter3 Type of the third parameter
+		 * @param parameter4 Type of the fourth parameter
+		 *
+		 * @return `MockedMethod.Builder`
 		 */
 		@SuppressWarnings('PMD.ExcessiveParameterList')
 		public MockedMethod.Builder withParameterTypes(

@@ -1,3 +1,4 @@
+@SuppressWarnings('PMD.ApexDoc')
 /**
  * MIT License
  *

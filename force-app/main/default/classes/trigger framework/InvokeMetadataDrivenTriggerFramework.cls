@@ -1,36 +1,47 @@
+/**
+ * @description class exists to allow the Metadata Trigger Framework to be invoked from a Flow
+ */
 public with sharing class InvokeMetadataDrivenTriggerFramework {
-	public class inputs {
+	/**
+	 * @description An internal class representing the inputs to the Metadata Trigger Framework
+	 */
+	public class Inputs {
 		@InvocableVariable(
-			label='Invocation Context'
-			description='Set this to the invocation context of the current flow. ie: after update'
-			required=true
+			Label='Invocation Context'
+			Description='Set this to the invocation context of the current flow. ie: after update'
+			Required=true
 		)
 		public TriggerOperation context;
 
 		@InvocableVariable(
-			label='Trigger New'
-			description='New version of the Record(s) to process by Metadata Trigger Framework'
-			required=true
+			Label='Trigger New'
+			Description='New version of the Record(s) to process by Metadata Trigger Framework'
+			Required=true
 		)
 		public List<SObject> triggerNew;
 
 		@InvocableVariable(
-			label='Trigger Old'
-			description='Old version of the Record(s) to process by Metadata Trigger Framework'
-			required=true
+			Label='Trigger Old'
+			Description='Old version of the Record(s) to process by Metadata Trigger Framework'
+			Required=true
 		)
 		public List<SObject> triggerOld;
 	}
 
+	/**
+	 * @description Invokes the Metadata Trigger Framework
+	 *
+	 * @param inputParams List<Inputs> - List of inputs to pass to the Metadata Trigger Framework
+	 */
 	@InvocableMethod(
-		label='Fire Metadata Defined Triggers'
-		description='Apply existing metadata defined triggers to these records'
+		Label='Fire Metadata Defined Triggers'
+		Description='Apply existing metadata defined triggers to these records'
 	)
 	public static void invokeMetadataTriggerFramework(
-		List<inputs> inputParams
+		List<Inputs> inputParams
 	) {
 		for (
-			InvokeMetadataDrivenTriggerFramework.inputs request : inputParams
+			InvokeMetadataDrivenTriggerFramework.Inputs request : inputParams
 		) {
 			new MetadataTriggerFramework(
 					request.triggerNew,

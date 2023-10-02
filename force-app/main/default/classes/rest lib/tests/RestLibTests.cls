@@ -355,7 +355,7 @@ private class RestLibTests {
 	private static void testEnsureStringEndsInSlashPositiveStartWithoutSlash() {
 		RestLibApiCall rlac = new RestLibApiCall();
 		Test.startTest();
-		String result = rlac.ensureStringEndsInSlash('noSlash');
+		String result = RestLibApiCall.ensureStringEndsInSlash('noSlash');
 		Test.stopTest();
 		Assert.isTrue(
 			result.endsWith('/'),

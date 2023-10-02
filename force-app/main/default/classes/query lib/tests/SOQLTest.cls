@@ -378,7 +378,7 @@ public with sharing class SOQLTest {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType);
 
-			Query.Scope scope = Query.Scope.Everything;
+			Query.Scope scope = Query.Scope.EVERYTHING;
 
 			Test.startTest();
 
@@ -624,7 +624,7 @@ public with sharing class SOQLTest {
 		System.runAs(admin) {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType)
-				.addScope(Query.Scope.Everything);
+				.addScope(Query.Scope.EVERYTHING);
 
 			Test.startTest();
 
