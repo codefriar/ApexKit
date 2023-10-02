@@ -21,7 +21,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.sf" />
       <excludeFolder url="file://$MODULE_DIR$/.sfdx" />
     </content>
-    <orderEntry type="jdk" jdkName="IlluminatedCloud (ApexKit/ApexkitV2_5)" jdkType="IlluminatedCloud" />
+    <orderEntry type="jdk" jdkName="IlluminatedCloud (ApexKit/Apexkit)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="7cc09334-4e62-4f27-b623-e4fc41bfd0c5" />
   </component>
 </module>
