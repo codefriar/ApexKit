@@ -1,4 +1,5 @@
 @IsTest
+@SuppressWarnings('PMD.apexdoc')
 public class QueueableProcessMockDataProvider implements System.StubProvider {
 	private final String returnString;
 	public QueueableProcessMockDataProvider(String returnString) {

@@ -65,6 +65,13 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	 */
 	abstract public void execute();
 
+	/**
+	 * @description this is a default implementation of an handleError method. It's called by the finalizer if the
+	 * developer doesn't implement their own handleError method. Developers can write per-step error handling
+	 * by implementing their own handleError method as `public override void handleError(Exception incomingException)`
+	 *
+	 * @param incomingException Exception - the exception that was thrown during execution.
+	 */
 	virtual public void handleException(Exception incomingException) {
 		QueueableProcess.defaultHandleExceptionCalled = true;
 		System.debug(incomingException.getMessage()); // NOPMD
