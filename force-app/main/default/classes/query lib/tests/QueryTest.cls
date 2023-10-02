@@ -1,5 +1,7 @@
+@IsTest
+@SuppressWarnings('PMD')
 /**
- * MIT License
+ * @description MIT License
  *
  * Copyright (c) 2020 Rafał Kopaczewski
  *
@@ -21,7 +23,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-@IsTest
+
 public with sharing class QueryTest {
 	@TestSetup
 	private static void testSetup() {
@@ -582,7 +584,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(
-				QUERY.LogicalOperator.AND_VALUE,
+				Query.LogicalOperator.AND_VALUE,
 				condition.logicalOperator
 			);
 			Assert.areEqual(
@@ -596,7 +598,7 @@ public with sharing class QueryTest {
 	private static void testConditionParametrizedConstructor() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.LogicalOperator logicalOperator = QUERY.LogicalOperator.OR_VALUE;
+			Query.LogicalOperator logicalOperator = Query.LogicalOperator.OR_VALUE;
 
 			Test.startTest();
 
@@ -1071,7 +1073,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(fieldName, sortOrder.fieldName);
+			Assert.areEqual(fieldName, sortOrder.fieldname);
 			Assert.areEqual(null, sortOrder.direction);
 			Assert.areEqual(null, sortOrder.nullRecords);
 		}
@@ -1093,7 +1095,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(fieldName, sortOrder.fieldName);
+			Assert.areEqual(fieldName, sortOrder.fieldname);
 			Assert.areEqual(sortDirection, sortOrder.direction);
 			Assert.areEqual(null, sortOrder.nullRecords);
 		}
@@ -1117,7 +1119,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(fieldName, sortOrder.fieldName);
+			Assert.areEqual(fieldName, sortOrder.fieldname);
 			Assert.areEqual(sortDirection, sortOrder.direction);
 			Assert.areEqual(sortNullRecords, sortOrder.nullRecords);
 		}

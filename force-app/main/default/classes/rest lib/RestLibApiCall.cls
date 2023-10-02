@@ -1,3 +1,7 @@
+/**
+ * @description This class encapsulates the information needed to make a callout except the endpoint which is
+ * specified by named credential in other RestLib classes.
+ */
 public with sharing class RestLibApiCall {
 	/**
 	 * @description The default headers to use, when none are specified
@@ -7,11 +11,29 @@ public with sharing class RestLibApiCall {
 		'Accept' => 'application/json'
 	};
 
+	/**
+	 * @description stores the httpverb defined in the enum
+	 */
 	public HttpVerb method { get; private set; }
+	/**
+	 * @description Stores the path to the resource
+	 */
 	public String path { get; private set; }
+	/**
+	 * @description stores the encoded URL parameters
+	 */
 	public String encodedQuery { get; private set; }
+	/**
+	 * @description The query string to be appended to the path
+	 */
 	public String query { get; private set; }
+	/**
+	 * @description body the string encoded body to be included in the request
+	 */
 	public String body { get; private set; }
+	/**
+	 * @description Property returning true if there is a body and the method is POST or PUT
+	 */
 	public Boolean hasBody {
 		get {
 			return String.isNotBlank(body) &&
@@ -19,7 +41,11 @@ public with sharing class RestLibApiCall {
 				method == HttpVerb.PUT);
 		}
 	}
-	Map<String, String> headers { get; private set; }
+	final Map<String, String> headers { get; private set; }
+
+	/**
+	 * @description
+	 */
 	public Map<String, String> functionalHeaders {
 		get {
 			if (headers == null) {
@@ -29,8 +55,7 @@ public with sharing class RestLibApiCall {
 		}
 	}
 
-	@TestVisible
-	@SuppressWarnings('PMD.EmptyStatementBlock')
+	@testVisible
 	private RestLibApiCall() {
 	}
 

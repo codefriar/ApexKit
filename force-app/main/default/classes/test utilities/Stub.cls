@@ -321,6 +321,11 @@ public with sharing class Stub implements System.StubProvider {
 			return this.defineStub().createStub();
 		}
 
+		/**
+		 * @description Method generates a Stub object from this builder object.
+		 *
+		 * @return Stub object to be used to mock the object type.
+		 */
 		public Stub defineStub() {
 			List<MockedMethod> mockedMethods = new List<MockedMethod>();
 			for (MethodSignature.Builder sb : signatureBuilders) {

@@ -328,6 +328,13 @@ public class TestFactory {
 		return incoming;
 	}
 
+	/**
+	 * @description Generates a marketing user - a user with the Marketing User profile.
+	 *
+	 * @param doInsert Boolean True if you want this to insert your user.
+	 *
+	 * @return User the created user
+	 */
 	public static User createMarketingUser(Boolean doInsert) {
 		Id profileId = (Id) new SOQL.Builder('Profile')
 			.selectField('Id')
@@ -341,6 +348,14 @@ public class TestFactory {
 		return createTestUser(profileId, doInsert);
 	}
 
+	/**
+	 * @description Generates a test permission set record - no permissions are added to it
+	 *
+	 * @param permSetName String what to call your perm set
+	 * @param doInsert Boolean true if you want this to insert your perm set record.
+	 *
+	 * @return PermissionSet the created permission set.
+	 */
 	public static PermissionSet createPermissionSet(
 		String permSetName,
 		Boolean doInsert
@@ -355,6 +370,12 @@ public class TestFactory {
 		return newPermSet;
 	}
 
+	/**
+	 * @description Enables a custom permission using a permission set
+	 *
+	 * @param permissionName String name of the custom permission you want created
+	 * @param forUserId Id user to assign the custom permission to.
+	 */
 	public static void enableCustomPermission(
 		String permissionName,
 		Id forUserId

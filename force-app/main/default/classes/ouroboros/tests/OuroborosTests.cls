@@ -1,8 +1,15 @@
 @IsTest
 class OuroborosTests {
+	private Boolean codeDidTryToReEnqueue = false;
+
 	public class ExampleOuroborosImplementation extends Ouroboros {
-		final Integer executionCount = 1;
+		Integer executionCount = 1;
 		Integer completedExecutions = 0;
+		/**
+		 * @description Required method that returns true if the exit criteria has been met.
+		 *
+		 * @return Boolean - true if the exit criteria has been met, false otherwise.
+		 */
 		public override Boolean hasExitCriteriaBeenMet() {
 			if ((Integer) this.passthrough >= executionCount) {
 				return true;
@@ -10,6 +17,9 @@ class OuroborosTests {
 			return false;
 		}
 
+		/**
+		 * @description This is the method that will be called when the Ouroboros executes the job.
+		 */
 		public override void execute() {
 			this.completedExecutions++;
 		}

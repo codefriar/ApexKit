@@ -36,6 +36,8 @@ public with sharing class OrgShape {
 		get {
 			return UserInfo.isMultiCurrencyOrganization();
 		}
+		private set {
+		}
 	}
 
 	/**
@@ -362,6 +364,8 @@ public with sharing class OrgShape {
 				.setScopeLimit(1)
 				.build()
 				.getRecord();
+
+			System.debug('#$#$#$ ' + org);
 
 			return org;
 		}
