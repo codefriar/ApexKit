@@ -162,8 +162,6 @@ jobs:
 
   trigger-packaging:
     runs-on: ubuntu-latest
-    container:
-      image: salesforce/cli:2.12.4-full
     needs: publish-docs-to-wiki
     steps:
       # Checkout the source code
