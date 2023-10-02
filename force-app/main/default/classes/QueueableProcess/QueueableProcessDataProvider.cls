@@ -1,3 +1,7 @@
+/**
+ * @description A class that separates concerns between the QueueableProcessManager and doing data lookup/access.
+ * This helps us mock the data access in our unit tests.
+ */
 public with sharing class QueueableProcessDataProvider {
 	@SuppressWarnings('PMD.EmptyStatementBlock')
 	/**

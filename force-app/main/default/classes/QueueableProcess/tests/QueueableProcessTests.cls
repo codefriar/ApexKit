@@ -152,6 +152,11 @@ class QueueableProcessTests {
 		];
 	}
 
+	/**
+	 * @description This class is used to mock the FinalizerContext variable dependency injected by SF into the
+	 * execute method. This allows us to mock a failure in the preceeding QueueableProcess and test the finalizer's
+	 * behavior.
+	 */
 	class MockFinalizerContext implements System.FinalizerContext {
 		final ParentJobResult result;
 		public Id getAsyncApexJobId() {
