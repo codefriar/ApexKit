@@ -6,7 +6,7 @@
  * pattern, but an elegant way to logically chain Salesforce Queueables together. As a Developer, you'll need to extend
  * this class, implementing the necessary `execute` method. Your `execute` method will be invoked asynchronously as part
  * of a Queueable. You can then chain additional Queueables together using the `then` method provided by this class.
- *
+ * <br>
  * As each 'step' of the chain is completed the transaction finalizer will be constructed with the remaining steps and
  * any passthrough data you specify. Passthrough data allows you to pass data between steps.
  */
