@@ -88,7 +88,7 @@ class OrgShapeTests {
 
 	@isTest
 	private static void testAdvancedMultiCurrencyManagement() {
-		Boolean datedConversionRateObjectExists;
+		Boolean datedConversionRateObjectExists = false;
 		try {
 			Database.query('SELECT Id FROM DatedConversionRate LIMIT 1').size();
 			datedConversionRateObjectExists = true;

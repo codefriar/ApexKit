@@ -280,7 +280,7 @@ public with sharing class OrgShape {
 	 * @return      `Boolean`
 	 */
 	public Boolean isAdvancedMultiCurrencyManagementEnabled() {
-		Boolean isACMEnabled;
+		Boolean isACMEnabled = false;
 		if (this.multiCurrencyEnabled) {
 			try {
 				// This is one of the few queries exempted from the no-query rule

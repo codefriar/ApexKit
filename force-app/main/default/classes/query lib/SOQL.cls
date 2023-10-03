@@ -36,7 +36,7 @@ public inherited sharing class SOQL {
 	}
 
 	public sObject getRecord() {
-		return new Safely().doQuery(queryString).get(0);
+		return getRecords().get(0);
 		// return Database.query(queryString);
 	}
 
