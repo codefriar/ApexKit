@@ -1,7 +1,7 @@
 @IsTest
-class QueueableProcessTests {
+private class QueueableProcessTests {
 	@TestSetup
-	static void setup() {
+	private static void setup() {
 		Account testAccount = new Account(
 			Name = 'Test Account',
 			ShippingStreet = '0'
@@ -10,7 +10,7 @@ class QueueableProcessTests {
 	}
 
 	@IsTest
-	static void testBasicE2EProcessPositive() {
+	private static void testBasicE2EProcessPositive() {
 		Account testAccount = getTestAccount();
 		Test.startTest();
 		fireQueueableProcess(testAccount);
@@ -29,7 +29,7 @@ class QueueableProcessTests {
 	}
 
 	@IsTest
-	static void testBasicE2EProcessPositiveNoInput() {
+	private static void testBasicE2EProcessPositiveNoInput() {
 		Account testAccount = getTestAccount();
 		Test.startTest();
 		fireQueueableProcess(testAccount);
@@ -55,7 +55,7 @@ class QueueableProcessTests {
 	}
 
 	@IsTest
-	static void testFinalizerHandlesUnhandledExceptionPositiveFailsafeHandlerCalled() {
+	private static void testFinalizerHandlesUnhandledExceptionPositiveFailsafeHandlerCalled() {
 		Account acct = getTestAccount();
 		List<QueueableProcess> processSteps = new List<QueueableProcess>{
 			new ExampleQueueableProcessSteps.Step1(acct.Id),
@@ -80,7 +80,7 @@ class QueueableProcessTests {
 	}
 
 	@IsTest
-	static void testFinalizerHandlesUnhandledExceptionPositiveDefaultHandler() {
+	private static void testFinalizerHandlesUnhandledExceptionPositiveDefaultHandler() {
 		Account acct = getTestAccount();
 		List<QueueableProcess> processSteps = new List<QueueableProcess>{
 			new ExampleQueueableProcessSteps.Step2(acct.Id),
@@ -112,7 +112,7 @@ class QueueableProcessTests {
 	}
 
 	@IsTest
-	static void testFinalizerHandlesUnhandledExceptionPositiveCustomHandler() {
+	private static void testFinalizerHandlesUnhandledExceptionPositiveCustomHandler() {
 		Account acct = getTestAccount();
 		List<QueueableProcess> processSteps = new List<QueueableProcess>{
 			new ExampleQueueableProcessSteps.Step1(acct.Id),

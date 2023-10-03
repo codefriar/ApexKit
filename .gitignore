@@ -43,3 +43,4 @@ $RECYCLE.BIN/
 .pmdCache
 /IlluminatedCloud/ApexKit_Company/OfflineSymbolTable.zip
 /force-app/main/default/profiles/*.profile-meta.xml
+pmd/pmd.csv
