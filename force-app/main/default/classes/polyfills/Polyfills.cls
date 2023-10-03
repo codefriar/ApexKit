@@ -38,7 +38,7 @@ public with sharing class Polyfills {
 				.toLowerCase()
 				.substringBetween(
 					'invalid conversion from runtime type ',
-					' to polyfills.GuaranteedNotToExist'
+					' to polyfills.guaranteednottoexist'
 				);
 		}
 		return result;

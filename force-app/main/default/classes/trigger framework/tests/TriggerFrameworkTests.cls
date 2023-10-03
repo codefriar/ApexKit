@@ -130,13 +130,8 @@ private class TriggerFrameworkTests {
 		// test a bypass and run handler
 		TriggerFramework.bypass('TriggerFrameworkTests.TestHandler');
 		handler.run();
-		Assert.areEqual(
-			null,
-			lastMethodCalled,
-			'Last method should be null when bypassed'
-		);
-		Assert.areEqual(
-			true,
+		Assert.isNull(lastMethodCalled, 'Last method should be null when bypassed');
+		Assert.isTrue(
 			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
 			'Test handler should be bypassed'
 		);
@@ -150,8 +145,7 @@ private class TriggerFrameworkTests {
 			lastMethodCalled,
 			'Last method called should be afterUpdate'
 		);
-		Assert.areEqual(
-			false,
+		Assert.isFalse(
 			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
 			'Test handler should be bypassed'
 		);
@@ -160,13 +154,8 @@ private class TriggerFrameworkTests {
 		// test a re-bypass and run handler
 		TriggerFramework.bypass('TriggerFrameworkTests.TestHandler');
 		handler.run();
-		Assert.areEqual(
-			null,
-			lastMethodCalled,
-			'Last method should be null when bypassed'
-		);
-		Assert.areEqual(
-			true,
+		Assert.isNull(lastMethodCalled, 'Last method should be null when bypassed');
+		Assert.isTrue(
 			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
 			'Test handler should be bypassed'
 		);
@@ -180,8 +169,7 @@ private class TriggerFrameworkTests {
 			lastMethodCalled,
 			'Last method called should be afterUpdate'
 		);
-		Assert.areEqual(
-			false,
+		Assert.isFalse(
 			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
 			'Test handler should be bypassed'
 		);
