@@ -82,10 +82,10 @@ jobs:
 
       # Run PMD scan
       - name: 'Run PMD scan'
-        uses: pmd/pmd-github-action@v1.4.1
+        uses: pmd/pmd-github-action@main
         id: pmd
         with:
-          version: '6.55.0'
+          version: 'latest'
           sourcePath: 'force-app'
           rulesets: 'pmd/ruleset.xml'
 
