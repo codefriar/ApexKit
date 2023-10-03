@@ -1,7 +1,14 @@
 @IsTest
 class OuroborosTests {
+	/**
+	 * @description a test only circuit breaker to ensure that the OuroborosFinalizer is called and that
+	 * in turn it calls the Ouroboros code again.
+	 */
 	private Boolean codeDidTryToReEnqueue = false;
 
+	/**
+	 * @description This is an example implementation of Ouroboros that will be used to test the functionality
+	 */
 	public class ExampleOuroborosImplementation extends Ouroboros {
 		Integer executionCount = 1;
 		Integer completedExecutions = 0;

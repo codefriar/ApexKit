@@ -334,7 +334,7 @@ public with sharing class OrgShape {
 
 	@SuppressWarnings('PMD.ApexCRUDViolation')
 	/**
-	 * @description Private method for pulling the Organization record
+	 * @description  Private method for pulling the Organization record
 	 * Note: We're suppressing PMD warning on Crud Checking because we want
 	 * everyone to be able to pull this read-only record.
 	 */
@@ -352,8 +352,9 @@ public with sharing class OrgShape {
 	public with sharing class CachedOrgShape implements Cache.CacheBuilder {
 		@SuppressWarnings('PMD.ApexCRUDViolation')
 		/**
-		 * Note: We're suppressing PMD warning on Crud Checking because we want
-		 * everyone to be able to pull this read-only record.
+		 * @description We're suppressing PMD warning on Crud Checking because we want
+		 * everyone to be able to pull this read-only record. Note that you'll need to specify something for the
+		 * requiredButNotUsed parameter, but it will not be used by the method itself.
 		 */
 		public Organization doLoad(String requiredButNotUsed) {
 			// Note: You should normally limit all your queries with
@@ -364,8 +365,6 @@ public with sharing class OrgShape {
 				.setScopeLimit(1)
 				.build()
 				.getRecord();
-
-			System.debug('#$#$#$ ' + org);
 
 			return org;
 		}
