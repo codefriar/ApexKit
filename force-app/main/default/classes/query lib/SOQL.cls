@@ -78,9 +78,7 @@ public inherited sharing class SOQL {
 		public Builder(String objectType) {
 			this.objectType = objectType;
 			fieldsToSelect = new Set<String>();
-			whereCondition = new Query.Condition(
-				Query.LogicalOperator.AND_VALUE
-			);
+			whereCondition = new Query.Condition(Query.LogicalOperator.AND_VALUE);
 			sortOrders = new List<Query.SortOrder>();
 			typeOfClauses = new List<Query.TypeOf>();
 			statementFor = new Set<String>();
@@ -122,7 +120,7 @@ public inherited sharing class SOQL {
 			return selectFields(FieldSelection.CUSTOM);
 		}
 
-		public Builder SelectStandard() {
+		public Builder selectStandard() {
 			return selectFields(FieldSelection.STANDARD);
 		}
 
@@ -228,9 +226,7 @@ public inherited sharing class SOQL {
 				sortOrderStrings.add(so.toSortOrderString());
 			}
 			if (!sortOrderStrings.isEmpty()) {
-				queryStatements.add(
-					'ORDER BY ' + String.join(sortOrderStrings, ', ')
-				);
+				queryStatements.add('ORDER BY ' + String.join(sortOrderStrings, ', '));
 			}
 		}
 
@@ -263,8 +259,7 @@ public inherited sharing class SOQL {
 		private void addUpdateStatement(List<String> queryStatements) {
 			if (!statementUpdate.isEmpty()) {
 				queryStatements.add(
-					'UPDATE ' +
-					String.join(new List<String>(statementUpdate), ', ')
+					'UPDATE ' + String.join(new List<String>(statementUpdate), ', ')
 				);
 			}
 		}

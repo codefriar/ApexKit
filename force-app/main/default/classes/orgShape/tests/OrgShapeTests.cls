@@ -5,7 +5,7 @@ class OrgShapeTests {
 	static {
 		orgShape = new orgShape();
 		orgCheck = (Organization) new SOQL.builder('Organization')
-			.SelectStandard()
+			.selectStandard()
 			.setScopeLimit(1)
 			.build()
 			.getRecord();
@@ -88,12 +88,13 @@ class OrgShapeTests {
 
 	@isTest
 	private static void testAdvancedMultiCurrencyManagement() {
-		Boolean datedConversionRateObjectExists = false;
+		Boolean datedConversionRateObjectExists;
 		try {
 			Database.query('SELECT Id FROM DatedConversionRate LIMIT 1').size();
 			datedConversionRateObjectExists = true;
 		} catch (Exception e) {
 			// no op, as we default to false;
+			datedConversionRateObjectExists = false;
 		}
 		Test.startTest();
 		Boolean checkValue = new OrgShape()

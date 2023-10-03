@@ -56,8 +56,8 @@ public with sharing class RestLibApiCall {
 	}
 
 	@testVisible
-	private RestLibApiCall() {
-	}
+	// prettier-ignore
+	private RestLibApiCall() {} // NOPMD
 
 	/**
 	 * @description Basic constructor that builds an instance with the necessary information to make a callout.

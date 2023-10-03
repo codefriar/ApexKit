@@ -20,11 +20,7 @@ private class PolyfillsTests {
 		Test.stopTest();
 		system.debug(uuid);
 		Assert.isTrue(uuid != null, 'expected to get a uuid back');
-		Assert.areEqual(
-			5,
-			uuid.split('-').size(),
-			'expected to get 5 parts back'
-		);
+		Assert.areEqual(5, uuid.split('-').size(), 'expected to get 5 parts back');
 	}
 
 	@isTest
@@ -210,6 +206,7 @@ private class PolyfillsTests {
 		}
 	}
 
+	@SuppressWarnings('PMD.AvoidHardcodingId')
 	@isTest
 	private static void testSetContainsAnyItemFromListPositive() {
 		Set<String> testSet = new Set<String>();
@@ -236,6 +233,7 @@ private class PolyfillsTests {
 		);
 	}
 
+	@SuppressWarnings('PMD.AvoidHardcodingId')
 	@isTest
 	private static void testSetDoesNOTContainsAnyItemFromListPositive() {
 		Set<String> testSet = new Set<String>();

@@ -36,8 +36,7 @@ public with sharing class OrgShape {
 		get {
 			return UserInfo.isMultiCurrencyOrganization();
 		}
-		private set {
-		}
+		private set;
 	}
 
 	/**
@@ -160,9 +159,7 @@ public with sharing class OrgShape {
 	public Cache.Partition getDefaultPartition(CachePartitionType type) {
 		switch on type {
 			when SESSION {
-				return (Cache.Partition) Cache.Session.getPartition(
-					DEFAULT_PARTITION
-				);
+				return (Cache.Partition) Cache.Session.getPartition(DEFAULT_PARTITION);
 			}
 		}
 		return (Cache.Partition) Cache.Org.getPartition(DEFAULT_PARTITION);
@@ -256,16 +253,12 @@ public with sharing class OrgShape {
 					'PlatformCachePartition'
 				)
 				.selectField('developerName')
-				.whereCondition(
-					new Query.Condition().equals('NamespacePrefix', '')
-				)
+				.whereCondition(new Query.Condition().equals('NamespacePrefix', ''))
 				.setScopeLimit(1)
 				.build()
 				.getRecord();
 			String partitionName = 'local.' + partition.DeveloperName;
-			this.safeDefaultCachePartition = Cache.Org.getPartition(
-				partitionName
-			);
+			this.safeDefaultCachePartition = Cache.Org.getPartition(partitionName);
 		} catch (System.QueryException qe) {
 			Log.get()
 				.publish(
@@ -287,7 +280,7 @@ public with sharing class OrgShape {
 	 * @return      `Boolean`
 	 */
 	public Boolean isAdvancedMultiCurrencyManagementEnabled() {
-		Boolean isACMEnabled = false;
+		Boolean isACMEnabled;
 		if (this.multiCurrencyEnabled) {
 			try {
 				// This is one of the few queries exempted from the no-query rule
@@ -303,6 +296,7 @@ public with sharing class OrgShape {
 			} catch (Exception e) {
 				//NOPMD
 				// Nothing to do, ACM = false
+				isACMEnabled = false;
 			}
 		}
 		return isACMEnabled;
@@ -341,7 +335,7 @@ public with sharing class OrgShape {
 	 */
 	private static Organization getOrgRecord() {
 		return (Organization) new SOQL.Builder('Organization')
-			.SelectStandard()
+			.selectStandard()
 			.setScopeLimit(1)
 			.build()
 			.getRecord();
@@ -364,7 +358,7 @@ public with sharing class OrgShape {
 			// WITH SECURITY_ENFORCED
 			// but you cannot do that for Organization.
 			Organization org = (Organization) new SOQL.Builder('Organization')
-				.SelectStandard()
+				.selectStandard()
 				.setScopeLimit(1)
 				.build()
 				.getRecord();
