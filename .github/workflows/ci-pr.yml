@@ -22,6 +22,8 @@ jobs:
   # Formatting only runs on human-submitted and Dependabot PRs
   format-lint-lwc-tests:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     steps:
       # Checkout the source code
       - name: 'Checkout source code'
@@ -70,6 +72,8 @@ jobs:
 
   scratch-org-test:
     runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:2.12.4-full
     needs: format-lint-lwc-tests
     steps:
       # Checkout the source code
@@ -78,10 +82,10 @@ jobs:
 
       # Run PMD scan
       - name: 'Run PMD scan'
-        uses: pmd/pmd-github-action@v1.4.1
+        uses: pmd/pmd-github-action@main
         id: pmd
         with:
-          version: '6.55.0'
+          version: 'latest'
           sourcePath: 'force-app'
           rulesets: 'pmd/ruleset.xml'
 

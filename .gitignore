@@ -44,3 +44,4 @@ $RECYCLE.BIN/
 /IlluminatedCloud/ApexKit_Company/OfflineSymbolTable.zip
 /force-app/main/default/profiles/*.profile-meta.xml
 pmd/pmd.csv
+/.idea/sonarlint/
