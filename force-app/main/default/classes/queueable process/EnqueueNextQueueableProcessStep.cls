@@ -28,6 +28,7 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 	 * @description Constructor for the EnqueueNextQueueableProcessStep class.
 	 *
 	 * @param processSteps List<QueueableProcess> A list of QueueableProcess Objects. The first step in the list is
+	 *
 	 * executed.
 	 * @param dataPassthrough Object this is either the initial data passed into the first QueueableProcessStep, or the
 	 * data passed from the previous QueueableProcessStep.
@@ -55,6 +56,10 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 	 * QueueableProcessStep that just executed.
 	 */
 	public void execute(FinalizerContext context) {
+		if (this.finalizerContextHistory == null) {
+			this.finalizerContextHistory = new List<FinalizerContext>();
+		}
+		this.finalizerContextHistory.add(context);
 		if (this.finalizerContextHistory == null) {
 			this.finalizerContextHistory = new List<FinalizerContext>();
 		}
