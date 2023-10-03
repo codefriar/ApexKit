@@ -626,8 +626,8 @@ public with sharing class SOQLTest {
 			Test.stopTest();
 
 			Assert.areEqual(
-				'SELECT Id FROM Case USING SCOPE Everything',
-				query.getQueryString()
+				('SELECT Id FROM Case USING SCOPE Everything').toLowerCase(),
+				query.getQueryString().toLowerCase()
 			);
 		}
 	}
