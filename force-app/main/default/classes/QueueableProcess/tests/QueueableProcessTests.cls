@@ -1,6 +1,7 @@
 /**
  * @description This class contains tests used for testing the QueueableProcess framework.
- */ @IsTest
+ */
+@IsTest
 private class QueueableProcessTests {
 	@TestSetup
 	private static void setup() {
