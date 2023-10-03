@@ -21,6 +21,23 @@
 		{
 			"files": "*.{yml,yaml}",
 			"options": { "tabWidth": 2, "useTabs": false }
+		},
+		{
+			"files": "*.cls",
+			"options": { "parser": "apex", "tabWidth": 2, "useTabs": true }
+		},
+		{
+			"files": "*.apex",
+			"options": { "parser": "anonymous-apex" }
+		},
+		{
+			"files": "docs/*.html",
+			"options": {
+				"parser": "html",
+				"useTabs": true,
+				"htmlWhitespaceSensitivity": "css",
+				"singleQuote": false
+			}
 		}
 	],
 	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"],

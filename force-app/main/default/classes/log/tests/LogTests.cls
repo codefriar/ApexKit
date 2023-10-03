@@ -14,11 +14,7 @@ private class LogTests {
 			FROM LogEvent__c
 			ORDER BY Severity__c
 		];
-		Assert.areEqual(
-			2,
-			events.size(),
-			'expected to find only a single event'
-		);
+		Assert.areEqual(2, events.size(), 'expected to find only a single event');
 
 		for (LogEvent__c logEvt : events) {
 			Assert.areEqual(

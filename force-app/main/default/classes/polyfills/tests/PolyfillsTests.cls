@@ -3,7 +3,9 @@ private class PolyfillsTests {
 	@isTest
 	private static void testGetSObjectTypeFromListPositiveNoType() {
 		Test.startTest();
-		String results = Polyfills.getSObjectTypeFromList(new List<SObject>());
+		String results = Polyfills.getSObjectTypeFromListsFirstObject(
+			new List<SObject>()
+		);
 		Test.stopTest();
 		Assert.isTrue(
 			results.containsIgnoreCase('sObject'),
@@ -18,11 +20,7 @@ private class PolyfillsTests {
 		Test.stopTest();
 		system.debug(uuid);
 		Assert.isTrue(uuid != null, 'expected to get a uuid back');
-		Assert.areEqual(
-			5,
-			uuid.split('-').size(),
-			'expected to get 5 parts back'
-		);
+		Assert.areEqual(5, uuid.split('-').size(), 'expected to get 5 parts back');
 	}
 
 	@isTest
@@ -46,15 +44,6 @@ private class PolyfillsTests {
 			results.containsIgnoreCase('PolyfillsTests'),
 			'expected to get stacktrace back'
 		);
-	}
-
-	@isTest
-	private static void testTypeObjectFromClassNamePositive() {
-		Test.startTest();
-		Type results = Polyfills.typeObjectFromClassName('Account');
-		Test.stopTest();
-		Type expected = Account.class;
-		Assert.areEqual(results, expected, 'expected to get account back');
 	}
 
 	@isTest
@@ -217,6 +206,7 @@ private class PolyfillsTests {
 		}
 	}
 
+	@SuppressWarnings('PMD.AvoidHardcodingId')
 	@isTest
 	private static void testSetContainsAnyItemFromListPositive() {
 		Set<String> testSet = new Set<String>();
@@ -243,6 +233,7 @@ private class PolyfillsTests {
 		);
 	}
 
+	@SuppressWarnings('PMD.AvoidHardcodingId')
 	@isTest
 	private static void testSetDoesNOTContainsAnyItemFromListPositive() {
 		Set<String> testSet = new Set<String>();

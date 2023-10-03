@@ -1,10 +1,10 @@
-@isTest
+@IsTest
 public class TestFactory {
 	/**
 	 * @description When we create a list of SObjects, we need to have a unique field for the insert if there isn't an autonumber field.
 	 * Usually we use the Name field, but some objects don't have a name field.
 	 */
-	private static Map<Schema.SObjectType, Schema.SObjectField> nameFieldMap = new Map<Schema.SObjectType, Schema.SObjectField>{
+	private static final Map<Schema.SObjectType, Schema.SObjectField> NAME_FIELD_OVERRIDE_MAP = new Map<Schema.SObjectType, Schema.SObjectField>{
 		Contact.SObjectType => Contact.LastName,
 		Case.SObjectType => Case.CaseNumber //this is the autonumber field
 	};
@@ -22,10 +22,7 @@ public class TestFactory {
 			objectName.replaceAll('__(c|C)$|__', '') + 'Defaults';
 		// If there is a class that exists for the default values, then use them
 		if (Type.forName('TestFactoryDefaults.' + defaultClassName) != null) {
-			sObj = createSObject(
-				sObj,
-				'TestFactoryDefaults.' + defaultClassName
-			);
+			sObj = createSObject(sObj, 'TestFactoryDefaults.' + defaultClassName);
 		}
 		return sObj;
 	}
@@ -45,11 +42,14 @@ public class TestFactory {
 	}
 
 	/**
-	 * @description            creates a single sObject
-	 * @param sObj             Type of sObject to create
+	 * @description creates a single sObject
+	 *
+	 * @param sObj Type of sObject to create
 	 * @param defaultClassName Name of the class to provide field defaults
-	 * @return                `SObject`
-	 * @exception              TestFactoryException when defaultClassName param is not a valid type.
+	 *
+	 * @return `SObject`
+	 *
+	 * @throws TestFactoryException when defaultClassName param is not a valid type.
 	 */
 	public static SObject createSObject(SObject sObj, String defaultClassName) {
 		// Create an instance of the defaults class so we can get the Map of field defaults
@@ -106,11 +106,7 @@ public class TestFactory {
 		Integer numberOfObjects,
 		Boolean doInsert
 	) {
-		SObject[] retList = createSObjectList(
-			sObj,
-			numberOfObjects,
-			(String) null
-		);
+		SObject[] retList = createSObjectList(sObj, numberOfObjects, (String) null);
 		if (doInsert) {
 			insert retList;
 		}
@@ -167,7 +163,7 @@ public class TestFactory {
 
 		// Get the name field for the object
 		String nameField = String.valueOf(
-			nameFieldMap.get(sObj.getSObjectType())
+			NAME_FIELD_OVERRIDE_MAP.get(sObj.getSObjectType())
 		);
 		if (nameField == null) {
 			nameField = 'Name';
@@ -183,10 +179,7 @@ public class TestFactory {
 		for (Integer i = 0; i < numberOfObjects; i++) {
 			SObject clonedSObj = newObj.clone(false, true);
 			if (!nameIsAutoNumber) {
-				clonedSObj.put(
-					nameField,
-					(String) clonedSObj.get(nameField) + ' ' + i
-				);
+				clonedSObj.put(nameField, (String) clonedSObj.get(nameField) + ' ' + i);
 			}
 			sObjs.add(clonedSObj);
 		}
@@ -234,9 +227,9 @@ public class TestFactory {
 	 * @param doInsert  Boolean, should this code insert the user?
 	 * @return          `User`
 	 */
-	public static User createTestUser(Id profileId, boolean doInsert) {
+	public static User createTestUser(Id profileId, Boolean doInsert) {
 		User u = new User(
-			profileId = profileId,
+			ProfileId = profileId,
 			LastName = 'last',
 			Email = 'Testuser@test.example.com',
 			Username = 'Testuser@test.example.com' + Crypto.getRandomInteger(),
@@ -277,28 +270,22 @@ public class TestFactory {
 	 * @return        `User`
 	 */
 	public static User createMinAccessUser(Boolean doInsert) {
-		Id profileId = (Id) new SOQl.Builder('Profile')
+		Id profileId = (Id) new SOQL.Builder('Profile')
 			.selectField('Id')
 			.whereCondition(
-				new Query.Condition()
-					.equals('Name', 'Minimum Access - Salesforce')
+				new Query.Condition().equals('Name', 'Minimum Access - Salesforce')
 			)
 			.setScopeLimit(1)
 			.build()
 			.getRecord()
 			.Id;
-		// Id profileId = [
-		//     SELECT Id
-		//     FROM Profile
-		//     WHERE Name = 'Minimum Access - Salesforce'
-		// ]
-		// .Id;
 		return TestFactory.createTestUser(profileId, doInsert);
 	}
 
 	/**
-	 * @description       Assigns a permission set to a given user.
-	 * @param usr         User to assign the permission set to.
+	 * @description Assigns a permission set to a given user.
+	 *
+	 * @param user User to assign the permission set to.
 	 * @param permSetName String name of the permission set.
 	 */
 	public static void assignPermSetToUser(User user, String permSetName) {
@@ -323,26 +310,39 @@ public class TestFactory {
 	 * @param incoming List of SObjects
 	 * @return        `List<sObject>`
 	 */
-	public static List<sObject> invalidateSObjectList(List<sObject> incoming) {
-		for (sObject obj : incoming) {
+	public static List<SObject> invalidateSObjectList(List<SObject> incoming) {
+		for (SObject obj : incoming) {
 			obj.put('name', '');
 		}
 		return incoming;
 	}
 
+	/**
+	 * @description Generates a marketing user - a user with the Marketing User profile.
+	 *
+	 * @param doInsert Boolean True if you want this to insert your user.
+	 *
+	 * @return User the created user
+	 */
 	public static User createMarketingUser(Boolean doInsert) {
 		Id profileId = (Id) new SOQL.Builder('Profile')
 			.selectField('Id')
 			.setScopeLimit(1)
-			.whereCondition(
-				new Query.Condition().equals('Name', 'Marketing User')
-			)
+			.whereCondition(new Query.Condition().equals('Name', 'Marketing User'))
 			.build()
 			.getRecord()
 			.Id;
 		return createTestUser(profileId, doInsert);
 	}
 
+	/**
+	 * @description Generates a test permission set record - no permissions are added to it
+	 *
+	 * @param permSetName String what to call your perm set
+	 * @param doInsert Boolean true if you want this to insert your perm set record.
+	 *
+	 * @return PermissionSet the created permission set.
+	 */
 	public static PermissionSet createPermissionSet(
 		String permSetName,
 		Boolean doInsert
@@ -357,6 +357,12 @@ public class TestFactory {
 		return newPermSet;
 	}
 
+	/**
+	 * @description Enables a custom permission using a permission set
+	 *
+	 * @param permissionName String name of the custom permission you want created
+	 * @param forUserId Id user to assign the custom permission to.
+	 */
 	public static void enableCustomPermission(
 		String permissionName,
 		Id forUserId
@@ -381,6 +387,6 @@ public class TestFactory {
 			PermissionSetId = permSet.Id
 		);
 
-		insert new List<Sobject>{ permSetPermission, permSetAssignment };
+		insert new List<SObject>{ permSetPermission, permSetAssignment };
 	}
 }

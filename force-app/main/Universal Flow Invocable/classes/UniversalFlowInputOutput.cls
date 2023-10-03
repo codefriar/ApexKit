@@ -38,9 +38,8 @@ public class UniversalFlowInputOutput {
 	/**
 	 * @description Flow requires a 0 argument constructor, so we provide one here.
 	 */
-	public UniversalFlowInputOutput() {
-	} //NOPMD
-
+	// prettier-ignore
+	public UniversalFlowInputOutput() {	} //NOPMD
 	/**
 	 * @description This constructor variant is used by this class, and the the UniversalInvocable class to
 	 * construct the return object.

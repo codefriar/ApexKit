@@ -239,11 +239,7 @@ private class RestLibTests {
 		Test.setMock(HttpCalloutMock.class, mock);
 
 		Test.startTest();
-		HttpResponse response = rc.post(
-			'/',
-			'',
-			'{"Id": "003ae3fn12df25k309"}'
-		);
+		HttpResponse response = rc.post('/', '', '{"Id": "003ae3fn12df25k309"}');
 		Test.stopTest();
 
 		Assert.areEqual(
@@ -355,7 +351,7 @@ private class RestLibTests {
 	private static void testEnsureStringEndsInSlashPositiveStartWithoutSlash() {
 		RestLibApiCall rlac = new RestLibApiCall();
 		Test.startTest();
-		String result = rlac.ensureStringEndsInSlash('noSlash');
+		String result = RestLibApiCall.ensureStringEndsInSlash('noSlash');
 		Test.stopTest();
 		Assert.isTrue(
 			result.endsWith('/'),
