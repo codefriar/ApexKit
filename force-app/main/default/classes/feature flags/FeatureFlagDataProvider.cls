@@ -1,22 +1,45 @@
+/**
+ * @description This class is responsible for querying / fetching FeatureFlag data. This is separate from the
+ * FeatureFlag flag class to facilitate proper unit testing. (and just good design)
+ */
 public with sharing class FeatureFlagDataProvider {
 	/**
-	 * Fetch the feature flags from custom metadata.
+	 * @description Fetch the feature flags from custom metadata.
 	 */
 	public Map<String, Feature_Flag__mdt> featureFlags;
+
+	/**
+	 * @description Fetch the per-permission set overrides from custom metadata.
+	 */
 	private Map<String, Feature_Flag_Enabled_For__mdt> perPermSetOverrides;
+
+	/**
+	 * @description Fetch the per-custom permission overrides from custom metadata.
+	 */
 	public Map<String, FF_Enabled_For_Custom_Permission__mdt> perCustomPermissionOverrides;
+
+	/**
+	 * @description memoized map of feature flags by id
+	 */
 	private Map<String, Feature_Flag__mdt> mFeatureFlagsById;
 
-	@testVisible
+	/**
+	 * @description Memoized map of per-permission set overrides by feature flag name
+	 */
+	@TestVisible
 	private Map<String, List<Feature_Flag_Enabled_For__mdt>> mPerPermSetOverridesByFeatureFlag;
-	@testVisible
+
+	/**
+	 * @description memoized map of per-custom permission overrides by feature flag name
+	 */
+	@TestVisible
 	private Map<String, List<FF_Enabled_For_Custom_Permission__mdt>> mPerCustomPermissionOverridesByFeatureFlag;
 
 	/**
-	 * Returns a map of known feature flag metadata records keyed
+	 * @description Returns a map of known feature flag metadata records keyed
 	 * by the record id, rather than the record's label.
 	 */
-	private Map<String, Feature_Flag__mdt> featureFlagsById {
+	private final Map<String, Feature_Flag__mdt> featureFlagsById {
 		get {
 			if (this.mFeatureFlagsById != null) {
 				return mFeatureFlagsById;
@@ -35,7 +58,7 @@ public with sharing class FeatureFlagDataProvider {
 	 * per-permission set enablement of features without having to
 	 * burn a soql query to do so.
 	 */
-	public Map<String, List<Feature_Flag_enabled_for__mdt>> perPermSetOverridesByFeatureFlag {
+	public Map<String, List<Feature_Flag_Enabled_For__mdt>> perPermSetOverridesByFeatureFlag {
 		get {
 			if (this.mPerPermSetOverridesByFeatureFlag != null) {
 				return this.mPerPermSetOverridesByFeatureFlag;
@@ -131,7 +154,8 @@ public with sharing class FeatureFlagDataProvider {
 	/**
 	 * @description Used to find a users' assigned permission set ids.
 	 * This is intentionally tied to the *executing users' userId*.
-	 * @return      `List<Id>`
+	 *
+	 * @return `List<Id>` a list of permission set id's assigned to the current user
 	 */
 	public List<String> fetchUsersAssignedPermissionSets() {
 		Id userId = UserInfo.getUserId();
@@ -153,8 +177,8 @@ public with sharing class FeatureFlagDataProvider {
 	 * in the org
 	 * @param flags Map of flags to override this class' loading of custom metadata for flags
 	 */
-	@testVisible
-	private void overrideFlags(Map<String, Feature_flag__mdt> flags) {
+	@TestVisible
+	private void overrideFlags(Map<String, Feature_Flag__mdt> flags) {
 		this.featureFlags = flags;
 	}
 
@@ -164,7 +188,7 @@ public with sharing class FeatureFlagDataProvider {
 	 * @param perPermSetOverrides Map of flags to override this class' loading of
 	 * custom metadata for per-permission set enablement of features
 	 */
-	@testVisible
+	@TestVisible
 	private void overridePerPermSetOverrides(
 		Map<String, Feature_Flag_Enabled_For__mdt> perPermSetOverrides
 	) {
@@ -177,7 +201,7 @@ public with sharing class FeatureFlagDataProvider {
 	 * @param perCustomPermissionOverrides Map of flags to override this class' loading of
 	 * custom metadata for per-custom-permission enablement of features
 	 */
-	@testVisible
+	@TestVisible
 	private void overridePerCustomPermissionOverrides(
 		Map<String, FF_Enabled_For_Custom_Permission__mdt> perCustomPermissionOverrides
 	) {
@@ -198,14 +222,15 @@ public with sharing class FeatureFlagDataProvider {
 	 * incoming map with the corresponding correlation map
 	 * @return               `Map<String, List<sObject>>`
 	 */
-	private Map<String, List<sObject>> rekeyMapByFeatureFlagName(
-		Map<String, sObject> incomingMap,
-		Map<String, List<sObject>> memoizedMap,
+	@SuppressWarnings('PMD.ExcessiveParameterList')
+	private static Map<String, List<SObject>> rekeyMapByFeatureFlagName(
+		Map<String, SObject> incomingMap,
+		Map<String, List<SObject>> memoizedMap,
 		Map<String, Feature_Flag__mdt> correlatingMap,
 		String keyField
 	) {
-		memoizedMap = new Map<String, List<sObject>>();
-		for (sObject currentObject : incomingMap.values()) {
+		memoizedMap = new Map<String, List<SObject>>();
+		for (SObject currentObject : incomingMap.values()) {
 			String correlationKey = correlatingMap.get(
 					String.valueOf(currentObject.get(keyField))
 				)
@@ -213,10 +238,7 @@ public with sharing class FeatureFlagDataProvider {
 			if (memoizedMap.containsKey(correlationKey)) {
 				memoizedMap.get(correlationKey).add(currentObject);
 			} else {
-				memoizedMap.put(
-					correlationKey,
-					new List<sObject>{ currentObject }
-				);
+				memoizedMap.put(correlationKey, new List<SObject>{ currentObject });
 			}
 		}
 		return memoizedMap;

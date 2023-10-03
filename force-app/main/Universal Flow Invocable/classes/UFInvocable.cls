@@ -192,9 +192,7 @@ public abstract class UFInvocable implements BulkCallable {
 				Map<Point, UniversalFlowInputOutput> inputsByPoint = inputsByClassMethodByIndex.get(
 					classMethodName
 				);
-				List<Point> pointIndexes = new List<Point>(
-					inputsByPoint.keySet()
-				);
+				List<Point> pointIndexes = new List<Point>(inputsByPoint.keySet());
 				List<UniversalFlowInputOutput> inputsForMethod = new List<UniversalFlowInputOutput>();
 				for (Point pointIndex : pointIndexes) {
 					inputsForMethod.add(inputsByPoint.get(pointIndex));
@@ -206,10 +204,7 @@ public abstract class UFInvocable implements BulkCallable {
 					// Abort this method early if the class could not load
 					if (typeErrors.containsKey(className)) {
 						throw new MalformedCallableException(
-							'Error loading ' +
-								className +
-								':' +
-								typeErrors.get(className)
+							'Error loading ' + className + ':' + typeErrors.get(className)
 						);
 					}
 					// Load the parameters for BulkCallable
@@ -219,15 +214,10 @@ public abstract class UFInvocable implements BulkCallable {
 					}
 					BulkCallable controller = controllers.get(className);
 					// Attempt to call the method
-					List<Object> results = controller.call(
-						methodName,
-						parameterMapping
-					);
+					List<Object> results = controller.call(methodName, parameterMapping);
 					for (Integer index = 0; index < inputSize; index++) {
 						Point inputPoint = pointIndexes[index];
-						outputs[inputPoint.x][
-							inputPoint.y
-						] = new UniversalFlowInputOutput(
+						outputs[inputPoint.x][inputPoint.y] = new UniversalFlowInputOutput(
 							className,
 							methodName,
 							results[index],
@@ -239,9 +229,7 @@ public abstract class UFInvocable implements BulkCallable {
 					String errorMessage = e.getMessage();
 					for (Integer index = 0; index < inputSize; index++) {
 						Point inputPoint = pointIndexes[index];
-						outputs[inputPoint.x][
-							inputPoint.y
-						] = new UniversalFlowInputOutput(
+						outputs[inputPoint.x][inputPoint.y] = new UniversalFlowInputOutput(
 							className,
 							methodName,
 							errorMessage,

@@ -1,3 +1,4 @@
+@SuppressWarnings('PMD.ApexDoc')
 /**
  * MIT License
  *
@@ -105,29 +106,17 @@ public inherited sharing class SOSL {
 		}
 
 		public Builder withDataCategoryAt(String groupName, String category) {
-			dataCategorySpecs.add(
-				new DataCategorySpec(groupName, 'AT', category)
-			);
+			dataCategorySpecs.add(new DataCategorySpec(groupName, 'AT', category));
 			return this;
 		}
 
-		public Builder withDataCategoryAbove(
-			String groupName,
-			String category
-		) {
-			dataCategorySpecs.add(
-				new DataCategorySpec(groupName, 'ABOVE', category)
-			);
+		public Builder withDataCategoryAbove(String groupName, String category) {
+			dataCategorySpecs.add(new DataCategorySpec(groupName, 'ABOVE', category));
 			return this;
 		}
 
-		public Builder withDataCategoryBelow(
-			String groupName,
-			String category
-		) {
-			dataCategorySpecs.add(
-				new DataCategorySpec(groupName, 'BELOW', category)
-			);
+		public Builder withDataCategoryBelow(String groupName, String category) {
+			dataCategorySpecs.add(new DataCategorySpec(groupName, 'BELOW', category));
 			return this;
 		}
 
@@ -209,9 +198,7 @@ public inherited sharing class SOSL {
 		}
 
 		private void addFindStatement(List<String> queryStatements) {
-			queryStatements.add(
-				'FIND {' + searchCondition.toConditionString() + '}'
-			);
+			queryStatements.add('FIND {' + searchCondition.toConditionString() + '}');
 		}
 
 		private void addSearchGroupStatement(List<String> queryStatements) {
@@ -222,9 +209,7 @@ public inherited sharing class SOSL {
 
 		private void addReturningStatement(List<String> queryStatements) {
 			List<String> returningFieldSpecStrings = new List<String>();
-			for (
-				Query.ReturningFieldSpec returningFieldSpec : returningFieldSpecs
-			) {
+			for (Query.ReturningFieldSpec returningFieldSpec : returningFieldSpecs) {
 				returningFieldSpecStrings.add(
 					returningFieldSpec.toReturningFieldSpecString()
 				);
@@ -245,14 +230,11 @@ public inherited sharing class SOSL {
 		private void addDataCategoryStatement(List<String> queryStatements) {
 			List<String> dataCategoryStrings = new List<String>();
 			for (DataCategorySpec dataCategorySpec : dataCategorySpecs) {
-				dataCategoryStrings.add(
-					dataCategorySpec.toDataCategorySpecString()
-				);
+				dataCategoryStrings.add(dataCategorySpec.toDataCategorySpecString());
 			}
 			if (!dataCategoryStrings.isEmpty()) {
 				queryStatements.add(
-					'WITH DATA CATEGORY ' +
-					String.join(dataCategoryStrings, ' AND ')
+					'WITH DATA CATEGORY ' + String.join(dataCategoryStrings, ' AND ')
 				);
 			}
 		}
@@ -271,10 +253,7 @@ public inherited sharing class SOSL {
 				}
 				queryStatements.add(
 					'WITH NETWORK IN (' +
-						String.join(
-							new List<String>(processedNetworkIds),
-							', '
-						) +
+						String.join(new List<String>(processedNetworkIds), ', ') +
 						')'
 				);
 			}
@@ -282,9 +261,7 @@ public inherited sharing class SOSL {
 
 		private void addPricebookIdStatement(List<String> queryStatements) {
 			if (String.isNotBlank(pricebookId)) {
-				queryStatements.add(
-					'WITH PricebookId = \'' + pricebookId + '\''
-				);
+				queryStatements.add('WITH PricebookId = \'' + pricebookId + '\'');
 			}
 		}
 
@@ -313,8 +290,7 @@ public inherited sharing class SOSL {
 		private void addUpdateStatement(List<String> queryStatements) {
 			if (!statementUpdate.isEmpty()) {
 				queryStatements.add(
-					'UPDATE ' +
-					String.join(new List<String>(statementUpdate), ', ')
+					'UPDATE ' + String.join(new List<String>(statementUpdate), ', ')
 				);
 			}
 		}

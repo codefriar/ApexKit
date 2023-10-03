@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 class FeatureFlagDataProviderTests {
-	@isTest
+	@IsTest
 	private static void testEnablingPermissionSetsPositive() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
@@ -24,7 +24,7 @@ class FeatureFlagDataProviderTests {
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testReturnEmptySetWhenNoPermSetOverridesFound() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		Test.startTest();

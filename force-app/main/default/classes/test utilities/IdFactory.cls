@@ -12,9 +12,7 @@ public with sharing class IdFactory {
 	 * should be reevaluated going forward. Note: Existing Apex functionality around IDs will transition to the new
 	 * format.
 	 */
-	private static final String SERVER_ID = UserInfo.getUserId()
-		.left(7)
-		.right(4);
+	private static final String SERVER_ID = UserInfo.getUserId().left(7).right(4);
 
 	/**
 	 * @description There are certain types of objects that do not return a prefix. This map contains string keys that
@@ -23,7 +21,7 @@ public with sharing class IdFactory {
 	 *
 	 * This is likely an incomplete list. If you find an unstable type that is not in this list, please add it, and
 	 * submit a PR.
-	 * Daniel Ballinger has a great blog post useful for filling in the gaps when an object doesn't return a prefix.
+	 * Daniel Bollinger has a great blog post useful for filling in the gaps when an object doesn't return a prefix.
 	 * http://www.fishofprey.com/2011/09/obscure-salesforce-object-key-prefixes.html
 	 */
 	private static final Map<String, String> UNSTABLE_TYPE_PREFIX_OVERRIDES = new Map<String, String>{
@@ -100,13 +98,21 @@ public with sharing class IdFactory {
 		String prefix = incomingType.getDescribe().getKeyPrefix();
 		if (prefix == null) {
 			throw new IDFactoryException(
-				'The incoming data type did not return a prefix. Certian data types such as *__Share or *History do not return a prefix. Because of this, they\'re not supported by IDFactory'
+				'The incoming data type did not return a prefix. Certain data types such as *__Share or *History do not return a prefix. Because of this, they\'re not supported by IDFactory'
 			);
 		}
 		prefix += SERVER_ID;
 		return getWithPrefixOverride(prefix);
 	}
 
+	/**
+	 * @description A method for getting a bogus Id for an object that may not return a prefix via standard Schema
+	 * methods. This method is used internally by the other methods in this class once a prefix has been identified.
+	 *
+	 * @param prefix String three character prefix for the object type.
+	 *
+	 * @return Id a plausible, but bogus Id
+	 */
 	private static Id getWithPrefixOverride(String prefix) {
 		idiosyncrasy++;
 		prefix += SERVER_ID;
@@ -121,6 +127,14 @@ public with sharing class IdFactory {
 		return (Id) bogusId;
 	}
 
+	/**
+	 * @description Certain types of objects do not return a prefix via standard Schema methods. This method is used
+	 * to identify them, and override the prefix with a known value.
+	 *
+	 * @param objectType String representation of the sObject type ie: Account, Contact, etc.
+	 *
+	 * @return String three character prefix for the object type.
+	 */
 	private static String getUnstableObjectPrefix(String objectType) {
 		String prefix;
 		// we have an unstable type.
@@ -134,6 +148,9 @@ public with sharing class IdFactory {
 		return prefix;
 	}
 
+	/**
+	 * @description internally thrown exception for when the incoming data type is null or invalid
+	 */
 	public class IDFactoryException extends Exception {
 	}
 }

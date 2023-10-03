@@ -41,9 +41,7 @@ public class EnqueueNextQueueableProcessStep implements System.Finalizer {
 		switch on context.getResult() {
 			when SUCCESS {
 				if (this.processSteps.size() > 0) {
-					QueueableProcess nextProcessStep = this.processSteps.remove(
-						0
-					);
+					QueueableProcess nextProcessStep = this.processSteps.remove(0);
 					nextProcessStep.processSteps = this.processSteps;
 					nextProcessStep.dataPassthrough = dataPassthrough;
 					System.enqueueJob(nextProcessStep);
@@ -53,9 +51,7 @@ public class EnqueueNextQueueableProcessStep implements System.Finalizer {
 				Log.get().add(context.getException());
 				Log.get()
 					.publish(
-						'Parent Queueable (Job ID: ' +
-							parentQueueableJobId +
-							'): FAILED!'
+						'Parent Queueable (Job ID: ' + parentQueueableJobId + '): FAILED!'
 					);
 			}
 		}

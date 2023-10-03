@@ -1,23 +1,32 @@
+/**
+ * @description A class encapsulating the trigger context. Before/after insert/update/delete etc.
+ */
 public with sharing class TriggerContext {
+	/**
+	 * @description the TriggerOperation this context revolves arround
+	 */
 	public TriggerOperation context;
+	/**
+	 * @description A boolean override for testing purposes
+	 */
 	public Boolean isTriggerBeingTested = false;
 
+	/**
+	 * @description A default contstructor that sets the context to null and override to false
+	 */
 	public TriggerContext() {
 		this.setTriggerContext(null, false);
 	}
 
 	/**
 	 * @description make sure this trigger should continue to run
-	 * @return     `Boolean`
-	 * @exception   TriggerHandlerException thrown when executing outside of a
+	 *
+	 * @return `Boolean` true if the trigger should continue to run
+	 *
+	 * @throws TriggerFrameworkException thrown when executing outside of a
 	 * trigger
 	 */
-	@testVisible
 	public Boolean isInvalidExecutionContext() {
-		System.debug(
-			'### Is Trigger being Tested? ' + this.isTriggerBeingTested
-		);
-		System.debug('### Context: ' + this.context);
 		if (!this.isTriggerBeingTested || this.context == null) {
 			throw new TriggerFrameworkException(
 				'Trigger handler called outside of Trigger execution'
@@ -28,18 +37,19 @@ public with sharing class TriggerContext {
 	}
 
 	/**
-	 * @description    Internal method for manually setting the trigger context
-	 * @param ctx      The current trigger Context
-	 * @param testMode Is the trigger running in a test context?
+	 * @description Internal method for manually setting the trigger context
+	 *
+	 * @param overriddenContext The current trigger Context
+	 * @param overrideForTesting Is the trigger running in a test context?
 	 */
-	@testVisible
+	@TestVisible
 	private void setTriggerContext(
 		String overriddenContext,
 		Boolean overrideForTesting
 	) {
 		if (!Trigger.isExecuting && !overrideForTesting) {
 			this.isTriggerBeingTested = false;
-			this.context = Trigger.OperationType;
+			this.context = Trigger.operationType;
 			return;
 		} else {
 			this.isTriggerBeingTested = true;
@@ -58,8 +68,11 @@ public with sharing class TriggerContext {
 		}
 	}
 
+	/**
+	 * @description A method to set the trigger context during normal system execution.
+	 */
 	private void setContextDuringNormalExecution() {
-		switch on Trigger.OperationType {
+		switch on Trigger.operationType {
 			when BEFORE_INSERT {
 				this.context = TriggerOperation.BEFORE_INSERT;
 			}
@@ -84,6 +97,11 @@ public with sharing class TriggerContext {
 		}
 	}
 
+	/**
+	 * @description A private test visible method for manually overriding the context
+	 *
+	 * @param overriddenContext the context to forcibly set.
+	 */
 	private void setManuallyOverriddenContext(String overriddenContext) {
 		switch on overriddenContext {
 			when 'before insert' {

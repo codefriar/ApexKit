@@ -1,6 +1,5 @@
 /**
- * @description Generic logging framework that persists across DML reversions
- * by publishing a Platform Event
+ * @description Generic logging framework that persists across DML reversions by publishing a Platform Event
  *
  * @see LogMessage
  * @see LogException
@@ -115,10 +114,14 @@ public with sharing class Log {
 		this.buffer.clear();
 	}
 
+	/**
+	 * @description this method will drop the logged statements to the transaction log via system.debug
+	 *
+	 * @param logEvents List<Log__e> to be logged
+	 */
+	@SuppressWarnings('PMD.AvoidDebugStatements')
 	private static void alsoPublishToStandardLogs(List<Log__e> logEvents) {
-		if (
-			QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs
-		) {
+		if (QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs) {
 			for (Log__e logEvent : logEvents) {
 				String headerFooter = '######### Logging from the Log Class #########';
 				System.debug(
@@ -153,6 +156,12 @@ public with sharing class Log {
 		this.publish();
 	}
 
+	/**
+	 * @description Publish a custom log message string with a specified severity
+	 *
+	 * @param severity LoggingLevel enum noting the severity of the message
+	 * @param messageToLog String to log
+	 */
 	public void publish(LoggingLevel severity, String messageToLog) {
 		this.buffer.add(new LogMessage(severity, messageToLog));
 	}
