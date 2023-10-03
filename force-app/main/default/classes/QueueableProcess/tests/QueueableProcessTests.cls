@@ -1,4 +1,6 @@
-@IsTest
+/**
+ * @description This class contains tests used for testing the QueueableProcess framework.
+ */ @IsTest
 private class QueueableProcessTests {
 	@TestSetup
 	private static void setup() {
@@ -159,19 +161,46 @@ private class QueueableProcessTests {
 	 */
 	class MockFinalizerContext implements System.FinalizerContext {
 		final ParentJobResult result;
+
+		/**
+		 * @description Returns the ID of the Queueable job for which this finalizer is defined.
+		 *
+		 * @return      `Id`
+		 */
 		public Id getAsyncApexJobId() {
 			// valid Id, or query one
 			return IdFactory.get('AsyncApexJob');
 		}
+		/**
+		 * @description Returns the exception with which the Queueable job failed when getResult is `UNHANDLED_EXCEPTION`, null otherwise.
+		 *
+		 * @return      `Exception`
+		 */
 		public Exception getException() {
 			return new System.AsyncException('heap breached');
 		}
+		/**
+		 * @description Returns the request ID, a string that uniquely identifies the request, and can be correlated with Event Monitoring logs.
+		 * To correlate with the AsyncApexJob table, use the `getAsyncApexJobId` method instead. The Queueable job and the Finalizer execution both share the (same) request ID.
+		 *
+		 * @return      `String`
+		 */
 		public String getRequestId() {
 			return 'someRequestId';
 		}
+		/**
+		 * @description Returns the System.ParentJobResult enum, which represents the result of the parent asynchronous Apex Queueable job to which the finalizer is attached. The enum takes these values: `SUCCESS`, `UNHANDLED_EXCEPTION`.
+		 *
+		 * @return      `ParentJobResult`
+		 */
 		public ParentJobResult getResult() {
 			return this.result;
 		}
+		/**
+		 * @description
+		 *
+		 * @param mockResult
+		 */
 		MockFinalizerContext(ParentJobResult mockResult) {
 			this.result = mockResult;
 		}

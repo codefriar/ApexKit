@@ -29,6 +29,6 @@ engine:
   #- '${workspaceFolder}/doc-assets/index.js'
   port: 8088
 docblock:
-  alignItems: true
+  alignItems: false
   spacious: true
   omitDescriptionTag: false
