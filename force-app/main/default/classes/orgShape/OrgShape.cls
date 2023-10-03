@@ -353,8 +353,11 @@ public with sharing class OrgShape {
 	public with sharing class CachedOrgShape implements Cache.CacheBuilder {
 		@SuppressWarnings('PMD.ApexCRUDViolation')
 		/**
-		 * Note: We're suppressing PMD warning on Crud Checking because we want
-		 * everyone to be able to pull this read-only record.
+		 * @description We're suppressing PMD warning on Crud Checking because we want
+		 * everyone to be able to pull this read-only record. Note this is a cachebuilder implementing class.
+		 * @param requiredButNotUsed  String required by the interface, but not used in the method. It acts as the
+		 * cache key, and since that's passed at runtime, it's used, but not by this method.
+		 * @return      `Organization` Organization Record - hopefully from cache.
 		 */
 		public Organization doLoad(String requiredButNotUsed) {
 			// Note: You should normally limit all your queries with
