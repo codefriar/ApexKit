@@ -3,7 +3,13 @@
  * class is constructed with a list of QueueableProcess Objects, and any passthrough data. The first promise in the list
  * is executed. The QueueableProcess class automatically attaches this finalizer to it's execution.
  */
-public with sharing class EnqueueNextQueueableProcessStep implements System.Finalizer {
+public with sharing with sharing class EnqueueNextQueueableProcessStep implements System.Finalizer {
+	/**
+	 * @description a DataProvider instance. This is used to allow for dependency injection in unit tests.
+	 */
+	@TestVisible
+	QueueableProcessDataProvider dataProvider = new QueueableProcessDataProvider();
+
 	/**
 	 * @description a DataProvider instance. This is used to allow for dependency injection in unit tests.
 	 */
@@ -24,6 +30,10 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 
 	private List<FinalizerContext> finalizerContextHistory;
 
+	private final List<QueueableContext> queueableContextHistory;
+
+	private List<FinalizerContext> finalizerContextHistory;
+
 	/**
 	 * @description Constructor for the EnqueueNextQueueableProcessStep class.
 	 *
@@ -34,16 +44,23 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 	 * data passed from the previous QueueableProcessStep.
 	 * @param queueableContextHistory List<QueueableContext> A list of QueueableContext Objects.
 	 * @param finalizerContextHistory List<FinalizerContext> A list of FinalizerContext Objects.
+	 * @param queueableContextHistory List<QueueableContext> A list of QueueableContext Objects.
+	 * @param finalizerContextHistory List<FinalizerContext> A list of FinalizerContext Objects.
 	 */
+	@SuppressWarnings('PMD.ExcessiveParameterList')
 	@SuppressWarnings('PMD.ExcessiveParameterList')
 	public EnqueueNextQueueableProcessStep(
 		List<QueueableProcess> processSteps,
 		Object dataPassthrough,
 		List<QueueableContext> queueableContextHistory,
+		List<FinalizerContext> finalizerContextHistory,
+		List<QueueableContext> queueableContextHistory,
 		List<FinalizerContext> finalizerContextHistory
 	) {
 		this.processSteps = processSteps;
 		this.dataPassthrough = dataPassthrough;
+		this.queueableContextHistory = queueableContextHistory;
+		this.finalizerContextHistory = finalizerContextHistory;
 		this.queueableContextHistory = queueableContextHistory;
 		this.finalizerContextHistory = finalizerContextHistory;
 	}
@@ -72,6 +89,8 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 					);
 					nextProcessStep.processSteps = this.processSteps;
 					nextProcessStep.dataPassthrough = dataPassthrough;
+					nextProcessStep.queueableContextHistory = this.queueableContextHistory;
+					nextProcessStep.finalizerContextHistory = this.finalizerContextHistory;
 					nextProcessStep.queueableContextHistory = this.queueableContextHistory;
 					nextProcessStep.finalizerContextHistory = this.finalizerContextHistory;
 					System.enqueueJob(nextProcessStep);
