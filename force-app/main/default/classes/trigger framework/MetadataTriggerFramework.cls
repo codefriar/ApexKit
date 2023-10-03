@@ -76,9 +76,7 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
 		 */
 		for (Metadata_Driven_Trigger__mdt currentTrigger : triggers) {
 			try {
-				activeHandler = (TriggerFramework) Type.forName(
-						currentTrigger.Class__c
-					)
+				activeHandler = (TriggerFramework) Type.forName(currentTrigger.Class__c)
 					.newInstance();
 			} catch (Exception e) {
 				continue;

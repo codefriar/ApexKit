@@ -238,10 +238,7 @@ public with sharing class FeatureFlagDataProvider {
 			if (memoizedMap.containsKey(correlationKey)) {
 				memoizedMap.get(correlationKey).add(currentObject);
 			} else {
-				memoizedMap.put(
-					correlationKey,
-					new List<SObject>{ currentObject }
-				);
+				memoizedMap.put(correlationKey, new List<SObject>{ currentObject });
 			}
 		}
 		return memoizedMap;

@@ -107,10 +107,7 @@ public with sharing class ULID {
 	 * @return  `String`
 	 */
 	private static String fetchRandomCharacterFromCharacterSet() {
-		Long rand = Math.mod(
-			Math.abs(Crypto.getRandomLong()),
-			CHARACTERSETSIZE
-		);
+		Long rand = Math.mod(Math.abs(Crypto.getRandomLong()), CHARACTERSETSIZE);
 		return CHARACTERSET[rand.intValue()];
 	}
 }

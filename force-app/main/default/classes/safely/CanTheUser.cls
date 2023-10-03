@@ -414,8 +414,7 @@ public with sharing class CanTheUser {
 			results.put(fieldKey, new Map<FLSType, Boolean>());
 			results.get(fieldKey)
 				.put(FLSType.ACCESSIBLE, fieldDetails.isAccessible());
-			results.get(fieldKey)
-				.put(FLSType.UPDATABLE, fieldDetails.isUpdateable());
+			results.get(fieldKey).put(FLSType.UPDATABLE, fieldDetails.isUpdateable());
 		}
 		return results;
 	}

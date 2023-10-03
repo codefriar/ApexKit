@@ -40,9 +40,7 @@ private class QuiddityGuardTests {
 		Test.startTest();
 		Assert.areNotEqual(
 			true,
-			QuiddityGuard.isNotAcceptableQuiddity(
-				QuiddityGuard.trustedQuiddities
-			),
+			QuiddityGuard.isNotAcceptableQuiddity(QuiddityGuard.trustedQuiddities),
 			'Expected a testQuiddity to not be in the Trusted Quiddities list'
 		);
 		Test.stopTest();

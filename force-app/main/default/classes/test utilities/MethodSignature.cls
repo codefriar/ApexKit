@@ -33,10 +33,7 @@ public with sharing class MethodSignature {
 	 * @return `Boolean` true if the signatures match, false if they do not
 	 */
 	public Boolean verifySignatureMatch(MethodSignature otherSignature) {
-		return verifyMethodNamesMatch(
-				this.methodName,
-				otherSignature.methodName
-			) &&
+		return verifyMethodNamesMatch(this.methodName, otherSignature.methodName) &&
 			methodParameterTypes.equals(otherSignature.methodParameterTypes);
 	}
 
@@ -152,9 +149,7 @@ public with sharing class MethodSignature {
 			System.Type parameter,
 			System.Type parameter2
 		) {
-			return withParameterTypes(
-				new List<System.Type>{ parameter, parameter2 }
-			);
+			return withParameterTypes(new List<System.Type>{ parameter, parameter2 });
 		}
 
 		/**
@@ -194,12 +189,7 @@ public with sharing class MethodSignature {
 			System.Type parameter4
 		) {
 			return withParameterTypes(
-				new List<System.Type>{
-					parameter,
-					parameter2,
-					parameter3,
-					parameter4
-				}
+				new List<System.Type>{ parameter, parameter2, parameter3, parameter4 }
 			);
 		}
 

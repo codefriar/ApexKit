@@ -213,11 +213,7 @@ private class TriggerFrameworkTests {
 			);
 		} catch (TriggerFrameworkException te) {
 			// we're expecting to get here
-			Assert.areEqual(
-				null,
-				lastMethodCalled,
-				'Last method should be null'
-			);
+			Assert.areEqual(null, lastMethodCalled, 'Last method should be null');
 		} catch (Exception e) {
 			Assert.isTrue(
 				false,

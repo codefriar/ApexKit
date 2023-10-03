@@ -12,9 +12,7 @@ public with sharing class IdFactory {
 	 * should be reevaluated going forward. Note: Existing Apex functionality around IDs will transition to the new
 	 * format.
 	 */
-	private static final String SERVER_ID = UserInfo.getUserId()
-		.left(7)
-		.right(4);
+	private static final String SERVER_ID = UserInfo.getUserId().left(7).right(4);
 
 	/**
 	 * @description There are certain types of objects that do not return a prefix. This map contains string keys that

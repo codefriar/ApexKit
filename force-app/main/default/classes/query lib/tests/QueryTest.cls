@@ -72,10 +72,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(fieldName, fieldExpression.fieldName);
-			Assert.areEqual(
-				comparisonOperator,
-				fieldExpression.comparisonOperator
-			);
+			Assert.areEqual(comparisonOperator, fieldExpression.comparisonOperator);
 			Assert.areEqual(value, fieldExpression.value);
 		}
 	}
@@ -138,14 +135,8 @@ public with sharing class QueryTest {
 				}, //Users time zone is (GMT+01:00) Irish Standard Time (Europe/Dublin).
 				'(1, 2)' => new List<Integer>{ 1, 2 },
 				'(3, 4)' => new Set<Integer>{ 3, 4 },
-				'(100000000, 200000000)' => new List<Long>{
-					100000000L,
-					200000000L
-				},
-				'(300000000, 400000000)' => new Set<Long>{
-					300000000L,
-					400000000L
-				},
+				'(100000000, 200000000)' => new List<Long>{ 100000000L, 200000000L },
+				'(300000000, 400000000)' => new Set<Long>{ 300000000L, 400000000L },
 				'(1.1, 2.2)' => new List<Double>{ 1.1, 2.2 },
 				'(3.3, 4.4)' => new Set<Double>{ 3.3, 4.4 },
 				'(5.5, 6.6)' => new List<Decimal>{ 5.5, 6.6 },
@@ -155,8 +146,7 @@ public with sharing class QueryTest {
 					new Set<String>{ 'PV_2', 'PV_3', 'L\'Oreal' } //Single quotes must be escaped.
 				},
 				'(SELECT Id FROM Account)' => new SOQL.Builder('Account'),
-				'(SELECT Id FROM Contact)' => new SOQL.Builder('Contact')
-					.build(),
+				'(SELECT Id FROM Contact)' => new SOQL.Builder('Contact').build(),
 				'LAST_N_DAYS:100' => new Query.DateLiteral('LAST_N_DAYS', 100),
 				':accountIds' => new Query.ScriptVariable('accountIds')
 			};
@@ -165,22 +155,15 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			for (
-				String expectedValueFormat : expectedValueFormat2Value.keySet()
-			) {
-				Object value = expectedValueFormat2Value.get(
-					expectedValueFormat
-				);
+			for (String expectedValueFormat : expectedValueFormat2Value.keySet()) {
+				Object value = expectedValueFormat2Value.get(expectedValueFormat);
 				Query.FieldExpression fieldExpression = new Query.FieldExpression(
 					fieldName,
 					comparisonOperator,
 					value
 				);
 
-				Assert.areEqual(
-					expectedValueFormat,
-					fieldExpression.formatValue()
-				);
+				Assert.areEqual(expectedValueFormat, fieldExpression.formatValue());
 			}
 
 			Test.stopTest();
@@ -417,9 +400,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.DateLiteral dateLiteral = new Query.DateLiteral(
-				dateLiteralName
-			);
+			Query.DateLiteral dateLiteral = new Query.DateLiteral(dateLiteralName);
 
 			Test.stopTest();
 
@@ -457,9 +438,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.DateLiteral dateLiteral = new Query.DateLiteral(
-				dateLiteralName
-			);
+			Query.DateLiteral dateLiteral = new Query.DateLiteral(dateLiteralName);
 
 			Test.stopTest();
 
@@ -506,10 +485,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(dateLiteral),
-				dateLiteral.toString()
-			);
+			Assert.areEqual(JSON.serialize(dateLiteral), dateLiteral.toString());
 		}
 	}
 
@@ -587,10 +563,7 @@ public with sharing class QueryTest {
 				Query.LogicalOperator.AND_VALUE,
 				condition.logicalOperator
 			);
-			Assert.areEqual(
-				new List<Query.Expression>(),
-				condition.expressions
-			);
+			Assert.areEqual(new List<Query.Expression>(), condition.expressions);
 		}
 	}
 
@@ -607,10 +580,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(logicalOperator, condition.logicalOperator);
-			Assert.areEqual(
-				new List<Query.Expression>(),
-				condition.expressions
-			);
+			Assert.areEqual(new List<Query.Expression>(), condition.expressions);
 		}
 	}
 
@@ -749,8 +719,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.isIn(fieldName, value);
+			Query.Condition condition = new Query.Condition().isIn(fieldName, value);
 
 			Test.stopTest();
 
@@ -772,12 +741,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			assertFieldConditionExpression(
-				fieldName,
-				'NOT IN',
-				value,
-				condition
-			);
+			assertFieldConditionExpression(fieldName, 'NOT IN', value, condition);
 		}
 	}
 
@@ -797,12 +761,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			assertFieldConditionExpression(
-				fieldName,
-				'INCLUDES',
-				value,
-				condition
-			);
+			assertFieldConditionExpression(fieldName, 'INCLUDES', value, condition);
 		}
 	}
 
@@ -820,12 +779,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			assertFieldConditionExpression(
-				fieldName,
-				'INCLUDES',
-				value,
-				condition
-			);
+			assertFieldConditionExpression(fieldName, 'INCLUDES', value, condition);
 		}
 	}
 
@@ -845,12 +799,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			assertFieldConditionExpression(
-				fieldName,
-				'EXCLUDES',
-				value,
-				condition
-			);
+			assertFieldConditionExpression(fieldName, 'EXCLUDES', value, condition);
 		}
 	}
 
@@ -868,12 +817,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			assertFieldConditionExpression(
-				fieldName,
-				'EXCLUDES',
-				value,
-				condition
-			);
+			assertFieldConditionExpression(fieldName, 'EXCLUDES', value, condition);
 		}
 	}
 
@@ -969,10 +913,7 @@ public with sharing class QueryTest {
 			String expectedConditionString = prepareExpectedConditionString(
 				condition
 			);
-			Assert.areEqual(
-				expectedConditionString,
-				condition.toConditionString()
-			);
+			Assert.areEqual(expectedConditionString, condition.toConditionString());
 		}
 	}
 
@@ -993,10 +934,7 @@ public with sharing class QueryTest {
 			String expectedConditionString = prepareExpectedConditionString(
 				condition
 			);
-			Assert.areEqual(
-				expectedConditionString,
-				condition.toConditionString()
-			);
+			Assert.areEqual(expectedConditionString, condition.toConditionString());
 		}
 	}
 
@@ -1032,16 +970,10 @@ public with sharing class QueryTest {
 		String expectedConditionString;
 		switch on condition.logicalOperator {
 			when AND_VALUE {
-				expectedConditionString = String.join(
-					expressionStrings,
-					' AND '
-				);
+				expectedConditionString = String.join(expressionStrings, ' AND ');
 			}
 			when OR_VALUE {
-				expectedConditionString = String.join(
-					expressionStrings,
-					' OR '
-				);
+				expectedConditionString = String.join(expressionStrings, ' OR ');
 			}
 		}
 		return expectedConditionString;
@@ -1088,10 +1020,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection);
 
 			Test.stopTest();
 
@@ -1144,10 +1073,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			String expectedSortOrderString = fieldName + ' ASC NULLS LAST';
-			Assert.areEqual(
-				expectedSortOrderString,
-				sortOrder.toSortOrderString()
-			);
+			Assert.areEqual(expectedSortOrderString, sortOrder.toSortOrderString());
 		}
 	}
 
@@ -1170,10 +1096,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			String expectedSortOrderString = fieldName + ' ASC NULLS FIRST';
-			Assert.areEqual(
-				expectedSortOrderString,
-				sortOrder.toSortOrderString()
-			);
+			Assert.areEqual(expectedSortOrderString, sortOrder.toSortOrderString());
 		}
 	}
 
@@ -1196,10 +1119,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			String expectedSortOrderString = fieldName + ' DESC NULLS LAST';
-			Assert.areEqual(
-				expectedSortOrderString,
-				sortOrder.toSortOrderString()
-			);
+			Assert.areEqual(expectedSortOrderString, sortOrder.toSortOrderString());
 		}
 	}
 
@@ -1222,10 +1142,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			String expectedSortOrderString = fieldName + ' DESC NULLS FIRST';
-			Assert.areEqual(
-				expectedSortOrderString,
-				sortOrder.toSortOrderString()
-			);
+			Assert.areEqual(expectedSortOrderString, sortOrder.toSortOrderString());
 		}
 	}
 
@@ -1283,10 +1200,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				searchPhrase,
-				phraseExpression.toExpressionString()
-			);
+			Assert.areEqual(searchPhrase, phraseExpression.toExpressionString());
 		}
 	}
 
@@ -1393,10 +1307,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				searchCondition,
-				denialSearchExpression.searchCondition
-			);
+			Assert.areEqual(searchCondition, denialSearchExpression.searchCondition);
 		}
 	}
 
@@ -1497,10 +1408,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(polymorphicReference, typeOf.polymorphicReference);
-			Assert.areEqual(
-				sobjectType2FieldList,
-				typeOf.sobjectType2FieldList
-			);
+			Assert.areEqual(sobjectType2FieldList, typeOf.sobjectType2FieldList);
 			Assert.areEqual(new Set<String>(), typeOf.elseFieldList);
 		}
 	}

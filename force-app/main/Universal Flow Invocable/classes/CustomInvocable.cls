@@ -21,9 +21,7 @@ public class CustomInvocable extends UFInvocable {
 		List<Integer> results = new List<Integer>();
 		for (Date startingDate : startingDates) {
 			results.add(
-				startingDate.daysBetween(
-					Date.newInstance(startingDate.year(), 12, 25)
-				)
+				startingDate.daysBetween(Date.newInstance(startingDate.year(), 12, 25))
 			);
 		}
 		return results;
@@ -80,11 +78,7 @@ public class CustomInvocable extends UFInvocable {
 						param2,
 						List<Date>.class
 					),
-					(List<Date>) extractParameter(
-						'endingDate',
-						param2,
-						List<Date>.class
-					)
+					(List<Date>) extractParameter('endingDate', param2, List<Date>.class)
 				);
 			}
 			when else {

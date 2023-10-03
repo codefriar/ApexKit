@@ -90,10 +90,7 @@ public with sharing class Stub implements System.StubProvider {
 		// value to the MockedMethod.handleCall() method.
 		for (MockedMethod mockedMethod : mockedMethods) {
 			if (
-				mockedMethod.doMethodSignaturesAndParametersMatch(
-					methodSignature,
-					args
-				)
+				mockedMethod.doMethodSignaturesAndParametersMatch(methodSignature, args)
 			) {
 				return mockedMethod.handleCall();
 			}
@@ -300,12 +297,7 @@ public with sharing class Stub implements System.StubProvider {
 		) {
 			return mockingMethodCall(
 					methodName,
-					new List<Type>{
-						paramType,
-						paramType2,
-						paramType3,
-						paramType4
-					}
+					new List<Type>{ paramType, paramType2, paramType3, paramType4 }
 				)
 				.withParameterTypes();
 		}

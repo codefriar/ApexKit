@@ -45,10 +45,7 @@ public with sharing class MetadataTriggerQueryService {
 							.selectField('Metadata_Driven_Trigger__c')
 							.whereCondition(
 								new Query.Condition()
-									.equals(
-										'User_Email__c',
-										UserInfo.getUserName()
-									)
+									.equals('User_Email__c', UserInfo.getUserName())
 							)
 							.build()
 					)

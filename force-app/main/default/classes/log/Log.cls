@@ -121,9 +121,7 @@ public with sharing class Log {
 	 */
 	@SuppressWarnings('PMD.AvoidDebugStatements')
 	private static void alsoPublishToStandardLogs(List<Log__e> logEvents) {
-		if (
-			QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs
-		) {
+		if (QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs) {
 			for (Log__e logEvent : logEvents) {
 				String headerFooter = '######### Logging from the Log Class #########';
 				System.debug(

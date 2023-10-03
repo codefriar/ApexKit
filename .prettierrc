@@ -34,8 +34,7 @@
 			"files": "docs/*.html",
 			"options": {
 				"parser": "html",
-				"useTabs": false,
-				"printWidth": 150,
+				"useTabs": true,
 				"htmlWhitespaceSensitivity": "css",
 				"singleQuote": false
 			}

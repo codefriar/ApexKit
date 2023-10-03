@@ -49,9 +49,7 @@ public class FeatureFlagCommonTests {
 	public static Id getExistingPermSetId() {
 		return new SOQL.Builder('PermissionSet')
 			.selectField('Id')
-			.whereCondition(
-				new Query.Condition().equals('Name', 'Async_Log_Access')
-			)
+			.whereCondition(new Query.Condition().equals('Name', 'Async_Log_Access'))
 			.build()
 			.getRecord()
 			.Id;

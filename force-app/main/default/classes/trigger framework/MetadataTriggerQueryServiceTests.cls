@@ -9,11 +9,7 @@ private class MetadataTriggerQueryServiceTests {
 		List<Metadata_Driven_Trigger__mdt> triggers = mts.getMetadataTriggers();
 		Test.stopTest();
 
-		Assert.areEqual(
-			triggers.size(),
-			0,
-			'Expected to find no metadata records'
-		);
+		Assert.areEqual(triggers.size(), 0, 'Expected to find no metadata records');
 	}
 
 	@isTest
@@ -41,28 +37,18 @@ private class MetadataTriggerQueryServiceTests {
 
 	@isTest
 	private static void testGetSObjectTypePositiveFromTriggerNew() {
-		List<Account> accounts = new List<Account>{
-			new Account(name = 'test)')
-		};
+		List<Account> accounts = new List<Account>{ new Account(name = 'test)') };
 		Test.startTest();
-		String results = MetadataTriggerQueryService.getSObjectType(
-			accounts,
-			null
-		);
+		String results = MetadataTriggerQueryService.getSObjectType(accounts, null);
 		Test.stopTest();
 		Assert.areEqual('Account', results, 'Expected to see Account returned');
 	}
 
 	@isTest
 	private static void testGetSObjectTypePositiveFromTriggerOld() {
-		List<Account> accounts = new List<Account>{
-			new Account(name = 'test)')
-		};
+		List<Account> accounts = new List<Account>{ new Account(name = 'test)') };
 		Test.startTest();
-		String results = MetadataTriggerQueryService.getSObjectType(
-			null,
-			accounts
-		);
+		String results = MetadataTriggerQueryService.getSObjectType(null, accounts);
 		Test.stopTest();
 		Assert.areEqual('Account', results, 'Expected to see Account returned');
 	}

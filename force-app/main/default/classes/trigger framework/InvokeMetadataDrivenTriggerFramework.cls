@@ -37,12 +37,8 @@ public with sharing class InvokeMetadataDrivenTriggerFramework {
 		Label='Fire Metadata Defined Triggers'
 		Description='Apply existing metadata defined triggers to these records'
 	)
-	public static void invokeMetadataTriggerFramework(
-		List<Inputs> inputParams
-	) {
-		for (
-			InvokeMetadataDrivenTriggerFramework.Inputs request : inputParams
-		) {
+	public static void invokeMetadataTriggerFramework(List<Inputs> inputParams) {
+		for (InvokeMetadataDrivenTriggerFramework.Inputs request : inputParams) {
 			new MetadataTriggerFramework(
 					request.triggerNew,
 					request.triggerOld,

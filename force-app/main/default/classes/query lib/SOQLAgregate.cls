@@ -68,17 +68,13 @@ public inherited sharing class SOQLAgregate {
 		public Builder(String objectType) {
 			this.objectType = objectType;
 			fieldsToSelect = new Set<String>();
-			whereCondition = new Query.Condition(
-				Query.LogicalOperator.AND_VALUE
-			);
+			whereCondition = new Query.Condition(Query.LogicalOperator.AND_VALUE);
 			sortOrders = new List<Query.SortOrder>();
 			fieldsToSelect = new Set<String>();
 			groupByOptions = new Set<String>();
 			groupByRollupOptions = new Set<String>();
 			groupByCubeOptions = new Set<String>();
-			havingCondition = new Query.Condition(
-				Query.LogicalOperator.AND_VALUE
-			);
+			havingCondition = new Query.Condition(Query.LogicalOperator.AND_VALUE);
 		}
 
 		public Builder average(String fieldName) {
@@ -235,9 +231,7 @@ public inherited sharing class SOQLAgregate {
 				sortOrderStrings.add(so.toSortOrderString());
 			}
 			if (!sortOrderStrings.isEmpty()) {
-				queryStatements.add(
-					'ORDER BY ' + String.join(sortOrderStrings, ', ')
-				);
+				queryStatements.add('ORDER BY ' + String.join(sortOrderStrings, ', '));
 			}
 		}
 
@@ -259,27 +253,19 @@ public inherited sharing class SOQLAgregate {
 			if (!groupByRollupOptions.isEmpty()) {
 				groupByStrings.add(
 					'ROLLUP(' +
-						String.join(
-							new List<String>(groupByRollupOptions),
-							', '
-						) +
+						String.join(new List<String>(groupByRollupOptions), ', ') +
 						')'
 				);
 			}
 			if (!groupByCubeOptions.isEmpty()) {
 				groupByStrings.add(
 					'CUBE(' +
-						String.join(
-							new List<String>(groupByCubeOptions),
-							', '
-						) +
+						String.join(new List<String>(groupByCubeOptions), ', ') +
 						')'
 				);
 			}
 			if (!groupByStrings.isEmpty()) {
-				queryStatements.add(
-					'GROUP BY ' + String.join(groupByStrings, ', ')
-				);
+				queryStatements.add('GROUP BY ' + String.join(groupByStrings, ', '));
 			}
 		}
 

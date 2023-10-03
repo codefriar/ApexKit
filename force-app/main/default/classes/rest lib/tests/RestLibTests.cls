@@ -239,11 +239,7 @@ private class RestLibTests {
 		Test.setMock(HttpCalloutMock.class, mock);
 
 		Test.startTest();
-		HttpResponse response = rc.post(
-			'/',
-			'',
-			'{"Id": "003ae3fn12df25k309"}'
-		);
+		HttpResponse response = rc.post('/', '', '{"Id": "003ae3fn12df25k309"}');
 		Test.stopTest();
 
 		Assert.areEqual(

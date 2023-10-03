@@ -228,9 +228,7 @@ public class Query {
 					return String.join(expressionStrings, ' OR ');
 				}
 				when else {
-					throw new QueryException(
-						'Unsupported operator: ' + logicalOperator
-					);
+					throw new QueryException('Unsupported operator: ' + logicalOperator);
 				}
 			}
 		}
@@ -307,10 +305,7 @@ public class Query {
 			String sobjectType,
 			List<String> whenFieldList
 		) {
-			sobjectType2FieldList.put(
-				sobjectType,
-				new Set<String>(whenFieldList)
-			);
+			sobjectType2FieldList.put(sobjectType, new Set<String>(whenFieldList));
 			return this;
 		}
 
@@ -337,9 +332,7 @@ public class Query {
 						sobjectType +
 						' THEN ' +
 						String.join(
-							new List<String>(
-								sobjectType2FieldList.get(sobjectType)
-							),
+							new List<String>(sobjectType2FieldList.get(sobjectType)),
 							', '
 						)
 				);
@@ -381,9 +374,7 @@ public class Query {
 			return this;
 		}
 
-		public SearchCondition subSearchCondition(
-			SearchCondition searchCondition
-		) {
+		public SearchCondition subSearchCondition(SearchCondition searchCondition) {
 			searchExpressions.add(new SearchExpression(searchCondition));
 			return this;
 		}
@@ -408,9 +399,7 @@ public class Query {
 					return String.join(searchExpressionStrings, ' OR ');
 				}
 				when else {
-					throw new QueryException(
-						'Unsupported operator: ' + logicalOperator
-					);
+					throw new QueryException('Unsupported operator: ' + logicalOperator);
 				}
 			}
 		}
@@ -535,9 +524,7 @@ public class Query {
 				for (SortOrder so : sortOrders) {
 					sortOrderStrings.add(so.toSortOrderString());
 				}
-				queryStatements.add(
-					'ORDER BY ' + String.join(sortOrderStrings, ', ')
-				);
+				queryStatements.add('ORDER BY ' + String.join(sortOrderStrings, ', '));
 			}
 		}
 
@@ -647,9 +634,7 @@ public class Query {
 		@TestVisible
 		private String formatValue() {
 			if (value instanceof String) {
-				return '\'' +
-					String.escapeSingleQuotes(String.valueOf(value)) +
-					'\'';
+				return '\'' + String.escapeSingleQuotes(String.valueOf(value)) + '\'';
 			} else if (
 				value instanceof Integer ||
 				value instanceof Long ||
@@ -669,17 +654,12 @@ public class Query {
 				return d.formatGmt('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ');
 			} else if (value instanceof List<String>) {
 				return '(' +
-					String.join(
-						convertToStringList((List<String>) value),
-						', '
-					) +
+					String.join(convertToStringList((List<String>) value), ', ') +
 					')';
 			} else if (value instanceof Set<String>) {
 				return '(' +
 					String.join(
-						convertToStringList(
-							new List<String>((Set<String>) value)
-						),
+						convertToStringList(new List<String>((Set<String>) value)),
 						', '
 					) +
 					')';
@@ -703,33 +683,23 @@ public class Query {
 					')';
 			} else if (value instanceof List<Datetime>) {
 				return '(' +
-					String.join(
-						convertToStringList((List<Datetime>) value),
-						', '
-					) +
+					String.join(convertToStringList((List<Datetime>) value), ', ') +
 					')';
 			} else if (value instanceof Set<Datetime>) {
 				return '(' +
 					String.join(
-						convertToStringList(
-							new List<Datetime>((Set<Datetime>) value)
-						),
+						convertToStringList(new List<Datetime>((Set<Datetime>) value)),
 						', '
 					) +
 					')';
 			} else if (value instanceof List<Integer>) {
 				return '(' +
-					String.join(
-						convertToStringList((List<Integer>) value),
-						', '
-					) +
+					String.join(convertToStringList((List<Integer>) value), ', ') +
 					')';
 			} else if (value instanceof Set<Integer>) {
 				return '(' +
 					String.join(
-						convertToStringList(
-							new List<Integer>((Set<Integer>) value)
-						),
+						convertToStringList(new List<Integer>((Set<Integer>) value)),
 						', '
 					) +
 					')';
@@ -746,35 +716,25 @@ public class Query {
 					')';
 			} else if (value instanceof List<Double>) {
 				return '(' +
-					String.join(
-						convertToStringList((List<Double>) value),
-						', '
-					) +
+					String.join(convertToStringList((List<Double>) value), ', ') +
 					')';
 			} else if (value instanceof Set<Double>) {
 				return '(' +
 					String.join(
-						convertToStringList(
-							new List<Double>((Set<Double>) value)
-						),
+						convertToStringList(new List<Double>((Set<Double>) value)),
 						', '
 					) +
 					')';
 			} else if (value instanceof Set<Decimal>) {
 				return '(' +
 					String.join(
-						convertToStringList(
-							new List<Decimal>((Set<Decimal>) value)
-						),
+						convertToStringList(new List<Decimal>((Set<Decimal>) value)),
 						', '
 					) +
 					')';
 			} else if (value instanceof Set<Set<String>>) {
 				return '(' +
-					String.join(
-						convertToStringList((Set<Set<String>>) value),
-						', '
-					) +
+					String.join(convertToStringList((Set<Set<String>>) value), ', ') +
 					')';
 			} else if (value instanceof SOQL.Builder) {
 				SOQL.Builder builder = (SOQL.Builder) value;
@@ -822,9 +782,7 @@ public class Query {
 		private List<String> convertToStringList(List<String> values) {
 			List<String> escapedValues = new List<String>();
 			for (String value : values) {
-				escapedValues.add(
-					'\'' + String.escapeSingleQuotes(value) + '\''
-				);
+				escapedValues.add('\'' + String.escapeSingleQuotes(value) + '\'');
 			}
 			return escapedValues;
 		}
@@ -876,9 +834,7 @@ public class Query {
 				for (String value : valueGroup) {
 					escapedGroupValues.add(String.escapeSingleQuotes(value));
 				}
-				escapedValues.add(
-					'\'' + String.join(escapedGroupValues, ';') + '\''
-				);
+				escapedValues.add('\'' + String.join(escapedGroupValues, ';') + '\'');
 			}
 			return escapedValues;
 		}

@@ -22,10 +22,7 @@ public class TestFactory {
 			objectName.replaceAll('__(c|C)$|__', '') + 'Defaults';
 		// If there is a class that exists for the default values, then use them
 		if (Type.forName('TestFactoryDefaults.' + defaultClassName) != null) {
-			sObj = createSObject(
-				sObj,
-				'TestFactoryDefaults.' + defaultClassName
-			);
+			sObj = createSObject(sObj, 'TestFactoryDefaults.' + defaultClassName);
 		}
 		return sObj;
 	}
@@ -109,11 +106,7 @@ public class TestFactory {
 		Integer numberOfObjects,
 		Boolean doInsert
 	) {
-		SObject[] retList = createSObjectList(
-			sObj,
-			numberOfObjects,
-			(String) null
-		);
+		SObject[] retList = createSObjectList(sObj, numberOfObjects, (String) null);
 		if (doInsert) {
 			insert retList;
 		}
@@ -186,10 +179,7 @@ public class TestFactory {
 		for (Integer i = 0; i < numberOfObjects; i++) {
 			SObject clonedSObj = newObj.clone(false, true);
 			if (!nameIsAutoNumber) {
-				clonedSObj.put(
-					nameField,
-					(String) clonedSObj.get(nameField) + ' ' + i
-				);
+				clonedSObj.put(nameField, (String) clonedSObj.get(nameField) + ' ' + i);
 			}
 			sObjs.add(clonedSObj);
 		}
@@ -283,8 +273,7 @@ public class TestFactory {
 		Id profileId = (Id) new SOQL.Builder('Profile')
 			.selectField('Id')
 			.whereCondition(
-				new Query.Condition()
-					.equals('Name', 'Minimum Access - Salesforce')
+				new Query.Condition().equals('Name', 'Minimum Access - Salesforce')
 			)
 			.setScopeLimit(1)
 			.build()
@@ -339,9 +328,7 @@ public class TestFactory {
 		Id profileId = (Id) new SOQL.Builder('Profile')
 			.selectField('Id')
 			.setScopeLimit(1)
-			.whereCondition(
-				new Query.Condition().equals('Name', 'Marketing User')
-			)
+			.whereCondition(new Query.Condition().equals('Name', 'Marketing User'))
 			.build()
 			.getRecord()
 			.Id;

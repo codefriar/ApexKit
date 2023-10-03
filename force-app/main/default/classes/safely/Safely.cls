@@ -109,10 +109,7 @@ public with sharing class Safely {
 				records
 			);
 
-			return Database.upsert(
-				securityDecision.getRecords(),
-				this.allOrNothing
-			);
+			return Database.upsert(securityDecision.getRecords(), this.allOrNothing);
 		}
 		return new List<Database.UpsertResult>();
 	}

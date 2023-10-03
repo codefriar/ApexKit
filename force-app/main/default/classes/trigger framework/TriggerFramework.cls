@@ -198,8 +198,7 @@ public virtual class TriggerFramework {
 			Boolean exceeded = TriggerFramework.LOOP_COUNT_MAP.get(handlerName)
 				.increment();
 			if (exceeded) {
-				Integer max = TriggerFramework.LOOP_COUNT_MAP.get(handlerName)
-					.max;
+				Integer max = TriggerFramework.LOOP_COUNT_MAP.get(handlerName).max;
 				throw new TriggerFrameworkException(
 					'Maximum loop count of ' +
 						String.valueOf(max) +
