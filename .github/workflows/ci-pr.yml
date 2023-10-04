@@ -44,7 +44,6 @@ jobs:
         with:
           sarif_file: pmd-report.sarif
           category: PMD analysis
-        run: exit 1
 
       # Check for PMD violations
       - name: 'Check for PMD violations'
