@@ -37,6 +37,10 @@ jobs:
         with:
           sarif_file: pmd-report.sarif
           category: PMD analysis
+
+      # Check for PMD violations
+      - name: 'Check for PMD violations'
+        if: steps.pmd.outputs.violations != 0
         run: exit 1
 
       # Install Volta to enforce proper node and package manager versions

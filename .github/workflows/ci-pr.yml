@@ -46,10 +46,10 @@ jobs:
           category: PMD analysis
         run: exit 1
 
-      #      # Check for PMD violations
-      #      - name: 'Check for PMD violations'
-      #        if: steps.pmd.outputs.violations != 0
-      #        run: exit 1
+      # Check for PMD violations
+      - name: 'Check for PMD violations'
+        if: steps.pmd.outputs.violations != 0
+        run: exit 1
 
       # Install Volta to enforce proper node and package manager versions
       - name: 'Install Volta'
