@@ -6,6 +6,9 @@
 	"scripts": {
 		"docs:setup": ". doc-assets/SetupApexDox.sh",
 		"docs:clean": "prettier --write \"docs/*.html\"",
+		"apexdocs": "sh bin/generate-apex-docs.sh",
+		"apex:local:start": "start-apex-server --host 127.0.0.1",
+		"apex:local:stop": "stop-apex-server --host 127.0.0.1",
 		"lint": "eslint **/{aura,lwc}/**",
 		"test": "npm run test:unit",
 		"test:unit": "sfdx-lwc-jest",
@@ -15,9 +18,10 @@
 		"prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
 		"prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
 		"postinstall": "husky install",
-		"precommit": "lint-staged"
+		"precommit": "npm run apexdocs && git add docs && lint-staged"
 	},
 	"devDependencies": {
+		"@cparra/apexdocs": "^2.17.0",
 		"@lwc/eslint-plugin-lwc": "^1.6.3",
 		"@prettier/plugin-xml": "^3.2.1",
 		"@salesforce/eslint-config-lwc": "^3.5.2",

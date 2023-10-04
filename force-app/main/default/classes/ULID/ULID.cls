@@ -53,7 +53,7 @@ public with sharing class ULID {
 	private static final Long CHARACTERSETSIZE = CHARACTERSET.size();
 	// This is equal to 2^48-1 and represents the max timestamp
 	// allowed in a ULID string
-	private static final Long MAXTIME = 281474976710655L;
+	// private static final Long MAXTIME = 281474976710655L;
 	// This is the number of digits to encode the timestamp into.
 	private static final Long TIMELENGTH = 10;
 	// This is the number of digits of random character to generate
@@ -75,7 +75,6 @@ public with sharing class ULID {
 	 * @param dtSeed long form of Timestamp to encode
 	 * @param timeLength how many characters of the timestamp to encode
 	 * @return  `String`
-	 * @exception
 	 */
 	private static String encodeTimestamp(Long dtSeed, Long timeLength) {
 		Long modulo;
@@ -91,8 +90,10 @@ public with sharing class ULID {
 	/**
 	 * @description generates a random string from the character set
 	 * of a given length.
-	 * @param length
-	 * @return  `String`
+	 *
+	 * @param length Integer length of the string to generate
+	 *
+	 * @return `String`
 	 */
 	private static String generateRandomString(Integer length) {
 		Integer[] retString = new List<Integer>(length);
