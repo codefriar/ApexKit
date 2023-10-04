@@ -92,7 +92,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: salesforce/cli:2.12.4-full
-    needs: format-lint-lwc-tests
+    needs: format-and-linting
     steps:
       # Checkout the source code
       - name: 'Checkout source code'
