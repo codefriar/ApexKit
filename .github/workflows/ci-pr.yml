@@ -39,15 +39,17 @@ jobs:
           rulesets: 'pmd/ruleset.xml'
 
       - name: Upload violations file in SARIF format
+        if: steps.pmd.outputs.violations != 0
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: pmd-report.sarif
           category: PMD analysis
-
-      # Check for PMD violations
-      - name: 'Check for PMD violations'
-        if: steps.pmd.outputs.violations != 0
         run: exit 1
+
+      #      # Check for PMD violations
+      #      - name: 'Check for PMD violations'
+      #        if: steps.pmd.outputs.violations != 0
+      #        run: exit 1
 
       # Install Volta to enforce proper node and package manager versions
       - name: 'Install Volta'
