@@ -99,9 +99,7 @@ private class QueueableProcessTests {
 
 		finalizer.dataProvider = (QueueableProcessDataProvider) Test.createStub(
 			QueueableProcessDataProvider.class,
-			new QueueableProcessMockDataProvider(
-				'ExampleQueueableProcessSteps.Step2'
-			)
+			new QueueableProcessMockDataProvider('ExampleQueueableProcessSteps.Step2')
 		);
 
 		Test.startTest();
@@ -131,9 +129,7 @@ private class QueueableProcessTests {
 
 		finalizer.dataProvider = (QueueableProcessDataProvider) Test.createStub(
 			QueueableProcessDataProvider.class,
-			new QueueableProcessMockDataProvider(
-				'ExampleQueueableProcessSteps.Step1'
-			)
+			new QueueableProcessMockDataProvider('ExampleQueueableProcessSteps.Step1')
 		);
 
 		Test.startTest();

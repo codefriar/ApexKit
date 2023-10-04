@@ -68,9 +68,7 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 		switch on context.getResult() {
 			when SUCCESS {
 				if (this.processSteps.size() > 0) {
-					QueueableProcess nextProcessStep = this.processSteps.remove(
-						0
-					);
+					QueueableProcess nextProcessStep = this.processSteps.remove(0);
 					nextProcessStep.processSteps = this.processSteps;
 					nextProcessStep.dataPassthrough = dataPassthrough;
 					nextProcessStep.queueableContextHistory = this.queueableContextHistory;
@@ -106,9 +104,7 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 			exceptionHandler
 				?.call(
 					'handleExceptions',
-					new Map<String, List<Exception>>{
-						'incomingExceptions' => exceptions
-					}
+					new Map<String, List<Exception>>{ 'incomingExceptions' => exceptions }
 				);
 		}
 	}

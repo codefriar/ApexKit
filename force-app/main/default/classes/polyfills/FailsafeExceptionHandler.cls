@@ -69,14 +69,10 @@ public with sharing class FailsafeExceptionHandler implements System.Callable {
 	public Object call(String action, Map<String, Object> args) {
 		switch on action {
 			when 'handleException' {
-				this.handledException(
-					(Exception) args.get('incomingException')
-				);
+				this.handledException((Exception) args.get('incomingException'));
 			}
 			when 'handleExceptions' {
-				this.handleExceptions(
-					(List<Exception>) args.get('incomingExceptions')
-				);
+				this.handleExceptions((List<Exception>) args.get('incomingExceptions'));
 			}
 		}
 		logger.publish();
