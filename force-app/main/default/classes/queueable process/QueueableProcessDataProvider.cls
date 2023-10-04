@@ -19,17 +19,12 @@ public with sharing class QueueableProcessDataProvider {
 	 * @return String The name of the Apex class that just failed.
 	 */
 	public String getClassName(Id jobId) {
-		try {
-			return [
-				SELECT ApexClass.Name
-				FROM AsyncApexJob
-				WHERE Id = :jobId
-				WITH SYSTEM_MODE
-			]
-			.ApexClass.Name;
-		} catch (QueryException qe) {
-			// for now, in this use case, we don't care about the exception, just want to return null.
-			return null;
-		}
+		return [
+			SELECT ApexClass.Name
+			FROM AsyncApexJob
+			WHERE Id = :jobId
+			WITH SYSTEM_MODE
+		]
+		.ApexClass.Name;
 	}
 }

@@ -92,7 +92,7 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 			QueueableProcess parentQueueable = (QueueableProcess) Type.forName(
 					className
 				)
-				.newInstance();
+				?.newInstance();
 			parentQueueable.handleException(context.getException());
 		} catch (QueryException qe) {
 			Callable exceptionHandler = (Callable) Type.forName(

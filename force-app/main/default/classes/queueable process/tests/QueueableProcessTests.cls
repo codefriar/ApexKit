@@ -70,6 +70,7 @@ private class QueueableProcessTests {
 			new List<QueueableContext>(),
 			new List<FinalizerContext>()
 		);
+
 		Test.startTest();
 		finalizer.execute(
 			new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION)
