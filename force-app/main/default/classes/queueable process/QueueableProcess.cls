@@ -6,24 +6,57 @@
  * pattern, but an elegant way to logically chain Salesforce Queueables together. As a Developer, you'll need to extend
  * this class, implementing the necessary `execute` method. Your `execute` method will be invoked asynchronously as part
  * of a Queueable. You can then chain additional Queueables together using the `then` method provided by this class.
- *
+ * <br>
  * As each 'step' of the chain is completed the transaction finalizer will be constructed with the remaining steps and
  * any passthrough data you specify. Passthrough data allows you to pass data between steps.
  */
 public abstract class QueueableProcess implements Queueable, Database.AllowsCallouts {
 	public List<QueueableProcess> processSteps = new List<QueueableProcess>();
 	public Object dataPassthrough;
+	public List<QueueableContext> queueableContextHistory;
+	public List<FinalizerContext> finalizerContextHistory;
+	@TestVisible
+	private static Boolean defaultHandleExceptionCalled = false;
 
 	/**
-	 * @description This method provides a syntatic sugar for adding a new QueueableProcess to the chain.
+	 * @description this is a constructor that is used by extension classes;
+	 */
+	@SuppressWarnings('PMD.EmptyStatementBlock')
+	protected QueueableProcess() {
+	}
+
+	/**
+	 * @description This method provides a syntactic sugar for adding a new QueueableProcess to the chain.
 	 *
 	 * @param toAdd An instance of a class that extends this QueueableProcess class and implements the `execute` method.
 	 *
 	 * @return Returns a Queueable Process instance that can be used to chain additional QueueableProcess instances.
 	 */
-	protected QueueableProcess then(Object toAdd) {
-		processSteps.add((QueueableProcess) toAdd);
+	public QueueableProcess then(QueueableProcess toAdd) {
+		processSteps.add(toAdd);
 		return this;
+	}
+
+	/**
+	 * @description This method starts the QueueableProcess chain. It's the entry point for the process.
+	 *
+	 * @return Id - Id of the Enqueued job.
+	 */
+	public Id start() {
+		return start(null);
+	}
+
+	/**
+	 * @description This method starts the QueueableProcess chain. It's the entry point for the process.
+	 *
+	 * @param initialPassthrough Object - this is the initial passthrough data that will be passed to the first
+	 * QueueableProcess in the chain.
+	 *
+	 * @return Id - Id of the Enqueued job.
+	 */
+	public Id start(Object initialPassthrough) {
+		this.dataPassthrough = initialPassthrough;
+		return System.enqueueJob(this);
 	}
 
 	/**
@@ -33,22 +66,41 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	abstract public void execute();
 
 	/**
+	 * @description this is a default implementation of an handleError method. It's called by the finalizer if the
+	 * developer doesn't implement their own handleError method. Developers can write per-step error handling
+	 * by implementing their own handleError method as `public override void handleError(Exception incomingException)`
+	 *
+	 * @param incomingException Exception - the exception that was thrown during execution.
+	 */
+	virtual public void handleException(Exception incomingException) {
+		QueueableProcess.defaultHandleExceptionCalled = true;
+		System.debug(incomingException.getMessage()); // NOPMD
+	}
+
+	/**
 	 * @description This is required by the Queueable interface. It's the essence of how the QueueableProcess pattern is
 	 * implemented in Apex.
 	 *
 	 * @param context QueueableContext - dependency injected by Salesforce at execution time.
 	 */
 	public virtual void execute(QueueableContext context) {
+		// if the queueableContextHistory is null, initialize it.
+		if (this.queueableContextHistory == null) {
+			this.queueableContextHistory = new List<QueueableContext>();
+		}
+		this.queueableContextHistory.add(context);
 		// invoke the abstract method `execute`. see the comment above.
 		execute();
 		// create a new instance of the finalizer class. Note that we're passing in the list of remaining steps and the
 		// passthrough data.
-		Finalizer chain = new EnqueueNextQueueableProcessStep(
+		Finalizer nextStep = new EnqueueNextQueueableProcessStep(
 			this.processSteps,
-			this.dataPassthrough
+			this.dataPassthrough,
+			this.queueableContextHistory,
+			this.finalizerContextHistory
 		);
 		// Attach the finalizer to system context. This will take care of enqueueing the next QueueableProcess step in
-		// the chain.
-		System.attachFinalizer(chain);
+		// the nextStep.
+		System.attachFinalizer(nextStep);
 	}
 }
