@@ -13,7 +13,7 @@ on:
 
 # Jobs to be executed
 jobs:
-  format-lint-lwc-tests:
+  format-and-linting:
     runs-on: ubuntu-latest
     container:
       image: salesforce/cli:2.12.4-full
@@ -21,6 +21,25 @@ jobs:
       # Checkout the source code
       - name: 'Checkout source code'
         uses: actions/checkout@v4
+
+        # Run PMD scan
+      - name: 'Run PMD scan'
+        uses: pmd/pmd-github-action@main
+        id: pmd
+        with:
+          version: 'latest'
+          sourcePath: 'force-app'
+          rulesets: 'pmd/ruleset.xml'
+
+      - name: Upload violations file in SARIF format
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: pmd-report.sarif
+
+        # Check for PMD violations
+      - name: 'Check for PMD violations'
+        if: steps.pmd.outputs.violations != 0
+        run: exit 1
 
       # Install Volta to enforce proper node and package manager versions
       - name: 'Install Volta'
@@ -71,20 +90,6 @@ jobs:
       # Checkout the source code
       - name: 'Checkout source code'
         uses: actions/checkout@v4
-
-      # Run PMD scan
-      - name: 'Run PMD scan'
-        uses: pmd/pmd-github-action@main
-        id: pmd
-        with:
-          version: 'latest'
-          sourcePath: 'force-app'
-          rulesets: 'pmd/ruleset.xml'
-
-      # Check for PMD violations
-      - name: 'Check for PMD violations'
-        if: steps.pmd.outputs.violations != 0
-        run: exit 1
 
       # Install Salesforce CLI
       - name: 'Install Salesforce CLI'
