@@ -24,19 +24,17 @@ jobs:
   # GPT-4 code review
   review_with_gpt:
     runs-on: ubuntu-latest
-
+    name: ChatGPT code reviewer
     steps:
-      - name: GPTReviewWorkflow
-        uses: suarezafelipe/GPTReviewWorkflow@v1.1.0
+      - name: ChatGTP code reviewer code
+        uses: fr33d00m/chatgpt-github-actions@v2-turbo
         with:
-          GIT_COMMIT_HASH: ${{ github.event.pull_request.head.sha }}
-          GIT_PATCH_OUTPUT: ${{ github.event.pull_request.patch_url }}
-          GITHUB_TOKEN: ${{ github.token }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          OPENAI_ORG_KEY: ${{ secrets.OPENAI_ORG_KEY }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          REPOSITORY_NAME: ${{ github.repository }}
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_pr_id: ${{ github.event.number }}
+          openai_engine: "gpt-3.5-turbo" #optional
+          openai_temperature: 0.2 #optional
+          openai_max_tokens: 2048 #optional
 
   # Formatting only runs on human-submitted and Dependabot PRs
   format-and-linting:
