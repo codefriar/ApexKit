@@ -14,6 +14,8 @@ rm -fr docs &&
 # Remove doc index
 #rm docs/index.md && \
 
+mv docs/index.md docs/home.md && \
+
 # Flatten directory structure
 find docs/* -mindepth 1 -type f -exec mv -i '{}' docs ';' && \
 
