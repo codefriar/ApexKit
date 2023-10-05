@@ -1,3 +1,9 @@
+### [Assert](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Assert)
+
+Assert class 'shadows' the System.Assert class allowing us to add custom assertion methods accessed
+via the static Assert.\* methods. This allows us to add custom assertion methods that are more readable and provide
+more flexibility and functionality than the standard System.Assert methods. Ultimate&hellip;
+
 ### [AsyncRestClient](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/AsyncRestClient)
 
 wraps a restlib backed api call in a queueable context
