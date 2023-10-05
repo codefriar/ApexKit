@@ -11,6 +11,8 @@ on:
         type: boolean
   pull_request:
     types: [opened, edited, synchronize, reopened]
+    paths:
+      - 'force-app/**'
 
 # Workflow environment variables
 env:

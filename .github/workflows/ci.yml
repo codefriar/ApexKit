@@ -7,9 +7,11 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'sfdx-project.json'
-      - 'README.md'
+    paths:
+      - 'force-app/**'
+#    paths-ignore:
+#      - 'sfdx-project.json'
+#      - 'README.md'
 
 # Jobs to be executed
 jobs:
