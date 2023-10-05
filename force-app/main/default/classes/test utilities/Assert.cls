@@ -9,8 +9,7 @@ public with sharing class Assert {
 	/**
 	 * @description Look, this is a quasi inside joke method. If you have to ask if it's janky, it is. For more
 	 * information, ask @jeffKrantz over on SFDC Discord.
-	 *
-	 * @param msg String the message you want in your failure response.
+	 * @param msg String the message you want in your failure response
 	 */
 	public static void isNotJanky(String msg) {
 		System.Assert.fail(msg);
