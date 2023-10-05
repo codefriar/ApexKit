@@ -31,7 +31,7 @@ jobs:
         with:
           GIT_COMMIT_HASH: ${{ github.event.pull_request.head.sha }}
           GIT_PATCH_OUTPUT: ${{ github.event.pull_request.patch_url }}
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_ORG_KEY: ${{ secrets.OPENAI_ORG_KEY }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
