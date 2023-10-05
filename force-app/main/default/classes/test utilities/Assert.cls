@@ -7,6 +7,15 @@
 @SuppressWarnings('PMD.ExcessivePublicCount, PMD.ExcessiveParameterList')
 public with sharing class Assert {
 	/**
+	 * Assert.contains (any of set, list, string)
+	 * Assert.startsWith( string )
+	 * Assert.endsWith( string )
+	 * Assert.areEqual( date-time, leeway )
+	 * Assert.throws( ExceptionType )
+	 * Assert.doesNotThrowException()
+	 */
+
+	/**
 	 * @description Look, this is a quasi inside joke method. If you have to ask if it's janky, it is. For more
 	 * information, ask @jeffKrantz over on SFDC Discord.
 	 * @param msg String the message you want in your failure response

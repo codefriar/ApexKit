@@ -11,15 +11,7 @@ end-developers with a more readable and flexible way to write assertions.
 
 ### `public static void isNotJanky(String msg)`
 
-Look, this is a quasi inside joke method. If you have to ask if it's janky, it is. For more information, ask
-
-#### Parameters
-
-| Param | Description                                          |
-| ----- | ---------------------------------------------------- |
-| `msg` | String the message you want in your failure response |
-
-**JeffKrantz** over on SFDC Discord.
+Assert.contains (any of set, list, string) Assert.startsWith( string ) Assert.endsWith( string ) Assert.areEqual( date-time, leeway ) Assert.throws( ExceptionType ) Assert.doesNotThrowException()
 
 ### `public static void listMeetsMinimumSize(List<Object> collection, Integer minSize, String msg)`
 
