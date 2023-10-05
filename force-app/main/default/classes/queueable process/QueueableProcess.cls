@@ -72,7 +72,7 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	 *
 	 * @param incomingException Exception - the exception that was thrown during execution.
 	 */
-	virtual public void handleException(Exception incomingException) {
+	public virtual void handleException(Exception incomingException) {
 		QueueableProcess.defaultHandleExceptionCalled = true;
 		System.debug(incomingException.getMessage()); // NOPMD
 	}

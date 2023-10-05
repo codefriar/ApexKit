@@ -2,6 +2,8 @@
 
 Convenience class for checking feature flags. This is purely Syntactic sugar.
 
+**Group** FeatureFlag
+
 ## Methods
 
 ### `public static Boolean isEnabled(String featureName)`

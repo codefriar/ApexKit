@@ -3,6 +3,8 @@
 This class is responsible for querying / fetching FeatureFlag data. This is separate from the
 FeatureFlag flag class to facilitate proper unit testing. (and just good design)
 
+**Group** FeatureFlag
+
 ## Constructors
 
 ### `public FeatureFlagDataProvider()`

@@ -1,5 +1,7 @@
 /**
  * @description Convenience class for checking feature flags. This is purely Syntactic sugar.
+ *
+ * @group FeatureFlag
  */
 public with sharing class FF {
 	/**

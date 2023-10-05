@@ -1,5 +1,7 @@
 /**
  * @description Provides a unified, simple and testable api for feature flags
+ *
+ * @group FeatureFlag
  */
 public with sharing class FeatureFlag {
 	/**

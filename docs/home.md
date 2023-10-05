@@ -44,10 +44,6 @@ is executed. The QueueableProcess class automatically attaches this finalizer t&
 
 This class contains two inner classes used for testing the QueueableProcess framework.
 
-### [FF](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FF)
-
-Convenience class for checking feature flags. This is purely Syntactic sugar.
-
 ### [FLSType](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FLSType)
 
 ### [FailsafeExceptionHandler](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FailsafeExceptionHandler)
@@ -57,19 +53,10 @@ boilerplate exception handling code everywhere, this class can be used to log ex
 
 ### [FailsafeExceptionHandlerTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FailsafeExceptionHandlerTests)
 
-### [FeatureFlag](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FeatureFlag)
-
-Provides a unified, simple and testable api for feature flags
-
 ### [FeatureFlagCommonTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FeatureFlagCommonTests)
 
 Class serves to DRY code for various testing methods that
 require it. It is not intended to be used directly.
-
-### [FeatureFlagDataProvider](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FeatureFlagDataProvider)
-
-This class is responsible for querying / fetching FeatureFlag data. This is separate from the
-FeatureFlag flag class to facilitate proper unit testing. (and just good design)
 
 ### [FeatureFlagDataProviderTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/FeatureFlagDataProviderTests)
 
@@ -415,6 +402,26 @@ to set the correct property on ouput.
 This class exposes methods from any class that extends Invocable to flows.
 By adding 'extends Invocable' to your class and adding the call method, any class' methods can be
 invoked by this single invocable method.
+
+
+## FeatureFlag
+
+### [FF](https://github.com/codefriar/ApexKit/wiki/FeatureFlag/FF)
+
+Convenience class for checking feature flags. This is purely Syntactic sugar.
+
+
+
+### [FeatureFlag](https://github.com/codefriar/ApexKit/wiki/FeatureFlag/FeatureFlag)
+
+Provides a unified, simple and testable api for feature flags
+
+
+
+### [FeatureFlagDataProvider](https://github.com/codefriar/ApexKit/wiki/FeatureFlag/FeatureFlagDataProvider)
+
+This class is responsible for querying / fetching FeatureFlag data. This is separate from the
+FeatureFlag flag class to facilitate proper unit testing. (and just good design)
 
 
 ```

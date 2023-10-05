@@ -2,6 +2,8 @@
 
 Provides a unified, simple and testable api for feature flags
 
+**Group** FeatureFlag
+
 ## Constructors
 
 ### `public FeatureFlag()`
