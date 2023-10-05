@@ -1,4 +1,4 @@
-# IdFactory
+`STATUS: ACTIVE`
 
 A factory class for generating bogus Ids for testing purposes.
 

@@ -1,4 +1,4 @@
-# FF
+`STATUS: ACTIVE`
 
 Convenience class for checking feature flags. This is purely Syntactic sugar.
 

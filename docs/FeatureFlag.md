@@ -1,4 +1,4 @@
-# FeatureFlag
+`STATUS: ACTIVE`
 
 Provides a unified, simple and testable api for feature flags
 

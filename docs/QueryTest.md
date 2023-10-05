@@ -1,8 +1,8 @@
-# QueryTest
-
-`ISTEST`
-
 `SUPPRESSWARNINGS`
+
+`APIVERSION: 58`
+
+`STATUS: ACTIVE`
 
 MIT License
 Copyright (c) 2020 Rafał Kopaczewski

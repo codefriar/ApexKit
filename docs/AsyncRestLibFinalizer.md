@@ -1,4 +1,4 @@
-# AsyncRestLibFinalizer
+`STATUS: ACTIVE`
 
 Abstract class defining a common interface with default implementation for finalizers handling
 AsyncRestApi calls

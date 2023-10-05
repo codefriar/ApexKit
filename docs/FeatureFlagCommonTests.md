@@ -1,6 +1,6 @@
-# FeatureFlagCommonTests
+`APIVERSION: 58`
 
-`ISTEST`
+`STATUS: ACTIVE`
 
 Class serves to DRY code for various testing methods that
 require it. It is not intended to be used directly.

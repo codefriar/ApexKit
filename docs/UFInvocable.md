@@ -1,4 +1,4 @@
-# UFInvocable
+`STATUS: ACTIVE`
 
 This provides a common interface for classes & methods developers want to expose to flow.
 Intrepid developers will note you could just implement the Callable interface in all of your classes.

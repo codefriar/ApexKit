@@ -1,4 +1,4 @@
-# CustomInvocable
+`STATUS: ACTIVE`
 
 This class is an example of how to implement the Invocable Abstract Class.
 It doesn't do much, but it does illustrate how BulkCallable, Invocable, UniversalInvocable, UniversalFlowInputOutput and

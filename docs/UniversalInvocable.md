@@ -1,4 +1,4 @@
-# UniversalInvocable
+`STATUS: ACTIVE`
 
 This class exposes methods from any class that extends Invocable to flows.
 By adding 'extends Invocable' to your class and adding the call method, any class' methods can be

@@ -1,4 +1,4 @@
-# FailsafeExceptionHandler
+`STATUS: ACTIVE`
 
 This class is a polyfill for the handling exceptions. Rather than writing
 boilerplate exception handling code everywhere, this class can be used to log exceptions.

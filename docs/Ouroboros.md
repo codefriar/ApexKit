@@ -1,4 +1,4 @@
-# Ouroboros
+`STATUS: ACTIVE`
 
 Ouroboros is the ancient mythical symbol of a dragon or serpent eating its own tail. It's often
 understood as a reference to the circle of life, or the never ending nature life and death. In this case, it's a

@@ -1,8 +1,8 @@
-# SampleHandler
-
-`SUPPRESSWARNINGS`
-
 `ISTEST`
+
+`APIVERSION: 58`
+
+`STATUS: ACTIVE`
 
 This class is a sample trigger handler for use while testing
 the metadataTriggerHandler. Because custom metadata cannot be inserted, and

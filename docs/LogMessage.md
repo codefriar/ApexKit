@@ -1,4 +1,4 @@
-# LogMessage
+`STATUS: ACTIVE`
 
 A class for automatically attaching metadata to log messages
 like Quiddity and RequestID

@@ -1,8 +1,8 @@
-# MetadataTriggerFrameworkTests
-
-`ISTEST`
-
 `SUPPRESSWARNINGS`
+
+`APIVERSION: 58`
+
+`STATUS: ACTIVE`
 
 ## Methods
 

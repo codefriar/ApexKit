@@ -1,6 +1,6 @@
-# SOQLAgregate
+`APIVERSION: 58`
 
-`SUPPRESSWARNINGS`
+`STATUS: ACTIVE`
 
 MIT License
 Copyright (c) 2020 Rafał Kopaczewski

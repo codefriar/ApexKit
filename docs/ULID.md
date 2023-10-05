@@ -1,4 +1,4 @@
-# ULID
+`STATUS: ACTIVE`
 
 This class implements the ULID spec in Apex.
 You can find that standard here: https://github.com/ulid/spec

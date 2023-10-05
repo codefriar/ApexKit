@@ -1,8 +1,8 @@
-# TriggerFrameworkTests
-
-`ISTEST`
-
 `TESTVISIBLE`
+
+`APIVERSION: 58`
+
+`STATUS: ACTIVE`
 
 ## Fields
 

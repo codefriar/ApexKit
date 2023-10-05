@@ -1,4 +1,4 @@
-# QuiddityGuard
+`STATUS: ACTIVE`
 
 contains methods and static lists for rapid acceptance of a particular set of quiddities.
 Note: I am not responsible for the name 'Quiddity'. Rumor has it the word comes from Sanskrit and means 'essence'.

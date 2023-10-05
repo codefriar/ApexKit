@@ -1,4 +1,4 @@
-# BulkCallable
+`STATUS: ACTIVE`
 
 Provides a similar interface to Callable, but bulkified to handle multiple sets of parameters.
 

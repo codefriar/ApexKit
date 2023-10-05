@@ -1,4 +1,4 @@
-# RestClientLib
+`STATUS: ACTIVE`
 
 This class is a wrapper around the RestLib class that is intended to be extended by developers
 to provide a quick, safe, and reliable way of making REST callouts. By extending this class you're locking your

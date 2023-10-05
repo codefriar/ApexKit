@@ -1,4 +1,4 @@
-# InvokeMetadataDrivenTriggerFramework
+`STATUS: ACTIVE`
 
 class exists to allow the Metadata Trigger Framework to be invoked from a Flow
 

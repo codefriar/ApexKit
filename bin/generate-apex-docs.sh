@@ -1,7 +1,7 @@
 #!/bin/bash
 # shellcheck disable=SC2164
-SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cd $SCRIPT_PATH/..
+#SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+# cd $SCRIPT_PATH/..
 
 # Remove old docs
 rm -fr docs &&
@@ -9,10 +9,10 @@ rm -fr docs &&
 #rm -fr force-app/main/default/staticresources/documentation && \
 
 # Generate Apex doc files
-./node_modules/.bin/apexdocs-generate -p global public private protected namespaceaccessible -s force-app/main/ && \
+./node_modules/.bin/apexdocs-generate -p global public private protected namespaceaccessible -s force-app/main/ -g plain-markdown --sanitizeHtml --includeMetadata && \
 
 # Remove doc index
-rm docs/index.md && \
+#rm docs/index.md && \
 
 # Flatten directory structure
 find docs/* -mindepth 1 -type f -exec mv -i '{}' docs ';' && \

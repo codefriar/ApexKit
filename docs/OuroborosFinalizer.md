@@ -1,4 +1,4 @@
-# OuroborosFinalizer
+`STATUS: ACTIVE`
 
 This is the OuroborosFinalizer class. It is responsible for determining if the Ouroboros should
 continue to loop, and if so, enqueueing the next iteration. It also ensure passthrough objects are passed to the

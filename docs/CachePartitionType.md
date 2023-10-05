@@ -1,3 +1,3 @@
-# CachePartitionType
+`STATUS: ACTIVE`
 
 Enum for partition type.

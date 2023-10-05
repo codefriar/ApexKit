@@ -1,4 +1,4 @@
-# TriggerContext
+`STATUS: ACTIVE`
 
 A class encapsulating the trigger context. Before/after insert/update/delete etc.
 

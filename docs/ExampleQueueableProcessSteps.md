@@ -1,6 +1,6 @@
-# ExampleQueueableProcessSteps
+`APIVERSION: 58`
 
-`ISTEST`
+`STATUS: ACTIVE`
 
 This class contains two inner classes used for testing the QueueableProcess framework.
 

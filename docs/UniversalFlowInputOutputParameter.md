@@ -1,4 +1,4 @@
-# UniversalFlowInputOutputParameter
+`STATUS: ACTIVE`
 
 This class contains the object definition used by the Universal Invocable Action. It's designed
 to expose variables of every type allowed by the InvocableVariable method in a single object. It uses type detection

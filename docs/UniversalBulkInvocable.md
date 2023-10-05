@@ -1,4 +1,4 @@
-# UniversalBulkInvocable
+`STATUS: ACTIVE`
 
 This class contains the one and only invocable method that will be displayed in the flow builder.
 

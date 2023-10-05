@@ -1,4 +1,4 @@
-# CanTheUser
+`STATUS: ACTIVE`
 
 A reusable, intuitive library for determining whether or not the
 current use can create, read, edit, or delete objects as well as

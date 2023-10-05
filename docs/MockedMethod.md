@@ -1,6 +1,6 @@
-# MockedMethod
+`APIVERSION: 58`
 
-`ISTEST`
+`STATUS: ACTIVE`
 
 Represents a method call that is mocked as part of a Stub
 object. This class is marked

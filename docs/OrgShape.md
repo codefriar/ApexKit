@@ -1,4 +1,4 @@
-# OrgShape
+`STATUS: ACTIVE`
 
 Class contains static methods for determining if specific
 platform features are enabled. For example, do we have platform cache

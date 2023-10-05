@@ -1,6 +1,6 @@
-# ULIDTests
+`APIVERSION: 58`
 
-`ISTEST`
+`STATUS: ACTIVE`
 
 This seems like a woefully inadequate test class.
 However, the ULID class contains no branching logic to test.

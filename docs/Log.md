@@ -1,4 +1,4 @@
-# Log
+`STATUS: ACTIVE`
 
 Generic logging framework that persists across DML reversions by publishing a Platform Event
 

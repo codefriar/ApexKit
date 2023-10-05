@@ -1,4 +1,4 @@
-# MetadataTriggerFramework
+`STATUS: ACTIVE`
 
 A metadata driven extension of the TriggerFramework class
 

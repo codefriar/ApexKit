@@ -1,6 +1,6 @@
-# SOQLAgregateTest
+`APIVERSION: 58`
 
-`ISTEST`
+`STATUS: ACTIVE`
 
 MIT License
 Copyright (c) 2020 Rafał Kopaczewski

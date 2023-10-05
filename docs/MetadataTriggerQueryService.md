@@ -1,4 +1,4 @@
-# MetadataTriggerQueryService
+`STATUS: ACTIVE`
 
 Class encapsulates the querying of Metadata_Driven_Trigger\_\_mdt records on behalf of the
 MetadataTriggerHandlerClass class. It is not intended to be used directly by developers.

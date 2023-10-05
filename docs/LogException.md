@@ -1,4 +1,4 @@
-# LogException
+`STATUS: ACTIVE`
 
 This is a custom exception class for logging purposes.
 I create a custom exception for every feature of ApexKit. While

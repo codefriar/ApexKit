@@ -1,6 +1,6 @@
-# Stub
+`APIVERSION: 58`
 
-`ISTEST`
+`STATUS: ACTIVE`
 
 This class helps you construct and manage StubProvider
 conforming objects for use in Unit Tests. It, along with it's companion

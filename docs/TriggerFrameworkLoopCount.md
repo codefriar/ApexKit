@@ -1,4 +1,4 @@
-# TriggerFrameworkLoopCount
+`STATUS: ACTIVE`
 
 inner class for managing the loop count per handler
 

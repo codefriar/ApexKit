@@ -1,4 +1,4 @@
-# LogTriggerHandler
+`STATUS: ACTIVE`
 
 Class handles the post-insert processing of Log events
 <br>Extends the TriggerFramework class
