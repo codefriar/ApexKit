@@ -29,7 +29,7 @@ jobs:
       pull-requests: write
     steps:
       - name: ChatGTP code reviewer code
-        uses: fr33d00m/chatgpt-github-actions@v2-turbo
+        uses: fr33d00m/chatgpt-github-actions@v2.5.0
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
