@@ -145,14 +145,8 @@ public with sharing class SOQLAgregateTest {
 			);
 			Assert.areEqual(null, soqlAgregateBuilder.numberOfRows);
 			Assert.areEqual(null, soqlAgregateBuilder.offset);
-			Assert.areEqual(
-				new Set<String>(),
-				soqlAgregateBuilder.fieldsToSelect
-			);
-			Assert.areEqual(
-				new Set<String>(),
-				soqlAgregateBuilder.groupByOptions
-			);
+			Assert.areEqual(new Set<String>(), soqlAgregateBuilder.fieldsToSelect);
+			Assert.areEqual(new Set<String>(), soqlAgregateBuilder.groupByOptions);
 			Assert.areEqual(
 				new Set<String>(),
 				soqlAgregateBuilder.groupByRollupOptions
@@ -214,11 +208,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'AVG(' +
-				fieldName +
-				') ' +
-				alias;
+			String expectedAgregateFunctionFormat = 'AVG(' + fieldName + ') ' + alias;
 			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
@@ -406,11 +396,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'MIN(' +
-				fieldName +
-				') ' +
-				alias;
+			String expectedAgregateFunctionFormat = 'MIN(' + fieldName + ') ' + alias;
 			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
@@ -469,11 +455,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'MAX(' +
-				fieldName +
-				') ' +
-				alias;
+			String expectedAgregateFunctionFormat = 'MAX(' + fieldName + ') ' + alias;
 			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
@@ -532,11 +514,7 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'SUM(' +
-				fieldName +
-				') ' +
-				alias;
+			String expectedAgregateFunctionFormat = 'SUM(' + fieldName + ') ' + alias;
 			System.assert(
 				soqlAgregateBuilder.fieldsToSelect.contains(
 					expectedAgregateFunctionFormat
@@ -557,9 +535,7 @@ public with sharing class SOQLAgregateTest {
 			Query.Condition condition = new Query.Condition()
 				.equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
 
-			System.assert(
-				soqlAgregateBuilder.whereCondition.expressions.isEmpty()
-			);
+			System.assert(soqlAgregateBuilder.whereCondition.expressions.isEmpty());
 
 			Test.startTest();
 
@@ -567,10 +543,7 @@ public with sharing class SOQLAgregateTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				soqlAgregateBuilder.whereCondition.expressions.size()
-			);
+			Assert.areEqual(1, soqlAgregateBuilder.whereCondition.expressions.size());
 		}
 	}
 
@@ -854,9 +827,7 @@ public with sharing class SOQLAgregateTest {
 				.whereCondition(
 					new Query.Condition().greaterThan('AnnualRevenue', 1000)
 				)
-				.havingCondition(
-					new Query.Condition().greaterThan('COUNT(Id)', 2)
-				)
+				.havingCondition(new Query.Condition().greaterThan('COUNT(Id)', 2))
 				.groupByRollup('Type')
 				.orderBy(new Query.SortOrder('Type'))
 				.scopeLimit(10)

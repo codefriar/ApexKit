@@ -1,3 +1,6 @@
+/**
+ * @description This class contains the one and only invocable method that will be displayed in the flow builder.
+ */
 public with sharing class UniversalBulkInvocable {
 	/**
 	 * @description This method is what will be displayed in the flow builder. This method can correctly handle bulk

@@ -35,11 +35,7 @@ private class SafelyTests {
 		Test.startTest();
 		List<Database.SaveResult> results = new Safely().doInsert(account);
 		Test.stopTest();
-		Assert.areEqual(
-			1,
-			results.size(),
-			'Expected one save result in the list'
-		);
+		Assert.areEqual(1, results.size(), 'Expected one save result in the list');
 		Assert.isTrue(results.get(0).success, 'This dml should succeed');
 	}
 
@@ -74,10 +70,7 @@ private class SafelyTests {
 			try {
 				new Safely().throwIfRemovedFields().doInsert(account);
 			} catch (Safely.RemovedFieldsException rfe) {
-				if (
-					rfe.getMessage()
-						.containsIgnoreCase('and the following fields')
-				) {
+				if (rfe.getMessage().containsIgnoreCase('and the following fields')) {
 					didCatchTheRightException = true;
 				}
 			}
@@ -97,11 +90,7 @@ private class SafelyTests {
 		Test.startTest();
 		List<Database.SaveResult> results = new Safely().doUpdate(account);
 		Test.stopTest();
-		Assert.areEqual(
-			1,
-			results.size(),
-			'Expected one save result in the list'
-		);
+		Assert.areEqual(1, results.size(), 'Expected one save result in the list');
 		Assert.isTrue(results.get(0).success, 'This dml should succeed');
 	}
 
@@ -177,10 +166,7 @@ private class SafelyTests {
 			try {
 				new Safely().throwIfRemovedFields().doUpdate(account);
 			} catch (Safely.RemovedFieldsException rfe) {
-				if (
-					rfe.getMessage()
-						.containsIgnoreCase('and the following fields')
-				) {
+				if (rfe.getMessage().containsIgnoreCase('and the following fields')) {
 					didCatchTheRightException = true;
 				}
 			}
@@ -200,10 +186,8 @@ private class SafelyTests {
 		Account account2 = (Account) new Account(Name = 'TestAccount');
 		List<Account> accounts = new List<Account>{ account, account2 };
 		Test.startTest();
-		List<Database.upsertResult> insertResults = new Safely()
-			.doUpsert(account);
-		List<Database.UpsertResult> mixedResults = new Safely()
-			.doUpsert(accounts);
+		List<Database.upsertResult> insertResults = new Safely().doUpsert(account);
+		List<Database.UpsertResult> mixedResults = new Safely().doUpsert(accounts);
 		Test.stopTest();
 		Assert.areEqual(
 			1,
@@ -254,8 +238,7 @@ private class SafelyTests {
 			Account account2 = (Account) new Account(Name = 'TestAccount02');
 
 			Test.startTest();
-			List<Database.SaveResult> insertResults = new Safely()
-				.doInsert(account);
+			List<Database.SaveResult> insertResults = new Safely().doInsert(account);
 			account.Name = 'TestAccount2';
 			List<Account> accounts = new List<Account>{ account, account2 };
 			List<Database.UpsertResult> mixedResults = new Safely()
@@ -266,10 +249,7 @@ private class SafelyTests {
 				insertResults.size(),
 				'Expected one save result in the list'
 			);
-			Assert.isTrue(
-				insertResults.get(0).success,
-				'This dml should succeed'
-			);
+			Assert.isTrue(insertResults.get(0).success, 'This dml should succeed');
 			Assert.isTrue(mixedResults.isEmpty(), 'expected no updates');
 		}
 	}
@@ -286,10 +266,7 @@ private class SafelyTests {
 			try {
 				new Safely().throwIfRemovedFields().doUpsert(account);
 			} catch (Safely.RemovedFieldsException rfe) {
-				if (
-					rfe.getMessage()
-						.containsIgnoreCase('and the following fields')
-				) {
+				if (rfe.getMessage().containsIgnoreCase('and the following fields')) {
 					didCatchTheRightException = true;
 				}
 			}

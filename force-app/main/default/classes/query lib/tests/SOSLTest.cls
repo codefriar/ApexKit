@@ -445,10 +445,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				new Set<String>{ 'TRACKING' },
-				builder.statementUpdate
-			);
+			Assert.areEqual(new Set<String>{ 'TRACKING' }, builder.statementUpdate);
 		}
 	}
 
@@ -464,10 +461,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				new Set<String>{ 'VIEWSTAT' },
-				builder.statementUpdate
-			);
+			Assert.areEqual(new Set<String>{ 'VIEWSTAT' }, builder.statementUpdate);
 		}
 	}
 
@@ -539,8 +533,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String division = 'Global';
-			SOSL.Builder builder = new SOSL.Builder('Test')
-				.withDivision(division);
+			SOSL.Builder builder = new SOSL.Builder('Test').withDivision(division);
 
 			Test.startTest();
 
@@ -593,10 +586,7 @@ public with sharing class SOSLTest {
 	private static void testSOSLBuilderWithNetworkStatement() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Set<String> networkIds = new Set<String>{
-				'networkId_1',
-				'networkId_2'
-			};
+			Set<String> networkIds = new Set<String>{ 'networkId_1', 'networkId_2' };
 			SOSL.Builder builder = new SOSL.Builder('Test')
 				.withNetworkIds(networkIds);
 
@@ -777,10 +767,7 @@ public with sharing class SOSLTest {
 
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
-			System.assert(
-				expression instanceof Query.PhraseExpression,
-				expression
-			);
+			System.assert(expression instanceof Query.PhraseExpression, expression);
 			Assert.areEqual(
 				new Query.PhraseExpression(searchPhrase).toString(),
 				expression.toString()
@@ -804,10 +791,7 @@ public with sharing class SOSLTest {
 
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
-			System.assert(
-				expression instanceof Query.SearchExpression,
-				expression
-			);
+			System.assert(expression instanceof Query.SearchExpression, expression);
 			Assert.areEqual(
 				new Query.SearchExpression(subSearchCondition).toString(),
 				expression.toString()
@@ -870,18 +854,13 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String expectedErrorMessage = 'Unsupported operator: null';
-			Query.SearchCondition searchCondition = new Query.SearchCondition(
-				null
-			);
+			Query.SearchCondition searchCondition = new Query.SearchCondition(null);
 
 			Test.startTest();
 
 			try {
 				searchCondition.toConditionString();
-				System.assert(
-					false,
-					'Expected exception: ' + expectedErrorMessage
-				);
+				System.assert(false, 'Expected exception: ' + expectedErrorMessage);
 			} catch (Query.QueryException exc) {
 				Assert.areEqual(expectedErrorMessage, exc.getMessage());
 			}
@@ -931,10 +910,7 @@ public with sharing class SOSLTest {
 				objectType.getDescribe().getName(),
 				returningFieldSpec.objectTypeName
 			);
-			Assert.areEqual(
-				new Set<String>(),
-				returningFieldSpec.fieldsToSelect
-			);
+			Assert.areEqual(new Set<String>(), returningFieldSpec.fieldsToSelect);
 			Assert.areEqual(null, returningFieldSpec.listViewName);
 			Assert.areEqual(
 				new Query.Condition(Query.LogicalOperator.AND_VALUE).toString(),
@@ -964,10 +940,7 @@ public with sharing class SOSLTest {
 			Test.stopTest();
 
 			Assert.areEqual(objectTypeName, returningFieldSpec.objectTypeName);
-			Assert.areEqual(
-				new Set<String>(),
-				returningFieldSpec.fieldsToSelect
-			);
+			Assert.areEqual(new Set<String>(), returningFieldSpec.fieldsToSelect);
 			Assert.areEqual(null, returningFieldSpec.listViewName);
 			Assert.areEqual(
 				new Query.Condition(Query.LogicalOperator.AND_VALUE).toString(),
@@ -1114,9 +1087,7 @@ public with sharing class SOSLTest {
 			Query.Condition condition = new Query.Condition()
 				.equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
 
-			System.assert(
-				returningFieldSpec.whereCondition.expressions.isEmpty()
-			);
+			System.assert(returningFieldSpec.whereCondition.expressions.isEmpty());
 
 			Test.startTest();
 
@@ -1124,10 +1095,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				returningFieldSpec.whereCondition.expressions.size()
-			);
+			Assert.areEqual(1, returningFieldSpec.whereCondition.expressions.size());
 		}
 	}
 
@@ -1210,9 +1178,7 @@ public with sharing class SOSLTest {
 				.selectFields(
 					new List<String>{ Case.AccountId.getDescribe().getName() }
 				)
-				.selectFields(
-					new Set<String>{ Case.OwnerId.getDescribe().getName() }
-				)
+				.selectFields(new Set<String>{ Case.OwnerId.getDescribe().getName() })
 				.usingListView('Recent')
 				.whereCondition(
 					new Query.Condition()
@@ -1259,9 +1225,7 @@ public with sharing class SOSLTest {
 				.selectFields(
 					new List<String>{ Case.AccountId.getDescribe().getName() }
 				)
-				.selectFields(
-					new Set<String>{ Case.OwnerId.getDescribe().getName() }
-				)
+				.selectFields(new Set<String>{ Case.OwnerId.getDescribe().getName() })
 				.usingListView('Recent')
 				.whereCondition(
 					new Query.Condition()
@@ -1431,10 +1395,7 @@ public with sharing class SOSLTest {
 			Search.SearchResults expectedResults = Search.find(queryString);
 			Assert.areNotEqual(null, expectedResults);
 			Assert.areNotEqual(null, results);
-			Assert.areEqual(
-				expectedResults.get('Account'),
-				results.get('Account')
-			);
+			Assert.areEqual(expectedResults.get('Account'), results.get('Account'));
 		}
 	}
 

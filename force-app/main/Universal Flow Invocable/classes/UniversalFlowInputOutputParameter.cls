@@ -1,3 +1,8 @@
+/**
+ * @description This class contains the object definition used by the Universal Invocable Action. It's designed
+ * to expose variables of every type allowed by the InvocableVariable method in a single object. It uses type detection
+ * to set the correct property on ouput.
+ */
 public class UniversalFlowInputOutputParameter {
 	/**
 	 * @description This is an 'Apex Defined Type'. According to the documentation, the following types are supported:
@@ -67,8 +72,14 @@ public class UniversalFlowInputOutputParameter {
 	@InvocableVariable
 	public SObject[] sobjects;
 
+	/**
+	 * @description Default no parameter constructor required by the Invocable Variable/Method system for constructing
+	 * an *output* parameter.
+	 */
+	@SuppressWarnings('PMD.EmptyStatementBlock')
 	public UniversalFlowInputOutputParameter() {
-	} //NOPMD
+	}
+
 	/**
 	 * @description Wraps an Object into different property types that will be used by flows.
 	 *
@@ -76,7 +87,7 @@ public class UniversalFlowInputOutputParameter {
 	 */
 	public UniversalFlowInputOutputParameter(Object value) {
 		Boolean isBoolean = value instanceof Boolean;
-		Boolean isDateTime = value instanceof DateTime;
+		Boolean isDateTime = value instanceof Datetime;
 		Boolean isDate = value instanceof Date;
 		Boolean isLong = value instanceof Long;
 		Boolean isInteger = value instanceof Integer;
@@ -84,61 +95,61 @@ public class UniversalFlowInputOutputParameter {
 		Boolean isDouble = value instanceof Double;
 		Boolean issObject = value instanceof SObject;
 		Boolean isBooleanList = value instanceof List<Boolean>;
-		Boolean isDateTimeList = value instanceof List<DateTime>;
+		Boolean isDateTimeList = value instanceof List<Datetime>;
 		Boolean isDateList = value instanceof List<Date>;
 		Boolean isLongList = value instanceof List<Long>;
 		Boolean isIntegerList = value instanceof List<Integer>;
 		Boolean isDecimalList = value instanceof List<Decimal>;
 		Boolean isDoubleList = value instanceof List<Double>;
-		Boolean issObjectList = value instanceof List<sObject>;
+		Boolean issObjectList = value instanceof List<SObject>;
 
 		if (isBoolean) {
-			BooleanValue = (Boolean) value;
+			booleanValue = (Boolean) value;
 		}
 		if (isDateTime) {
-			DateTimeValue = (DateTime) value;
+			dateTimeValue = (Datetime) value;
 		}
 		if (isDate) {
-			DateValue = (Date) value;
+			dateValue = (Date) value;
 		}
 		if (isLong) {
-			LongValue = (Long) value;
+			longValue = (Long) value;
 		}
 		if (isInteger) {
-			IntegerValue = (Integer) value;
+			integerValue = (Integer) value;
 		}
 		if (isDecimal) {
-			DecimalValue = (Decimal) value;
+			decimalValue = (Decimal) value;
 		}
 		if (isDouble) {
-			DoubleValue = (Double) value;
+			doubleValue = (Double) value;
 		}
 		if (issObject) {
-			sObjectValue = (sObject) value;
+			sobjectValue = (SObject) value;
 		}
 		if (isBooleanList) {
-			Booleans = (List<Boolean>) value;
+			booleans = (List<Boolean>) value;
 		}
 		if (isDateTimeList) {
-			DateTimes = (List<DateTime>) value;
+			datetimes = (List<Datetime>) value;
 		}
 		if (isDateList) {
-			Dates = (List<Date>) value;
+			dates = (List<Date>) value;
 		}
 		if (isLongList) {
-			Longs = (List<Long>) value;
+			longs = (List<Long>) value;
 		}
 		if (isIntegerList) {
-			Integers = (List<Integer>) value;
+			integers = (List<Integer>) value;
 		}
 		if (isDecimalList) {
-			Decimals = (List<Decimal>) value;
+			decimals = (List<Decimal>) value;
 		}
 		if (isDoubleList) {
-			Doubles = (List<Double>) value;
+			doubles = (List<Double>) value;
 		}
 		if (issObjectList) {
-			sObjects = (List<sObject>) value;
+			sobjects = (List<SObject>) value;
 		}
 	}
 }

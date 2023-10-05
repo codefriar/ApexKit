@@ -57,6 +57,63 @@
 		message="Consider using named credentials for authenticated callouts">
       <priority>3</priority>
    </rule>
+   <rule
+		ref="category/apex/performance.xml/OperationWithLimitsInLoop"
+		message="Avoid operations in loops that may hit governor limits">
+	<priority>2</priority>
+</rule>
+<!-- ERROR PRONE -->
+	<!-- <rule ref="category/apex/errorprone.xml/OverrideBothEqualsAndHashcode" /> -->
+	<rule
+		ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap"
+		message="Avoid directly accessing Trigger.old and Trigger.new">
+		<priority>4</priority>
+	</rule>
+	<!-- <rule ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap" message="Avoid directly
+	accessing Trigger.old and Trigger.new"></rule> -->
+	<rule
+		ref="category/apex/errorprone.xml/AvoidHardcodingId"
+		message="Avoid hardcoding ID's">
+		<priority>2</priority>
+	</rule>
+	<rule ref="category/apex/errorprone.xml/AvoidNonExistentAnnotations">
+		<priority>1</priority>
+	</rule>
+	<rule
+		ref="category/apex/errorprone.xml/MethodWithSameNameAsEnclosingClass"
+		message="Classes should not have non-constructor methods with the same name as the class">
+		<priority>1</priority>
+	</rule>
+	<rule ref="category/apex/errorprone.xml/TestMethodsMustBeInTestClasses">
+		<priority>2</priority>
+	</rule>
+
+	<!-- ERROR PRONE : EMPTY -->
+	<rule
+		ref="category/apex/errorprone.xml/EmptyCatchBlock"
+		message="Avoid empty catch blocks">
+		<priority>2</priority>
+	</rule>
+	<rule
+		ref="category/apex/errorprone.xml/EmptyIfStmt"
+		message="Avoid empty 'if' statements">
+		<priority>1</priority>
+	</rule>
+	<rule
+		ref="category/apex/errorprone.xml/EmptyStatementBlock"
+		message="Avoid empty block statements.">
+		<priority>2</priority>
+	</rule>
+	<rule
+		ref="category/apex/errorprone.xml/EmptyTryOrFinallyBlock"
+		message="Avoid empty try or finally blocks">
+		<priority>1</priority>
+	</rule>
+	<rule
+		ref="category/apex/errorprone.xml/EmptyWhileStmt"
+		message="Avoid empty 'while' statements">
+		<priority>1</priority>
+	</rule>
    <!-- TESTING -->
    <rule
 		ref="category/apex/bestpractices.xml/ApexUnitTestClassShouldHaveAsserts"
@@ -87,9 +144,10 @@
 		message="Document classes, methods, and properties that are public or global.">
 		<priority>3</priority>
 		<properties>
-			<property name="reportMissingDescription" value="false" />
 			<property name="reportPrivate" value="false" />
 			<property name="reportProtected" value="true" />
+			<property name="reportMissingDescription" value="false" />
+			<property name="reportProperty" value="true" />
 		</properties>
 	</rule>
 </ruleset>

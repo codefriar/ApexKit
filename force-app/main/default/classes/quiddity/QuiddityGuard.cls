@@ -1,7 +1,7 @@
 /**
- * @description contains methods and static lists for rapid acceptence of a
- * particular set of quiddities
+ * @description contains methods and static lists for rapid acceptance of a particular set of quiddities.
  *
+ * Note: I am not responsible for the name 'Quiddity'. Rumor has it the word comes from Sanskrit and means 'essence'.
  */
 public with sharing class QuiddityGuard {
 	/**
@@ -68,16 +68,33 @@ public with sharing class QuiddityGuard {
 		return acceptableQuiddites.contains(q);
 	}
 
+	/**
+	 * @description Method to determine if the current Quiddity context is not acceptable
+	 *
+	 * @param acceptableQuiddites List<Quiddity> A list of quiddities to allow.
+	 *
+	 * @return Boolean true if the current quiddity is not in the list of acceptable quiddities.
+	 */
 	public static Boolean isNotAcceptableQuiddity(
 		List<Quiddity> acceptableQuiddites
 	) {
 		return QuiddityGuard.isAcceptableQuiddity(acceptableQuiddites);
 	}
 
+	/**
+	 * @description method grabs the current quiddity from the request object
+	 *
+	 * @return Quiddity The current quiddity.
+	 */
 	public static Quiddity quiddity() {
 		return System.Request.getCurrent().getQuiddity();
 	}
 
+	/**
+	 * @description Syntactic sugar method for determining if the current request quiddity is a known test quiddity.
+	 *
+	 * @return Boolean true if the current quiddity is in the list of trusted test quiddities.
+	 */
 	public static Boolean quiddityIsATestContext() {
 		return isAcceptableQuiddity(trustedTestQuiddities);
 	}

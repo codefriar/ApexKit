@@ -135,10 +135,7 @@ public with sharing class SOQLTest {
 			Database.QueryLocator expectedQueryLocator = Database.getQueryLocator(
 				queryString
 			);
-			Assert.areEqual(
-				expectedQueryLocator.getQuery(),
-				queryLocator.getQuery()
-			);
+			Assert.areEqual(expectedQueryLocator.getQuery(), queryLocator.getQuery());
 		}
 	}
 
@@ -378,7 +375,7 @@ public with sharing class SOQLTest {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType);
 
-			Query.Scope scope = Query.Scope.Everything;
+			Query.Scope scope = Query.Scope.EVERYTHING;
 
 			Test.startTest();
 
@@ -570,17 +567,13 @@ public with sharing class SOQLTest {
 				.selectFields(
 					new List<String>{ Case.AccountId.getDescribe().getName() }
 				)
-				.selectFields(
-					new Set<String>{ Case.OwnerId.getDescribe().getName() }
-				)
+				.selectFields(new Set<String>{ Case.OwnerId.getDescribe().getName() })
 				.addSubQuery(new SOQL.Builder('Contacts').build())
 				.addTypeOf(
 					new Query.TypeOf('Owner')
 						.whenSObjectType(
 							User.SObjectType.getDescribe().getName(),
-							new Set<String>{
-								User.Username.getDescribe().getName()
-							}
+							new Set<String>{ User.Username.getDescribe().getName() }
 						)
 						.elseFieldList('Id')
 				);
@@ -624,7 +617,7 @@ public with sharing class SOQLTest {
 		System.runAs(admin) {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType)
-				.addScope(Query.Scope.Everything);
+				.addScope(Query.Scope.EVERYTHING);
 
 			Test.startTest();
 
@@ -633,8 +626,8 @@ public with sharing class SOQLTest {
 			Test.stopTest();
 
 			Assert.areEqual(
-				'SELECT Id FROM Case USING SCOPE Everything',
-				query.getQueryString()
+				('SELECT Id FROM Case USING SCOPE Everything').toLowerCase(),
+				query.getQueryString().toLowerCase()
 			);
 		}
 	}
@@ -648,10 +641,7 @@ public with sharing class SOQLTest {
 			SOQL.Builder builder = new SOQL.Builder(objectType)
 				.whereCondition(
 					new Query.Condition(Query.LogicalOperator.AND_VALUE)
-						.equals(
-							'Reason',
-							new Query.ScriptVariable('caseReasons')
-						)
+						.equals('Reason', new Query.ScriptVariable('caseReasons'))
 						.equals('Origin', 'Phone')
 				)
 				.whereCondition(
@@ -684,12 +674,7 @@ public with sharing class SOQLTest {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType)
 				.orderBy(new Query.SortOrder('Origin'))
-				.orderBy(
-					new Query.SortOrder(
-						'Reason',
-						Query.SortDirection.DESCENDING
-					)
-				)
+				.orderBy(new Query.SortOrder('Reason', Query.SortDirection.DESCENDING))
 				.orderBy(
 					new Query.SortOrder(
 						'AccountId',
@@ -714,8 +699,7 @@ public with sharing class SOQLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Case.SObjectType.getDescribe().getName();
-			SOQL.Builder builder = new SOQL.Builder(objectType)
-				.setScopeLimit(100);
+			SOQL.Builder builder = new SOQL.Builder(objectType).setScopeLimit(100);
 
 			Test.startTest();
 

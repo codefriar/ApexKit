@@ -7,13 +7,15 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'sfdx-project.json'
-      - 'README.md'
+    paths:
+      - 'force-app/**'
+#    paths-ignore:
+#      - 'sfdx-project.json'
+#      - 'README.md'
 
 # Jobs to be executed
 jobs:
-  format-lint-lwc-tests:
+  format-and-linting:
     runs-on: ubuntu-latest
     container:
       image: salesforce/cli:2.12.4-full
@@ -21,6 +23,27 @@ jobs:
       # Checkout the source code
       - name: 'Checkout source code'
         uses: actions/checkout@v4
+
+        # Run PMD scan
+      - name: 'Run PMD scan'
+        uses: pmd/pmd-github-action@main
+        id: pmd
+        with:
+          version: 'latest'
+          sourcePath: 'force-app'
+          rulesets: 'pmd/ruleset.xml'
+
+      - name: Upload violations file in SARIF format
+        if: steps.pmd.outputs.violations != 0
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: pmd-report.sarif
+          category: PMD analysis
+
+      # Check for PMD violations
+      - name: 'Check for PMD violations'
+        if: steps.pmd.outputs.violations != 0
+        run: exit 1
 
       # Install Volta to enforce proper node and package manager versions
       - name: 'Install Volta'
@@ -66,25 +89,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: salesforce/cli:2.12.4-full
-    needs: format-lint-lwc-tests
+    needs: format-and-linting
     steps:
       # Checkout the source code
       - name: 'Checkout source code'
         uses: actions/checkout@v4
-
-      # Run PMD scan
-      - name: 'Run PMD scan'
-        uses: pmd/pmd-github-action@v1.4.1
-        id: pmd
-        with:
-          version: '6.55.0'
-          sourcePath: 'force-app'
-          rulesets: 'pmd/ruleset.xml'
-
-      # Check for PMD violations
-      - name: 'Check for PMD violations'
-        if: steps.pmd.outputs.violations != 0
-        run: exit 1
 
       # Install Salesforce CLI
       - name: 'Install Salesforce CLI'
@@ -156,7 +165,7 @@ jobs:
       - name: 'Upload documentation to wiki'
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          path: 'force-app/main/default/staticresources/documentation'
+          path: 'docs/'
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
 
