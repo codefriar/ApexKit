@@ -29,14 +29,15 @@ jobs:
       pull-requests: write
     steps:
       - name: ChatGTP code reviewer code
-        uses: fr33d00m/chatgpt-github-actions@v2-turbo
+        uses: cirolini/chatgpt-github-actions@v1.3
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_pr_id: ${{ github.event.number }}
-          openai_engine: 'gpt-3.5-turbo' #optional
-          openai_temperature: 0.2 #optional
+          # openai_engine: "text-davinci-002" #optional
+          openai_temperature: 0.5 #optional
           openai_max_tokens: 2048 #optional
+          mode: file # file or patch 
 
   # Formatting only runs on human-submitted and Dependabot PRs
   format-and-linting:
