@@ -8,6 +8,7 @@ private class CAssert {
 	 * @param timeVarianceSeconds Integer - the number of seconds of leeway to allow
 	 * @param assertionMessage String - the message to display if the assertion fails
 	 */
+	@SuppressWarnings('PMD.excessiveParameterList')
 	public static void areEqual(
 		Datetime expectedDatetime,
 		Datetime actualDatetime,

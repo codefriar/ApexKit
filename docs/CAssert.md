@@ -6,6 +6,8 @@
 
 ### `public static void areEqual(Datetime expectedDatetime, Datetime actualDatetime, Integer timeVarianceSeconds, String assertionMessage)`
 
+`SUPPRESSWARNINGS`
+
 Assertion method to validate that two Datetime objects are equal within a given leeway
 
 #### Parameters
