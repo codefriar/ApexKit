@@ -22,18 +22,16 @@ env:
 # Jobs to be executed
 jobs:
   # GPT-4 code review
-  review_with_gpt:
+  review:
     runs-on: ubuntu-latest
-    name: ChatGPT code reviewer
-    permissions:
-      pull-requests: write
     steps:
-      - name: ChatGTP code reviewer code
-        uses: mattzcarey/code-review-gpt@v0.1.4-alpha
-        with:
+      - uses: fluxninja/openai-pr-reviewer@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          MODEL: 'gpt-3.5-turbo'
-          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          debug: false
+          review_comment_lgtm: false
 
   # Formatting only runs on human-submitted and Dependabot PRs
   format-and-linting:
