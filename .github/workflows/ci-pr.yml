@@ -37,7 +37,7 @@ jobs:
           # openai_engine: "text-davinci-002" #optional
           openai_temperature: 0.5 #optional
           openai_max_tokens: 2048 #optional
-          mode: file # file or patch 
+          mode: file # file or patch
 
   # Formatting only runs on human-submitted and Dependabot PRs
   format-and-linting:
@@ -145,13 +145,13 @@ jobs:
         run: sf org login sfdx-url -f ./DEVHUB_SFDX_URL.txt -a devhub -d
 
       # Create prerelease scratch org
-      - name: 'Create prerelease scratch org'
-        if: ${{ env.IS_PRERELEASE }}
-        run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 --release=preview
+      #      - name: 'Create prerelease scratch org'
+      #        if: ${{ env.IS_PRERELEASE }}
+      #        run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1 --release=preview
 
       # Create scratch org
       - name: 'Create scratch org'
-        if: ${{ !env.IS_PRERELEASE }}
+        #        if: ${{ !env.IS_PRERELEASE }}
         run: sf org create scratch -f config/project-scratch-def.json -a scratch-org -d -y 1
 
       # Deploy source to scratch org
