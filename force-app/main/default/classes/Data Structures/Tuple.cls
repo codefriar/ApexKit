@@ -85,8 +85,11 @@ public with sharing class Tuple {
 	 * @param value Object the Tuple's Value.
 	 */
 	public Tuple(String key, Object value) {
-		if (key == null || value == null) {
-			throw new TupleException('Key and Value cannot be null');
+		if (key == null) {
+			throw new TupleException('Key cannot be null');
+		}
+		if (value == null) {
+			throw new TupleException('Value cannot be null');
 		}
 		this.key = key;
 		determineTypeAndSetCastedValue(value);
@@ -97,68 +100,44 @@ public with sharing class Tuple {
 	 * @param value Object the Tuple's Value.
 	 */
 	private void determineTypeAndSetCastedValue(Object value) {
-		String backingClassName = Polyfills.classNameFromInstance(value)
-			.toLowerCase();
-		switch on backingClassName {
-			when 'boolean' {
-				this.booleanValue = (Boolean) value;
-			}
-			when 'list<boolean>' {
-				this.booleans = (List<Boolean>) value;
-			}
-			when 'datetime' {
-				this.dateTimeValue = (Datetime) value;
-			}
-			when 'list<datetime>' {
-				this.datetimes = (List<Datetime>) value;
-			}
-			when 'date' {
-				this.dateValue = (Date) value;
-			}
-			when 'list<date>' {
-				this.dates = (List<Date>) value;
-			}
-			when 'long' {
-				this.longValue = (Long) value;
-			}
-			when 'list<long>' {
-				this.longs = (List<Long>) value;
-			}
-			when 'integer' {
-				this.integerValue = (Integer) value;
-			}
-			when 'list<integer>' {
-				this.integers = (List<Integer>) value;
-			}
-			when 'decimal' {
-				this.decimalValue = (Decimal) value;
-			}
-			when 'list<decimal>' {
-				this.decimals = (List<Decimal>) value;
-			}
-			when 'double' {
-				this.doubleValue = (Double) value;
-			}
-			when 'list<double>' {
-				this.doubles = (List<Double>) value;
-			}
-			when 'string' {
-				this.stringValue = (String) value;
-			}
-			when 'list<string>' {
-				this.strings = (List<String>) value;
-			}
-			when else {
-				if (value instanceof List<SObject>) {
-					this.sobjects = (List<SObject>) value;
-				} else if (value instanceof SObject) {
-					this.sobjectValue = (SObject) value;
-				} else {
-					throw new TupleException(
-						'Unsupported data type: ' + backingClassName
-					);
-				}
-			}
+		if (value instanceof Boolean) {
+			this.booleanValue = (Boolean) value;
+		} else if (value instanceof List<Boolean>) {
+			this.booleans = (List<Boolean>) value;
+		} else if (value instanceof Datetime) {
+			this.dateTimeValue = (Datetime) value;
+		} else if (value instanceof List<Datetime>) {
+			this.datetimes = (List<Datetime>) value;
+		} else if (value instanceof Date) {
+			this.dateValue = (Date) value;
+		} else if (value instanceof List<Date>) {
+			this.dates = (List<Date>) value;
+		} else if (value instanceof Long) {
+			this.longValue = (Long) value;
+		} else if (value instanceof List<Long>) {
+			this.longs = (List<Long>) value;
+		} else if (value instanceof Integer) {
+			this.integerValue = (Integer) value;
+		} else if (value instanceof List<Integer>) {
+			this.integers = (List<Integer>) value;
+		} else if (value instanceof Decimal) {
+			this.decimalValue = (Decimal) value;
+		} else if (value instanceof List<Decimal>) {
+			this.decimals = (List<Decimal>) value;
+		} else if (value instanceof Double) {
+			this.doubleValue = (Double) value;
+		} else if (value instanceof List<Double>) {
+			this.doubles = (List<Double>) value;
+		} else if (value instanceof String) {
+			this.stringValue = (String) value;
+		} else if (value instanceof List<String>) {
+			this.strings = (List<String>) value;
+		} else if (value instanceof List<SObject>) {
+			this.sobjects = (List<SObject>) value;
+		} else if (value instanceof SObject) {
+			this.sobjectValue = (SObject) value;
+		} else {
+			throw new TupleException('Unsupported data type: ' + value);
 		}
 	}
 
