@@ -9,7 +9,7 @@
  *     for use in Apex-defined Data Types.
  *
  * See also: https://help.salesforce.com/s/articleView?id=sf.flow_considerations_apex_data_type.htm&type=5
- * Available primitive datatypes available for use in tupple:
+ * Available primitive datatypes available for use in tuple:
  * Boolean, Integer, Long, Decimal, Double, Date, DateTime, and String. Single values and lists are supported for each data type.
  */
 public with sharing class Tuple {
@@ -79,11 +79,23 @@ public with sharing class Tuple {
 	public Tuple() {
 	}
 
+	/**
+	 * @description standard constructor accepting a key and value
+	 * @param key String the name of the Tuple's Key.
+	 * @param value Object the Tuple's Value.
+	 */
 	public Tuple(String key, Object value) {
+		if (key == null || value == null) {
+			throw new TupleException('Key and Value cannot be null');
+		}
 		this.key = key;
 		determineTypeAndSetCastedValue(value);
 	}
 
+	/**
+	 * @description Method is responsible for determining the type of the value and setting the appropriate field.
+	 * @param value Object the Tuple's Value.
+	 */
 	private void determineTypeAndSetCastedValue(Object value) {
 		String backingClassName = Polyfills.classNameFromInstance(value)
 			.toLowerCase();
@@ -104,7 +116,7 @@ public with sharing class Tuple {
 				this.dateValue = (Date) value;
 			}
 			when 'list<date>' {
-				this.dateValue = (Date) value;
+				this.dates = (List<Date>) value;
 			}
 			when 'long' {
 				this.longValue = (Long) value;
@@ -137,14 +149,11 @@ public with sharing class Tuple {
 				this.strings = (List<String>) value;
 			}
 			when else {
-				try {
-					this.sobjects = (value instanceof List<SObject>)
-						? (List<SObject>) value
-						: null;
-					this.sobjectValue = (value instanceof SObject)
-						? (SObject) value
-						: null;
-				} catch (TypeException e) {
+				if (value instanceof List<SObject>) {
+					this.sobjects = (List<SObject>) value;
+				} else if (value instanceof SObject) {
+					this.sobjectValue = (SObject) value;
+				} else {
 					throw new TupleException(
 						'Unsupported data type: ' + backingClassName
 					);
@@ -153,6 +162,10 @@ public with sharing class Tuple {
 		}
 	}
 
+	/**
+	 * @description A custom Exception type thrown when the incoming Object is not a recognized Apex-defined-type safe
+	 * type.
+	 */
 	public class TupleException extends Exception {
 	}
 }

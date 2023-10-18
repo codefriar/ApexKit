@@ -7,7 +7,7 @@ Additionally, `Object` is not a valid data type in Apex-defined Data Types, so w
 that have a string key, and Object value. This is the next best thing. A kind of polyfill for Map&lt;String,Object&gt;
 for use in Apex-defined Data Types.
 See also: https://help.salesforce.com/s/articleView?id=sf.flow_considerations_apex_data_type.htm&type=5
-Available primitive datatypes available for use in tupple:
+Available primitive datatypes available for use in tuple:
 Boolean, Integer, Long, Decimal, Double, Date, DateTime, and String. Single values and lists are supported for each data type.
 
 ## Constructors
@@ -19,6 +19,15 @@ Boolean, Integer, Long, Decimal, Double, Date, DateTime, and String. Single valu
 In order to create a Tuple instance from within a flow, you need a no-arg constructor.
 
 ### `public Tuple(String key, Object value)`
+
+standard constructor accepting a key and value
+
+#### Parameters
+
+| Param   | Description                         |
+| ------- | ----------------------------------- |
+| `key`   | String the name of the Tuple's Key. |
+| `value` | Object the Tuple's Value.           |
 
 ---
 
@@ -125,11 +134,22 @@ In order to create a Tuple instance from within a flow, you need a no-arg constr
 
 ### `private void determineTypeAndSetCastedValue(Object value)`
 
+Method is responsible for determining the type of the value and setting the appropriate field.
+
+#### Parameters
+
+| Param   | Description               |
+| ------- | ------------------------- |
+| `value` | Object the Tuple's Value. |
+
 ---
 
 ## Classes
 
 ### TupleException
+
+A custom Exception type thrown when the incoming Object is not a recognized Apex-defined-type safe
+type.
 
 **Inheritance**
 
