@@ -8,16 +8,14 @@
  * that have a string key, and Object value. This is the next best thing. A kind of polyfill for Map<String,Object>
  *     for use in Apex-defined Data Types.
  *
- * @see https ://help.salesforce.com/s/articleView?id=sf.flow_considerations_apex_data_type.htm&type=5
+ * See also: https://help.salesforce.com/s/articleView?id=sf.flow_considerations_apex_data_type.htm&type=5
  * Available primitive datatypes available for use in tupple:
  * Boolean, Integer, Long, Decimal, Double, Date, DateTime, and String. Single values and lists are supported for each data type.
  */
 public with sharing class Tuple {
-	/**
-	 * @description This is an 'Apex Defined Type'. According to the documentation, the following types are supported:
-	 * Boolean, Date, DateTime, Double, Decimal, Integer, Long, and String
-	 * https://help.salesforce.com/s/articleView?id=sf.flow_considerations_apex_data_type.htm&type=5
-	 */
+	@AuraEnabled
+	@InvocableVariable
+	public String key;
 
 	@AuraEnabled
 	@InvocableVariable
@@ -82,5 +80,79 @@ public with sharing class Tuple {
 	}
 
 	public Tuple(String key, Object value) {
+		this.key = key;
+		determineTypeAndSetCastedValue(value);
+	}
+
+	private void determineTypeAndSetCastedValue(Object value) {
+		String backingClassName = Polyfills.classNameFromInstance(value)
+			.toLowerCase();
+		switch on backingClassName {
+			when 'boolean' {
+				this.booleanValue = (Boolean) value;
+			}
+			when 'list<boolean>' {
+				this.booleans = (List<Boolean>) value;
+			}
+			when 'datetime' {
+				this.dateTimeValue = (Datetime) value;
+			}
+			when 'list<datetime>' {
+				this.datetimes = (List<Datetime>) value;
+			}
+			when 'date' {
+				this.dateValue = (Date) value;
+			}
+			when 'list<date>' {
+				this.dateValue = (Date) value;
+			}
+			when 'long' {
+				this.longValue = (Long) value;
+			}
+			when 'list<long>' {
+				this.longs = (List<Long>) value;
+			}
+			when 'integer' {
+				this.integerValue = (Integer) value;
+			}
+			when 'list<integer>' {
+				this.integers = (List<Integer>) value;
+			}
+			when 'decimal' {
+				this.decimalValue = (Decimal) value;
+			}
+			when 'list<decimal>' {
+				this.decimals = (List<Decimal>) value;
+			}
+			when 'double' {
+				this.doubleValue = (Double) value;
+			}
+			when 'list<double>' {
+				this.doubles = (List<Double>) value;
+			}
+			when 'string' {
+				this.stringValue = (String) value;
+			}
+			when 'list<string>' {
+				this.strings = (List<String>) value;
+			}
+			when else {
+				try {
+					this.sobjects = (value instanceof List<SObject>)
+						? (List<SObject>) value
+						: null;
+					this.sobjectValue = (value instanceof SObject)
+						? (SObject) value
+						: null;
+				} catch (TypeException e) {
+					throw new TupleException(
+						'Unsupported data type: ' + backingClassName
+					);
+				}
+			}
+		}
+	}
+
+	public class TupleException extends Exception {
 	}
 }
