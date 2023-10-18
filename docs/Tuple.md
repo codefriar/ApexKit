@@ -1,3 +1,5 @@
+`APIVERSION: 58`
+
 `STATUS: ACTIVE`
 
 Tuple represents a key-value pair. Kinda. Don't come at me math nerds.
@@ -133,6 +135,8 @@ standard constructor accepting a key and value
 ## Methods
 
 ### `private void determineTypeAndSetCastedValue(Object value)`
+
+`SUPPRESSWARNINGS`
 
 Method is responsible for determining the type of the value and setting the appropriate field.
 

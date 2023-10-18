@@ -12,6 +12,7 @@
  * Available primitive datatypes available for use in tuple:
  * Boolean, Integer, Long, Decimal, Double, Date, DateTime, and String. Single values and lists are supported for each data type.
  */
+@SuppressWarnings('PMD.StdCyclomaticComplexity')
 public with sharing class Tuple {
 	@AuraEnabled
 	@InvocableVariable
@@ -99,6 +100,7 @@ public with sharing class Tuple {
 	 * @description Method is responsible for determining the type of the value and setting the appropriate field.
 	 * @param value Object the Tuple's Value.
 	 */
+	@SuppressWarnings('PMD.CyclomaticComplexity, PMD.StdCyclomaticComplexity')
 	private void determineTypeAndSetCastedValue(Object value) {
 		if (value instanceof Boolean) {
 			this.booleanValue = (Boolean) value;
