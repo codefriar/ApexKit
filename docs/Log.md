@@ -38,9 +38,9 @@ Singleton pattern `get` method.
 
 #### Returns
 
-| Type | Description |
-| ---- | ----------- |
-| Log  | `Log`       |
+| Type  | Description |
+| ----- | ----------- |
+| `Log` | `Log`       |
 
 ### `public void add(String messageToLog)`
 

@@ -264,23 +264,23 @@ Enum for null records sorting
 
 `TESTVISIBLE`
 
-##### `private List convertToStringList(List&lt;Date&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Date&gt; values)`
 
-##### `private List convertToStringList(List&lt;Datetime&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Datetime&gt; values)`
 
-##### `private List convertToStringList(List&lt;String&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;String&gt; values)`
 
-##### `private List convertToStringList(List&lt;Id&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Id&gt; values)`
 
-##### `private List convertToStringList(List&lt;Integer&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Integer&gt; values)`
 
-##### `private List convertToStringList(List&lt;Long&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Long&gt; values)`
 
-##### `private List convertToStringList(List&lt;Decimal&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Decimal&gt; values)`
 
-##### `private List convertToStringList(List&lt;Double&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(List&lt;Double&gt; values)`
 
-##### `private List convertToStringList(Set&lt;Set&lt;String&gt;&gt; values)`
+##### `private List&lt;String&gt; convertToStringList(Set&lt;Set&lt;String&gt;&gt; values)`
 
 ##### `public override String toString()`
 

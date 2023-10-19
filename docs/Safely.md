@@ -22,9 +22,9 @@ Triggers the flag to throw an exception if fields are removed
 
 #### Returns
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| Safely | Safely - the current instance of the Safely class |
+| Type     | Description                                       |
+| -------- | ------------------------------------------------- |
+| `Safely` | Safely - the current instance of the Safely class |
 
 ### `public Safely throwIfRemovedFields()`
 
@@ -32,11 +32,11 @@ Sets the throwIfRemovedFields flag to true
 
 #### Returns
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| Safely | Safely - the current instance of the Safely class |
+| Type     | Description                                       |
+| -------- | ------------------------------------------------- |
+| `Safely` | Safely - the current instance of the Safely class |
 
-### `public List doInsert(List<SObject> records)`
+### `public List<Database.SaveResult> doInsert(List<SObject> records)`
 
 A method for safely inserting a list of records
 
@@ -48,11 +48,11 @@ A method for safely inserting a list of records
 
 #### Returns
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.saveResult> - the results of the insert |
+| Type                        | Description                                           |
+| --------------------------- | ----------------------------------------------------- |
+| `List<Database.SaveResult>` | List<Database.saveResult> - the results of the insert |
 
-### `public List doInsert(SObject record)`
+### `public List<Database.SaveResult> doInsert(SObject record)`
 
 A method for safely inserting a single record
 
@@ -64,11 +64,11 @@ A method for safely inserting a single record
 
 #### Returns
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the insert |
+| Type                        | Description                                           |
+| --------------------------- | ----------------------------------------------------- |
+| `List<Database.SaveResult>` | List<Database.SaveResult> - the results of the insert |
 
-### `public List doUpdate(List<SObject> records)`
+### `public List<Database.SaveResult> doUpdate(List<SObject> records)`
 
 A method for safely updating a list of records
 
@@ -80,11 +80,11 @@ A method for safely updating a list of records
 
 #### Returns
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the update |
+| Type                        | Description                                           |
+| --------------------------- | ----------------------------------------------------- |
+| `List<Database.SaveResult>` | List<Database.SaveResult> - the results of the update |
 
-### `public List doUpdate(SObject record)`
+### `public List<Database.SaveResult> doUpdate(SObject record)`
 
 a method for safely updating a single record
 
@@ -96,11 +96,11 @@ a method for safely updating a single record
 
 #### Returns
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the update |
+| Type                        | Description                                           |
+| --------------------------- | ----------------------------------------------------- |
+| `List<Database.SaveResult>` | List<Database.SaveResult> - the results of the update |
 
-### `public List doUpsert(List<SObject> records)`
+### `public List<Database.UpsertResult> doUpsert(List<SObject> records)`
 
 A method for safely upserting a list of records
 
@@ -112,11 +112,11 @@ A method for safely upserting a list of records
 
 #### Returns
 
-| Type                        | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| List<Database.UpsertResult> | List<Database.UpsertResult> - the results of the upsert |
+| Type                          | Description                                             |
+| ----------------------------- | ------------------------------------------------------- |
+| `List<Database.UpsertResult>` | List<Database.UpsertResult> - the results of the upsert |
 
-### `public List doUpsert(SObject record)`
+### `public List<Database.UpsertResult> doUpsert(SObject record)`
 
 a method for safely upserting a single record
 
@@ -128,11 +128,11 @@ a method for safely upserting a single record
 
 #### Returns
 
-| Type                        | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| List<Database.UpsertResult> | List<Database.UpsertResult> - the results of the upsert |
+| Type                          | Description                                             |
+| ----------------------------- | ------------------------------------------------------- |
+| `List<Database.UpsertResult>` | List<Database.UpsertResult> - the results of the upsert |
 
-### `public List doDelete(List<SObject> records)`
+### `public List<Database.DeleteResult> doDelete(List<SObject> records)`
 
 a method for safely deleting a list of records
 
@@ -144,11 +144,11 @@ a method for safely deleting a list of records
 
 #### Returns
 
-| Type                        | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| List<Database.DeleteResult> | List<Database.DeleteResult> - the results of the delete |
+| Type                          | Description                                             |
+| ----------------------------- | ------------------------------------------------------- |
+| `List<Database.DeleteResult>` | List<Database.DeleteResult> - the results of the delete |
 
-### `public List doDelete(SObject record)`
+### `public List<Database.DeleteResult> doDelete(SObject record)`
 
 a method for safely deleting a single record
 
@@ -160,11 +160,11 @@ a method for safely deleting a single record
 
 #### Returns
 
-| Type                        | Description                                                  |
-| --------------------------- | ------------------------------------------------------------ |
-| List<Database.DeleteResult> | List<Database.DeleteResult> - the results of the delete call |
+| Type                          | Description                                                  |
+| ----------------------------- | ------------------------------------------------------------ |
+| `List<Database.DeleteResult>` | List<Database.DeleteResult> - the results of the delete call |
 
-### `public List doQuery(String query)`
+### `public List<SObject> doQuery(String query)`
 
 A method for safely querying records
 
@@ -176,11 +176,11 @@ A method for safely querying records
 
 #### Returns
 
-| Type          | Description                              |
-| ------------- | ---------------------------------------- |
-| List<SObject> | List<SObject> - the results of the query |
+| Type            | Description                              |
+| --------------- | ---------------------------------------- |
+| `List<SObject>` | List<SObject> - the results of the query |
 
-### `private List doDML(System accessType, List<SObject> records)`
+### `private List<Database.SaveResult> doDML(System accessType, List<SObject> records)`
 
 A method for safely performing DML
 
@@ -193,9 +193,9 @@ A method for safely performing DML
 
 #### Returns
 
-| Type                      | Description                                             |
-| ------------------------- | ------------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the DML call |
+| Type                        | Description                                             |
+| --------------------------- | ------------------------------------------------------- |
+| `List<Database.SaveResult>` | List<Database.SaveResult> - the results of the DML call |
 
 ### `private SObjectAccessDecision guardAgainstRemovedFields(System accessType, List<SObject> records)`
 
@@ -210,9 +210,9 @@ method guards against removed fields by throwing an exception, if throwIfRemoved
 
 #### Returns
 
-| Type                  | Description                                                         |
-| --------------------- | ------------------------------------------------------------------- |
-| SObjectAccessDecision | SObjectAccessDecision - the results of the Security Access Decision |
+| Type                    | Description                                                         |
+| ----------------------- | ------------------------------------------------------------------- |
+| `SObjectAccessDecision` | SObjectAccessDecision - the results of the Security Access Decision |
 
 ---
 

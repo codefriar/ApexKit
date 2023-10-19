@@ -30,9 +30,9 @@ make sure this trigger should continue to run
 
 #### Returns
 
-| Type    | Description                                          |
-| ------- | ---------------------------------------------------- |
-| Boolean | `Boolean` true if the trigger should continue to run |
+| Type      | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `Boolean` | `Boolean` true if the trigger should continue to run |
 
 #### Throws
 
