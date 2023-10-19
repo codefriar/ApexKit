@@ -2,7 +2,6 @@
 	"orgName": "ApexKit Company",
 	"description": "ApexKitV2.5",
 	"edition": "Developer",
-	"release": "preview",
 	"hasSampleData": true,
 	"features": [
 		"EinsteinGPTForDevelopers",
