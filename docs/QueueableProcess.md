@@ -57,9 +57,9 @@ This method provides a syntactic sugar for adding a new QueueableProcess to the 
 
 #### Returns
 
-| Type             | Description                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------- |
-| QueueableProcess | Returns a Queueable Process instance that can be used to chain additional QueueableProcess instances. |
+| Type               | Description                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| `QueueableProcess` | Returns a Queueable Process instance that can be used to chain additional QueueableProcess instances. |
 
 ### `public Id start()`
 
@@ -69,7 +69,7 @@ This method starts the QueueableProcess chain. It's the entry point for the proc
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id - Id of the Enqueued job. |
+| `Id` | Id - Id of the Enqueued job. |
 
 ### `public Id start(Object initialPassthrough)`
 
@@ -85,7 +85,7 @@ This method starts the QueueableProcess chain. It's the entry point for the proc
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id - Id of the Enqueued job. |
+| `Id` | Id - Id of the Enqueued job. |
 
 ### `public void execute()`
 

@@ -15,7 +15,7 @@ This is the id of the feature flag that's included with ApexKit. CMDT can be har
 
 ## Methods
 
-### `public static Map getTestFlag(String flagName, Boolean enabled)`
+### `public static Map<String,Feature_Flag__mdt> getTestFlag(String flagName, Boolean enabled)`
 
 DRY method to create a test flag with valid-ish id.
 
@@ -30,7 +30,7 @@ DRY method to create a test flag with valid-ish id.
 
 | Type                            | Description                                |
 | ------------------------------- | ------------------------------------------ |
-| Map<String,Feature_Flag\_\_mdt> | Map<String, Feature_Flag\_\_mdt> test flag |
+| `Map<String,Feature_Flag__mdt>` | Map<String, Feature_Flag\_\_mdt> test flag |
 
 ### `public static Id getExistingPermSetId()`
 
@@ -40,9 +40,9 @@ fetches a valid permission set id
 
 | Type | Description                                                 |
 | ---- | ----------------------------------------------------------- |
-| Id   | Id the id of the permissionset that's included with ApexKit |
+| `Id` | Id the id of the permissionset that's included with ApexKit |
 
-### `public static Map getOverriddenPerPermSet(String flagName, Id permSetId, Boolean enabled)`
+### `public static Map<String,Feature_Flag_Enabled_For__mdt> getOverriddenPerPermSet(String flagName, Id permSetId, Boolean enabled)`
 
 returns a map of feature flags that are enabled just for a specified permission set
 
@@ -58,6 +58,6 @@ returns a map of feature flags that are enabled just for a specified permission 
 
 | Type                                        | Description                                                           |
 | ------------------------------------------- | --------------------------------------------------------------------- |
-| Map<String,Feature_Flag_Enabled_For\_\_mdt> | Map<String, Feature_Flag_Enabled_For\_\_mdt> the map of feature flags |
+| `Map<String,Feature_Flag_Enabled_For__mdt>` | Map<String, Feature_Flag_Enabled_For\_\_mdt> the map of feature flags |
 
 ---
