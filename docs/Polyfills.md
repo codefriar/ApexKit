@@ -17,9 +17,9 @@ Used to determine what the Class name of the passed in Object is. There are many
 
 #### Returns
 
-| Type     | Description                                           |
-| -------- | ----------------------------------------------------- |
-| `String` | String the name of the class of the passed in object. |
+| Type   | Description                                           |
+| ------ | ----------------------------------------------------- |
+| String | String the name of the class of the passed in object. |
 
 ### `public static Type typeObjFromInstance(Object obj)`
 
@@ -33,9 +33,9 @@ Method returns a Type object from an object instance. This is useful for reflect
 
 #### Returns
 
-| Type   | Description                           |
-| ------ | ------------------------------------- |
-| `Type` | Type the type of the passed in object |
+| Type | Description                           |
+| ---- | ------------------------------------- |
+| Type | Type the type of the passed in object |
 
 ### `public static String getSObjectTypeFromListsFirstObject(List<SObject> sObjects)`
 
@@ -49,11 +49,11 @@ Method determines the type of a list from it's first element. This is potentiall
 
 #### Returns
 
-| Type     | Description                                                          |
-| -------- | -------------------------------------------------------------------- |
-| `String` | String the name of the SObject type of the first element in the list |
+| Type   | Description                                                          |
+| ------ | -------------------------------------------------------------------- |
+| String | String the name of the SObject type of the first element in the list |
 
-### `public static Map<Id,SObject> idMapFromCollectionByKey(String key, List<SObject> incomingList)`
+### `public static Map idMapFromCollectionByKey(String key, List<SObject> incomingList)`
 
 Method is responsible for building a map out of a list where you can specify the key. This is useful for drying up your code, as generating maps by a non-record-id key is ... common. Note: you'll need to cast this on the calling side.
 
@@ -66,11 +66,11 @@ Method is responsible for building a map out of a list where you can specify the
 
 #### Returns
 
-| Type              | Description                                                                |
-| ----------------- | -------------------------------------------------------------------------- |
-| `Map<Id,SObject>` | Map<Id, SObject> the map of the passed in list, keyed by the passed in key |
+| Type            | Description                                                                |
+| --------------- | -------------------------------------------------------------------------- |
+| Map<Id,SObject> | Map<Id, SObject> the map of the passed in list, keyed by the passed in key |
 
-### `public static Map<String,SObject> stringMapFromCollectionByKey(String key, List<SObject> incomingList)`
+### `public static Map stringMapFromCollectionByKey(String key, List<SObject> incomingList)`
 
 Method is responsible for building a map out of a list where you can specify the key. This is useful for drying up your code, as generating maps by a non-record-id key is ... common. Note: you'll need to cast this on the calling side.
 
@@ -83,11 +83,11 @@ Method is responsible for building a map out of a list where you can specify the
 
 #### Returns
 
-| Type                  | Description                                                                |
-| --------------------- | -------------------------------------------------------------------------- |
-| `Map<String,SObject>` | Map<Id, SObject> the map of the passed in list, keyed by the passed in key |
+| Type                | Description                                                                |
+| ------------------- | -------------------------------------------------------------------------- |
+| Map<String,SObject> | Map<Id, SObject> the map of the passed in list, keyed by the passed in key |
 
-### `public static Map<Id,List<SObject>> mapFromCollectionWithCollectionValues(String key, List<SObject> incomingList)`
+### `public static Map mapFromCollectionWithCollectionValues(String key, List<SObject> incomingList)`
 
 This method is responsible for building a map out of a list where you can specify the key. However this method is designed to help you group records by common keys. For instance, you can use this method to group a list of contacts by their accountIds by passing in 'AccountId' as the key. Note: you'll need to cast this on the calling side. The key used here must be an ID field.
 
@@ -100,9 +100,9 @@ This method is responsible for building a map out of a list where you can specif
 
 #### Returns
 
-| Type                    | Description                                                                        |
-| ----------------------- | ---------------------------------------------------------------------------------- |
-| `Map<Id,List<SObject>>` | Map<Id, List<SObject>> the map of the passed in list, grouped by the passed in key |
+| Type                  | Description                                                                        |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| Map<Id,List<SObject>> | Map<Id, List<SObject>> the map of the passed in list, grouped by the passed in key |
 
 ### `public static String generateStackTrace()`
 
@@ -110,11 +110,11 @@ This method will give you a stack trace you can inspect. It's useful for debuggi
 
 #### Returns
 
-| Type     | Description                                              |
-| -------- | -------------------------------------------------------- |
-| `String` | String The stack trace of the current execution context. |
+| Type   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| String | String The stack trace of the current execution context. |
 
-### `public static List<String> pluckFieldFromList(String fieldName, List<SObject> incomingList)`
+### `public static List pluckFieldFromList(String fieldName, List<SObject> incomingList)`
 
 Similar to the pluck method in lodash, this method will return a list of strings from a list of SObjects, based on the field name you pass in.
 
@@ -127,9 +127,9 @@ Similar to the pluck method in lodash, this method will return a list of strings
 
 #### Returns
 
-| Type           | Description                                                                                                     |
-| -------------- | --------------------------------------------------------------------------------------------------------------- |
-| `List<String>` | List<String> list containing the string value of the field you passed in from every record in the incoming list |
+| Type         | Description                                                                                                     |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| List<String> | List<String> list containing the string value of the field you passed in from every record in the incoming list |
 
 ### `public static Boolean setContainsAnyItemFromList(Set<String> setToCheck, List<String> listOfPossibleOptions)`
 
@@ -144,9 +144,9 @@ Well, as much as I'd like to make this a generic method, I can't Apex doesn't pr
 
 #### Returns
 
-| Type      | Description                                                   |
-| --------- | ------------------------------------------------------------- |
-| `Boolean` | Boolean True if any of the strings in the list are in the set |
+| Type    | Description                                                   |
+| ------- | ------------------------------------------------------------- |
+| Boolean | Boolean True if any of the strings in the list are in the set |
 
 ### `public static String generateUUID()`
 
@@ -154,9 +154,9 @@ Generates a UUIDv4 string. This is useful for generating unique identifiers for 
 
 #### Returns
 
-| Type     | Description            |
-| -------- | ---------------------- |
-| `String` | String a UUIDv4 string |
+| Type   | Description            |
+| ------ | ---------------------- |
+| String | String a UUIDv4 string |
 
 ### `public static Blob concatenateBlobAndString(Blob someFile, String supplementalText)`
 
@@ -171,9 +171,9 @@ this method is useful for appending a string to a blob. Polyfill for the lack of
 
 #### Returns
 
-| Type   | Description                                  |
-| ------ | -------------------------------------------- |
-| `Blob` | Blob the blob with the string appended to it |
+| Type | Description                                  |
+| ---- | -------------------------------------------- |
+| Blob | Blob the blob with the string appended to it |
 
 ### `public static String getStringifiedBlob(Blob someFile)`
 
@@ -187,9 +187,9 @@ Returns the string value of a blob. Polyfill for the lack of String.valueOf(Blob
 
 #### Returns
 
-| Type     | Description                         |
-| -------- | ----------------------------------- |
-| `String` | A string representation of the blob |
+| Type   | Description                         |
+| ------ | ----------------------------------- |
+| String | A string representation of the blob |
 
 ---
 

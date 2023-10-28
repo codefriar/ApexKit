@@ -18,9 +18,9 @@ Convenience method for checking if a feature is enabled.
 
 #### Returns
 
-| Type      | Description                                                                                                                                                      |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Boolean` | True if the feature is enabled by any of the following: Universally enabled, or enabled for the current user based on permission set, custom permission or time. |
+| Type    | Description                                                                                                                                                      |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Boolean | True if the feature is enabled by any of the following: Universally enabled, or enabled for the current user based on permission set, custom permission or time. |
 
 ### `public static Boolean isNotEnabled(String featureName)`
 
@@ -34,9 +34,9 @@ logical inverse of the isEnabled method.
 
 #### Returns
 
-| Type      | Description                            |
-| --------- | -------------------------------------- |
-| `Boolean` | Boolean, returns inverse of isEnabled. |
+| Type    | Description                            |
+| ------- | -------------------------------------- |
+| Boolean | Boolean, returns inverse of isEnabled. |
 
 ### `public static String value(String featureName)`
 
@@ -50,8 +50,8 @@ Law of diminishing returns here. This isn't tested, per-say. It's underlying Fea
 
 #### Returns
 
-| Type     | Description                                                       |
-| -------- | ----------------------------------------------------------------- |
-| `String` | String the value stored in custom metadata for this feature flag. |
+| Type   | Description                                                       |
+| ------ | ----------------------------------------------------------------- |
+| String | String the value stored in custom metadata for this feature flag. |
 
 ---

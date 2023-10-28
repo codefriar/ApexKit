@@ -6,7 +6,7 @@ invoked by this single invocable method.
 
 ## Methods
 
-### `public static List<UniversalFlowInputOutput> invoke(List<UniversalFlowInputOutput> inputs)`
+### `public static List invoke(List<UniversalFlowInputOutput> inputs)`
 
 `INVOCABLEMETHOD`
 
@@ -20,8 +20,8 @@ This method is what will be displayed in the flow builder. This method can corre
 
 #### Returns
 
-| Type                             | Description                                                                                                                   |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `List<UniversalFlowInputOutput>` | List<UniversalFlowInputOutput> output objects. Every input receives one output, even if non-fatal exceptions are encountered. |
+| Type                           | Description                                                                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| List<UniversalFlowInputOutput> | List<UniversalFlowInputOutput> output objects. Every input receives one output, even if non-fatal exceptions are encountered. |
 
 ---

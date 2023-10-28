@@ -60,9 +60,9 @@ Makes an HTTP Callout to an api resource. Convenience method that assumes the De
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HttpResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HttpResponse` |
 
 ### `protected HttpResponse makeApiCall(HttpVerb method, String path, String query)`
 
@@ -80,9 +80,9 @@ convenience version of makeApiCall without body param. Invokes omnibus version a
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse makeApiCall(HttpVerb method, String path)`
 
@@ -99,9 +99,9 @@ convenience version of makeApiCall without body or query params. Invokes omnibus
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse get(String path)`
 
@@ -117,9 +117,9 @@ convenience method for a GET Call that only requires a path
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse get(String path, String query)`
 
@@ -136,9 +136,9 @@ convenience method for a GET Call that only requires a path and query
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse del(String path)`
 
@@ -154,9 +154,9 @@ convenience method for deleting a resource based only on path
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse del(String path, String query)`
 
@@ -173,9 +173,9 @@ convenience method for a Delete Call that only requires a path and query
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse post(String path, String body)`
 
@@ -192,9 +192,9 @@ convenience method for a POST Call that only requires a path and body
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse post(String path, String query, String body)`
 
@@ -212,9 +212,9 @@ convenience method for a POST Call that only requires a path, query and body
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse put(String path, String body)`
 
@@ -231,9 +231,9 @@ convenience method for a PUT Call that only requires a path and body
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse put(String path, String query, String body)`
 
@@ -251,9 +251,9 @@ convenience method for a PUT Call that only requires a path, query and body
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse patch(String path, String body)`
 
@@ -270,9 +270,9 @@ convenience method for a PATCH Call that only requires a path and body
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ### `protected HttpResponse patch(String path, String query, String body)`
 
@@ -290,8 +290,8 @@ convenience method for a PATCH Call that only requires a path, query and body
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HTTPResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HTTPResponse` |
 
 ---

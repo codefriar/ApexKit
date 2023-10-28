@@ -52,8 +52,8 @@ Omnibus callout method. This is the primary method for making a REST callout. Mo
 
 #### Returns
 
-| Type           | Description                   |
-| -------------- | ----------------------------- |
-| `HttpResponse` | HttpResponse HttpResponse Obj |
+| Type         | Description                   |
+| ------------ | ----------------------------- |
+| HttpResponse | HttpResponse HttpResponse Obj |
 
 ---

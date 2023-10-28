@@ -28,9 +28,9 @@ A de-duplication effort to fetch the account by ID. Used only by this class' exa
 
 #### Returns
 
-| Type      | Description                                          |
-| --------- | ---------------------------------------------------- |
-| `Account` | Account returns the account object referenced by id. |
+| Type    | Description                                          |
+| ------- | ---------------------------------------------------- |
+| Account | Account returns the account object referenced by id. |
 
 ---
 
