@@ -14,7 +14,7 @@ public class LinkedMap {
     }
 
     public List<Object> get(Set<String> keys) {
-        return this.linkedMap.get(keys);
+        return this.linkedMap.containsKey(keys) ? this.linkedMap.get(keys) : new List<Object>();
     }
 
     public List<Object> remove(Set<String> keys) {
