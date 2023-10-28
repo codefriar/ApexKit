@@ -20,7 +20,7 @@ However, this class provides a few benefits:
 
 ## Methods
 
-### `public List<Object> call(String methodName, List<Map<String,Object>> passedParameters)`
+### `public List call(String methodName, List<Map<String,Object>> passedParameters)`
 
 This is a required method of the callable interface that this class implements. You'll need to extend the class you intend to expose to flow with this one, and implement this method.
 
@@ -33,11 +33,11 @@ This is a required method of the callable interface that this class implements. 
 
 #### Returns
 
-| Type           | Description                                                                                  |
-| -------------- | -------------------------------------------------------------------------------------------- |
-| `List<Object>` | Object This returns a generic Object. This is the return value of the method you're calling. |
+| Type         | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| List<Object> | Object This returns a generic Object. This is the return value of the method you're calling. |
 
-### `protected List<Object> extractParameter(String parameterName, List<Map<String,Object>> parameters, Type parameterListType)`
+### `protected List extractParameter(String parameterName, List<Map<String,Object>> parameters, Type parameterListType)`
 
 Extracts values from a list of parameters. Used by implementations of the Invocable framework.
 
@@ -51,9 +51,9 @@ Extracts values from a list of parameters. Used by implementations of the Invoca
 
 #### Returns
 
-| Type           | Description                                                                     |
-| -------------- | ------------------------------------------------------------------------------- |
-| `List<Object>` | `List<Object>` The list of extracted values, in the same data type as requested |
+| Type         | Description                                                                     |
+| ------------ | ------------------------------------------------------------------------------- |
+| List<Object> | `List<Object>` The list of extracted values, in the same data type as requested |
 
 ---
 
@@ -110,9 +110,9 @@ Used by Map/Set to identify unique values quickly
 
 ###### Returns
 
-| Type      | Description                                                |
-| --------- | ---------------------------------------------------------- |
-| `Integer` | `Integer` returns a unique value based on x, y coordinates |
+| Type    | Description                                                |
+| ------- | ---------------------------------------------------------- |
+| Integer | `Integer` returns a unique value based on x, y coordinates |
 
 ##### `public Boolean equals(Object other)`
 
@@ -126,9 +126,9 @@ checks if the current instance is equal to another
 
 ###### Returns
 
-| Type      | Description                                                          |
-| --------- | -------------------------------------------------------------------- |
-| `Boolean` | `Boolean` returns `true` if the objects are equal, `false` otherwise |
+| Type    | Description                                                          |
+| ------- | -------------------------------------------------------------------- |
+| Boolean | `Boolean` returns `true` if the objects are equal, `false` otherwise |
 
 ##### `public Integer compareTo(Object other)`
 
@@ -140,9 +140,9 @@ checks if the current instance is equal to another
 
 ###### Returns
 
-| Type      | Description                                                                    |
-| --------- | ------------------------------------------------------------------------------ |
-| `Integer` | `Integer` negative when `this` is smaller, positive when greater, 0 when equal |
+| Type    | Description                                                                    |
+| ------- | ------------------------------------------------------------------------------ |
+| Integer | `Integer` negative when `this` is smaller, positive when greater, 0 when equal |
 
 ---
 
@@ -194,23 +194,23 @@ Constructor used for single bulkified flow processing
 
 #### Methods
 
-##### `public List&lt;UniversalFlowInputOutput&gt; execute()`
+##### `public List execute()`
 
 processes a single bulkified flow
 
 ###### Returns
 
-| Type                                   | Description                                                                              |
-| -------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `List&lt;UniversalFlowInputOutput&gt;` | `List&lt;UniversalFlowInputOutput&gt;` the flow inputs from a bulkified flow transaction |
+| Type                                 | Description                                                                              |
+| ------------------------------------ | ---------------------------------------------------------------------------------------- |
+| List&lt;UniversalFlowInputOutput&gt; | `List&lt;UniversalFlowInputOutput&gt;` the flow inputs from a bulkified flow transaction |
 
-##### `public List&lt;List&lt;UniversalFlowInputOutput&gt;&gt; executeBulk()`
+##### `public List executeBulk()`
 
 ###### Returns
 
-| Type                                               | Description                                                                                         |
-| -------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `List&lt;List&lt;UniversalFlowInputOutput&gt;&gt;` | `List&lt;List&lt;UniversalFlowInputOutput&gt;&gt;` the flow inputs from a collection of flow inputs |
+| Type                                             | Description                                                                                         |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| List&lt;List&lt;UniversalFlowInputOutput&gt;&gt; | `List&lt;List&lt;UniversalFlowInputOutput&gt;&gt;` the flow inputs from a collection of flow inputs |
 
 ##### `private void prepare()`
 

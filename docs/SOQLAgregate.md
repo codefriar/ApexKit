@@ -38,7 +38,7 @@ SOFTWARE.
 
 ### `public String getQueryString()`
 
-### `public List<AggregateResult> getAggregateResults()`
+### `public List getAggregateResults()`
 
 ### `public override String toString()`
 

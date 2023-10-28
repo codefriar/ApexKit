@@ -40,7 +40,7 @@ SOFTWARE.
 
 ### `public sObject getRecord()`
 
-### `public List<sObject> getRecords()`
+### `public List getRecords()`
 
 ### `public Database getQueryLocator()`
 

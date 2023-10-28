@@ -55,9 +55,9 @@ setMock can only be called once per test so to enable mocking multiple callouts,
 
 #### Returns
 
-| Type           | Description  |
-| -------------- | ------------ |
-| `HttpResponse` | HttpResponse |
+| Type         | Description  |
+| ------------ | ------------ |
+| HttpResponse | HttpResponse |
 
 ### `public static HttpResponse generateHttpResponse(Integer code, String status, String bodyAsString, Map<String,String> headers)`
 
@@ -76,8 +76,8 @@ Required method for the HttpCalloutMock interface
 
 #### Returns
 
-| Type           | Description    |
-| -------------- | -------------- |
-| `HttpResponse` | `HttpResponse` |
+| Type         | Description    |
+| ------------ | -------------- |
+| HttpResponse | `HttpResponse` |
 
 ---

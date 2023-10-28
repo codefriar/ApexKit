@@ -6,14 +6,14 @@ private class CAssert {
 	 * @param expectedDatetime Datetime - the expected Datetime
 	 * @param actualDatetime Datetime - the actual Datetime
 	 * @param timeVarianceSeconds Integer - the number of seconds of leeway to allow
-	 * @param assertionMessage String - the message to display if the assertion fails
+	 * @param msg String - the message to display if the assertion fails
 	 */
 	@SuppressWarnings('PMD.excessiveParameterList')
 	public static void areEqual(
 		Datetime expectedDatetime,
 		Datetime actualDatetime,
 		Integer timeVarianceSeconds,
-		String assertionMessage
+		String msg
 	) {
 		Datetime expectedMinusVariance = expectedDatetime.addSeconds(
 			-timeVarianceSeconds
@@ -24,7 +24,7 @@ private class CAssert {
 		System.Assert.isTrue(
 			actualDatetime.getTime() >= expectedMinusVariance.getTime() &&
 				actualDatetime.getTime() <= expectedPlusVariance.getTime(),
-			assertionMessage
+			msg
 		);
 	}
 
@@ -35,7 +35,21 @@ private class CAssert {
 	 * @param msg String - the message to display if the assertion fails
 	 */
 	public static void startsWith(String str, String prefix, String msg) {
-		Assert.isTrue(str.startsWith(prefix), msg);
+		System.Assert.isTrue(str.startsWith(prefix), msg);
+	}
+
+	/**
+	 * @description     Assertion method to validate that a string starts with the given string (case insensitive)
+	 * @param str    String - the string to validate
+	 * @param prefix String - the prefix the string must start with (case insensitive)
+	 * @param msg String - the message to display if the assertion fails
+	 */
+	public static void startsWithIgnoreCase(
+		String str,
+		String prefix,
+		String msg
+	) {
+		System.Assert.isTrue(str.startsWithIgnoreCase(prefix), msg);
 	}
 
 	/**
@@ -45,55 +59,65 @@ private class CAssert {
 	 * @param msg String - the message to display if the assertion fails
 	 */
 	public static void endsWith(String str, String suffix, String msg) {
-		Assert.isTrue(str.endsWith(suffix), msg);
+		System.Assert.isTrue(str.endsWith(suffix), msg);
+	}
+
+	/**
+	 * @description     Assertion method to validate that a string ends with the given string (case insensitive)
+	 * @param str    String - the string to validate (case insensitive)
+	 * @param suffix String - the suffix the string must end with
+	 * @param msg String - the message to display if the assertion fails
+	 */
+	public static void endsWithIgnoreCase(String str, String suffix, String msg) {
+		System.Assert.isTrue(str.endsWithIgnoreCase(suffix), msg);
 	}
 
 	/**
 	 * @description An assertion that validates a list contains at least one of the items in the other list passed in
 	 * @param listToCheck List<Object> the list to check
 	 * @param listToCheckAgainst List<Object> the list to check against
-	 * @param message String the message to display if the assertion fails
+	 * @param msg String the message to display if the assertion fails
 	 */
 	public static void contains(
 		List<Object> listToCheck,
 		List<Object> listToCheckAgainst,
-		String message
+		String msg
 	) {
 		contains(
 			new Set<Object>(listToCheck),
 			new Set<Object>(listToCheckAgainst),
-			message
+			msg
 		);
-		System.assert(false, message);
+		System.Assert.fail(msg);
 	}
 
 	/**
 	 * @description An assertion that validates the passed in list contains at least one of the items in the set.
 	 * Ultimately defers to the contains assertion below comparing two sets.
 	 * @param listToCheck List<Object> to check for containing at least one item from the set
-	 * @param itemsToCheckFor Set<Object> the set of items to check for in the list
-	 * @param message String the message to display if the assertion fails
+	 * @param setToCheckAgainst Set<Object> the set of items to check for in the list
+	 * @param msg String the message to display if the assertion fails
 	 */
 	public static void contains(
 		List<Object> listToCheck,
-		Set<Object> itemsToCheckFor,
-		String message
+		Set<Object> setToCheckAgainst,
+		String msg
 	) {
 		Set<Object> listSet = new Set<Object>(listToCheck);
-		contains(itemsToCheckFor, listSet, message);
-		System.assert(false, message);
+		contains(setToCheckAgainst, listSet, msg);
+		System.Assert.fail(msg);
 	}
 
 	/**
 	 * @description Checks to see if a set contains any of the items in another set.
 	 * @param setToCheck Set<Object> the set to check
 	 * @param setToCheckAgainst Set<Object> the set to check against
-	 * @param message String the message to display if the assertion fails
+	 * @param msg String the message to display if the assertion fails
 	 */
 	public static void contains(
 		Set<Object> setToCheck,
 		Set<Object> setToCheckAgainst,
-		String message
+		String msg
 	) {
 		for (Object item : setToCheck) {
 			if (setToCheckAgainst.contains(item)) {
@@ -101,7 +125,7 @@ private class CAssert {
 			}
 		}
 
-		System.assert(false, message);
+		System.Assert.fail(msg);
 	}
 
 	/**

@@ -27,9 +27,9 @@ This is the method that implementing classes must override. It's the method that
 
 #### Returns
 
-| Type      | Description                                     |
-| --------- | ----------------------------------------------- |
-| `Boolean` | Boolean True if the exit criteria has been met. |
+| Type    | Description                                     |
+| ------- | ----------------------------------------------- |
+| Boolean | Boolean True if the exit criteria has been met. |
 
 ### `public void execute()`
 
@@ -41,9 +41,9 @@ This method is to be deprecated shortly, in favor of the lookup system built in 
 
 #### Returns
 
-| Type     | Description                                                                   |
-| -------- | ----------------------------------------------------------------------------- |
-| `String` | String class name. Currently only used in the finalizer for logging purposes. |
+| Type   | Description                                                                   |
+| ------ | ----------------------------------------------------------------------------- |
+| String | String class name. Currently only used in the finalizer for logging purposes. |
 
 ### `public void execute(QueueableContext context)`
 

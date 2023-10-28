@@ -48,9 +48,9 @@ Required method that returns true if the exit criteria has been met.
 
 ###### Returns
 
-| Type      | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
-| `Boolean` | Boolean - true if the exit criteria has been met, false otherwise. |
+| Type    | Description                                                        |
+| ------- | ------------------------------------------------------------------ |
+| Boolean | Boolean - true if the exit criteria has been met, false otherwise. |
 
 ##### `public override void execute()`
 

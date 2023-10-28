@@ -6,7 +6,7 @@ Provides a similar interface to Callable, but bulkified to handle multiple sets 
 
 ## Methods
 
-### `public List<Object> call(String methodName, List<Map<String,Object>> parameters)`
+### `public List call(String methodName, List<Map<String,Object>> parameters)`
 
 Implementing classes must implement this method signature.
 
@@ -19,8 +19,8 @@ Implementing classes must implement this method signature.
 
 #### Returns
 
-| Type           | Description                                         |
-| -------------- | --------------------------------------------------- |
-| `List<Object>` | List<Object> The results of the called Apex methods |
+| Type         | Description                                         |
+| ------------ | --------------------------------------------------- |
+| List<Object> | List<Object> The results of the called Apex methods |
 
 ---

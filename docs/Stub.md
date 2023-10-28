@@ -82,9 +82,9 @@ method required by the StubProvider interface. Handles the mock execution of the
 
 #### Returns
 
-| Type     | Description |
-| -------- | ----------- |
-| `Object` | `Object`    |
+| Type   | Description |
+| ------ | ----------- |
+| Object | `Object`    |
 
 ### `public void assertAllMockedMethodsWereCalled()`
 
@@ -96,9 +96,9 @@ returns the this constructed class with it's mocked methods as a single stub obj
 
 #### Returns
 
-| Type     | Description                                                |
-| -------- | ---------------------------------------------------------- |
-| `Object` | `Object` Needs to be cast back to the type of object used. |
+| Type   | Description                                                |
+| ------ | ---------------------------------------------------------- |
+| Object | `Object` Needs to be cast back to the type of object used. |
 
 ---
 
@@ -154,9 +154,9 @@ This method, and it's overloaded variants below, all work to add a new MockedMet
 
 ###### Returns
 
-| Type              | Description                                                          |
-| ----------------- | -------------------------------------------------------------------- |
-| `MethodSignature` | `MethodSignature.Builder` - returns the builder object for chaining. |
+| Type            | Description                                                          |
+| --------------- | -------------------------------------------------------------------- |
+| MethodSignature | `MethodSignature.Builder` - returns the builder object for chaining. |
 
 ##### `public MethodSignature mockingMethodCall(String methodName)`
 
@@ -170,9 +170,9 @@ Overloaded variant of the main 'mockingMethodCall' method. See docs for the firs
 
 ###### Returns
 
-| Type              | Description               |
-| ----------------- | ------------------------- |
-| `MethodSignature` | `MethodSignature.Builder` |
+| Type            | Description               |
+| --------------- | ------------------------- |
+| MethodSignature | `MethodSignature.Builder` |
 
 ##### `public MockedMethod mockingMethodCall(String methodName, Type paramType)`
 
@@ -187,9 +187,9 @@ Overloaded variant of the main 'mockingMethodCall' method. See docs for the firs
 
 ###### Returns
 
-| Type           | Description               |
-| -------------- | ------------------------- |
-| `MockedMethod` | `MethodSignature.Builder` |
+| Type         | Description               |
+| ------------ | ------------------------- |
+| MockedMethod | `MethodSignature.Builder` |
 
 ##### `public MockedMethod mockingMethodCall(String methodName, Type paramType, Type paramType2)`
 
@@ -205,9 +205,9 @@ Overloaded variant of the main 'mockingMethodCall' method. See docs for the firs
 
 ###### Returns
 
-| Type           | Description               |
-| -------------- | ------------------------- |
-| `MockedMethod` | `MethodSignature.Builder` |
+| Type         | Description               |
+| ------------ | ------------------------- |
+| MockedMethod | `MethodSignature.Builder` |
 
 ##### `public MockedMethod mockingMethodCall(String methodName, Type paramType, Type paramType2, Type paramType3)`
 
@@ -226,9 +226,9 @@ Overloaded variant of the main 'mockingMethodCall' method. See docs for the firs
 
 ###### Returns
 
-| Type           | Description               |
-| -------------- | ------------------------- |
-| `MockedMethod` | `MethodSignature.Builder` |
+| Type         | Description               |
+| ------------ | ------------------------- |
+| MockedMethod | `MethodSignature.Builder` |
 
 ##### `public MockedMethod mockingMethodCall(String methodName, Type paramType, Type paramType2, Type paramType3, Type paramType4)`
 
@@ -248,9 +248,9 @@ Overloaded variant of the main 'mockingMethodCall' method. See docs for the firs
 
 ###### Returns
 
-| Type           | Description               |
-| -------------- | ------------------------- |
-| `MockedMethod` | `MethodSignature.Builder` |
+| Type         | Description               |
+| ------------ | ------------------------- |
+| MockedMethod | `MethodSignature.Builder` |
 
 ##### `public Object defineStub(Boolean generateInjectableStub)`
 
@@ -264,9 +264,9 @@ Generates a Stub object from this builder object.
 
 ###### Returns
 
-| Type     | Description |
-| -------- | ----------- |
-| `Object` | `Stub`      |
+| Type   | Description |
+| ------ | ----------- |
+| Object | `Stub`      |
 
 ##### `public Stub defineStub()`
 
@@ -274,9 +274,9 @@ Method generates a Stub object from this builder object.
 
 ###### Returns
 
-| Type   | Description                                     |
-| ------ | ----------------------------------------------- |
-| `Stub` | Stub object to be used to mock the object type. |
+| Type | Description                                     |
+| ---- | ----------------------------------------------- |
+| Stub | Stub object to be used to mock the object type. |
 
 ---
 

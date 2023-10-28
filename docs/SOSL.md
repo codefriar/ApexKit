@@ -38,7 +38,7 @@ SOFTWARE.
 
 ### `public String getQueryString()`
 
-### `public List<List<SObject>> query()`
+### `public List query()`
 
 ### `public Search find()`
 

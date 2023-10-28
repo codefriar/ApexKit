@@ -4,7 +4,7 @@
 
 ## Methods
 
-### `public static void areEqual(Datetime expectedDatetime, Datetime actualDatetime, Integer timeVarianceSeconds, String assertionMessage)`
+### `public static void areEqual(Datetime expectedDatetime, Datetime actualDatetime, Integer timeVarianceSeconds, String msg)`
 
 `SUPPRESSWARNINGS`
 
@@ -17,7 +17,7 @@ Assertion method to validate that two Datetime objects are equal within a given 
 | `expectedDatetime`    | Datetime - the expected Datetime                       |
 | `actualDatetime`      | Datetime - the actual Datetime                         |
 | `timeVarianceSeconds` | Integer - the number of seconds of leeway to allow     |
-| `assertionMessage`    | String - the message to display if the assertion fails |
+| `msg`                 | String - the message to display if the assertion fails |
 
 ### `public static void startsWith(String str, String prefix, String msg)`
 
@@ -31,6 +31,18 @@ Assertion method to validate that a string starts with the given string
 | `prefix` | String - the prefix the string must start with         |
 | `msg`    | String - the message to display if the assertion fails |
 
+### `public static void startsWithIgnoreCase(String str, String prefix, String msg)`
+
+Assertion method to validate that a string starts with the given string (case insensitive)
+
+#### Parameters
+
+| Param    | Description                                                       |
+| -------- | ----------------------------------------------------------------- |
+| `str`    | String - the string to validate                                   |
+| `prefix` | String - the prefix the string must start with (case insensitive) |
+| `msg`    | String - the message to display if the assertion fails            |
+
 ### `public static void endsWith(String str, String suffix, String msg)`
 
 Assertion method to validate that a string ends with the given string
@@ -43,7 +55,19 @@ Assertion method to validate that a string ends with the given string
 | `suffix` | String - the suffix the string must end with           |
 | `msg`    | String - the message to display if the assertion fails |
 
-### `public static void contains(List<Object> listToCheck, List<Object> listToCheckAgainst, String message)`
+### `public static void endsWithIgnoreCase(String str, String suffix, String msg)`
+
+Assertion method to validate that a string ends with the given string (case insensitive)
+
+#### Parameters
+
+| Param    | Description                                            |
+| -------- | ------------------------------------------------------ |
+| `str`    | String - the string to validate (case insensitive)     |
+| `suffix` | String - the suffix the string must end with           |
+| `msg`    | String - the message to display if the assertion fails |
+
+### `public static void contains(List<Object> listToCheck, List<Object> listToCheckAgainst, String msg)`
 
 An assertion that validates a list contains at least one of the items in the other list passed in
 
@@ -53,21 +77,21 @@ An assertion that validates a list contains at least one of the items in the oth
 | -------------------- | ---------------------------------------------------- |
 | `listToCheck`        | List<Object> the list to check                       |
 | `listToCheckAgainst` | List<Object> the list to check against               |
-| `message`            | String the message to display if the assertion fails |
+| `msg`                | String the message to display if the assertion fails |
 
-### `public static void contains(List<Object> listToCheck, Set<Object> itemsToCheckFor, String message)`
+### `public static void contains(List<Object> listToCheck, Set<Object> setToCheckAgainst, String msg)`
 
 An assertion that validates the passed in list contains at least one of the items in the set. Ultimately defers to the contains assertion below comparing two sets.
 
 #### Parameters
 
-| Param             | Description                                                         |
-| ----------------- | ------------------------------------------------------------------- |
-| `listToCheck`     | List<Object> to check for containing at least one item from the set |
-| `itemsToCheckFor` | Set<Object> the set of items to check for in the list               |
-| `message`         | String the message to display if the assertion fails                |
+| Param               | Description                                                         |
+| ------------------- | ------------------------------------------------------------------- |
+| `listToCheck`       | List<Object> to check for containing at least one item from the set |
+| `setToCheckAgainst` | Set<Object> the set of items to check for in the list               |
+| `msg`               | String the message to display if the assertion fails                |
 
-### `public static void contains(Set<Object> setToCheck, Set<Object> setToCheckAgainst, String message)`
+### `public static void contains(Set<Object> setToCheck, Set<Object> setToCheckAgainst, String msg)`
 
 Checks to see if a set contains any of the items in another set.
 
@@ -77,7 +101,7 @@ Checks to see if a set contains any of the items in another set.
 | ------------------- | ---------------------------------------------------- |
 | `setToCheck`        | Set<Object> the set to check                         |
 | `setToCheckAgainst` | Set<Object> the set to check against                 |
-| `message`           | String the message to display if the assertion fails |
+| `msg`               | String the message to display if the assertion fails |
 
 ### `public static void isNotJanky(String msg)`
 

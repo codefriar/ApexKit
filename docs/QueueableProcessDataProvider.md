@@ -27,8 +27,8 @@ This is the main method that will be called by the QueueableProcessManager. By e
 
 #### Returns
 
-| Type     | Description                                         |
-| -------- | --------------------------------------------------- |
-| `String` | String The name of the Apex class that just failed. |
+| Type   | Description                                         |
+| ------ | --------------------------------------------------- |
+| String | String The name of the Apex class that just failed. |
 
 ---
