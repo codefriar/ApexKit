@@ -33,7 +33,7 @@
 		"eslint-plugin-jest": "^27.6.0",
 		"husky": "^8.0.3",
 		"marked": "^9.1.6",
-		"lint-staged": "^15.1.0",
+		"lint-staged": "^15.2.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-apex": "^2.0.1"
 	},
