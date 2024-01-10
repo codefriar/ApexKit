@@ -4,7 +4,7 @@
 	xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
-    <description>Booz Allen Hamilton VA-HealthConnect Ruleset</description>
+    <description>Ruleset</description>
     <!-- COMPLEXITY -->
     <rule ref="category/apex/design.xml/ExcessiveClassLength" message="Avoid really long classes (lines of code)">
         <priority>2</priority>
