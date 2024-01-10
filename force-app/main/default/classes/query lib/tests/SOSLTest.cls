@@ -44,10 +44,7 @@ public with sharing class SOSLTest {
 		insert admin;
 
 		System.runAs(admin) {
-			insert new List<Account>{
-				new Account(Name = 'Test 1'),
-				new Account(Name = 'Test 2')
-			};
+			insert new List<Account>{ new Account(Name = 'Test 1'), new Account(Name = 'Test 2') };
 		}
 	}
 
@@ -63,20 +60,11 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				new Query.SearchCondition().find(searchPhrase).toString(),
-				builder.searchCondition.toString()
-			);
+			Assert.areEqual(new Query.SearchCondition().find(searchPhrase).toString(), builder.searchCondition.toString());
 			Assert.areEqual(null, builder.searchGroup);
-			Assert.areEqual(
-				new List<Query.ReturningFieldSpec>(),
-				builder.returningFieldSpecs
-			);
+			Assert.areEqual(new List<Query.ReturningFieldSpec>(), builder.returningFieldSpecs);
 			Assert.areEqual(null, builder.division);
-			Assert.areEqual(
-				new List<SOSL.DataCategorySpec>(),
-				builder.dataCategorySpecs
-			);
+			Assert.areEqual(new List<SOSL.DataCategorySpec>(), builder.dataCategorySpecs);
 			Assert.areEqual(null, builder.snippet);
 			Assert.areEqual(new Set<String>(), builder.networkIds);
 			Assert.areEqual(null, builder.pricebookId);
@@ -92,9 +80,7 @@ public with sharing class SOSLTest {
 	private static void testSOSLBuilderWithSearchCondition() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition(
-					Query.LogicalOperator.OR_VALUE
-				)
+			Query.SearchCondition searchCondition = new Query.SearchCondition(Query.LogicalOperator.OR_VALUE)
 				.find('Test1')
 				.find('Test2');
 
@@ -104,20 +90,11 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				searchCondition.toString(),
-				builder.searchCondition.toString()
-			);
+			Assert.areEqual(searchCondition.toString(), builder.searchCondition.toString());
 			Assert.areEqual(null, builder.searchGroup);
-			Assert.areEqual(
-				new List<Query.ReturningFieldSpec>(),
-				builder.returningFieldSpecs
-			);
+			Assert.areEqual(new List<Query.ReturningFieldSpec>(), builder.returningFieldSpecs);
 			Assert.areEqual(null, builder.division);
-			Assert.areEqual(
-				new List<SOSL.DataCategorySpec>(),
-				builder.dataCategorySpecs
-			);
+			Assert.areEqual(new List<SOSL.DataCategorySpec>(), builder.dataCategorySpecs);
 			Assert.areEqual(null, builder.snippet);
 			Assert.areEqual(new Set<String>(), builder.networkIds);
 			Assert.areEqual(null, builder.pricebookId);
@@ -150,9 +127,7 @@ public with sharing class SOSLTest {
 	private static void testSOSLBuilderAddReturningFieldSpec() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				Account.SObjectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Account.SObjectType);
 			SOSL.Builder builder = new SOSL.Builder('Test');
 
 			Test.startTest();
@@ -161,10 +136,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				new List<Query.ReturningFieldSpec>{ returningFieldSpec },
-				builder.returningFieldSpecs
-			);
+			Assert.areEqual(new List<Query.ReturningFieldSpec>{ returningFieldSpec }, builder.returningFieldSpecs);
 		}
 	}
 
@@ -199,11 +171,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				builder.dataCategorySpecs.size(),
-				(builder.dataCategorySpecs).toString()
-			);
+			Assert.areEqual(1, builder.dataCategorySpecs.size(), (builder.dataCategorySpecs).toString());
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
 			Assert.areEqual('AT', dataCategorySpec.operator);
@@ -225,11 +193,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				builder.dataCategorySpecs.size(),
-				(builder.dataCategorySpecs).toString()
-			);
+			Assert.areEqual(1, builder.dataCategorySpecs.size(), (builder.dataCategorySpecs).toString());
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
 			Assert.areEqual('ABOVE', dataCategorySpec.operator);
@@ -251,11 +215,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				builder.dataCategorySpecs.size(),
-				(builder.dataCategorySpecs).toString()
-			);
+			Assert.areEqual(1, builder.dataCategorySpecs.size(), (builder.dataCategorySpecs).toString());
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
 			Assert.areEqual('BELOW', dataCategorySpec.operator);
@@ -277,11 +237,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				builder.dataCategorySpecs.size(),
-				(builder.dataCategorySpecs).toString()
-			);
+			Assert.areEqual(1, builder.dataCategorySpecs.size(), (builder.dataCategorySpecs).toString());
 			SOSL.DataCategorySpec dataCategorySpec = builder.dataCategorySpecs[0];
 			Assert.areEqual(groupName, dataCategorySpec.groupName);
 			Assert.areEqual('ABOVE_OR_BELOW', dataCategorySpec.operator);
@@ -409,10 +365,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				String.valueOf(isSpellCorrectionEnabled),
-				builder.spellCorrection
-			);
+			Assert.areEqual(String.valueOf(isSpellCorrectionEnabled), builder.spellCorrection);
 		}
 	}
 
@@ -469,9 +422,7 @@ public with sharing class SOSLTest {
 	private static void testSOSLBuilderWithFindStatement() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition(
-					Query.LogicalOperator.OR_VALUE
-				)
+			Query.SearchCondition searchCondition = new Query.SearchCondition(Query.LogicalOperator.OR_VALUE)
 				.find('Test1')
 				.find('Test2');
 			SOSL.Builder builder = new SOSL.Builder(searchCondition);
@@ -491,8 +442,7 @@ public with sharing class SOSLTest {
 	private static void testSOSLBuilderWithSearchGroupStatement() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			SOSL.Builder builder = new SOSL.Builder('Test')
-				.withSearchGroup(Query.SearchGroup.ALL);
+			SOSL.Builder builder = new SOSL.Builder('Test').withSearchGroup(Query.SearchGroup.ALL);
 
 			Test.startTest();
 
@@ -510,12 +460,8 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			SOSL.Builder builder = new SOSL.Builder('Test')
-				.addReturningFieldSpec(
-					new Query.ReturningFieldSpec(Account.SObjectType)
-				)
-				.addReturningFieldSpec(
-					new Query.ReturningFieldSpec(Contact.SObjectType)
-				);
+				.addReturningFieldSpec(new Query.ReturningFieldSpec(Account.SObjectType))
+				.addReturningFieldSpec(new Query.ReturningFieldSpec(Contact.SObjectType));
 
 			Test.startTest();
 
@@ -587,8 +533,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			Set<String> networkIds = new Set<String>{ 'networkId_1', 'networkId_2' };
-			SOSL.Builder builder = new SOSL.Builder('Test')
-				.withNetworkIds(networkIds);
+			SOSL.Builder builder = new SOSL.Builder('Test').withNetworkIds(networkIds);
 
 			Test.startTest();
 
@@ -606,8 +551,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String pricebookId = Test.getStandardPricebookId();
-			SOSL.Builder builder = new SOSL.Builder('Test')
-				.withPricebookId(pricebookId);
+			SOSL.Builder builder = new SOSL.Builder('Test').withPricebookId(pricebookId);
 
 			Test.startTest();
 
@@ -615,10 +559,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			String expectedSoslQueryString =
-				'FIND {Test} WITH PricebookId = \'' +
-				pricebookId +
-				'\'';
+			String expectedSoslQueryString = 'FIND {Test} WITH PricebookId = \'' + pricebookId + '\'';
 			Assert.areEqual(expectedSoslQueryString, query.getQueryString());
 		}
 	}
@@ -644,8 +585,7 @@ public with sharing class SOSLTest {
 	private static void testSOSLBuilderWithSpellCorrectionStatement() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			SOSL.Builder builder = new SOSL.Builder('Test')
-				.withSpellCorrection(false);
+			SOSL.Builder builder = new SOSL.Builder('Test').withSpellCorrection(false);
 
 			Test.startTest();
 
@@ -719,14 +659,8 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				Query.LogicalOperator.AND_VALUE,
-				searchCondition.logicalOperator
-			);
-			Assert.areEqual(
-				new List<Query.Expression>(),
-				searchCondition.searchExpressions
-			);
+			Assert.areEqual(Query.LogicalOperator.AND_VALUE, searchCondition.logicalOperator);
+			Assert.areEqual(new List<Query.Expression>(), searchCondition.searchExpressions);
 		}
 	}
 
@@ -738,17 +672,12 @@ public with sharing class SOSLTest {
 
 			Test.startTest();
 
-			Query.SearchCondition searchCondition = new Query.SearchCondition(
-				logicalOperator
-			);
+			Query.SearchCondition searchCondition = new Query.SearchCondition(logicalOperator);
 
 			Test.stopTest();
 
 			Assert.areEqual(logicalOperator, searchCondition.logicalOperator);
-			Assert.areEqual(
-				new List<Query.Expression>(),
-				searchCondition.searchExpressions
-			);
+			Assert.areEqual(new List<Query.Expression>(), searchCondition.searchExpressions);
 		}
 	}
 
@@ -768,10 +697,7 @@ public with sharing class SOSLTest {
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
 			System.assert(expression instanceof Query.PhraseExpression, expression);
-			Assert.areEqual(
-				new Query.PhraseExpression(searchPhrase).toString(),
-				expression.toString()
-			);
+			Assert.areEqual(new Query.PhraseExpression(searchPhrase).toString(), expression.toString());
 		}
 	}
 
@@ -780,8 +706,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			Query.SearchCondition searchCondition = new Query.SearchCondition();
-			Query.SearchCondition subSearchCondition = new Query.SearchCondition()
-				.find('Tes');
+			Query.SearchCondition subSearchCondition = new Query.SearchCondition().find('Tes');
 
 			Test.startTest();
 
@@ -792,10 +717,7 @@ public with sharing class SOSLTest {
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
 			System.assert(expression instanceof Query.SearchExpression, expression);
-			Assert.areEqual(
-				new Query.SearchExpression(subSearchCondition).toString(),
-				expression.toString()
-			);
+			Assert.areEqual(new Query.SearchExpression(subSearchCondition).toString(), expression.toString());
 		}
 	}
 
@@ -804,8 +726,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			Query.SearchCondition searchCondition = new Query.SearchCondition();
-			Query.SearchCondition subSearchCondition = new Query.SearchCondition()
-				.find('Tes');
+			Query.SearchCondition subSearchCondition = new Query.SearchCondition().find('Tes');
 
 			Test.startTest();
 
@@ -815,14 +736,8 @@ public with sharing class SOSLTest {
 
 			Assert.areEqual(1, searchCondition.searchExpressions.size());
 			Query.Expression expression = searchCondition.searchExpressions[0];
-			System.assert(
-				expression instanceof Query.DenialSearchExpression,
-				expression
-			);
-			Assert.areEqual(
-				new Query.DenialSearchExpression(subSearchCondition).toString(),
-				expression.toString()
-			);
+			System.assert(expression instanceof Query.DenialSearchExpression, expression);
+			Assert.areEqual(new Query.DenialSearchExpression(subSearchCondition).toString(), expression.toString());
 		}
 	}
 
@@ -830,9 +745,7 @@ public with sharing class SOSLTest {
 	private static void testSearchConditionToConditionString() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition(
-				Query.LogicalOperator.OR_VALUE
-			);
+			Query.SearchCondition searchCondition = new Query.SearchCondition(Query.LogicalOperator.OR_VALUE);
 
 			Test.startTest();
 
@@ -842,10 +755,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				'(Test1) OR (Test2)',
-				searchCondition.toConditionString()
-			);
+			Assert.areEqual('(Test1) OR (Test2)', searchCondition.toConditionString());
 		}
 	}
 
@@ -873,9 +783,7 @@ public with sharing class SOSLTest {
 	private static void testSearchConditionToStringOverride() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition(
-				Query.LogicalOperator.OR_VALUE
-			);
+			Query.SearchCondition searchCondition = new Query.SearchCondition(Query.LogicalOperator.OR_VALUE);
 
 			Test.startTest();
 
@@ -885,10 +793,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(searchCondition),
-				searchCondition.toString()
-			);
+			Assert.areEqual(JSON.serialize(searchCondition), searchCondition.toString());
 		}
 	}
 
@@ -900,26 +805,18 @@ public with sharing class SOSLTest {
 
 			Test.startTest();
 
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				objectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(objectType);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				objectType.getDescribe().getName(),
-				returningFieldSpec.objectTypeName
-			);
+			Assert.areEqual(objectType.getDescribe().getName(), returningFieldSpec.objectTypeName);
 			Assert.areEqual(new Set<String>(), returningFieldSpec.fieldsToSelect);
 			Assert.areEqual(null, returningFieldSpec.listViewName);
 			Assert.areEqual(
 				new Query.Condition(Query.LogicalOperator.AND_VALUE).toString(),
 				returningFieldSpec.whereCondition.toString()
 			);
-			Assert.areEqual(
-				new List<Query.SortOrder>(),
-				returningFieldSpec.sortOrders
-			);
+			Assert.areEqual(new List<Query.SortOrder>(), returningFieldSpec.sortOrders);
 			Assert.areEqual(null, returningFieldSpec.numberOfRows);
 			Assert.areEqual(null, returningFieldSpec.offset);
 		}
@@ -933,9 +830,7 @@ public with sharing class SOSLTest {
 
 			Test.startTest();
 
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				objectTypeName
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(objectTypeName);
 
 			Test.stopTest();
 
@@ -946,10 +841,7 @@ public with sharing class SOSLTest {
 				new Query.Condition(Query.LogicalOperator.AND_VALUE).toString(),
 				returningFieldSpec.whereCondition.toString()
 			);
-			Assert.areEqual(
-				new List<Query.SortOrder>(),
-				returningFieldSpec.sortOrders
-			);
+			Assert.areEqual(new List<Query.SortOrder>(), returningFieldSpec.sortOrders);
 			Assert.areEqual(null, returningFieldSpec.numberOfRows);
 			Assert.areEqual(null, returningFieldSpec.offset);
 		}
@@ -960,9 +852,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			SObjectType objectType = Account.SObjectType;
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				objectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(objectType);
 
 			String fieldName = Account.Name.getDescribe().getName();
 
@@ -972,10 +862,7 @@ public with sharing class SOSLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				new Set<String>{ fieldName },
-				returningFieldSpec.fieldsToSelect
-			);
+			Assert.areEqual(new Set<String>{ fieldName }, returningFieldSpec.fieldsToSelect);
 		}
 	}
 
@@ -984,13 +871,9 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			SObjectType objectType = Account.SObjectType;
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				objectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(objectType);
 
-			List<String> fieldApiNames = new List<String>{
-				Account.Name.getDescribe().getName()
-			};
+			List<String> fieldApiNames = new List<String>{ Account.Name.getDescribe().getName() };
 
 			Test.startTest();
 
@@ -1000,10 +883,7 @@ public with sharing class SOSLTest {
 
 			System.assert(
 				returningFieldSpec.fieldsToSelect.containsAll(fieldApiNames),
-				'Expected: ' +
-					fieldApiNames +
-					', Actual: ' +
-					returningFieldSpec.fieldsToSelect
+				'Expected: ' + fieldApiNames + ', Actual: ' + returningFieldSpec.fieldsToSelect
 			);
 		}
 	}
@@ -1013,13 +893,9 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			SObjectType objectType = Account.SObjectType;
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				objectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(objectType);
 
-			Set<String> fieldApiNames = new Set<String>{
-				Account.Name.getDescribe().getName()
-			};
+			Set<String> fieldApiNames = new Set<String>{ Account.Name.getDescribe().getName() };
 
 			Test.startTest();
 
@@ -1029,10 +905,7 @@ public with sharing class SOSLTest {
 
 			System.assert(
 				returningFieldSpec.fieldsToSelect.containsAll(fieldApiNames),
-				'Expected: ' +
-					fieldApiNames +
-					', Actual: ' +
-					returningFieldSpec.fieldsToSelect
+				'Expected: ' + fieldApiNames + ', Actual: ' + returningFieldSpec.fieldsToSelect
 			);
 		}
 	}
@@ -1063,9 +936,7 @@ public with sharing class SOSLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String listViewName = 'Recent';
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				Account.SObjectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Account.SObjectType);
 
 			Test.startTest();
 
@@ -1081,11 +952,8 @@ public with sharing class SOSLTest {
 	private static void testReturningFieldSpecWhereCondition() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				Account.SObjectType
-			);
-			Query.Condition condition = new Query.Condition()
-				.equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Account.SObjectType);
+			Query.Condition condition = new Query.Condition().equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
 
 			System.assert(returningFieldSpec.whereCondition.expressions.isEmpty());
 
@@ -1103,18 +971,14 @@ public with sharing class SOSLTest {
 	private static void testReturningFieldSpecOrderByWithDirectionAndNullRecordsOrder() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				Account.SObjectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Account.SObjectType);
 			String fieldName = Account.Type.getDescribe().getName();
 			Query.SortDirection direction = Query.SortDirection.DESCENDING;
 			Query.SortNullRecords nullRecords = Query.SortNullRecords.LAST;
 
 			Test.startTest();
 
-			returningFieldSpec.orderBy(
-				new Query.SortOrder(fieldName, direction, nullRecords)
-			);
+			returningFieldSpec.orderBy(new Query.SortOrder(fieldName, direction, nullRecords));
 
 			Test.stopTest();
 
@@ -1131,9 +995,7 @@ public with sharing class SOSLTest {
 	private static void testReturningFieldSpecScopeLimit() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				Account.SObjectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Account.SObjectType);
 			Integer scopeLimit = 100;
 
 			Test.startTest();
@@ -1150,9 +1012,7 @@ public with sharing class SOSLTest {
 	private static void testReturningFieldSpecOffset() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-				Account.SObjectType
-			);
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Account.SObjectType);
 			Integer offset = 100;
 
 			Test.startTest();
@@ -1171,25 +1031,13 @@ public with sharing class SOSLTest {
 		System.runAs(admin) {
 			Test.startTest();
 
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-					Case.SObjectType
-				)
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Case.SObjectType)
 				.selectField(Case.CreatedDate.getDescribe().getName())
-				.selectFields(
-					new List<String>{ Case.AccountId.getDescribe().getName() }
-				)
+				.selectFields(new List<String>{ Case.AccountId.getDescribe().getName() })
 				.selectFields(new Set<String>{ Case.OwnerId.getDescribe().getName() })
 				.usingListView('Recent')
-				.whereCondition(
-					new Query.Condition()
-						.equals(Case.IsClosed.getDescribe().getName(), false)
-				)
-				.orderBy(
-					new Query.SortOrder(
-						Case.CaseNumber.getDescribe().getName(),
-						Query.SortDirection.DESCENDING
-					)
-				)
+				.whereCondition(new Query.Condition().equals(Case.IsClosed.getDescribe().getName(), false))
+				.orderBy(new Query.SortOrder(Case.CaseNumber.getDescribe().getName(), Query.SortDirection.DESCENDING))
 				.scopeLimit(100)
 				.offset(0);
 
@@ -1205,10 +1053,7 @@ public with sharing class SOSLTest {
 				' OFFSET 0' +
 				')';
 
-			Assert.areEqual(
-				expectedReturningFieldSpecString,
-				returningFieldSpec.toReturningFieldSpecString()
-			);
+			Assert.areEqual(expectedReturningFieldSpecString, returningFieldSpec.toReturningFieldSpecString());
 		}
 	}
 
@@ -1218,34 +1063,19 @@ public with sharing class SOSLTest {
 		System.runAs(admin) {
 			Test.startTest();
 
-			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(
-					Case.SObjectType
-				)
+			Query.ReturningFieldSpec returningFieldSpec = new Query.ReturningFieldSpec(Case.SObjectType)
 				.selectField(Case.CreatedDate.getDescribe().getName())
-				.selectFields(
-					new List<String>{ Case.AccountId.getDescribe().getName() }
-				)
+				.selectFields(new List<String>{ Case.AccountId.getDescribe().getName() })
 				.selectFields(new Set<String>{ Case.OwnerId.getDescribe().getName() })
 				.usingListView('Recent')
-				.whereCondition(
-					new Query.Condition()
-						.equals(Case.IsClosed.getDescribe().getName(), false)
-				)
-				.orderBy(
-					new Query.SortOrder(
-						Case.CaseNumber.getDescribe().getName(),
-						Query.SortDirection.DESCENDING
-					)
-				)
+				.whereCondition(new Query.Condition().equals(Case.IsClosed.getDescribe().getName(), false))
+				.orderBy(new Query.SortOrder(Case.CaseNumber.getDescribe().getName(), Query.SortDirection.DESCENDING))
 				.scopeLimit(100)
 				.offset(0);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(returningFieldSpec),
-				returningFieldSpec.toString()
-			);
+			Assert.areEqual(JSON.serialize(returningFieldSpec), returningFieldSpec.toString());
 		}
 	}
 
@@ -1259,11 +1089,7 @@ public with sharing class SOSLTest {
 
 			Test.startTest();
 
-			SOSL.DataCategorySpec dataCategorySpec = new SOSL.DataCategorySpec(
-				groupName,
-				operator,
-				category
-			);
+			SOSL.DataCategorySpec dataCategorySpec = new SOSL.DataCategorySpec(groupName, operator, category);
 
 			Test.stopTest();
 
@@ -1283,24 +1109,12 @@ public with sharing class SOSLTest {
 
 			Test.startTest();
 
-			SOSL.DataCategorySpec dataCategorySpec = new SOSL.DataCategorySpec(
-				groupName,
-				operator,
-				category
-			);
+			SOSL.DataCategorySpec dataCategorySpec = new SOSL.DataCategorySpec(groupName, operator, category);
 
 			Test.stopTest();
 
-			String expectedDataCategorySpecString =
-				groupName +
-				' ' +
-				operator +
-				' ' +
-				category;
-			Assert.areEqual(
-				expectedDataCategorySpecString,
-				dataCategorySpec.toDataCategorySpecString()
-			);
+			String expectedDataCategorySpecString = groupName + ' ' + operator + ' ' + category;
+			Assert.areEqual(expectedDataCategorySpecString, dataCategorySpec.toDataCategorySpecString());
 		}
 	}
 
@@ -1314,18 +1128,11 @@ public with sharing class SOSLTest {
 
 			Test.startTest();
 
-			SOSL.DataCategorySpec dataCategorySpec = new SOSL.DataCategorySpec(
-				groupName,
-				operator,
-				category
-			);
+			SOSL.DataCategorySpec dataCategorySpec = new SOSL.DataCategorySpec(groupName, operator, category);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(dataCategorySpec),
-				dataCategorySpec.toString()
-			);
+			Assert.areEqual(JSON.serialize(dataCategorySpec), dataCategorySpec.toString());
 		}
 	}
 

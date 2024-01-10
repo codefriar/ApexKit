@@ -22,24 +22,15 @@ public with sharing class StubUtilities {
 	 * @param size              Number of valid Ids to return
 	 * @return                  `List<Id>`
 	 */
-	public static List<Id> generateSObjectIds(
-		String sObjectTypeString,
-		Integer size
-	) {
-		SObjectType sObjectType = ((SObject) Type.forName(sObjectTypeString)
-				.newInstance())
-			.getSObjectType();
+	public static List<Id> generateSObjectIds(String sObjectTypeString, Integer size) {
+		SObjectType sObjectType = ((SObject) Type.forName(sObjectTypeString).newInstance()).getSObjectType();
 
 		String keyPrefix = sObjectType.getDescribe().getKeyPrefix();
 		List<Id> ids = new List<Id>();
 
 		for (Integer i = 0; i < size; i++) {
 			Integer uniqueCounter = counter;
-			ids.add(
-				keyPrefix +
-					'0'.repeat(12 - String.valueOf(uniqueCounter).length()) +
-					uniqueCounter
-			);
+			ids.add(keyPrefix + '0'.repeat(12 - String.valueOf(uniqueCounter).length()) + uniqueCounter);
 		}
 
 		return ids;

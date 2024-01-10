@@ -39,12 +39,7 @@ public with sharing class InvokeMetadataDrivenTriggerFramework {
 	)
 	public static void invokeMetadataTriggerFramework(List<Inputs> inputParams) {
 		for (InvokeMetadataDrivenTriggerFramework.Inputs request : inputParams) {
-			new MetadataTriggerFramework(
-					request.triggerNew,
-					request.triggerOld,
-					request.context
-				)
-				.run();
+			new MetadataTriggerFramework(request.triggerNew, request.triggerOld, request.context).run();
 		}
 	}
 }

@@ -11,9 +11,7 @@ private class MetadataTriggerFrameworkTests {
 			.returning(new List<Metadata_Driven_Trigger__mdt>())
 			.defineStub(true);
 
-		MetadataTriggerFramework mdtHandler = new MetadataTriggerFramework(
-			metadataTriggerQueryServiceStub
-		);
+		MetadataTriggerFramework mdtHandler = new MetadataTriggerFramework(metadataTriggerQueryServiceStub);
 
 		mdtHandler.triggerContext.setTriggerContext('after update', true);
 
@@ -30,51 +28,37 @@ private class MetadataTriggerFrameworkTests {
 
 	@IsTest
 	private static void testExecutesBeforeInsertPositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'before insert'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('before insert');
 	}
 
 	@IsTest
 	private static void testExecutesBeforeUpdatePositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'before update'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('before update');
 	}
 
 	@IsTest
 	private static void testExecutesBeforeDeletePositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'before delete'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('before delete');
 	}
 
 	@IsTest
 	private static void testExecutesAfterInsertPositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'after insert'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('after insert');
 	}
 
 	@IsTest
 	private static void testExecutesAfterUpdatePositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'after update'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('after update');
 	}
 
 	@IsTest
 	private static void testExecutesAfterDeletePositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'after delete'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('after delete');
 	}
 
 	@IsTest
 	private static void testExecutesAfterUndeletePositive() {
-		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive(
-			'after undelete'
-		);
+		MetadataTriggerFrameworkTests.exerciseTriggerHandlerPositive('after undelete');
 	}
 
 	private static void exerciseTriggerHandlerPositive(String context) {
@@ -92,9 +76,7 @@ private class MetadataTriggerFrameworkTests {
 			.returning(new List<Metadata_Driven_Trigger__mdt>{ sampleHandler })
 			.defineStub(true);
 
-		MetadataTriggerFramework mdtHandler = new MetadataTriggerFramework(
-			metadataTriggerQueryServiceStub
-		);
+		MetadataTriggerFramework mdtHandler = new MetadataTriggerFramework(metadataTriggerQueryServiceStub);
 
 		mdtHandler.triggerContext.setTriggerContext(context, true);
 
@@ -103,8 +85,7 @@ private class MetadataTriggerFrameworkTests {
 		Test.stopTest();
 
 		Assert.isTrue(
-			Polyfills.classNameFromInstance(mdtHandler.activeHandler)
-				.containsIgnoreCase('sampleHandler'),
+			Polyfills.classNameFromInstance(mdtHandler.activeHandler).containsIgnoreCase('sampleHandler'),
 			'Expected the activeHandler Property to be \'SampleHandler\'.'
 		);
 	}

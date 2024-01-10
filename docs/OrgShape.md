@@ -95,9 +95,9 @@ returns a Cache.Partition for a given name, and type
 
 #### Returns
 
-| Type  | Description       |
-| ----- | ----------------- |
-| Cache | `Cache.Partition` |
+| Type    | Description       |
+| ------- | ----------------- |
+| `Cache` | `Cache.Partition` |
 
 ### `public Boolean isPlatformCacheEnabled()`
 
@@ -105,9 +105,9 @@ Method determines if platform cache is enabled for this org Note: fail-safes to 
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `public Boolean isSeeAllDataTrue()`
 
@@ -115,9 +115,9 @@ Certain features of the platform are incompatible with data-siloed tests. These 
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 **Test** (seeAllData=true). Other platform features are incompatible with seeAllData=true. When used in a test context, this method determines if the currently running test is executing with, or without seeAllData=true. This method is therefore used to automatically disable platform features that require are incompatible with seeAllData=true. For example: platform cache is incompatible with seeAllData=true. However, our security library, CanTheUser utilizes platform cache to accelerate Crud and FLS checks. CanTheUser uses this method, in part, to determine, transparently if it should utilize platformCache during test execution Note: It is not a good idea, and against best practices to use seeAllData=true when not absolutely necessary.
 
@@ -129,9 +129,9 @@ This method is responsible for discovering a cache partition that can be used fo
 
 #### Returns
 
-| Type  | Description |
-| ----- | ----------- |
-| Cache | `String`    |
+| Type    | Description |
+| ------- | ----------- |
+| `Cache` | `String`    |
 
 ### `public Boolean isAdvancedMultiCurrencyManagementEnabled()`
 
@@ -139,9 +139,9 @@ Uses a dynamic soql query to determine if Advanced MultiCurrency Management is e
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `private Organization getOrgShape()`
 
@@ -153,9 +153,9 @@ Private method that memoizes the query result Suppressing the PMD warning to val
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| Organization | `Organization` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `Organization` | `Organization` |
 
 ### `private static Organization getOrgRecord()`
 
@@ -165,9 +165,9 @@ Private method for pulling the Organization record Note: We're suppressing PMD w
 
 #### Returns
 
-| Type         | Description                        |
-| ------------ | ---------------------------------- |
-| Organization | `Organization` Organization Record |
+| Type           | Description                        |
+| -------------- | ---------------------------------- |
+| `Organization` | `Organization` Organization Record |
 
 ---
 
@@ -197,9 +197,9 @@ We're suppressing PMD warning on Crud Checking because we want everyone to be ab
 
 ###### Returns
 
-| Type         | Description                                                |
-| ------------ | ---------------------------------------------------------- |
-| Organization | `Organization` Organization Record - hopefully from cache. |
+| Type           | Description                                                |
+| -------------- | ---------------------------------------------------------- |
+| `Organization` | `Organization` Organization Record - hopefully from cache. |
 
 ---
 

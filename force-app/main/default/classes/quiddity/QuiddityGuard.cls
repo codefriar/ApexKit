@@ -57,9 +57,7 @@ public with sharing class QuiddityGuard {
 	 * @param acceptableQuiddites A list of quiddities to check against
 	 * @return `boolean`
 	 */
-	public static Boolean isAcceptableQuiddity(
-		List<Quiddity> acceptableQuiddites
-	) {
+	public static Boolean isAcceptableQuiddity(List<Quiddity> acceptableQuiddites) {
 		Quiddity q = System.Request.getCurrent().getQuiddity();
 
 		if (testQuiddityOverride != null) {
@@ -75,9 +73,7 @@ public with sharing class QuiddityGuard {
 	 *
 	 * @return Boolean true if the current quiddity is not in the list of acceptable quiddities.
 	 */
-	public static Boolean isNotAcceptableQuiddity(
-		List<Quiddity> acceptableQuiddites
-	) {
+	public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites) {
 		return QuiddityGuard.isAcceptableQuiddity(acceptableQuiddites);
 	}
 

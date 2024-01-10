@@ -55,9 +55,9 @@ This method is invoked by it's parent stub object, and is responsible for return
 
 #### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| Object | `Object`    |
+| Type     | Description |
+| -------- | ----------- |
+| `Object` | `Object`    |
 
 ### `public void assertMockedMethodWasCalled()`
 
@@ -77,9 +77,9 @@ Allows developers to define expected input parameters at execution time. This en
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ### `public MockedMethod returning(Object returnValue)`
 
@@ -93,9 +93,9 @@ Sets this MockedMethod's return value. This is the value that will be returned b
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ### `public MockedMethod returning(List<Id> incomingIds)`
 
@@ -109,9 +109,9 @@ Use this variant of returning when you want the mocked method to return a list o
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ### `public MockedMethod throwingException()`
 
@@ -119,9 +119,9 @@ Use this method when you need the mocked method to throw an exception. Incredibl
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ### `public MockedMethod throwingException(Exception customException)`
 
@@ -135,9 +135,9 @@ Use this variant to have this mocked method return a developer-specified excepti
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ### `public Boolean doMethodSignaturesAndParametersMatch(MethodSignature methodSignature, List<Object> runtimeParameters)`
 
@@ -152,9 +152,9 @@ determines if the current method call matches on both a method signature level a
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `private Boolean doRuntimeParametersMatch(List<Object> compareTo)`
 
@@ -168,9 +168,9 @@ Determines if the method, as brokered by the stub object is being called with an
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ---
 
@@ -225,9 +225,9 @@ internal method used to set the parameter values of this MockedMethod instance.
 
 ###### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ##### `public MockedMethod withParameterValues(Object parameter)`
 
@@ -241,9 +241,9 @@ convenience methodfor setting a single parameter type
 
 ###### Returns
 
-| Type         | Description |
-| ------------ | ----------- |
-| MockedMethod | this        |
+| Type           | Description |
+| -------------- | ----------- |
+| `MockedMethod` | this        |
 
 ##### `public MockedMethod withParameterValues(Object parameter, Object parameter2)`
 
@@ -258,9 +258,9 @@ convenience methodfor setting two params
 
 ###### Returns
 
-| Type         | Description |
-| ------------ | ----------- |
-| MockedMethod | this        |
+| Type           | Description |
+| -------------- | ----------- |
+| `MockedMethod` | this        |
 
 ##### `public MockedMethod withParameterValues(Object parameter, Object parameter2, Object parameter3)`
 
@@ -276,9 +276,9 @@ convenience methodfor setting three params
 
 ###### Returns
 
-| Type         | Description        |
-| ------------ | ------------------ |
-| MockedMethod | return description |
+| Type           | Description        |
+| -------------- | ------------------ |
+| `MockedMethod` | return description |
 
 ##### `public MockedMethod withParameterValues(Object parameter, Object parameter2, Object parameter3, Object parameter4)`
 
@@ -297,9 +297,9 @@ convenience methodfor setting four parameters
 
 ###### Returns
 
-| Type         | Description |
-| ------------ | ----------- |
-| MockedMethod | this        |
+| Type           | Description |
+| -------------- | ----------- |
+| `MockedMethod` | this        |
 
 ##### `public Stub returningObjectsWithIds(List&lt;Id&gt; ids)`
 
@@ -313,9 +313,9 @@ This variant allows developers to specify a list of IDs to be assigned to the re
 
 ###### Returns
 
-| Type | Description            |
-| ---- | ---------------------- |
-| Stub | `MockedMethod.Builder` |
+| Type   | Description            |
+| ------ | ---------------------- |
+| `Stub` | `MockedMethod.Builder` |
 
 ##### `public Stub returning(Object returnValue)`
 
@@ -329,9 +329,9 @@ This variant allows developers to specify the object that will be returned when 
 
 ###### Returns
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
+| Type   | Description    |
+| ------ | -------------- |
+| `Stub` | `Stub.Builder` |
 
 ##### `public Stub returning()`
 
@@ -339,9 +339,9 @@ This variant allows developers to specify a void return.
 
 ###### Returns
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
+| Type   | Description    |
+| ------ | -------------- |
+| `Stub` | `Stub.Builder` |
 
 ##### `public Stub throwingException()`
 
@@ -349,9 +349,9 @@ This variant allows developers to throw an internally generated Stub.StubExcepti
 
 ###### Returns
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
+| Type   | Description    |
+| ------ | -------------- |
+| `Stub` | `Stub.Builder` |
 
 ##### `public Stub throwingException(Exception customException)`
 
@@ -365,9 +365,9 @@ Use this variant to have this mocked method return a developer-specified excepti
 
 ###### Returns
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `MockedMethod` |
+| Type   | Description    |
+| ------ | -------------- |
+| `Stub` | `MockedMethod` |
 
 ##### `public MockedMethod createMockedMethod(MethodSignature signature)`
 
@@ -381,9 +381,9 @@ Responsible for returning a fully formed MockedMethod instance.
 
 ###### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `MockedMethod` | `MockedMethod` |
 
 ---
 

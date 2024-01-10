@@ -50,12 +50,7 @@ public class UniversalFlowInputOutput {
 	 * cast to it's respective primitive type and stored in this object.
 	 * @param isError boolean If the method called threw an exception, this should be true. Otherwise, false.
 	 */
-	public UniversalFlowInputOutput(
-		String className,
-		String methodName,
-		Object returnValue,
-		Boolean isError
-	) {
+	public UniversalFlowInputOutput(String className, String methodName, Object returnValue, Boolean isError) {
 		this.className = className;
 		this.methodName = methodName;
 		this.result = new UniversalFlowInputOutputParameter(returnValue);

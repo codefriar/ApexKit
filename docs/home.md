@@ -294,6 +294,8 @@ because the MetadataTriggerHandler instantiates handler classes from custom
 metadata records, even when we stub/mock the metadata record retrieval we
 still need a&hellip;
 
+### [SomeDefaultsClass](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SomeDefaultsClass)
+
 ### [Stub](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Stub)
 
 This class helps you construct and manage StubProvider
@@ -313,6 +315,21 @@ StubObject fo&hellip;
 
 
 ### [TestFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactory)
+
+Factory class for creating sObjects.
+
+
+
+### [TestFactoryDefaults](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactoryDefaults)
+
+
+### [TestFactoryTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactoryTests)
+
+Created by kevinpoorman on 1/9/24.
+
+
+
+### [TestFactoryV2](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactoryV2)
 
 
 ### [TestPolyfills](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestPolyfills)

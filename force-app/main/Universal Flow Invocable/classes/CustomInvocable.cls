@@ -20,9 +20,7 @@ public class CustomInvocable extends UFInvocable {
 	public List<Integer> daysTillChristmas(List<Date> startingDates) {
 		List<Integer> results = new List<Integer>();
 		for (Date startingDate : startingDates) {
-			results.add(
-				startingDate.daysBetween(Date.newInstance(startingDate.year(), 12, 25))
-			);
+			results.add(startingDate.daysBetween(Date.newInstance(startingDate.year(), 12, 25)));
 		}
 		return results;
 	}
@@ -36,10 +34,7 @@ public class CustomInvocable extends UFInvocable {
 	 *
 	 * @return List<Integer> List of days between the starting date and ending date.
 	 */
-	public List<Integer> daysBetweenDates(
-		List<Date> startingDates,
-		List<Date> endingDates
-	) {
+	public List<Integer> daysBetweenDates(List<Date> startingDates, List<Date> endingDates) {
 		List<Integer> results = new List<Integer>();
 		for (Integer index = 0; index < endingDates.size(); index++) {
 			results.add(startingDates[index].daysBetween(endingDates[index]));
@@ -56,35 +51,20 @@ public class CustomInvocable extends UFInvocable {
 	 *
 	 * @return List of Objects to be returned to Flow.
 	 */
-	public override List<Object> call(
-		String methodName,
-		List<Map<String, Object>> param2
-	) {
+	public override List<Object> call(String methodName, List<Map<String, Object>> param2) {
 		switch on methodName.toLowerCase() {
 			// Each case statement represents a method that can be invoked from Flow.
 			when 'daystillchristmas' {
-				return daysTillChristmas(
-					(List<Date>) extractParameter(
-						'startingDate',
-						param2,
-						List<Date>.class
-					)
-				);
+				return daysTillChristmas((List<Date>) extractParameter('startingDate', param2, List<Date>.class));
 			}
 			when 'daysbetweendates' {
 				return daysBetweenDates(
-					(List<Date>) extractParameter(
-						'startingDate',
-						param2,
-						List<Date>.class
-					),
+					(List<Date>) extractParameter('startingDate', param2, List<Date>.class),
 					(List<Date>) extractParameter('endingDate', param2, List<Date>.class)
 				);
 			}
 			when else {
-				throw new UFInvocable.MalformedCallableException(
-					'Unsupported method: ' + methodName
-				);
+				throw new UFInvocable.MalformedCallableException('Unsupported method: ' + methodName);
 			}
 		}
 	}

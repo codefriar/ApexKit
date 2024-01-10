@@ -250,17 +250,13 @@ public inherited sharing class SOQL {
 
 		private void addForStatement(List<String> queryStatements) {
 			if (!statementFor.isEmpty()) {
-				queryStatements.add(
-					'FOR ' + String.join(new List<String>(statementFor), ', ')
-				);
+				queryStatements.add('FOR ' + String.join(new List<String>(statementFor), ', '));
 			}
 		}
 
 		private void addUpdateStatement(List<String> queryStatements) {
 			if (!statementUpdate.isEmpty()) {
-				queryStatements.add(
-					'UPDATE ' + String.join(new List<String>(statementUpdate), ', ')
-				);
+				queryStatements.add('UPDATE ' + String.join(new List<String>(statementUpdate), ', '));
 			}
 		}
 

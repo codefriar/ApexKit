@@ -12,10 +12,6 @@ class ULIDTests {
 		String ulid = ULID.generate();
 		Test.stopTest();
 		Assert.areNotEqual(null, ulid, 'ulid string should not be null');
-		Assert.areEqual(
-			26,
-			ulid.length(),
-			'ulid string should be 26 characters long'
-		);
+		Assert.areEqual(26, ulid.length(), 'ulid string should be 26 characters long');
 	}
 }

@@ -31,9 +31,9 @@ Generates a ULID string according to spec. https://github.com/ulid/spec
 
 #### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+| Type     | Description |
+| -------- | ----------- |
+| `String` | `String`    |
 
 ### `private static String encodeTimestamp(Long dtSeed, Long timeLength)`
 
@@ -48,9 +48,9 @@ Encodes a given timestamp into characters from the acceptable character set abov
 
 #### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+| Type     | Description |
+| -------- | ----------- |
+| `String` | `String`    |
 
 ### `private static String generateRandomString(Integer length)`
 
@@ -64,9 +64,9 @@ generates a random string from the character set of a given length.
 
 #### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+| Type     | Description |
+| -------- | ----------- |
+| `String` | `String`    |
 
 ### `private static String fetchRandomCharacterFromCharacterSet()`
 
@@ -74,8 +74,8 @@ pulls a random character from the character set.
 
 #### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+| Type     | Description |
+| -------- | ----------- |
+| `String` | `String`    |
 
 ---

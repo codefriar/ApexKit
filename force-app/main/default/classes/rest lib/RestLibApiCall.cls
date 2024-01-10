@@ -36,9 +36,7 @@ public with sharing class RestLibApiCall {
 	 */
 	public Boolean hasBody {
 		get {
-			return String.isNotBlank(body) &&
-				(method == HttpVerb.POST ||
-				method == HttpVerb.PUT);
+			return String.isNotBlank(body) && (method == HttpVerb.POST || method == HttpVerb.PUT);
 		}
 	}
 	final Map<String, String> headers { get; private set; }
@@ -69,13 +67,7 @@ public with sharing class RestLibApiCall {
 	 * @param headers Map<String, String> of the headers to be sent with the request
 	 */
 	@SuppressWarnings('PMD.ExcessiveParameterList')
-	public RestLibApiCall(
-		HttpVerb method,
-		String path,
-		String query,
-		String body,
-		Map<String, String> headers
-	) {
+	public RestLibApiCall(HttpVerb method, String path, String query, String body, Map<String, String> headers) {
 		this.method = method;
 		this.path = ensureStringEndsInSlash(path);
 		this.query = query;
@@ -98,12 +90,7 @@ public with sharing class RestLibApiCall {
 	 * @param body String of the body to be sent with the request
 	 */
 	@SuppressWarnings('PMD.ExcessiveParameterList')
-	public RestLibApiCall(
-		HttpVerb method,
-		String path,
-		String query,
-		String body
-	) {
+	public RestLibApiCall(HttpVerb method, String path, String query, String body) {
 		this(method, path, query, body, RestLibApiCall.defaultHeaders);
 	}
 

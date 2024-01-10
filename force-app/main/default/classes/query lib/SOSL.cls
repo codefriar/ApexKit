@@ -93,9 +93,7 @@ public inherited sharing class SOSL {
 			return this;
 		}
 
-		public Builder addReturningFieldSpec(
-			Query.ReturningFieldSpec returningFieldSpec
-		) {
+		public Builder addReturningFieldSpec(Query.ReturningFieldSpec returningFieldSpec) {
 			this.returningFieldSpecs.add(returningFieldSpec);
 			return this;
 		}
@@ -120,13 +118,8 @@ public inherited sharing class SOSL {
 			return this;
 		}
 
-		public Builder withDataCategoryAboveOrBelow(
-			String groupName,
-			String category
-		) {
-			dataCategorySpecs.add(
-				new DataCategorySpec(groupName, 'ABOVE_OR_BELOW', category)
-			);
+		public Builder withDataCategoryAboveOrBelow(String groupName, String category) {
+			dataCategorySpecs.add(new DataCategorySpec(groupName, 'ABOVE_OR_BELOW', category));
 			return this;
 		}
 
@@ -210,14 +203,10 @@ public inherited sharing class SOSL {
 		private void addReturningStatement(List<String> queryStatements) {
 			List<String> returningFieldSpecStrings = new List<String>();
 			for (Query.ReturningFieldSpec returningFieldSpec : returningFieldSpecs) {
-				returningFieldSpecStrings.add(
-					returningFieldSpec.toReturningFieldSpecString()
-				);
+				returningFieldSpecStrings.add(returningFieldSpec.toReturningFieldSpecString());
 			}
 			if (!returningFieldSpecStrings.isEmpty()) {
-				queryStatements.add(
-					'RETURNING ' + String.join(returningFieldSpecStrings, ', ')
-				);
+				queryStatements.add('RETURNING ' + String.join(returningFieldSpecStrings, ', '));
 			}
 		}
 
@@ -233,9 +222,7 @@ public inherited sharing class SOSL {
 				dataCategoryStrings.add(dataCategorySpec.toDataCategorySpecString());
 			}
 			if (!dataCategoryStrings.isEmpty()) {
-				queryStatements.add(
-					'WITH DATA CATEGORY ' + String.join(dataCategoryStrings, ' AND ')
-				);
+				queryStatements.add('WITH DATA CATEGORY ' + String.join(dataCategoryStrings, ' AND '));
 			}
 		}
 
@@ -251,11 +238,7 @@ public inherited sharing class SOSL {
 				for (String networkId : networkIds) {
 					processedNetworkIds.add('\'' + networkId + '\'');
 				}
-				queryStatements.add(
-					'WITH NETWORK IN (' +
-						String.join(new List<String>(processedNetworkIds), ', ') +
-						')'
-				);
+				queryStatements.add('WITH NETWORK IN (' + String.join(new List<String>(processedNetworkIds), ', ') + ')');
 			}
 		}
 
@@ -267,17 +250,13 @@ public inherited sharing class SOSL {
 
 		private void addSnippetStatement(List<String> queryStatements) {
 			if (snippetTargetLength != null) {
-				queryStatements.add(
-					'WITH SNIPPET (target_length = ' + snippetTargetLength + ')'
-				);
+				queryStatements.add('WITH SNIPPET (target_length = ' + snippetTargetLength + ')');
 			}
 		}
 
 		private void addSpellCorrectionStatement(List<String> queryStatements) {
 			if (String.isNotBlank(spellCorrection)) {
-				queryStatements.add(
-					'WITH SPELL_CORRECTION = ' + spellCorrection.toUpperCase()
-				);
+				queryStatements.add('WITH SPELL_CORRECTION = ' + spellCorrection.toUpperCase());
 			}
 		}
 
@@ -289,9 +268,7 @@ public inherited sharing class SOSL {
 
 		private void addUpdateStatement(List<String> queryStatements) {
 			if (!statementUpdate.isEmpty()) {
-				queryStatements.add(
-					'UPDATE ' + String.join(new List<String>(statementUpdate), ', ')
-				);
+				queryStatements.add('UPDATE ' + String.join(new List<String>(statementUpdate), ', '));
 			}
 		}
 
@@ -310,11 +287,7 @@ public inherited sharing class SOSL {
 		private String category;
 
 		@TestVisible
-		private DataCategorySpec(
-			String groupName,
-			String operator,
-			String category
-		) {
+		private DataCategorySpec(String groupName, String operator, String category) {
 			this.groupName = groupName;
 			this.operator = operator;
 			this.category = category;

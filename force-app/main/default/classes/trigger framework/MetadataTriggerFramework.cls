@@ -22,9 +22,7 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
 	 * requiring you to insert custom metadata.
 	 */
 	public MetadataTriggerFramework() {
-		this.mts = new MetadataTriggerQueryService(
-			MetadataTriggerQueryService.getSObjectType(triggerNew, triggerOld)
-		);
+		this.mts = new MetadataTriggerQueryService(MetadataTriggerQueryService.getSObjectType(triggerNew, triggerOld));
 	}
 
 	/**
@@ -34,17 +32,11 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
 	 * @param triggerOld List<SOBject> the old version of the records
 	 * @param context TriggerOperation the context of the trigger ie: after update
 	 */
-	public MetadataTriggerFramework(
-		List<SObject> triggerNew,
-		List<SObject> triggerOld,
-		TriggerOperation context
-	) {
+	public MetadataTriggerFramework(List<SObject> triggerNew, List<SObject> triggerOld, TriggerOperation context) {
 		this.triggerNew = triggerNew;
 		this.triggerOld = triggerOld;
 		this.triggerContext.context = context;
-		this.mts = new MetadataTriggerQueryService(
-			MetadataTriggerQueryService.getSObjectType(triggerNew, triggerOld)
-		);
+		this.mts = new MetadataTriggerQueryService(MetadataTriggerQueryService.getSObjectType(triggerNew, triggerOld));
 	}
 
 	/**
@@ -76,8 +68,7 @@ public with sharing class MetadataTriggerFramework extends TriggerFramework {
 		 */
 		for (Metadata_Driven_Trigger__mdt currentTrigger : triggers) {
 			try {
-				activeHandler = (TriggerFramework) Type.forName(currentTrigger.Class__c)
-					.newInstance();
+				activeHandler = (TriggerFramework) Type.forName(currentTrigger.Class__c).newInstance();
 			} catch (Exception e) {
 				continue;
 			}

@@ -2,6 +2,8 @@
 
 `STATUS: ACTIVE`
 
+Factory class for creating sObjects.
+
 ## Fields
 
 ### `private NAME_FIELD_OVERRIDE_MAP` → `Map<Schema.SObjectType,Schema.SObjectField>`
@@ -18,15 +20,21 @@ Creates a single sObject.
 
 #### Parameters
 
-| Param  | Description                |
-| ------ | -------------------------- |
-| `sObj` | Type of sObject to create. |
+| Param  | Description                       |
+| ------ | --------------------------------- |
+| `sObj` | An instance of sObject to create. |
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject`   |
+| Type      | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| `SObject` | `SObject` object that's had it's required fields populated. |
+
+#### Example
+
+```apex
+`TestFactory.createSObject(new Account())`
+```
 
 ### `public static SObject createSObject(SObject sObj, Boolean doInsert)`
 
@@ -34,16 +42,22 @@ Creates a single sObject
 
 #### Parameters
 
-| Param      | Description                             |
-| ---------- | --------------------------------------- |
-| `sObj`     | Type of sObject to create               |
-| `doInsert` | Boolean should this object be inserted? |
+| Param      | Description                                                                        |
+| ---------- | ---------------------------------------------------------------------------------- |
+| `sObj`     | Type of sObject to create                                                          |
+| `doInsert` | Boolean should this object be inserted? If false, then a fake id will be assigned. |
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject`   |
+| Type      | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| `SObject` | `SObject` object that's had it's required fields populated. |
+
+#### Example
+
+```apex
+`TestFactory.createSObject(new Account(), false)`
+```
 
 ### `public static SObject createSObject(SObject sObj, String defaultClassName)`
 
@@ -58,9 +72,9 @@ creates a single sObject
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject`   |
+| Type      | Description |
+| --------- | ----------- |
+| `SObject` | `SObject`   |
 
 #### Throws
 
@@ -82,11 +96,11 @@ Create a single sObject
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject`   |
+| Type      | Description |
+| --------- | ----------- |
+| `SObject` | `SObject`   |
 
-### `public static List createSObjectList(SObject sObj, Integer numberOfObjects)`
+### `public static SObject createSObjectList(SObject sObj, Integer numberOfObjects)`
 
 Creates a list of sObjects
 
@@ -99,11 +113,11 @@ Creates a list of sObjects
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject[]` |
+| Type      | Description |
+| --------- | ----------- |
+| `SObject` | `SObject[]` |
 
-### `public static List createSObjectList(SObject sObj, Integer numberOfObjects, Boolean doInsert)`
+### `public static SObject createSObjectList(SObject sObj, Integer numberOfObjects, Boolean doInsert)`
 
 Creates a list of sObjects
 
@@ -117,11 +131,11 @@ Creates a list of sObjects
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject[]` |
+| Type      | Description |
+| --------- | ----------- |
+| `SObject` | `SObject[]` |
 
-### `public static List createSObjectList(SObject sObj, Integer numberOfObjects, String defaultClassName, Boolean doInsert)`
+### `public static SObject createSObjectList(SObject sObj, Integer numberOfObjects, String defaultClassName, Boolean doInsert)`
 
 `SUPPRESSWARNINGS`
 
@@ -138,11 +152,11 @@ Creates a list of sObjects
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject[]` |
+| Type      | Description |
+| --------- | ----------- |
+| `SObject` | `SObject[]` |
 
-### `public static List createSObjectList(SObject sObj, Integer numberOfObjects, String defaultClassName)`
+### `public static SObject createSObjectList(SObject sObj, Integer numberOfObjects, String defaultClassName)`
 
 Creates a list of sObjects
 
@@ -156,9 +170,9 @@ Creates a list of sObjects
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| SObject | `SObject[]` |
+| Type      | Description |
+| --------- | ----------- |
+| `SObject` | `SObject[]` |
 
 ### `private static void addFieldDefaults(SObject sObj, Map<Schema.SObjectField,Object> defaults)`
 
@@ -184,9 +198,9 @@ creates a test user. Useful for permissions testing
 
 #### Returns
 
-| Type | Description |
-| ---- | ----------- |
-| User | `User`      |
+| Type   | Description |
+| ------ | ----------- |
+| `User` | `User`      |
 
 ### `public static User createTestUser(Boolean doInsert, String profileName)`
 
@@ -201,9 +215,9 @@ Creates a test user with a given profile.
 
 #### Returns
 
-| Type | Description |
-| ---- | ----------- |
-| User | `User`      |
+| Type   | Description |
+| ------ | ----------- |
+| `User` | `User`      |
 
 ### `public static User createMinAccessUser(Boolean doInsert)`
 
@@ -217,9 +231,9 @@ Creates a user with the Minimum Access Profile Relies on the previous method for
 
 #### Returns
 
-| Type | Description |
-| ---- | ----------- |
-| User | `User`      |
+| Type   | Description |
+| ------ | ----------- |
+| `User` | `User`      |
 
 ### `public static void assignPermSetToUser(User user, String permSetName)`
 
@@ -232,7 +246,7 @@ Assigns a permission set to a given user.
 | `user`        | User to assign the permission set to. |
 | `permSetName` | String name of the permission set.    |
 
-### `public static List invalidateSObjectList(List<SObject> incoming)`
+### `public static List<SObject> invalidateSObjectList(List<SObject> incoming)`
 
 Intentionally invalidates a list of sObjects. This is useful for intentionally causing DML errors during testing.
 
@@ -244,9 +258,9 @@ Intentionally invalidates a list of sObjects. This is useful for intentionally c
 
 #### Returns
 
-| Type          | Description     |
-| ------------- | --------------- |
-| List<SObject> | `List<sObject>` |
+| Type            | Description     |
+| --------------- | --------------- |
+| `List<SObject>` | `List<sObject>` |
 
 ### `public static User createMarketingUser(Boolean doInsert)`
 
@@ -260,9 +274,9 @@ Generates a marketing user - a user with the Marketing User profile.
 
 #### Returns
 
-| Type | Description           |
-| ---- | --------------------- |
-| User | User the created user |
+| Type   | Description           |
+| ------ | --------------------- |
+| `User` | User the created user |
 
 ### `public static PermissionSet createPermissionSet(String permSetName, Boolean doInsert)`
 
@@ -277,9 +291,9 @@ Generates a test permission set record - no permissions are added to it
 
 #### Returns
 
-| Type          | Description                               |
-| ------------- | ----------------------------------------- |
-| PermissionSet | PermissionSet the created permission set. |
+| Type            | Description                               |
+| --------------- | ----------------------------------------- |
+| `PermissionSet` | PermissionSet the created permission set. |
 
 ### `public static void enableCustomPermission(String permissionName, Id forUserId)`
 
@@ -314,14 +328,14 @@ Use the FieldDefaults interface to set up values you want to default in for all 
 
 #### Methods
 
-##### `public Map getFieldDefaults()`
+##### `public Map&lt;Schema.SObjectField,Object&gt; getFieldDefaults()`
 
 Interface used by implementing classes to define defaults.
 
 ###### Returns
 
-| Type                                  | Description                              |
-| ------------------------------------- | ---------------------------------------- |
-| Map&lt;Schema.SObjectField,Object&gt; | `Map&lt;Schema.SObjectField, Object&gt;` |
+| Type                                    | Description                              |
+| --------------------------------------- | ---------------------------------------- |
+| `Map&lt;Schema.SObjectField,Object&gt;` | `Map&lt;Schema.SObjectField, Object&gt;` |
 
 ---

@@ -84,28 +84,14 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 
 	private void handleException(FinalizerContext context) {
 		try {
-			String className = this.dataProvider.getClassName(
-				context.getAsyncApexJobId()
-			);
-			QueueableProcess parentQueueable = (QueueableProcess) Type.forName(
-					className
-				)
-				?.newInstance();
+			String className = this.dataProvider.getClassName(context.getAsyncApexJobId());
+			QueueableProcess parentQueueable = (QueueableProcess) Type.forName(className)?.newInstance();
 			parentQueueable.handleException(context.getException());
 		} catch (QueryException qe) {
-			Callable exceptionHandler = (Callable) Type.forName(
-					'FailsafeExceptionHandler'
-				)
-				.newInstance();
-			List<Exception> exceptions = new List<Exception>{
-				qe,
-				context.getException()
-			};
+			Callable exceptionHandler = (Callable) Type.forName('FailsafeExceptionHandler').newInstance();
+			List<Exception> exceptions = new List<Exception>{ qe, context.getException() };
 			exceptionHandler
-				?.call(
-					'handleExceptions',
-					new Map<String, List<Exception>>{ 'incomingExceptions' => exceptions }
-				);
+				?.call('handleExceptions', new Map<String, List<Exception>>{ 'incomingExceptions' => exceptions });
 		}
 	}
 }

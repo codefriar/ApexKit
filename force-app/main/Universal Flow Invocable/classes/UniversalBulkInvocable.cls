@@ -10,13 +10,8 @@ public with sharing class UniversalBulkInvocable {
 	 * @return List<UniversalFlowInputOutput> output objects. Every input receives one output, even if
 	 * non-fatal exceptions are encountered.
 	 */
-	@InvocableMethod(
-		Label='Bulk Universal Invocable'
-		Description='Bulk Universal Invocable'
-	)
-	public static List<List<UniversalFlowInputOutput>> invoke(
-		List<List<UniversalFlowInputOutput>> inputs
-	) {
+	@InvocableMethod(Label='Bulk Universal Invocable' Description='Bulk Universal Invocable')
+	public static List<List<UniversalFlowInputOutput>> invoke(List<List<UniversalFlowInputOutput>> inputs) {
 		return new UFInvocable.Processor(inputs).executeBulk();
 	}
 }

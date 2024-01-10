@@ -65,8 +65,7 @@ public with sharing class ULID {
 	 * @return  `String`
 	 */
 	public static String generate() {
-		return encodeTimestamp(DateTime.now().getTime(), TIMELENGTH) +
-			generateRandomString(RANDOMLENGTH);
+		return encodeTimestamp(DateTime.now().getTime(), TIMELENGTH) + generateRandomString(RANDOMLENGTH);
 	}
 
 	/**

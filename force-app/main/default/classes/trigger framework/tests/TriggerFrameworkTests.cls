@@ -26,77 +26,49 @@ private class TriggerFrameworkTests {
 	private static void testBeforeInsert() {
 		beforeInsertMode();
 		handler.run();
-		Assert.areEqual(
-			'beforeInsert',
-			lastMethodCalled,
-			'Last method should be beforeInsert'
-		);
+		Assert.areEqual('beforeInsert', lastMethodCalled, 'Last method should be beforeInsert');
 	}
 
 	@isTest
 	private static void testBeforeUpdate() {
 		beforeUpdateMode();
 		handler.run();
-		Assert.areEqual(
-			'beforeUpdate',
-			lastMethodCalled,
-			'Last method should be beforeUpdate'
-		);
+		Assert.areEqual('beforeUpdate', lastMethodCalled, 'Last method should be beforeUpdate');
 	}
 
 	@isTest
 	private static void testBeforeDelete() {
 		beforeDeleteMode();
 		handler.run();
-		Assert.areEqual(
-			'beforeDelete',
-			lastMethodCalled,
-			'Last method should be beforeDelete'
-		);
+		Assert.areEqual('beforeDelete', lastMethodCalled, 'Last method should be beforeDelete');
 	}
 
 	@isTest
 	private static void testAfterInsert() {
 		afterInsertMode();
 		handler.run();
-		Assert.areEqual(
-			'afterInsert',
-			lastMethodCalled,
-			'Last method should be afterInsert'
-		);
+		Assert.areEqual('afterInsert', lastMethodCalled, 'Last method should be afterInsert');
 	}
 
 	@isTest
 	private static void testAfterUpdate() {
 		afterUpdateMode();
 		handler.run();
-		Assert.areEqual(
-			'afterUpdate',
-			lastMethodCalled,
-			'Last method should be afterUpdate'
-		);
+		Assert.areEqual('afterUpdate', lastMethodCalled, 'Last method should be afterUpdate');
 	}
 
 	@isTest
 	private static void testAfterDelete() {
 		afterDeleteMode();
 		handler.run();
-		Assert.areEqual(
-			'afterDelete',
-			lastMethodCalled,
-			'Last method should be afterDelete'
-		);
+		Assert.areEqual('afterDelete', lastMethodCalled, 'Last method should be afterDelete');
 	}
 
 	@isTest
 	private static void testAfterUndelete() {
 		afterUndeleteMode();
 		handler.run();
-		Assert.areEqual(
-			'afterUndelete',
-			lastMethodCalled,
-			'Last method should be afterUndelete'
-		);
+		Assert.areEqual('afterUndelete', lastMethodCalled, 'Last method should be afterUndelete');
 	}
 
 	@isTest
@@ -105,19 +77,9 @@ private class TriggerFrameworkTests {
 			handler.run();
 			Assert.isTrue(false, 'The handler ran but should have thrown');
 		} catch (TriggerFrameworkException te) {
-			Assert.areEqual(
-				TRIGGER_CONTEXT_ERROR,
-				te.getMessage(),
-				'The exception message should match'
-			);
+			Assert.areEqual(TRIGGER_CONTEXT_ERROR, te.getMessage(), 'The exception message should match');
 		} catch (Exception e) {
-			Assert.isTrue(
-				false,
-				'The exception thrown was not expected: ' +
-					e.getTypeName() +
-					': ' +
-					e.getMessage()
-			);
+			Assert.isTrue(false, 'The exception thrown was not expected: ' + e.getTypeName() + ': ' + e.getMessage());
 		}
 	}
 
@@ -131,48 +93,28 @@ private class TriggerFrameworkTests {
 		TriggerFramework.bypass('TriggerFrameworkTests.TestHandler');
 		handler.run();
 		Assert.isNull(lastMethodCalled, 'Last method should be null when bypassed');
-		Assert.isTrue(
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
-			'Test handler should be bypassed'
-		);
+		Assert.isTrue(TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'), 'Test handler should be bypassed');
 		resetTest();
 
 		// clear that bypass and run handler
 		TriggerFramework.clearBypass('TriggerFrameworkTests.TestHandler');
 		handler.run();
-		Assert.areEqual(
-			'afterUpdate',
-			lastMethodCalled,
-			'Last method called should be afterUpdate'
-		);
-		Assert.isFalse(
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
-			'Test handler should be bypassed'
-		);
+		Assert.areEqual('afterUpdate', lastMethodCalled, 'Last method called should be afterUpdate');
+		Assert.isFalse(TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'), 'Test handler should be bypassed');
 		resetTest();
 
 		// test a re-bypass and run handler
 		TriggerFramework.bypass('TriggerFrameworkTests.TestHandler');
 		handler.run();
 		Assert.isNull(lastMethodCalled, 'Last method should be null when bypassed');
-		Assert.isTrue(
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
-			'Test handler should be bypassed'
-		);
+		Assert.isTrue(TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'), 'Test handler should be bypassed');
 		resetTest();
 
 		// clear all bypasses and run handler
 		TriggerFramework.clearAllBypasses();
 		handler.run();
-		Assert.areEqual(
-			'afterUpdate',
-			lastMethodCalled,
-			'Last method called should be afterUpdate'
-		);
-		Assert.isFalse(
-			TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'),
-			'Test handler should be bypassed'
-		);
+		Assert.areEqual('afterUpdate', lastMethodCalled, 'Last method called should be afterUpdate');
+		Assert.isFalse(TriggerFramework.isBypassed('TriggerFrameworkTests.TestHandler'), 'Test handler should be bypassed');
 		resetTest();
 	}
 
@@ -195,21 +137,12 @@ private class TriggerFrameworkTests {
 		try {
 			// try running it. This should exceed the limit.
 			handler.run();
-			Assert.isTrue(
-				false,
-				'The handler should throw on the 3rd run when maxloopcount is 3'
-			);
+			Assert.isTrue(false, 'The handler should throw on the 3rd run when maxloopcount is 3');
 		} catch (TriggerFrameworkException te) {
 			// we're expecting to get here
 			Assert.areEqual(null, lastMethodCalled, 'Last method should be null');
 		} catch (Exception e) {
-			Assert.isTrue(
-				false,
-				'The exception thrown was not expected: ' +
-					e.getTypeName() +
-					': ' +
-					e.getMessage()
-			);
+			Assert.isTrue(false, 'The exception thrown was not expected: ' + e.getTypeName() + ': ' + e.getMessage());
 		}
 
 		// clear the tests
@@ -221,24 +154,11 @@ private class TriggerFrameworkTests {
 		try {
 			// re-run the handler. We shouldn't throw now.
 			handler.run();
-			Assert.areEqual(
-				'beforeInsert',
-				lastMethodCalled,
-				'Last method should be beforeInsert'
-			);
+			Assert.areEqual('beforeInsert', lastMethodCalled, 'Last method should be beforeInsert');
 		} catch (TriggerFrameworkException te) {
-			Assert.isTrue(
-				false,
-				'Running the handler after clearing the loop count should not throw'
-			);
+			Assert.isTrue(false, 'Running the handler after clearing the loop count should not throw');
 		} catch (Exception e) {
-			Assert.isTrue(
-				false,
-				'The exception thrown was not expected: ' +
-					e.getTypeName() +
-					': ' +
-					e.getMessage()
-			);
+			Assert.isTrue(false, 'The exception thrown was not expected: ' + e.getTypeName() + ': ' + e.getMessage());
 		}
 	}
 
@@ -250,40 +170,25 @@ private class TriggerFrameworkTests {
 
 		lc.increment();
 		Assert.areEqual(1, lc.getCount(), 'Count should be 1');
-		Assert.areEqual(
-			false,
-			lc.exceeded(),
-			'Should not be exceeded with count of 1'
-		);
+		Assert.areEqual(false, lc.exceeded(), 'Should not be exceeded with count of 1');
 
 		lc.increment();
 		lc.increment();
 		lc.increment();
 		lc.increment();
 		Assert.areEqual(5, lc.getCount(), 'Count should be 5');
-		Assert.areEqual(
-			false,
-			lc.exceeded(),
-			'Should not be exceeded with count of 5'
-		);
+		Assert.areEqual(false, lc.exceeded(), 'Should not be exceeded with count of 5');
 
 		lc.increment();
 		Assert.areEqual(6, lc.getCount(), 'Count should be 6');
-		Assert.areEqual(
-			true,
-			lc.exceeded(),
-			'Should not be exceeded with count of 6'
-		);
+		Assert.areEqual(true, lc.exceeded(), 'Should not be exceeded with count of 6');
 	}
 
 	// private method tests
 
 	@isTest
 	private static void testGetHandlerName() {
-		Assert.isTrue(
-			handler.getHandlerName().containsIgnoreCase('testHandler'),
-			'Handler name should match class name'
-		);
+		Assert.isTrue(handler.getHandlerName().containsIgnoreCase('testHandler'), 'Handler name should match class name');
 	}
 
 	// test virtual methods
@@ -298,10 +203,7 @@ private class TriggerFrameworkTests {
 		h.afterUpdate();
 		h.afterDelete();
 		h.afterUndelete();
-		Assert.isTrue(
-			true,
-			'Expected all of these methods to have executed without throwing an exception during tests.'
-		);
+		Assert.isTrue(true, 'Expected all of these methods to have executed without throwing an exception during tests.');
 	}
 
 	/***************************************

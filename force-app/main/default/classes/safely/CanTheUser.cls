@@ -72,8 +72,7 @@ public with sharing class CanTheUser {
 				return obj.getSObjectType().getDescribe().isDeletable();
 			}
 			when UPSERTABLE {
-				return obj.getSObjectType().getDescribe().isCreateable() &&
-					obj.getSObjectType().getDescribe().isUpdateable();
+				return obj.getSObjectType().getDescribe().isCreateable() && obj.getSObjectType().getDescribe().isUpdateable();
 			}
 			when else {
 				// impossible, but required to return something
@@ -324,10 +323,7 @@ public with sharing class CanTheUser {
 	 * String[] fields = new String[]{'Name', 'ShippingStreet'};
 	 * System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
 	 */
-	public static Map<String, Boolean> bulkFLSAccessible(
-		String obj,
-		Set<String> fields
-	) {
+	public static Map<String, Boolean> bulkFLSAccessible(String obj, Set<String> fields) {
 		Map<String, Boolean> results = new Map<String, Boolean>();
 		for (String field : fields) {
 			results.put(field, flsAccessible(obj, field));
@@ -361,10 +357,7 @@ public with sharing class CanTheUser {
 	 * String[] fields = new String[]{'Name', 'ShippingStreet'};
 	 * System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
 	 */
-	public static Map<String, Boolean> bulkFLSUpdatable(
-		String obj,
-		Set<String> fields
-	) {
+	public static Map<String, Boolean> bulkFLSUpdatable(String obj, Set<String> fields) {
 		Map<String, Boolean> results = new Map<String, Boolean>();
 		for (String field : fields) {
 			results.put(field, flsUpdatable(obj, field));
@@ -381,16 +374,11 @@ public with sharing class CanTheUser {
 	 *
 	 * @return `Boolean`
 	 */
-	private static Boolean getFLSForFieldOnObject(
-		String obj,
-		String field,
-		FLSType checkType
-	) {
+	private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType checkType) {
 		if (MEMOIZED_FLS_RESULTS.get(field.toLowerCase()) == null) {
 			MEMOIZED_FLS_RESULTS.putAll(calculateFLS(obj));
 		}
-		Boolean results = MEMOIZED_FLS_RESULTS.get(field.toLowerCase())
-			?.get(checkType);
+		Boolean results = MEMOIZED_FLS_RESULTS.get(field.toLowerCase())?.get(checkType);
 		return (results != null && results) ? true : false;
 	}
 
@@ -399,9 +387,7 @@ public with sharing class CanTheUser {
 	 * @param objType String name of the object type
 	 * @return        `Map<String, Map<FLSType, Boolean>>`
 	 */
-	private static Map<String, Map<FLSType, Boolean>> calculateFLS(
-		String objType
-	) {
+	private static Map<String, Map<FLSType, Boolean>> calculateFLS(String objType) {
 		Schema.DescribeSObjectResult[] descResult = Schema.describeSObjects(
 			new List<String>{ objType },
 			SObjectDescribeOptions.DEFERRED
@@ -412,8 +398,7 @@ public with sharing class CanTheUser {
 			DescribeFieldResult fieldDetails = field.getDescribe();
 			String fieldKey = String.valueOf(field).toLowerCase();
 			results.put(fieldKey, new Map<FLSType, Boolean>());
-			results.get(fieldKey)
-				.put(FLSType.ACCESSIBLE, fieldDetails.isAccessible());
+			results.get(fieldKey).put(FLSType.ACCESSIBLE, fieldDetails.isAccessible());
 			results.get(fieldKey).put(FLSType.UPDATABLE, fieldDetails.isUpdateable());
 		}
 		return results;

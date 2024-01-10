@@ -24,10 +24,7 @@ public abstract class UFInvocable implements BulkCallable {
 	 *
 	 * @return Object This returns a generic Object. This is the return value of the method you're calling.
 	 */
-	abstract public List<Object> call(
-		String methodName,
-		List<Map<String, Object>> passedParameters
-	);
+	abstract public List<Object> call(String methodName, List<Map<String, Object>> passedParameters);
 
 	/**
 	 * @description This is a common exception object shared by all classes that extend this class. Used primarily
@@ -155,15 +152,10 @@ public abstract class UFInvocable implements BulkCallable {
 					String classMethodName = input.toString();
 					controllers.put(input.className, null);
 					// Keep track of each request that uses the same method
-					Map<Point, UniversalFlowInputOutput> inputsByClassMethod = inputsByClassMethodByIndex.get(
-						classMethodName
-					);
+					Map<Point, UniversalFlowInputOutput> inputsByClassMethod = inputsByClassMethodByIndex.get(classMethodName);
 					if (inputsByClassMethod == null) {
 						inputsByClassMethod = new Map<Point, UniversalFlowInputOutput>();
-						inputsByClassMethodByIndex.put(
-							classMethodName,
-							inputsByClassMethod
-						);
+						inputsByClassMethodByIndex.put(classMethodName, inputsByClassMethod);
 					}
 					inputsByClassMethod.put(new Point(index1, index2), input);
 				}
@@ -175,10 +167,7 @@ public abstract class UFInvocable implements BulkCallable {
 		void loadClasses() {
 			for (String className : controllers.keySet()) {
 				try {
-					controllers.put(
-						className,
-						(BulkCallable) (Type.forName(className)).newInstance()
-					);
+					controllers.put(className, (BulkCallable) (Type.forName(className)).newInstance());
 				} catch (Exception e) {
 					typeErrors.put(className, e.getMessage());
 				}
@@ -189,9 +178,7 @@ public abstract class UFInvocable implements BulkCallable {
 		 */
 		void processInputs() {
 			for (String classMethodName : inputsByClassMethodByIndex.keySet()) {
-				Map<Point, UniversalFlowInputOutput> inputsByPoint = inputsByClassMethodByIndex.get(
-					classMethodName
-				);
+				Map<Point, UniversalFlowInputOutput> inputsByPoint = inputsByClassMethodByIndex.get(classMethodName);
 				List<Point> pointIndexes = new List<Point>(inputsByPoint.keySet());
 				List<UniversalFlowInputOutput> inputsForMethod = new List<UniversalFlowInputOutput>();
 				for (Point pointIndex : pointIndexes) {
@@ -203,9 +190,7 @@ public abstract class UFInvocable implements BulkCallable {
 				try {
 					// Abort this method early if the class could not load
 					if (typeErrors.containsKey(className)) {
-						throw new MalformedCallableException(
-							'Error loading ' + className + ':' + typeErrors.get(className)
-						);
+						throw new MalformedCallableException('Error loading ' + className + ':' + typeErrors.get(className));
 					}
 					// Load the parameters for BulkCallable
 					List<Map<String, Object>> parameterMapping = new List<Map<String, Object>>();

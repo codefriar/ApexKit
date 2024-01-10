@@ -11,20 +11,8 @@ public class HttpCalloutMockFactory implements HttpCalloutMock {
 	 * @param headers a map of headers applied to the response object
 	 **/
 	@SuppressWarnings('PMD.ExcessiveParameterList')
-	public HttpCalloutMockFactory(
-		Integer code,
-		String status,
-		String bodyAsString,
-		Map<String, String> headers
-	) {
-		this.orderedResponses.add(
-			HttpCalloutMockFactory.generateHttpResponse(
-				code,
-				status,
-				bodyAsString,
-				headers
-			)
-		);
+	public HttpCalloutMockFactory(Integer code, String status, String bodyAsString, Map<String, String> headers) {
+		this.orderedResponses.add(HttpCalloutMockFactory.generateHttpResponse(code, status, bodyAsString, headers));
 	}
 
 	/**

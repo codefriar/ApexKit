@@ -46,10 +46,7 @@ public with sharing class MethodSignature {
 	 *
 	 * @return `Boolean` true if the method names match,
 	 */
-	private static Boolean verifyMethodNamesMatch(
-		String originalMethodName,
-		String comparatorMethodName
-	) {
+	private static Boolean verifyMethodNamesMatch(String originalMethodName, String comparatorMethodName) {
 		return originalMethodName.equalsIgnoreCase(comparatorMethodName);
 	}
 
@@ -86,11 +83,7 @@ public with sharing class MethodSignature {
 		 * @param paramTypes A list of System.Types that define the order and
 		 * type of parameters for the method.
 		 */
-		public Builder(
-			Stub.Builder builder,
-			String methodName,
-			List<System.Type> paramTypes
-		) {
+		public Builder(Stub.Builder builder, String methodName, List<System.Type> paramTypes) {
 			this.stubBuilder = builder;
 			this.methodName = methodName;
 			this.parameterTypes = paramTypes;
@@ -113,14 +106,9 @@ public with sharing class MethodSignature {
 		 *
 		 * @return `MockedMethod.Builder`
 		 */
-		public MockedMethod.Builder withParameterTypes(
-			List<System.Type> parameters
-		) {
+		public MockedMethod.Builder withParameterTypes(List<System.Type> parameters) {
 			this.parameterTypes.addAll(parameters);
-			MockedMethod.Builder mockedMethodBuilder = new MockedMethod.Builder(
-				this,
-				parameters
-			);
+			MockedMethod.Builder mockedMethodBuilder = new MockedMethod.Builder(this, parameters);
 
 			methodBuilders.add(mockedMethodBuilder);
 			return mockedMethodBuilder;
@@ -145,10 +133,7 @@ public with sharing class MethodSignature {
 		 *
 		 * @return `MockedMethod.Builder`
 		 */
-		public MockedMethod.Builder withParameterTypes(
-			System.Type parameter,
-			System.Type parameter2
-		) {
+		public MockedMethod.Builder withParameterTypes(System.Type parameter, System.Type parameter2) {
 			return withParameterTypes(new List<System.Type>{ parameter, parameter2 });
 		}
 
@@ -166,9 +151,7 @@ public with sharing class MethodSignature {
 			System.Type parameter2,
 			System.Type parameter3
 		) {
-			return withParameterTypes(
-				new List<System.Type>{ parameter, parameter2, parameter3 }
-			);
+			return withParameterTypes(new List<System.Type>{ parameter, parameter2, parameter3 });
 		}
 
 		/**
@@ -188,9 +171,7 @@ public with sharing class MethodSignature {
 			System.Type parameter3,
 			System.Type parameter4
 		) {
-			return withParameterTypes(
-				new List<System.Type>{ parameter, parameter2, parameter3, parameter4 }
-			);
+			return withParameterTypes(new List<System.Type>{ parameter, parameter2, parameter3, parameter4 });
 		}
 
 		/**
@@ -206,10 +187,7 @@ public with sharing class MethodSignature {
 		 * @return      `List<MockedMethod>`
 		 */
 		public List<MockedMethod> buildMockedMethod() {
-			MethodSignature signature = new MethodSignature(
-				methodName,
-				parameterTypes
-			);
+			MethodSignature signature = new MethodSignature(methodName, parameterTypes);
 
 			List<MockedMethod> methodCalls = new List<MockedMethod>();
 			for (MockedMethod.Builder mb : methodBuilders) {

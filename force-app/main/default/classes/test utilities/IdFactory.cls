@@ -116,14 +116,8 @@ public with sharing class IdFactory {
 	private static Id getWithPrefixOverride(String prefix) {
 		idiosyncrasy++;
 		prefix += SERVER_ID;
-		Integer padLength =
-			DEFAULT_ID_LENGTH -
-			prefix.length() -
-			String.valueOf(idiosyncrasy).length();
-		String bogusId =
-			prefix +
-			'0'.repeat(padLength) +
-			String.valueOf(idiosyncrasy);
+		Integer padLength = DEFAULT_ID_LENGTH - prefix.length() - String.valueOf(idiosyncrasy).length();
+		String bogusId = prefix + '0'.repeat(padLength) + String.valueOf(idiosyncrasy);
 		return (Id) bogusId;
 	}
 

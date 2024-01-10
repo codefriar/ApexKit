@@ -27,9 +27,9 @@ This is the method that implementing classes must override. It's the method that
 
 #### Returns
 
-| Type    | Description                                     |
-| ------- | ----------------------------------------------- |
-| Boolean | Boolean True if the exit criteria has been met. |
+| Type      | Description                                     |
+| --------- | ----------------------------------------------- |
+| `Boolean` | Boolean True if the exit criteria has been met. |
 
 ### `public void execute()`
 
@@ -41,11 +41,11 @@ This method is to be deprecated shortly, in favor of the lookup system built in 
 
 #### Returns
 
-| Type   | Description                                                                   |
-| ------ | ----------------------------------------------------------------------------- |
-| String | String class name. Currently only used in the finalizer for logging purposes. |
+| Type     | Description                                                                   |
+| -------- | ----------------------------------------------------------------------------- |
+| `String` | String class name. Currently only used in the finalizer for logging purposes. |
 
-### `public void execute(QueueableContext context)`
+### `public virtual void execute(QueueableContext context)`
 
 This is the method that will be executed by the Queueable system. It accepts the context object and calls the implementing class' `execute` method. It then creates a new instance of the OuroborosFinalizer class and attaches it to the system context.
 

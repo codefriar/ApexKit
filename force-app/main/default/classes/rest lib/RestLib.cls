@@ -54,12 +54,7 @@ public with sharing virtual class RestLib {
 		if (apiCall.hasBody) {
 			apiRequest.setBody(apiCall.body);
 		}
-		apiRequest.setEndpoint(
-			'callout:' +
-				this.namedCredentialName +
-				apiCall.path +
-				apiCall.encodedQuery
-		);
+		apiRequest.setEndpoint('callout:' + this.namedCredentialName + apiCall.path + apiCall.encodedQuery);
 		Http http = new Http();
 		return http.send(apiRequest);
 	}

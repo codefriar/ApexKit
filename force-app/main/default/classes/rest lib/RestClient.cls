@@ -28,10 +28,7 @@ public virtual class RestClient extends RestLib {
 	 *                                      new Map<String,String>())));
 	 */
 	@SuppressWarnings('PMD.ExcessiveParameterList')
-	public static HttpResponse makeApiCall(
-		String namedCredential,
-		RestLibApiCall apiCall
-	) {
+	public static HttpResponse makeApiCall(String namedCredential, RestLibApiCall apiCall) {
 		return new RestClient(namedCredential).makeApiCall(apiCall);
 	}
 }

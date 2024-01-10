@@ -7,26 +7,10 @@ private class SafelyTests {
 		Safely instanceTwo = new Safely().throwIfRemovedFields();
 		Test.stopTest();
 
-		Assert.areEqual(
-			true,
-			instanceOne.allOrNothing,
-			'Expected Fluent constructor to have set this to true'
-		);
-		Assert.areEqual(
-			false,
-			instanceOne.throwIfRemovedFields,
-			'Expected this to remain false'
-		);
-		Assert.areEqual(
-			true,
-			instanceTwo.throwIfRemovedFields,
-			'Expected Fluent constructor to have set this to true'
-		);
-		Assert.areEqual(
-			false,
-			instanceTwo.allOrNothing,
-			'Expected this to remain false'
-		);
+		Assert.areEqual(true, instanceOne.allOrNothing, 'Expected Fluent constructor to have set this to true');
+		Assert.areEqual(false, instanceOne.throwIfRemovedFields, 'Expected this to remain false');
+		Assert.areEqual(true, instanceTwo.throwIfRemovedFields, 'Expected Fluent constructor to have set this to true');
+		Assert.areEqual(false, instanceTwo.allOrNothing, 'Expected this to remain false');
 	}
 
 	@IsTest
@@ -49,11 +33,7 @@ private class SafelyTests {
 			Account account = (Account) new Account(Name = 'TestAccount');
 			List<Database.SaveResult> results = new Safely().doInsert(account);
 			Test.stopTest();
-			Assert.areEqual(
-				0,
-				results.size(),
-				'Expected zero delete result in the list'
-			);
+			Assert.areEqual(0, results.size(), 'Expected zero delete result in the list');
 		}
 	}
 
@@ -61,10 +41,7 @@ private class SafelyTests {
 	private static void testMarketingProfileGeneratesInsertExceptionPositive() {
 		User marketingUser = TestFactory.createMarketingUser(true);
 		Boolean didCatchTheRightException = false;
-		Account account = (Account) new Account(
-			Name = 'TestAccount',
-			TradeStyle = 'invalid'
-		);
+		Account account = (Account) new Account(Name = 'TestAccount', TradeStyle = 'invalid');
 		Test.startTest();
 		System.runAs(marketingUser) {
 			try {
@@ -76,10 +53,7 @@ private class SafelyTests {
 			}
 		}
 		Test.stopTest();
-		Assert.isTrue(
-			didCatchTheRightException,
-			'Expected to have caught a removedFieldsException'
-		);
+		Assert.isTrue(didCatchTheRightException, 'Expected to have caught a removedFieldsException');
 	}
 
 	@IsTest
@@ -98,24 +72,15 @@ private class SafelyTests {
 	private static void testDoUpdateNegative() {
 		User minAccessUser = TestFactory.createMinAccessUser(true);
 
-		PermissionSet ps = new PermissionSet(
-			Label = 'testPermSet',
-			Name = 'testPermSet'
-		);
+		PermissionSet ps = new PermissionSet(Label = 'testPermSet', Name = 'testPermSet');
 		insert ps;
-		ObjectPermissions op = new ObjectPermissions(
-			ParentId = ps.Id,
-			SobjectType = 'Account'
-		);
+		ObjectPermissions op = new ObjectPermissions(ParentId = ps.Id, SobjectType = 'Account');
 		op.PermissionsRead = true;
 		op.PermissionsCreate = true;
 		op.PermissionsEdit = false;
 		insert op;
 
-		insert new PermissionSetAssignment(
-			PermissionSetId = ps.Id,
-			AssigneeId = minAccessUser.Id
-		);
+		insert new PermissionSetAssignment(PermissionSetId = ps.Id, AssigneeId = minAccessUser.Id);
 		System.runAs(minAccessUser) {
 			Account account = (Account) new Account(name = 'TestAccount');
 			Assert.isTrue(CanTheUser.create(account));
@@ -127,11 +92,7 @@ private class SafelyTests {
 			List<Database.SaveResult> results = new Safely().doUpdate(account);
 			Test.stopTest();
 
-			Assert.areEqual(
-				0,
-				results.size(),
-				'Expected zero update results in the list'
-			);
+			Assert.areEqual(0, results.size(), 'Expected zero update results in the list');
 		}
 	}
 
@@ -146,11 +107,7 @@ private class SafelyTests {
 
 			List<Database.DeleteResult> results = new Safely().doDelete(c);
 			Test.stopTest();
-			Assert.areEqual(
-				0,
-				results.size(),
-				'Expected zero delete result in the list'
-			);
+			Assert.areEqual(0, results.size(), 'Expected zero delete result in the list');
 		}
 	}
 
@@ -172,10 +129,7 @@ private class SafelyTests {
 			}
 		}
 		Test.stopTest();
-		Assert.isTrue(
-			didCatchTheRightException,
-			'Expected to have caught a removedFieldsException'
-		);
+		Assert.isTrue(didCatchTheRightException, 'Expected to have caught a removedFieldsException');
 	}
 
 	@IsTest
@@ -189,11 +143,7 @@ private class SafelyTests {
 		List<Database.upsertResult> insertResults = new Safely().doUpsert(account);
 		List<Database.UpsertResult> mixedResults = new Safely().doUpsert(accounts);
 		Test.stopTest();
-		Assert.areEqual(
-			1,
-			insertResults.size(),
-			'Expected one save result in the list'
-		);
+		Assert.areEqual(1, insertResults.size(), 'Expected one save result in the list');
 		Assert.areEqual(2, mixedResults.size(), 'expected two results');
 		Assert.isTrue(insertResults.get(0).success, 'This dml should succeed');
 		Integer updated = 0;
@@ -214,24 +164,15 @@ private class SafelyTests {
 	private static void testDoUpsertMethodsNegative() {
 		User minAccessUser = TestFactory.createMinAccessUser(true);
 
-		PermissionSet ps = new PermissionSet(
-			Label = 'testPermSet',
-			Name = 'testPermSet'
-		);
+		PermissionSet ps = new PermissionSet(Label = 'testPermSet', Name = 'testPermSet');
 		insert ps;
-		ObjectPermissions op = new ObjectPermissions(
-			ParentId = ps.Id,
-			SobjectType = 'Account'
-		);
+		ObjectPermissions op = new ObjectPermissions(ParentId = ps.Id, SobjectType = 'Account');
 		op.PermissionsRead = true;
 		op.PermissionsCreate = true;
 		op.PermissionsEdit = false;
 		insert op;
 
-		insert new PermissionSetAssignment(
-			PermissionSetId = ps.Id,
-			AssigneeId = minAccessUser.Id
-		);
+		insert new PermissionSetAssignment(PermissionSetId = ps.Id, AssigneeId = minAccessUser.Id);
 
 		System.runAs(minAccessUser) {
 			Account account = (Account) new Account(Name = 'TestAccount01');
@@ -241,14 +182,9 @@ private class SafelyTests {
 			List<Database.SaveResult> insertResults = new Safely().doInsert(account);
 			account.Name = 'TestAccount2';
 			List<Account> accounts = new List<Account>{ account, account2 };
-			List<Database.UpsertResult> mixedResults = new Safely()
-				.doUpsert(accounts);
+			List<Database.UpsertResult> mixedResults = new Safely().doUpsert(accounts);
 			Test.stopTest();
-			Assert.areEqual(
-				1,
-				insertResults.size(),
-				'Expected one save result in the list'
-			);
+			Assert.areEqual(1, insertResults.size(), 'Expected one save result in the list');
 			Assert.isTrue(insertResults.get(0).success, 'This dml should succeed');
 			Assert.isTrue(mixedResults.isEmpty(), 'expected no updates');
 		}
@@ -272,10 +208,7 @@ private class SafelyTests {
 			}
 		}
 		Test.stopTest();
-		Assert.isTrue(
-			didCatchTheRightException,
-			'Expected to have caught a removedFieldsException'
-		);
+		Assert.isTrue(didCatchTheRightException, 'Expected to have caught a removedFieldsException');
 	}
 
 	@IsTest
@@ -283,9 +216,7 @@ private class SafelyTests {
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
 		Test.startTest();
-		List<Database.deleteResult> results = new Safely()
-			.throwIfRemovedFields()
-			.doDelete(account);
+		List<Database.deleteResult> results = new Safely().throwIfRemovedFields().doDelete(account);
 		Test.stopTest();
 		Assert.isTrue(results.get(0).success, 'expected this dml to succeed');
 	}
@@ -321,22 +252,13 @@ private class SafelyTests {
 	private static void testDoQueryThrowsRemovedFieldsException() {
 		User minAccessUser = TestFactory.createMinAccessUser(true);
 
-		PermissionSet ps = new PermissionSet(
-			Label = 'testPermSet',
-			Name = 'testPermSet'
-		);
+		PermissionSet ps = new PermissionSet(Label = 'testPermSet', Name = 'testPermSet');
 		insert ps;
-		ObjectPermissions op = new ObjectPermissions(
-			ParentId = ps.Id,
-			SobjectType = 'Account'
-		);
+		ObjectPermissions op = new ObjectPermissions(ParentId = ps.Id, SobjectType = 'Account');
 		op.PermissionsRead = true;
 		op.PermissionsViewAllRecords = true;
 		insert op;
-		insert new PermissionSetAssignment(
-			PermissionSetId = ps.Id,
-			AssigneeId = minAccessUser.Id
-		);
+		insert new PermissionSetAssignment(PermissionSetId = ps.Id, AssigneeId = minAccessUser.Id);
 
 		System.runAs(new User(Id = UserInfo.getUserId())) {
 			Account account = (Account) new Account(Name = 'TestAccount');
@@ -357,24 +279,17 @@ private class SafelyTests {
 			}
 			Test.stopTest();
 			Assert.isTrue(saf.throwIfRemovedFields);
-			Assert.isTrue(
-				didCatchTheRightException,
-				'Expected to have caught a removedFieldsException'
-			);
+			Assert.isTrue(didCatchTheRightException, 'Expected to have caught a removedFieldsException');
 		}
 	}
 
 	@IsTest
 	private static void emptyCollections() {
 		Test.startTest();
-		List<Database.SaveResult> insertResults = new Safely()
-			.doInsert(new List<Account>());
-		List<Database.SaveResult> updateResults = new Safely()
-			.doUpdate(new List<Account>());
-		List<Database.UpsertResult> upsertResults = new Safely()
-			.doUpsert(new List<Account>());
-		List<Database.DeleteResult> deleteResults = new Safely()
-			.doDelete(new List<Account>());
+		List<Database.SaveResult> insertResults = new Safely().doInsert(new List<Account>());
+		List<Database.SaveResult> updateResults = new Safely().doUpdate(new List<Account>());
+		List<Database.UpsertResult> upsertResults = new Safely().doUpsert(new List<Account>());
+		List<Database.DeleteResult> deleteResults = new Safely().doDelete(new List<Account>());
 		Test.stopTest();
 
 		Assert.isTrue(insertResults.isEmpty());

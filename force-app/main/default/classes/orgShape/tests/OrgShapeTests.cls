@@ -4,45 +4,21 @@ class OrgShapeTests {
 	private static Organization orgCheck;
 	static {
 		orgShape = new orgShape();
-		orgCheck = (Organization) new SOQL.builder('Organization')
-			.selectStandard()
-			.setScopeLimit(1)
-			.build()
-			.getRecord();
+		orgCheck = (Organization) new SOQL.builder('Organization').selectStandard().setScopeLimit(1).build().getRecord();
 	}
 
 	@isTest
 	private static void testOrgShapeProperties() {
-		Assert.areEqual(
-			orgCheck.isSandbox,
-			orgShape.isSandbox,
-			'Expected the OrgShape property to match the query'
-		);
+		Assert.areEqual(orgCheck.isSandbox, orgShape.isSandbox, 'Expected the OrgShape property to match the query');
 		Assert.areEqual(
 			UserInfo.isMultiCurrencyOrganization(),
 			orgShape.multiCurrencyEnabled,
 			'Expected the OrgShape property to match the UserInfo property'
 		);
-		Assert.areEqual(
-			orgCheck.OrganizationType,
-			orgShape.orgType,
-			'Expected the OrgShape property to match the query'
-		);
-		Assert.areEqual(
-			orgCheck.isReadOnly,
-			orgShape.isReadOnly,
-			'Expected the OrgShape property to match the query'
-		);
-		Assert.areEqual(
-			orgCheck.instanceName,
-			orgShape.instanceName,
-			'Expected the OrgShape property to match the query'
-		);
-		Assert.areEqual(
-			orgCheck.instanceName,
-			orgShape.podName,
-			'Expected the OrgShape property to match the query'
-		);
+		Assert.areEqual(orgCheck.OrganizationType, orgShape.orgType, 'Expected the OrgShape property to match the query');
+		Assert.areEqual(orgCheck.isReadOnly, orgShape.isReadOnly, 'Expected the OrgShape property to match the query');
+		Assert.areEqual(orgCheck.instanceName, orgShape.instanceName, 'Expected the OrgShape property to match the query');
+		Assert.areEqual(orgCheck.instanceName, orgShape.podName, 'Expected the OrgShape property to match the query');
 		Assert.areEqual(
 			orgCheck.fiscalYearStartMonth,
 			orgShape.getFiscalYearStartMonth,
@@ -53,26 +29,10 @@ class OrgShapeTests {
 			orgShape.lightningEnabled,
 			'Expected the OrgShape property to match the query'
 		);
-		Assert.areEqual(
-			orgCheck.id,
-			orgShape.id,
-			'Expected the OrgShape property to match the query'
-		);
-		Assert.areEqual(
-			orgCheck.languageLocaleKey,
-			orgShape.locale,
-			'Expected the OrgShape property to match the query'
-		);
-		Assert.areEqual(
-			orgCheck.timeZoneSidKey,
-			orgShape.timeZoneKey,
-			'Expected the OrgShape property to match the query'
-		);
-		Assert.areEqual(
-			orgCheck.name,
-			orgShape.name,
-			'Expected the OrgShape property to match the query'
-		);
+		Assert.areEqual(orgCheck.id, orgShape.id, 'Expected the OrgShape property to match the query');
+		Assert.areEqual(orgCheck.languageLocaleKey, orgShape.locale, 'Expected the OrgShape property to match the query');
+		Assert.areEqual(orgCheck.timeZoneSidKey, orgShape.timeZoneKey, 'Expected the OrgShape property to match the query');
+		Assert.areEqual(orgCheck.name, orgShape.name, 'Expected the OrgShape property to match the query');
 		Assert.areEqual(
 			orgCheck.namespacePrefix,
 			orgShape.namespacePrefix,
@@ -97,15 +57,10 @@ class OrgShapeTests {
 			datedConversionRateObjectExists = false;
 		}
 		Test.startTest();
-		Boolean checkValue = new OrgShape()
-			.isAdvancedMultiCurrencyManagementEnabled();
+		Boolean checkValue = new OrgShape().isAdvancedMultiCurrencyManagementEnabled();
 		Test.stopTest();
 
-		Assert.areEqual(
-			datedConversionRateObjectExists,
-			checkValue,
-			'Expected the check value to equal the dated'
-		);
+		Assert.areEqual(datedConversionRateObjectExists, checkValue, 'Expected the check value to equal the dated');
 	}
 
 	@isTest
@@ -130,9 +85,7 @@ class OrgShapeTests {
 		if (!OrgShape.isPlatformCacheEnabled()) {
 			return;
 		}
-		OrgShape.safeDefaultCachePartition = Cache.Org.getPartition(
-			'local.default'
-		);
+		OrgShape.safeDefaultCachePartition = Cache.Org.getPartition('local.default');
 		Test.startTest();
 		Boolean result = orgShape.isPlatformCacheEnabled();
 		Test.stopTest();
@@ -148,11 +101,7 @@ class OrgShapeTests {
 		Test.startTest();
 		Boolean result = orgShape.isPlatformCacheEnabled();
 		Test.stopTest();
-		Assert.areEqual(
-			false,
-			result,
-			'Expected to see platform cache reported as disabled when see all data is true'
-		);
+		Assert.areEqual(false, result, 'Expected to see platform cache reported as disabled when see all data is true');
 	}
 
 	@isTest(SeeAllData=true)
@@ -177,18 +126,9 @@ class OrgShapeTests {
 		if (!OrgShape.isPlatformCacheEnabled()) {
 			return;
 		}
-		Cache.OrgPartition defaultPartition = Cache.Org.getPartition(
-			'local.default'
-		);
-		defaultPartition.remove(
-			OrgShape.CachedOrgShape.class,
-			'requiredButNotUsed'
-		);
-		Assert.areEqual(
-			0,
-			defaultPartition.getNumKeys(),
-			'Expected to no cache keys yet'
-		);
+		Cache.OrgPartition defaultPartition = Cache.Org.getPartition('local.default');
+		defaultPartition.remove(OrgShape.CachedOrgShape.class, 'requiredButNotUsed');
+		Assert.areEqual(0, defaultPartition.getNumKeys(), 'Expected to no cache keys yet');
 		OrgShape newOrgShape = new OrgShape();
 		// this should populate the cache.
 		Boolean discard = newOrgShape.isReadOnly;
@@ -197,15 +137,9 @@ class OrgShapeTests {
 		Boolean check = newOrgShape.isSandbox;
 		Boolean check2 = newOrgShape.hasNamespacePrefix;
 		Test.stopTest();
-		Assert.areEqual(
-			1,
-			defaultPartition.getNumKeys(),
-			'Expected to see 1 and only 1 cache key'
-		);
+		Assert.areEqual(1, defaultPartition.getNumKeys(), 'Expected to see 1 and only 1 cache key');
 		Assert.isTrue(
-			defaultPartition.getKeys()
-				.toString()
-				.containsIgnoreCase('cachedorgshape'),
+			defaultPartition.getKeys().toString().containsIgnoreCase('cachedorgshape'),
 			'Expected the single cache key to be tied to our CachedOrgShape cacheBuilder class'
 		);
 	}

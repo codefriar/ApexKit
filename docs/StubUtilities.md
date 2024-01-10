@@ -12,7 +12,7 @@ a static incrementing counter tied to transaction a new comment
 
 ## Methods
 
-### `public static List generateSObjectIds(String sObjectTypeString, Integer size)`
+### `public static List<Id> generateSObjectIds(String sObjectTypeString, Integer size)`
 
 Used when you want a MockedMethod to return a set of IDs of a given sObject Type
 
@@ -25,8 +25,8 @@ Used when you want a MockedMethod to return a set of IDs of a given sObject Type
 
 #### Returns
 
-| Type     | Description |
-| -------- | ----------- |
-| List<Id> | `List<Id>`  |
+| Type       | Description |
+| ---------- | ----------- |
+| `List<Id>` | `List<Id>`  |
 
 ---

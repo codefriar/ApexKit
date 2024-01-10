@@ -22,7 +22,7 @@ the current context of the trigger, override-able in tests
 
 ## Methods
 
-### `public void run()`
+### `public virtual void run()`
 
 This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
 
@@ -38,9 +38,9 @@ A method to guard against invalid execution contexts
 
 #### Returns
 
-| Type    | Description                                                                     |
-| ------- | ------------------------------------------------------------------------------- |
-| Boolean | true if the execution context is invalid or if this trigger handler is bypassed |
+| Type      | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `Boolean` | true if the execution context is invalid or if this trigger handler is bypassed |
 
 ### `private void dispatchHandlerMethod(TriggerOperation context)`
 
@@ -124,9 +124,9 @@ Allows developers to check whether a given trigger handler class is currently by
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 #### Example
 
@@ -158,11 +158,11 @@ Returns the string version of the handler class being invoked
 
 #### Returns
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| String | `String` Name of the Handler |
+| Type     | Description                  |
+| -------- | ---------------------------- |
+| `String` | `String` Name of the Handler |
 
-### `protected void beforeInsert()`
+### `protected virtual void beforeInsert()`
 
 `TESTVISIBLE`
 
@@ -170,7 +170,7 @@ Returns the string version of the handler class being invoked
 
 context methods
 
-### `protected void beforeUpdate()`
+### `protected virtual void beforeUpdate()`
 
 `TESTVISIBLE`
 
@@ -178,7 +178,7 @@ context methods
 
 Virtual method for the implementing class to override
 
-### `protected void beforeDelete()`
+### `protected virtual void beforeDelete()`
 
 `TESTVISIBLE`
 
@@ -186,7 +186,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterInsert()`
+### `protected virtual void afterInsert()`
 
 `TESTVISIBLE`
 
@@ -194,7 +194,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterUpdate()`
+### `protected virtual void afterUpdate()`
 
 `TESTVISIBLE`
 
@@ -202,7 +202,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterDelete()`
+### `protected virtual void afterDelete()`
 
 `TESTVISIBLE`
 
@@ -210,7 +210,7 @@ Virtual method for the implementing class to override
 
 Virtual method for the implementing class to override
 
-### `protected void afterUndelete()`
+### `protected virtual void afterUndelete()`
 
 `TESTVISIBLE`
 

@@ -110,10 +110,7 @@ public with sharing class FeatureFlagDataProvider {
 	 * @return `Set<Id>` of permission set ids
 	 */
 	public Set<String> enablingPermissionSets(String featureFlagName) {
-		if (
-			String.isEmpty(featureFlagName) ||
-			!perPermSetOverridesByFeatureFlag.containsKey(featureFlagName)
-		) {
+		if (String.isEmpty(featureFlagName) || !perPermSetOverridesByFeatureFlag.containsKey(featureFlagName)) {
 			return new Set<String>();
 		}
 
@@ -136,10 +133,7 @@ public with sharing class FeatureFlagDataProvider {
 	 */
 	public Set<String> enablingCustomPermissions(String featureFlagName) {
 		if (
-			String.isEmpty(featureFlagName) ||
-			!this.perCustomPermissionOverridesByFeatureFlag.containsKey(
-				featureFlagName
-			)
+			String.isEmpty(featureFlagName) || !this.perCustomPermissionOverridesByFeatureFlag.containsKey(featureFlagName)
 		) {
 			return new Set<String>();
 		}
@@ -168,10 +162,7 @@ public with sharing class FeatureFlagDataProvider {
 			.whereCondition(new Query.Condition().equals('assigneeId', userId))
 			.build()
 			.getRecords();
-		return (List<String>) Polyfills.pluckFieldFromList(
-			'PermissionSetId',
-			permSetRecords
-		);
+		return (List<String>) Polyfills.pluckFieldFromList('PermissionSetId', permSetRecords);
 	}
 
 	/**
@@ -191,9 +182,7 @@ public with sharing class FeatureFlagDataProvider {
 	 * custom metadata for per-permission set enablement of features
 	 */
 	@TestVisible
-	private void overridePerPermSetOverrides(
-		Map<String, Feature_Flag_Enabled_For__mdt> perPermSetOverrides
-	) {
+	private void overridePerPermSetOverrides(Map<String, Feature_Flag_Enabled_For__mdt> perPermSetOverrides) {
 		this.perPermSetOverrides = perPermSetOverrides;
 	}
 
@@ -233,10 +222,7 @@ public with sharing class FeatureFlagDataProvider {
 	) {
 		memoizedMap = new Map<String, List<SObject>>();
 		for (SObject currentObject : incomingMap.values()) {
-			String correlationKey = correlatingMap.get(
-					String.valueOf(currentObject.get(keyField))
-				)
-				?.DeveloperName;
+			String correlationKey = correlatingMap.get(String.valueOf(currentObject.get(keyField)))?.DeveloperName;
 			if (memoizedMap.containsKey(correlationKey)) {
 				memoizedMap.get(correlationKey).add(currentObject);
 			} else {

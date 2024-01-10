@@ -17,25 +17,16 @@ private class LogTests {
 		Assert.areEqual(2, events.size(), 'expected to find only a single event');
 
 		for (LogEvent__c logEvt : events) {
-			Assert.areEqual(
-				currentRequestId,
-				logEvt.Request_Id__c,
-				'Expected the reuqest id to have been logged'
-			);
+			Assert.areEqual(currentRequestId, logEvt.Request_Id__c, 'Expected the reuqest id to have been logged');
 			Assert.areEqual(
 				currentQuiddity.name(),
 				logEvt.Quiddity__c,
 				'Expected quiddity on log message to match apex test context'
 			);
 			Assert.isTrue(
-				new Set<String>{
-						Quiddity.RUNTEST_ASYNC.name(),
-						Quiddity.RUNTEST_DEPLOY.name(),
-						Quiddity.RUNTEST_SYNC.name()
-					}
+				new Set<String>{ Quiddity.RUNTEST_ASYNC.name(), Quiddity.RUNTEST_DEPLOY.name(), Quiddity.RUNTEST_SYNC.name() }
 					.contains(logEvt.Quiddity__c),
-				'Expected quiddity to be one of the apex test types, found: ' +
-				logEvt.Quiddity__c
+				'Expected quiddity to be one of the apex test types, found: ' + logEvt.Quiddity__c
 			);
 		}
 	}
@@ -66,33 +57,23 @@ private class LogTests {
 		Assert.areEqual(4, events.size(), 'Expected to find 3 records');
 
 		for (LogEvent__c logEvt : events) {
-			Assert.areEqual(
-				currentRequestId,
-				logEvt.Request_Id__c,
-				'Expected the reuqest id to have been logged'
-			);
+			Assert.areEqual(currentRequestId, logEvt.Request_Id__c, 'Expected the reuqest id to have been logged');
 			Assert.areEqual(
 				currentQuiddity.name(),
 				logEvt.Quiddity__c,
 				'Expected quiddity on log message to match apex test context'
 			);
 			Assert.isTrue(
-				new Set<String>{
-						Quiddity.RUNTEST_ASYNC.name(),
-						Quiddity.RUNTEST_DEPLOY.name(),
-						Quiddity.RUNTEST_SYNC.name()
-					}
+				new Set<String>{ Quiddity.RUNTEST_ASYNC.name(), Quiddity.RUNTEST_DEPLOY.name(), Quiddity.RUNTEST_SYNC.name() }
 					.contains(logEvt.Quiddity__c),
-				'Expected quiddity to be one of the apex test types, found: ' +
-				logEvt.Quiddity__c
+				'Expected quiddity to be one of the apex test types, found: ' + logEvt.Quiddity__c
 			);
 
 			//debug info warn error - proposed
 		}
 
 		Assert.isTrue(
-			events[0].Log_Data__c.split('\n')[0]
-				.containsIgnoreCase('Exception: [System.DMLException] meh'),
+			events[0].Log_Data__c.split('\n')[0].containsIgnoreCase('Exception: [System.DMLException] meh'),
 			'Expected the log data to contain [System.DMLException] meh'
 		);
 		//System.AssertException: Assertion Failed: Expected: Exception: [System.DmlException] meh , Actual: Exception: [System.DMLException] meh

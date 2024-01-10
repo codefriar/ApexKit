@@ -32,8 +32,7 @@ public with sharing class OuroborosFinalizer implements Finalizer {
 	 * @return Boolean True if enqueuing the next iteration will not violate any Apex governor limits
 	 */
 	private static Boolean safeToEnqueueAccordingToLimits() {
-		return (Limits.getLimitQueueableJobs() - (Limits.getQueueableJobs() + 1) >
-		0);
+		return (Limits.getLimitQueueableJobs() - (Limits.getQueueableJobs() + 1) > 0);
 	}
 
 	/**

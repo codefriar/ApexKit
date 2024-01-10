@@ -4,7 +4,7 @@
 
 ## Methods
 
-### `private static List generateAccounts()`
+### `private static List<Account> generateAccounts()`
 
 ### `private static void canCrudAccountCreatePositive()`
 

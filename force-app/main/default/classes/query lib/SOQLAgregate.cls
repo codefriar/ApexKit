@@ -251,18 +251,10 @@ public inherited sharing class SOQLAgregate {
 			List<String> groupByStrings = new List<String>();
 			groupByStrings.addAll(groupByOptions);
 			if (!groupByRollupOptions.isEmpty()) {
-				groupByStrings.add(
-					'ROLLUP(' +
-						String.join(new List<String>(groupByRollupOptions), ', ') +
-						')'
-				);
+				groupByStrings.add('ROLLUP(' + String.join(new List<String>(groupByRollupOptions), ', ') + ')');
 			}
 			if (!groupByCubeOptions.isEmpty()) {
-				groupByStrings.add(
-					'CUBE(' +
-						String.join(new List<String>(groupByCubeOptions), ', ') +
-						')'
-				);
+				groupByStrings.add('CUBE(' + String.join(new List<String>(groupByCubeOptions), ', ') + ')');
 			}
 			if (!groupByStrings.isEmpty()) {
 				queryStatements.add('GROUP BY ' + String.join(groupByStrings, ', '));

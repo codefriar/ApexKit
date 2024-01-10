@@ -44,10 +44,7 @@ public with sharing class SOQLAgregateTest {
 		insert admin;
 
 		System.runAs(admin) {
-			insert new List<Account>{
-				new Account(Name = 'Test 1'),
-				new Account(Name = 'Test 2')
-			};
+			insert new List<Account>{ new Account(Name = 'Test 1'), new Account(Name = 'Test 2') };
 		}
 	}
 
@@ -96,9 +93,7 @@ public with sharing class SOQLAgregateTest {
 
 			Test.stopTest();
 
-			List<AggregateResult> expectedAgregatedResults = Database.query(
-				queryString
-			);
+			List<AggregateResult> expectedAgregatedResults = Database.query(queryString);
 			Assert.areEqual(expectedAgregatedResults, agregatedResults);
 		}
 	}
@@ -127,9 +122,7 @@ public with sharing class SOQLAgregateTest {
 
 			Test.startTest();
 
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.stopTest();
 
@@ -139,18 +132,12 @@ public with sharing class SOQLAgregateTest {
 				new Query.Condition(Query.LogicalOperator.AND_VALUE).toString(),
 				soqlAgregateBuilder.whereCondition.toString()
 			);
-			Assert.areEqual(
-				new List<Query.SortOrder>(),
-				soqlAgregateBuilder.sortOrders
-			);
+			Assert.areEqual(new List<Query.SortOrder>(), soqlAgregateBuilder.sortOrders);
 			Assert.areEqual(null, soqlAgregateBuilder.numberOfRows);
 			Assert.areEqual(null, soqlAgregateBuilder.offset);
 			Assert.areEqual(new Set<String>(), soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(new Set<String>(), soqlAgregateBuilder.groupByOptions);
-			Assert.areEqual(
-				new Set<String>(),
-				soqlAgregateBuilder.groupByRollupOptions
-			);
+			Assert.areEqual(new Set<String>(), soqlAgregateBuilder.groupByRollupOptions);
 			Assert.areNotEqual(null, soqlAgregateBuilder.havingCondition);
 			Assert.areEqual(
 				new Query.Condition(Query.LogicalOperator.AND_VALUE).toString(),
@@ -165,9 +152,7 @@ public with sharing class SOQLAgregateTest {
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -180,9 +165,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'AVG(' + fieldName + ')';
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -195,9 +178,7 @@ public with sharing class SOQLAgregateTest {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
 			String alias = 'AverageAnnualRevenue';
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -210,9 +191,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'AVG(' + fieldName + ') ' + alias;
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -224,9 +203,7 @@ public with sharing class SOQLAgregateTest {
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.Id.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -239,9 +216,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'COUNT(' + fieldName + ')';
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -254,9 +229,7 @@ public with sharing class SOQLAgregateTest {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.Id.getDescribe().getName();
 			String alias = 'NumberOfRecords';
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -267,15 +240,9 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'COUNT(' +
-				fieldName +
-				') ' +
-				alias;
+			String expectedAgregateFunctionFormat = 'COUNT(' + fieldName + ') ' + alias;
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -287,9 +254,7 @@ public with sharing class SOQLAgregateTest {
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.Type.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -300,14 +265,9 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'COUNT_DISTINCT(' +
-				fieldName +
-				')';
+			String expectedAgregateFunctionFormat = 'COUNT_DISTINCT(' + fieldName + ')';
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -320,9 +280,7 @@ public with sharing class SOQLAgregateTest {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.Type.getDescribe().getName();
 			String alias = 'UniqueTypes';
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -333,15 +291,9 @@ public with sharing class SOQLAgregateTest {
 			Assert.areNotEqual(null, soqlAgregateBuilder.fieldsToSelect);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
 
-			String expectedAgregateFunctionFormat =
-				'COUNT_DISTINCT(' +
-				fieldName +
-				') ' +
-				alias;
+			String expectedAgregateFunctionFormat = 'COUNT_DISTINCT(' + fieldName + ') ' + alias;
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -353,9 +305,7 @@ public with sharing class SOQLAgregateTest {
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -368,9 +318,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'MIN(' + fieldName + ')';
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -383,9 +331,7 @@ public with sharing class SOQLAgregateTest {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
 			String alias = 'MinimumAnnualRevenue';
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -398,9 +344,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'MIN(' + fieldName + ') ' + alias;
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -412,9 +356,7 @@ public with sharing class SOQLAgregateTest {
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -427,9 +369,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'MAX(' + fieldName + ')';
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -442,9 +382,7 @@ public with sharing class SOQLAgregateTest {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
 			String alias = 'MaximumAnnualRevenue';
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -457,9 +395,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'MAX(' + fieldName + ') ' + alias;
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -471,9 +407,7 @@ public with sharing class SOQLAgregateTest {
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -486,9 +420,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'SUM(' + fieldName + ')';
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -501,9 +433,7 @@ public with sharing class SOQLAgregateTest {
 			String objectType = Account.SObjectType.getDescribe().getName();
 			String fieldName = Account.AnnualRevenue.getDescribe().getName();
 			String alias = 'TotalAnnualRevenue';
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 
 			Test.startTest();
 
@@ -516,9 +446,7 @@ public with sharing class SOQLAgregateTest {
 
 			String expectedAgregateFunctionFormat = 'SUM(' + fieldName + ') ' + alias;
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					expectedAgregateFunctionFormat
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains(expectedAgregateFunctionFormat),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -529,11 +457,8 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
-			Query.Condition condition = new Query.Condition()
-				.equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
+			Query.Condition condition = new Query.Condition().equals(Account.AnnualRevenue.getDescribe().getName(), 1000);
 
 			System.assert(soqlAgregateBuilder.whereCondition.expressions.isEmpty());
 
@@ -552,9 +477,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			String fieldName = Account.Type.getDescribe().getName();
 
 			Test.startTest();
@@ -564,15 +487,9 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByOptions.size());
-			System.assert(
-				soqlAgregateBuilder.groupByOptions.contains(fieldName),
-				soqlAgregateBuilder.groupByOptions
-			);
+			System.assert(soqlAgregateBuilder.groupByOptions.contains(fieldName), soqlAgregateBuilder.groupByOptions);
 			Assert.areEqual(1, soqlAgregateBuilder.fieldsToSelect.size());
-			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
-				soqlAgregateBuilder.fieldsToSelect
-			);
+			System.assert(soqlAgregateBuilder.fieldsToSelect.contains(fieldName), soqlAgregateBuilder.fieldsToSelect);
 		}
 	}
 
@@ -581,9 +498,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			String fieldName = Account.Type.getDescribe().getName();
 
 			Test.startTest();
@@ -598,14 +513,9 @@ public with sharing class SOQLAgregateTest {
 				soqlAgregateBuilder.groupByRollupOptions
 			);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
+			System.assert(soqlAgregateBuilder.fieldsToSelect.contains(fieldName), soqlAgregateBuilder.fieldsToSelect);
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
-				soqlAgregateBuilder.fieldsToSelect
-			);
-			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					'GROUPING(' + fieldName + ')'
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains('GROUPING(' + fieldName + ')'),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -616,9 +526,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			String fieldName = Account.Type.getDescribe().getName();
 			String groupingAlias = 'grpType';
 
@@ -634,14 +542,9 @@ public with sharing class SOQLAgregateTest {
 				soqlAgregateBuilder.groupByRollupOptions
 			);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
+			System.assert(soqlAgregateBuilder.fieldsToSelect.contains(fieldName), soqlAgregateBuilder.fieldsToSelect);
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
-				soqlAgregateBuilder.fieldsToSelect
-			);
-			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					'GROUPING(' + fieldName + ') ' + groupingAlias
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains('GROUPING(' + fieldName + ') ' + groupingAlias),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -652,9 +555,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			String fieldName = Account.Type.getDescribe().getName();
 
 			Test.startTest();
@@ -664,19 +565,11 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByCubeOptions.size());
-			System.assert(
-				soqlAgregateBuilder.groupByCubeOptions.contains(fieldName),
-				soqlAgregateBuilder.groupByCubeOptions
-			);
+			System.assert(soqlAgregateBuilder.groupByCubeOptions.contains(fieldName), soqlAgregateBuilder.groupByCubeOptions);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
+			System.assert(soqlAgregateBuilder.fieldsToSelect.contains(fieldName), soqlAgregateBuilder.fieldsToSelect);
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
-				soqlAgregateBuilder.fieldsToSelect
-			);
-			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					'GROUPING(' + fieldName + ')'
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains('GROUPING(' + fieldName + ')'),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -687,9 +580,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			String fieldName = Account.Type.getDescribe().getName();
 			String groupingAlias = 'grpType';
 
@@ -700,19 +591,11 @@ public with sharing class SOQLAgregateTest {
 			Test.stopTest();
 
 			Assert.areEqual(1, soqlAgregateBuilder.groupByCubeOptions.size());
-			System.assert(
-				soqlAgregateBuilder.groupByCubeOptions.contains(fieldName),
-				soqlAgregateBuilder.groupByCubeOptions
-			);
+			System.assert(soqlAgregateBuilder.groupByCubeOptions.contains(fieldName), soqlAgregateBuilder.groupByCubeOptions);
 			Assert.areEqual(2, soqlAgregateBuilder.fieldsToSelect.size());
+			System.assert(soqlAgregateBuilder.fieldsToSelect.contains(fieldName), soqlAgregateBuilder.fieldsToSelect);
 			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(fieldName),
-				soqlAgregateBuilder.fieldsToSelect
-			);
-			System.assert(
-				soqlAgregateBuilder.fieldsToSelect.contains(
-					'GROUPING(' + fieldName + ') ' + groupingAlias
-				),
+				soqlAgregateBuilder.fieldsToSelect.contains('GROUPING(' + fieldName + ') ' + groupingAlias),
 				soqlAgregateBuilder.fieldsToSelect
 			);
 		}
@@ -723,18 +606,14 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			String fieldName = Account.Type.getDescribe().getName();
 			Query.SortDirection direction = Query.SortDirection.DESCENDING;
 			Query.SortNullRecords nullRecords = Query.SortNullRecords.LAST;
 
 			Test.startTest();
 
-			soqlAgregateBuilder.orderBy(
-				new Query.SortOrder(fieldName, direction, nullRecords)
-			);
+			soqlAgregateBuilder.orderBy(new Query.SortOrder(fieldName, direction, nullRecords));
 
 			Test.stopTest();
 
@@ -752,9 +631,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			Integer scopeLimit = 100;
 
 			Test.startTest();
@@ -772,9 +649,7 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-				objectType
-			);
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType);
 			Integer offset = 100;
 
 			Test.startTest();
@@ -792,13 +667,9 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-					objectType
-				)
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType)
 				.count('Id')
-				.whereCondition(
-					new Query.Condition().greaterThan('AnnualRevenue', 1000)
-				)
+				.whereCondition(new Query.Condition().greaterThan('AnnualRevenue', 1000))
 				.groupBy('Type')
 				.orderBy(new Query.SortOrder('Type'))
 				.scopeLimit(10)
@@ -820,13 +691,9 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-					objectType
-				)
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType)
 				.count('Id')
-				.whereCondition(
-					new Query.Condition().greaterThan('AnnualRevenue', 1000)
-				)
+				.whereCondition(new Query.Condition().greaterThan('AnnualRevenue', 1000))
 				.havingCondition(new Query.Condition().greaterThan('COUNT(Id)', 2))
 				.groupByRollup('Type')
 				.orderBy(new Query.SortOrder('Type'))
@@ -849,13 +716,9 @@ public with sharing class SOQLAgregateTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Account.SObjectType.getDescribe().getName();
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-					objectType
-				)
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType)
 				.count('Id')
-				.whereCondition(
-					new Query.Condition().greaterThan('AnnualRevenue', 1000)
-				)
+				.whereCondition(new Query.Condition().greaterThan('AnnualRevenue', 1000))
 				.groupByCube('Type')
 				.orderBy(new Query.SortOrder('Type'))
 				.scopeLimit(10)
@@ -880,13 +743,9 @@ public with sharing class SOQLAgregateTest {
 
 			Test.startTest();
 
-			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(
-					objectType
-				)
+			SOQLAgregate.Builder soqlAgregateBuilder = new SOQLAgregate.Builder(objectType)
 				.count('Id')
-				.whereCondition(
-					new Query.Condition().greaterThan('AnnualRevenue', 1000)
-				)
+				.whereCondition(new Query.Condition().greaterThan('AnnualRevenue', 1000))
 				.groupByCube('Type')
 				.orderBy(new Query.SortOrder('Type'))
 				.scopeLimit(10)
@@ -894,10 +753,7 @@ public with sharing class SOQLAgregateTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(soqlAgregateBuilder),
-				soqlAgregateBuilder.toString()
-			);
+			Assert.areEqual(JSON.serialize(soqlAgregateBuilder), soqlAgregateBuilder.toString());
 		}
 	}
 

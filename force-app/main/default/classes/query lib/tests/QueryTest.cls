@@ -46,10 +46,7 @@ public with sharing class QueryTest {
 		insert admin;
 
 		System.runAs(admin) {
-			insert new List<Account>{
-				new Account(Name = 'Test 1'),
-				new Account(Name = 'Test 2')
-			};
+			insert new List<Account>{ new Account(Name = 'Test 1'), new Account(Name = 'Test 2') };
 		}
 	}
 
@@ -63,11 +60,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.FieldExpression fieldExpression = new Query.FieldExpression(
-				fieldName,
-				comparisonOperator,
-				value
-			);
+			Query.FieldExpression fieldExpression = new Query.FieldExpression(fieldName, comparisonOperator, value);
 
 			Test.stopTest();
 
@@ -89,42 +82,16 @@ public with sharing class QueryTest {
 				'3.21' => Decimal.valueOf('3.21'),
 				'true' => true,
 				'2020-06-08' => Date.newInstance(2020, 6, 8),
-				'2020-06-08T01:02:03.000+0000' => Datetime.newInstanceGmt(
-					2020,
-					6,
-					8,
-					1,
-					2,
-					3
-				),
-				'(\'a\', \'b\', \'c\', \'L\\\'Oreal\')' => new List<String>{
-					'a',
-					'b',
-					'c',
-					'L\'Oreal'
-				}, //Single quotes must be escaped.
-				'(\'a\', \'b\', \'c\', \'O\\\'Reilly Media\')' => new Set<String>{
-					'a',
-					'b',
-					'c',
-					'O\'Reilly Media'
-				}, //Single quotes must be escaped.
+				'2020-06-08T01:02:03.000+0000' => Datetime.newInstanceGmt(2020, 6, 8, 1, 2, 3),
+				'(\'a\', \'b\', \'c\', \'L\\\'Oreal\')' => new List<String>{ 'a', 'b', 'c', 'L\'Oreal' }, //Single quotes must be escaped.
+				'(\'a\', \'b\', \'c\', \'O\\\'Reilly Media\')' => new Set<String>{ 'a', 'b', 'c', 'O\'Reilly Media' }, //Single quotes must be escaped.
 				'(\'0055I000000O5b6QAC\', \'0055I000000O5b7QAC\')' => new List<Id>{
 					'0055I000000O5b6QAC',
 					'0055I000000O5b7QAC'
 				},
-				'(\'0055I000000O5b8QAC\', \'0055I000000O5b9QAC\')' => new Set<Id>{
-					'0055I000000O5b8QAC',
-					'0055I000000O5b9QAC'
-				},
-				'(2020-06-08, 2020-06-09)' => new List<Date>{
-					Date.newInstance(2020, 6, 8),
-					Date.newInstance(2020, 6, 9)
-				},
-				'(2020-06-01, 2020-06-02)' => new Set<Date>{
-					Date.newInstance(2020, 6, 1),
-					Date.newInstance(2020, 6, 2)
-				},
+				'(\'0055I000000O5b8QAC\', \'0055I000000O5b9QAC\')' => new Set<Id>{ '0055I000000O5b8QAC', '0055I000000O5b9QAC' },
+				'(2020-06-08, 2020-06-09)' => new List<Date>{ Date.newInstance(2020, 6, 8), Date.newInstance(2020, 6, 9) },
+				'(2020-06-01, 2020-06-02)' => new Set<Date>{ Date.newInstance(2020, 6, 1), Date.newInstance(2020, 6, 2) },
 				'(2020-06-08T00:02:03.000+0000, 2020-06-09T00:02:03.000+0000)' => new List<Datetime>{
 					Datetime.newInstance(2020, 6, 8, 1, 2, 3),
 					Datetime.newInstance(2020, 6, 9, 1, 2, 3)
@@ -157,11 +124,7 @@ public with sharing class QueryTest {
 
 			for (String expectedValueFormat : expectedValueFormat2Value.keySet()) {
 				Object value = expectedValueFormat2Value.get(expectedValueFormat);
-				Query.FieldExpression fieldExpression = new Query.FieldExpression(
-					fieldName,
-					comparisonOperator,
-					value
-				);
+				Query.FieldExpression fieldExpression = new Query.FieldExpression(fieldName, comparisonOperator, value);
 
 				Assert.areEqual(expectedValueFormat, fieldExpression.formatValue());
 			}
@@ -176,11 +139,7 @@ public with sharing class QueryTest {
 		System.runAs(admin) {
 			String fieldName = Account.Name.getDescribe().getName();
 			String comparisonOperator = '=';
-			Query.FieldExpression fieldExpression = new Query.FieldExpression(
-				fieldName,
-				comparisonOperator,
-				admin
-			);
+			Query.FieldExpression fieldExpression = new Query.FieldExpression(fieldName, comparisonOperator, admin);
 			String expectedErrorMessage = 'Unsupported value: ' + admin;
 
 			Test.startTest();
@@ -206,11 +165,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.FieldExpression fieldExpression = new Query.FieldExpression(
-				fieldName,
-				comparisonOperator,
-				value
-			);
+			Query.FieldExpression fieldExpression = new Query.FieldExpression(fieldName, comparisonOperator, value);
 
 			Test.stopTest();
 
@@ -220,10 +175,7 @@ public with sharing class QueryTest {
 				fieldExpression.comparisonOperator +
 				' ' +
 				fieldExpression.formatValue();
-			Assert.areEqual(
-				expectedExpressionString,
-				fieldExpression.toExpressionString()
-			);
+			Assert.areEqual(expectedExpressionString, fieldExpression.toExpressionString());
 		}
 	}
 
@@ -237,18 +189,11 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.FieldExpression fieldExpression = new Query.FieldExpression(
-				fieldName,
-				comparisonOperator,
-				value
-			);
+			Query.FieldExpression fieldExpression = new Query.FieldExpression(fieldName, comparisonOperator, value);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(fieldExpression),
-				fieldExpression.toString()
-			);
+			Assert.areEqual(JSON.serialize(fieldExpression), fieldExpression.toString());
 		}
 	}
 
@@ -256,15 +201,11 @@ public with sharing class QueryTest {
 	private static void testConditionExpressionConstructor() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition()
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Name', 'test').equals('Reason', 'Other');
 
 			Test.startTest();
 
-			Query.ConditionExpression conditionExpression = new Query.ConditionExpression(
-				condition
-			);
+			Query.ConditionExpression conditionExpression = new Query.ConditionExpression(condition);
 
 			Test.stopTest();
 
@@ -276,26 +217,16 @@ public with sharing class QueryTest {
 	private static void testConditionExpressionToExpressionString() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition()
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Name', 'test').equals('Reason', 'Other');
 
 			Test.startTest();
 
-			Query.ConditionExpression conditionExpression = new Query.ConditionExpression(
-				condition
-			);
+			Query.ConditionExpression conditionExpression = new Query.ConditionExpression(condition);
 
 			Test.stopTest();
 
-			String expectedExpressionString =
-				'(' +
-				condition.toConditionString() +
-				')';
-			Assert.areEqual(
-				expectedExpressionString,
-				conditionExpression.toExpressionString()
-			);
+			String expectedExpressionString = '(' + condition.toConditionString() + ')';
+			Assert.areEqual(expectedExpressionString, conditionExpression.toExpressionString());
 		}
 	}
 
@@ -303,22 +234,15 @@ public with sharing class QueryTest {
 	private static void testConditionExpressionToStringOverride() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition()
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Name', 'test').equals('Reason', 'Other');
 
 			Test.startTest();
 
-			Query.ConditionExpression conditionExpression = new Query.ConditionExpression(
-				condition
-			);
+			Query.ConditionExpression conditionExpression = new Query.ConditionExpression(condition);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(conditionExpression),
-				conditionExpression.toString()
-			);
+			Assert.areEqual(JSON.serialize(conditionExpression), conditionExpression.toString());
 		}
 	}
 
@@ -326,15 +250,11 @@ public with sharing class QueryTest {
 	private static void testConditionDenialExpressionConstructor() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition()
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Name', 'test').equals('Reason', 'Other');
 
 			Test.startTest();
 
-			Query.ConditionDenialExpression conditionDenialExpression = new Query.ConditionDenialExpression(
-				condition
-			);
+			Query.ConditionDenialExpression conditionDenialExpression = new Query.ConditionDenialExpression(condition);
 
 			Test.stopTest();
 
@@ -346,26 +266,16 @@ public with sharing class QueryTest {
 	private static void testConditionDenialExpressionToExpressionString() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition()
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Name', 'test').equals('Reason', 'Other');
 
 			Test.startTest();
 
-			Query.ConditionDenialExpression conditionDenialExpression = new Query.ConditionDenialExpression(
-				condition
-			);
+			Query.ConditionDenialExpression conditionDenialExpression = new Query.ConditionDenialExpression(condition);
 
 			Test.stopTest();
 
-			String expectedExpressionString =
-				'NOT(' +
-				condition.toConditionString() +
-				')';
-			Assert.areEqual(
-				expectedExpressionString,
-				conditionDenialExpression.toExpressionString()
-			);
+			String expectedExpressionString = 'NOT(' + condition.toConditionString() + ')';
+			Assert.areEqual(expectedExpressionString, conditionDenialExpression.toExpressionString());
 		}
 	}
 
@@ -373,22 +283,15 @@ public with sharing class QueryTest {
 	private static void testConditionDenialExpressionToStringOverride() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition()
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Name', 'test').equals('Reason', 'Other');
 
 			Test.startTest();
 
-			Query.ConditionDenialExpression conditionDenialExpression = new Query.ConditionDenialExpression(
-				condition
-			);
+			Query.ConditionDenialExpression conditionDenialExpression = new Query.ConditionDenialExpression(condition);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(conditionDenialExpression),
-				conditionDenialExpression.toString()
-			);
+			Assert.areEqual(JSON.serialize(conditionDenialExpression), conditionDenialExpression.toString());
 		}
 	}
 
@@ -418,10 +321,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.DateLiteral dateLiteral = new Query.DateLiteral(
-				dateLiteralName,
-				numberOfDays
-			);
+			Query.DateLiteral dateLiteral = new Query.DateLiteral(dateLiteralName, numberOfDays);
 
 			Test.stopTest();
 
@@ -455,17 +355,11 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.DateLiteral dateLiteral = new Query.DateLiteral(
-				dateLiteralName,
-				numberOfDays
-			);
+			Query.DateLiteral dateLiteral = new Query.DateLiteral(dateLiteralName, numberOfDays);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				dateLiteralName + ':' + numberOfDays,
-				dateLiteral.toDateLiteralString()
-			);
+			Assert.areEqual(dateLiteralName + ':' + numberOfDays, dateLiteral.toDateLiteralString());
 		}
 	}
 
@@ -478,10 +372,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.DateLiteral dateLiteral = new Query.DateLiteral(
-				dateLiteralName,
-				numberOfDays
-			);
+			Query.DateLiteral dateLiteral = new Query.DateLiteral(dateLiteralName, numberOfDays);
 
 			Test.stopTest();
 
@@ -497,9 +388,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.ScriptVariable scriptVariable = new Query.ScriptVariable(
-				variableName
-			);
+			Query.ScriptVariable scriptVariable = new Query.ScriptVariable(variableName);
 
 			Test.stopTest();
 
@@ -515,16 +404,11 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.ScriptVariable scriptVariable = new Query.ScriptVariable(
-				variableName
-			);
+			Query.ScriptVariable scriptVariable = new Query.ScriptVariable(variableName);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				':' + variableName,
-				scriptVariable.toScriptVariableString()
-			);
+			Assert.areEqual(':' + variableName, scriptVariable.toScriptVariableString());
 		}
 	}
 
@@ -536,16 +420,11 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.ScriptVariable scriptVariable = new Query.ScriptVariable(
-				variableName
-			);
+			Query.ScriptVariable scriptVariable = new Query.ScriptVariable(variableName);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(scriptVariable),
-				scriptVariable.toString()
-			);
+			Assert.areEqual(JSON.serialize(scriptVariable), scriptVariable.toString());
 		}
 	}
 
@@ -559,10 +438,7 @@ public with sharing class QueryTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				Query.LogicalOperator.AND_VALUE,
-				condition.logicalOperator
-			);
+			Assert.areEqual(Query.LogicalOperator.AND_VALUE, condition.logicalOperator);
 			Assert.areEqual(new List<Query.Expression>(), condition.expressions);
 		}
 	}
@@ -593,8 +469,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.equals(fieldName, value);
+			Query.Condition condition = new Query.Condition().equals(fieldName, value);
 
 			Test.stopTest();
 
@@ -611,8 +486,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.notEquals(fieldName, value);
+			Query.Condition condition = new Query.Condition().notEquals(fieldName, value);
 
 			Test.stopTest();
 
@@ -629,8 +503,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.lessThan(fieldName, value);
+			Query.Condition condition = new Query.Condition().lessThan(fieldName, value);
 
 			Test.stopTest();
 
@@ -647,8 +520,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.lessOrEqual(fieldName, value);
+			Query.Condition condition = new Query.Condition().lessOrEqual(fieldName, value);
 
 			Test.stopTest();
 
@@ -665,8 +537,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.greaterThan(fieldName, value);
+			Query.Condition condition = new Query.Condition().greaterThan(fieldName, value);
 
 			Test.stopTest();
 
@@ -683,8 +554,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.greaterOrEqual(fieldName, value);
+			Query.Condition condition = new Query.Condition().greaterOrEqual(fieldName, value);
 
 			Test.stopTest();
 
@@ -701,8 +571,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.isLike(fieldName, value);
+			Query.Condition condition = new Query.Condition().isLike(fieldName, value);
 
 			Test.stopTest();
 
@@ -736,8 +605,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.isNotIn(fieldName, value);
+			Query.Condition condition = new Query.Condition().isNotIn(fieldName, value);
 
 			Test.stopTest();
 
@@ -750,14 +618,11 @@ public with sharing class QueryTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String fieldName = 'Status';
-			Set<Set<String>> value = new Set<Set<String>>{
-				new Set<String>{ 'PV_1', 'PV_2' }
-			};
+			Set<Set<String>> value = new Set<Set<String>>{ new Set<String>{ 'PV_1', 'PV_2' } };
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.includes(fieldName, value);
+			Query.Condition condition = new Query.Condition().includes(fieldName, value);
 
 			Test.stopTest();
 
@@ -774,8 +639,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.includes(fieldName, value);
+			Query.Condition condition = new Query.Condition().includes(fieldName, value);
 
 			Test.stopTest();
 
@@ -788,14 +652,11 @@ public with sharing class QueryTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String fieldName = 'Status';
-			Set<Set<String>> value = new Set<Set<String>>{
-				new Set<String>{ 'PV_1', 'PV_2' }
-			};
+			Set<Set<String>> value = new Set<Set<String>>{ new Set<String>{ 'PV_1', 'PV_2' } };
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.excludes(fieldName, value);
+			Query.Condition condition = new Query.Condition().excludes(fieldName, value);
 
 			Test.stopTest();
 
@@ -812,8 +673,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.excludes(fieldName, value);
+			Query.Condition condition = new Query.Condition().excludes(fieldName, value);
 
 			Test.stopTest();
 
@@ -827,11 +687,7 @@ public with sharing class QueryTest {
 		Object value,
 		Query.Condition condition
 	) {
-		Assert.areEqual(
-			1,
-			condition.expressions.size(),
-			'Expected only one condition expression.'
-		);
+		Assert.areEqual(1, condition.expressions.size(), 'Expected only one condition expression.');
 		Query.Expression expression = condition.expressions[0];
 		System.assert(expression instanceof Query.FieldExpression, expression);
 
@@ -849,21 +705,13 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.subcondition(subcondition);
+			Query.Condition condition = new Query.Condition().subcondition(subcondition);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				condition.expressions.size(),
-				'Expected only one condition expression.'
-			);
+			Assert.areEqual(1, condition.expressions.size(), 'Expected only one condition expression.');
 			Query.Expression expression = condition.expressions[0];
-			System.assert(
-				expression instanceof Query.ConditionExpression,
-				expression
-			);
+			System.assert(expression instanceof Query.ConditionExpression, expression);
 
 			Query.ConditionExpression conditionExpression = (Query.ConditionExpression) expression;
 			Assert.areEqual(subcondition, conditionExpression.condition);
@@ -878,21 +726,13 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.negateSubcondition(subcondition);
+			Query.Condition condition = new Query.Condition().negateSubcondition(subcondition);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				1,
-				condition.expressions.size(),
-				'Expected only one condition expression.'
-			);
+			Assert.areEqual(1, condition.expressions.size(), 'Expected only one condition expression.');
 			Query.Expression expression = condition.expressions[0];
-			System.assert(
-				expression instanceof Query.ConditionDenialExpression,
-				expression
-			);
+			System.assert(expression instanceof Query.ConditionDenialExpression, expression);
 
 			Query.ConditionDenialExpression conditionDenialExpression = (Query.ConditionDenialExpression) expression;
 			Assert.areEqual(subcondition, conditionDenialExpression.condition);
@@ -905,14 +745,11 @@ public with sharing class QueryTest {
 		System.runAs(admin) {
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition()
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Reason', 'Other');
 
 			Test.stopTest();
 
-			String expectedConditionString = prepareExpectedConditionString(
-				condition
-			);
+			String expectedConditionString = prepareExpectedConditionString(condition);
 			Assert.areEqual(expectedConditionString, condition.toConditionString());
 		}
 	}
@@ -923,17 +760,13 @@ public with sharing class QueryTest {
 		System.runAs(admin) {
 			Test.startTest();
 
-			Query.Condition condition = new Query.Condition(
-					QUERY.LogicalOperator.OR_VALUE
-				)
+			Query.Condition condition = new Query.Condition(QUERY.LogicalOperator.OR_VALUE)
 				.equals('Name', 'test')
 				.equals('Reason', 'Other');
 
 			Test.stopTest();
 
-			String expectedConditionString = prepareExpectedConditionString(
-				condition
-			);
+			String expectedConditionString = prepareExpectedConditionString(condition);
 			Assert.areEqual(expectedConditionString, condition.toConditionString());
 		}
 	}
@@ -942,9 +775,7 @@ public with sharing class QueryTest {
 	private static void testConditionToExpressionStringUnsupporterOperator() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.Condition condition = new Query.Condition(null)
-				.equals('Name', 'test')
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition(null).equals('Name', 'test').equals('Reason', 'Other');
 			String expectedErrorMessage = 'Unsupported operator: null';
 
 			Test.startTest();
@@ -960,9 +791,7 @@ public with sharing class QueryTest {
 		}
 	}
 
-	private static String prepareExpectedConditionString(
-		Query.Condition condition
-	) {
+	private static String prepareExpectedConditionString(Query.Condition condition) {
 		List<String> expressionStrings = new List<String>();
 		for (Query.Expression e : condition.expressions) {
 			expressionStrings.add(e.toExpressionString());
@@ -1040,11 +869,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection, sortNullRecords);
 
 			Test.stopTest();
 
@@ -1064,11 +889,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection, sortNullRecords);
 
 			Test.stopTest();
 
@@ -1087,11 +908,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection, sortNullRecords);
 
 			Test.stopTest();
 
@@ -1110,11 +927,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection, sortNullRecords);
 
 			Test.stopTest();
 
@@ -1133,11 +946,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection, sortNullRecords);
 
 			Test.stopTest();
 
@@ -1156,11 +965,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.SortOrder sortOrder = new Query.SortOrder(
-				fieldName,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder sortOrder = new Query.SortOrder(fieldName, sortDirection, sortNullRecords);
 
 			Test.stopTest();
 
@@ -1176,9 +981,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.PhraseExpression phraseExpression = new Query.PhraseExpression(
-				searchPhrase
-			);
+			Query.PhraseExpression phraseExpression = new Query.PhraseExpression(searchPhrase);
 
 			Test.stopTest();
 
@@ -1194,9 +997,7 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.PhraseExpression phraseExpression = new Query.PhraseExpression(
-				searchPhrase
-			);
+			Query.PhraseExpression phraseExpression = new Query.PhraseExpression(searchPhrase);
 
 			Test.stopTest();
 
@@ -1212,16 +1013,11 @@ public with sharing class QueryTest {
 
 			Test.startTest();
 
-			Query.PhraseExpression phraseExpression = new Query.PhraseExpression(
-				searchPhrase
-			);
+			Query.PhraseExpression phraseExpression = new Query.PhraseExpression(searchPhrase);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(phraseExpression),
-				phraseExpression.toString()
-			);
+			Assert.areEqual(JSON.serialize(phraseExpression), phraseExpression.toString());
 		}
 	}
 
@@ -1229,14 +1025,11 @@ public with sharing class QueryTest {
 	private static void testSearchExpressionConstructor() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition()
-				.find('Test');
+			Query.SearchCondition searchCondition = new Query.SearchCondition().find('Test');
 
 			Test.startTest();
 
-			Query.SearchExpression searchExpression = new Query.SearchExpression(
-				searchCondition
-			);
+			Query.SearchExpression searchExpression = new Query.SearchExpression(searchCondition);
 
 			Test.stopTest();
 
@@ -1248,25 +1041,16 @@ public with sharing class QueryTest {
 	private static void testSearchExpressionToExpressionString() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition()
-				.find('Test');
+			Query.SearchCondition searchCondition = new Query.SearchCondition().find('Test');
 
 			Test.startTest();
 
-			Query.SearchExpression searchExpression = new Query.SearchExpression(
-				searchCondition
-			);
+			Query.SearchExpression searchExpression = new Query.SearchExpression(searchCondition);
 
 			Test.stopTest();
 
-			String expectedExpressionString =
-				'(' +
-				searchCondition.toConditionString() +
-				')';
-			Assert.areEqual(
-				expectedExpressionString,
-				searchExpression.toExpressionString()
-			);
+			String expectedExpressionString = '(' + searchCondition.toConditionString() + ')';
+			Assert.areEqual(expectedExpressionString, searchExpression.toExpressionString());
 		}
 	}
 
@@ -1274,21 +1058,15 @@ public with sharing class QueryTest {
 	private static void testSearchExpressionToStringOverride() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition()
-				.find('Test');
+			Query.SearchCondition searchCondition = new Query.SearchCondition().find('Test');
 
 			Test.startTest();
 
-			Query.SearchExpression searchExpression = new Query.SearchExpression(
-				searchCondition
-			);
+			Query.SearchExpression searchExpression = new Query.SearchExpression(searchCondition);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(searchExpression),
-				searchExpression.toString()
-			);
+			Assert.areEqual(JSON.serialize(searchExpression), searchExpression.toString());
 		}
 	}
 
@@ -1296,14 +1074,11 @@ public with sharing class QueryTest {
 	private static void testDenialSearchExpressionConstructor() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition()
-				.find('Test');
+			Query.SearchCondition searchCondition = new Query.SearchCondition().find('Test');
 
 			Test.startTest();
 
-			Query.DenialSearchExpression denialSearchExpression = new Query.DenialSearchExpression(
-				searchCondition
-			);
+			Query.DenialSearchExpression denialSearchExpression = new Query.DenialSearchExpression(searchCondition);
 
 			Test.stopTest();
 
@@ -1315,25 +1090,16 @@ public with sharing class QueryTest {
 	private static void testDenialSearchExpressionToExpressionString() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition()
-				.find('Test');
+			Query.SearchCondition searchCondition = new Query.SearchCondition().find('Test');
 
 			Test.startTest();
 
-			Query.DenialSearchExpression denialSearchExpression = new Query.DenialSearchExpression(
-				searchCondition
-			);
+			Query.DenialSearchExpression denialSearchExpression = new Query.DenialSearchExpression(searchCondition);
 
 			Test.stopTest();
 
-			String expectedExpressionString =
-				'NOT(' +
-				searchCondition.toConditionString() +
-				')';
-			Assert.areEqual(
-				expectedExpressionString,
-				denialSearchExpression.toExpressionString()
-			);
+			String expectedExpressionString = 'NOT(' + searchCondition.toConditionString() + ')';
+			Assert.areEqual(expectedExpressionString, denialSearchExpression.toExpressionString());
 		}
 	}
 
@@ -1341,21 +1107,15 @@ public with sharing class QueryTest {
 	private static void testDenialSearchExpressionToStringOverride() {
 		User admin = selectTestUser();
 		System.runAs(admin) {
-			Query.SearchCondition searchCondition = new Query.SearchCondition()
-				.find('Test');
+			Query.SearchCondition searchCondition = new Query.SearchCondition().find('Test');
 
 			Test.startTest();
 
-			Query.DenialSearchExpression denialSearchExpression = new Query.DenialSearchExpression(
-				searchCondition
-			);
+			Query.DenialSearchExpression denialSearchExpression = new Query.DenialSearchExpression(searchCondition);
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				JSON.serialize(denialSearchExpression),
-				denialSearchExpression.toString()
-			);
+			Assert.areEqual(JSON.serialize(denialSearchExpression), denialSearchExpression.toString());
 		}
 	}
 
@@ -1372,10 +1132,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(polymorphicReference, typeOf.polymorphicReference);
-			Assert.areEqual(
-				new Map<String, Set<String>>(),
-				typeOf.sobjectType2FieldList
-			);
+			Assert.areEqual(new Map<String, Set<String>>(), typeOf.sobjectType2FieldList);
 			Assert.areEqual(new Set<String>(), typeOf.elseFieldList);
 		}
 	}
@@ -1441,10 +1198,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(polymorphicReference, typeOf.polymorphicReference);
-			Assert.areEqual(
-				JSON.serialize(sobjectType2FieldList),
-				JSON.serialize(typeOf.sobjectType2FieldList)
-			);
+			Assert.areEqual(JSON.serialize(sobjectType2FieldList), JSON.serialize(typeOf.sobjectType2FieldList));
 			Assert.areEqual(new Set<String>(), typeOf.elseFieldList);
 		}
 	}
@@ -1465,10 +1219,7 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(polymorphicReference, typeOf.polymorphicReference);
-			Assert.areEqual(
-				new Map<String, Set<String>>(),
-				typeOf.sobjectType2FieldList
-			);
+			Assert.areEqual(new Map<String, Set<String>>(), typeOf.sobjectType2FieldList);
 			Assert.areEqual(fields, typeOf.elseFieldList);
 		}
 	}
@@ -1489,14 +1240,8 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(polymorphicReference, typeOf.polymorphicReference);
-			Assert.areEqual(
-				new Map<String, Set<String>>(),
-				typeOf.sobjectType2FieldList
-			);
-			Assert.areEqual(
-				JSON.serialize(fields),
-				JSON.serialize(typeOf.elseFieldList)
-			);
+			Assert.areEqual(new Map<String, Set<String>>(), typeOf.sobjectType2FieldList);
+			Assert.areEqual(JSON.serialize(fields), JSON.serialize(typeOf.elseFieldList));
 		}
 	}
 
@@ -1516,16 +1261,10 @@ public with sharing class QueryTest {
 			Test.stopTest();
 
 			Assert.areEqual(polymorphicReference, typeOf.polymorphicReference);
-			Assert.areEqual(
-				new Map<String, Set<String>>(),
-				typeOf.sobjectType2FieldList
-			);
+			Assert.areEqual(new Map<String, Set<String>>(), typeOf.sobjectType2FieldList);
 			Assert.areNotEqual(null, typeOf.elseFieldList);
 			Assert.areEqual(1, typeOf.elseFieldList.size());
-			System.assert(
-				typeOf.elseFieldList.contains(elseField),
-				typeOf.elseFieldList
-			);
+			System.assert(typeOf.elseFieldList.contains(elseField), typeOf.elseFieldList);
 		}
 	}
 

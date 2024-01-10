@@ -32,24 +32,16 @@
 		message="Apex classes should escape Strings obtained from URL parameters">
       <priority>3</priority>
    </rule>
-   <rule
-		ref="category/apex/security.xml/ApexXSSFromEscapeFalse"
-		message="Apex classes should escape addError strings">
+   <rule ref="category/apex/security.xml/ApexXSSFromEscapeFalse" message="Apex classes should escape addError strings">
       <priority>3</priority>
    </rule>
-   <rule
-		ref="category/apex/security.xml/ApexBadCrypto"
-		message="Apex Crypto should use random IV/key">
+   <rule ref="category/apex/security.xml/ApexBadCrypto" message="Apex Crypto should use random IV/key">
       <priority>3</priority>
    </rule>
-  <rule
-		ref="category/apex/security.xml/ApexCRUDViolation"
-		message="Validate CRUD permission before SOQL/DML operation">
+  <rule ref="category/apex/security.xml/ApexCRUDViolation" message="Validate CRUD permission before SOQL/DML operation">
       <priority>3</priority>
    </rule>
-   <rule
-		ref="category/apex/security.xml/ApexDangerousMethods"
-		message="Calling potentially dangerous method">
+   <rule ref="category/apex/security.xml/ApexDangerousMethods" message="Calling potentially dangerous method">
       <priority>3</priority>
    </rule>
    <rule
@@ -71,9 +63,7 @@
 	</rule>
 	<!-- <rule ref="category/apex/errorprone.xml/AvoidDirectAccessTriggerMap" message="Avoid directly
 	accessing Trigger.old and Trigger.new"></rule> -->
-	<rule
-		ref="category/apex/errorprone.xml/AvoidHardcodingId"
-		message="Avoid hardcoding ID's">
+	<rule ref="category/apex/errorprone.xml/AvoidHardcodingId" message="Avoid hardcoding ID's">
 		<priority>2</priority>
 	</rule>
 	<rule ref="category/apex/errorprone.xml/AvoidNonExistentAnnotations">
@@ -89,29 +79,19 @@
 	</rule>
 
 	<!-- ERROR PRONE : EMPTY -->
-	<rule
-		ref="category/apex/errorprone.xml/EmptyCatchBlock"
-		message="Avoid empty catch blocks">
+	<rule ref="category/apex/errorprone.xml/EmptyCatchBlock" message="Avoid empty catch blocks">
 		<priority>2</priority>
 	</rule>
-	<rule
-		ref="category/apex/errorprone.xml/EmptyIfStmt"
-		message="Avoid empty 'if' statements">
+	<rule ref="category/apex/errorprone.xml/EmptyIfStmt" message="Avoid empty 'if' statements">
 		<priority>1</priority>
 	</rule>
-	<rule
-		ref="category/apex/errorprone.xml/EmptyStatementBlock"
-		message="Avoid empty block statements.">
+	<rule ref="category/apex/errorprone.xml/EmptyStatementBlock" message="Avoid empty block statements.">
 		<priority>2</priority>
 	</rule>
-	<rule
-		ref="category/apex/errorprone.xml/EmptyTryOrFinallyBlock"
-		message="Avoid empty try or finally blocks">
+	<rule ref="category/apex/errorprone.xml/EmptyTryOrFinallyBlock" message="Avoid empty try or finally blocks">
 		<priority>1</priority>
 	</rule>
-	<rule
-		ref="category/apex/errorprone.xml/EmptyWhileStmt"
-		message="Avoid empty 'while' statements">
+	<rule ref="category/apex/errorprone.xml/EmptyWhileStmt" message="Avoid empty 'while' statements">
 		<priority>1</priority>
 	</rule>
    <!-- TESTING -->
@@ -127,8 +107,7 @@
 		<priority>2</priority>
 	</rule>
 
-	<rule
-		ref="category/apex/bestpractices.xml/ApexUnitTestMethodShouldHaveIsTestAnnotation">
+	<rule ref="category/apex/bestpractices.xml/ApexUnitTestMethodShouldHaveIsTestAnnotation">
 		<priority>1</priority>
 	</rule>
 	<!-- ERROR_PRONE -->

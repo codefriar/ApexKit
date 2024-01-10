@@ -3,28 +3,18 @@ class FeatureFlagTests {
 	@IsTest
 	private static void testDefaultConstructorPositive() {
 		FeatureFlag featureFlag = new FeatureFlag();
-		Assert.areNotEqual(
-			null,
-			featureFlag.dataProvider,
-			'Default constructor should set dataProvider'
-		);
+		Assert.areNotEqual(null, featureFlag.dataProvider, 'Default constructor should set dataProvider');
 	}
 
 	@IsTest
 	private static void testFlagFoundButDisabledReturnsFixedString() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', false)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', false));
 
 		Test.startTest();
 		String result = new FeatureFlag(dataProvider).value('TestFlag');
 		Test.stopTest();
-		Assert.areEqual(
-			FeatureFlag.FF_NOT_ENABLED,
-			result,
-			'Expected to get fixed string when flag is disabled'
-		);
+		Assert.areEqual(FeatureFlag.FF_NOT_ENABLED, result, 'Expected to get fixed string when flag is disabled');
 	}
 
 	@IsTest
@@ -32,28 +22,18 @@ class FeatureFlagTests {
 		Test.startTest();
 		String result = new FeatureFlag().value('TestFlag');
 		Test.stopTest();
-		Assert.areEqual(
-			FeatureFlag.FF_NOT_ENABLED,
-			result,
-			'Expected to get fixed string when flag is disabled'
-		);
+		Assert.areEqual(FeatureFlag.FF_NOT_ENABLED, result, 'Expected to get fixed string when flag is disabled');
 	}
 
 	@IsTest
 	private static void testFlagFoundAndEnabledReturnsValue() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', true)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', true));
 
 		Test.startTest();
 		String result = new FeatureFlag(dataProvider).value('TestFlag');
 		Test.stopTest();
-		Assert.areEqual(
-			'test value',
-			result,
-			'Expected to get value when flag is enabled'
-		);
+		Assert.areEqual('test value', result, 'Expected to get value when flag is enabled');
 	}
 
 	@IsTest
@@ -61,19 +41,13 @@ class FeatureFlagTests {
 		Test.startTest();
 		Boolean result = FF.isEnabled('TestFlag');
 		Test.stopTest();
-		Assert.areEqual(
-			false,
-			result,
-			'Expected to get false when flag is not found'
-		);
+		Assert.areEqual(false, result, 'Expected to get false when flag is not found');
 	}
 
 	@IsTest
 	private static void testFeatureFlagFoundReturnsTrue() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', true)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', true));
 
 		Test.startTest();
 		Boolean result = new FeatureFlag(dataProvider).isEnabled('TestFlag');
@@ -84,9 +58,7 @@ class FeatureFlagTests {
 	@IsTest
 	private static void testFeatureFlagFoundIsNotEnabledReturnsTrue() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', false)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', false));
 
 		Test.startTest();
 		Boolean result = new FeatureFlag(dataProvider).isNotEnabled('TestFlag');
@@ -97,9 +69,7 @@ class FeatureFlagTests {
 	@IsTest
 	private static void testFeatureFlagFoundWrapperIsNotEnabledReturnsTrue() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', false)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', false));
 
 		Test.startTest();
 		Boolean result = FF.isNotEnabled('TestFlag');
@@ -112,23 +82,11 @@ class FeatureFlagTests {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
 
-		Database.insert(
-			new PermissionSetAssignment(
-				PermissionSetId = permSetId,
-				AssigneeId = UserInfo.getUserId()
-			),
-			false
-		);
+		Database.insert(new PermissionSetAssignment(PermissionSetId = permSetId, AssigneeId = UserInfo.getUserId()), false);
 
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', false)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', false));
 		dataProvider.overridePerPermSetOverrides(
-			FeatureFlagCommonTests.getOverriddenPerPermSet(
-				'TestFlag',
-				permSetId,
-				true
-			)
+			FeatureFlagCommonTests.getOverriddenPerPermSet('TestFlag', permSetId, true)
 		);
 
 		Test.startTest();
@@ -141,30 +99,18 @@ class FeatureFlagTests {
 	private static void testFetchUsersAssignedPermissionSetsPositive() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		Id permSetId = FeatureFlagCommonTests.getExistingPermSetId();
-		Database.insert(
-			new PermissionSetAssignment(
-				PermissionSetId = permSetId,
-				AssigneeId = UserInfo.getUserId()
-			),
-			false
-		);
+		Database.insert(new PermissionSetAssignment(PermissionSetId = permSetId, AssigneeId = UserInfo.getUserId()), false);
 		Test.startTest();
 		List<Id> result = dataProvider.fetchUsersAssignedPermissionSets();
 		Test.stopTest();
-		Assert.areEqual(
-			result.contains(permSetId),
-			true,
-			'User should have assigned permission set'
-		);
+		Assert.areEqual(result.contains(permSetId), true, 'User should have assigned permission set');
 	}
 
 	@IsTest
 	private static void testFeatureFoundEnabledViaCustomPermissionPositive() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
 		TestFactory.enableCustomPermission('ApexKit_Example', UserInfo.getUserId());
-		dataProvider.overrideFlags(
-			FeatureFlagCommonTests.getTestFlag('TestFlag', false)
-		);
+		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', false));
 		Map<String, FF_Enabled_For_Custom_Permission__mdt> customPermOverrides = new Map<String, FF_Enabled_For_Custom_Permission__mdt>();
 		customPermOverrides.put(
 			'ApexKit_Example',
@@ -181,11 +127,7 @@ class FeatureFlagTests {
 			Test.startTest();
 			Boolean result = ff.isEnabled('TestFlag');
 			Test.stopTest();
-			Assert.areEqual(
-				true,
-				result,
-				'Expected TestFlag to be enabled by custom permission'
-			);
+			Assert.areEqual(true, result, 'Expected TestFlag to be enabled by custom permission');
 		}
 
 	}

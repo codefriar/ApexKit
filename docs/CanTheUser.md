@@ -39,9 +39,9 @@ A method to determine if the running user can perform the specified CRUD operati
 
 #### Returns
 
-| Type    | Description                                                                               |
-| ------- | ----------------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can perform the specified CRUD operation on the specified object |
+| Type      | Description                                                                               |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can perform the specified CRUD operation on the specified object |
 
 #### Example
 
@@ -64,9 +64,9 @@ a list accepting version of the crud method. It returns CRUD results for the fir
 
 #### Returns
 
-| Type    | Description                                                                                       |
-| ------- | ------------------------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can perform the specified CRUD operation on the first object in the list |
+| Type      | Description                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can perform the specified CRUD operation on the first object in the list |
 
 ### `private static Boolean crud(String objectName, CrudType permission)`
 
@@ -83,9 +83,9 @@ A method to determine if the running user can perform the specified CRUD operati
 
 #### Returns
 
-| Type    | Description                                                                               |
-| ------- | ----------------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can perform the specified CRUD operation on the specified object |
+| Type      | Description                                                                               |
+| --------- | ----------------------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can perform the specified CRUD operation on the specified object |
 
 ### `public static Boolean create(SObject obj)`
 
@@ -99,9 +99,9 @@ convenience api for determining if the running user can create the specified obj
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can create the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can create the specified object |
 
 #### Example
 
@@ -121,9 +121,9 @@ convenience api for determining if the running user can create the specified obj
 
 #### Returns
 
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | Boolean true if the user can create the first object in the list |
+| Type      | Description                                                      |
+| --------- | ---------------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can create the first object in the list |
 
 ### `public static Boolean create(String objName)`
 
@@ -137,9 +137,9 @@ convenience api for determining if the running user can create the specified obj
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can create the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can create the specified object |
 
 #### Example
 
@@ -159,9 +159,9 @@ convenience api for determining if the running user can read / access the specif
 
 #### Returns
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can read the specified object |
+| Type      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `Boolean` | Boolean true if the user can read the specified object |
 
 #### Example
 
@@ -181,9 +181,9 @@ convenience api for determining if the running user can read / access the specif
 
 #### Returns
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can read the specified object |
+| Type      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `Boolean` | Boolean true if the user can read the specified object |
 
 ### `public static Boolean read(String objName)`
 
@@ -197,9 +197,9 @@ convenience api for determining if the running user can read the specified objec
 
 #### Returns
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can read the specified object |
+| Type      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `Boolean` | Boolean true if the user can read the specified object |
 
 #### Example
 
@@ -219,9 +219,9 @@ convenience api for determining if the running user can edit / update the specif
 
 #### Returns
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can edit the specified object |
+| Type      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `Boolean` | Boolean true if the user can edit the specified object |
 
 #### Example
 
@@ -241,9 +241,9 @@ convenience api for determining if the running user can edit / update the specif
 
 #### Returns
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can edit the specified object |
+| Type      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `Boolean` | Boolean true if the user can edit the specified object |
 
 ### `public static Boolean edit(String objName)`
 
@@ -257,9 +257,9 @@ convenience api for determining if the running user can edit the specified objec
 
 #### Returns
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can edit the specified object |
+| Type      | Description                                            |
+| --------- | ------------------------------------------------------ |
+| `Boolean` | Boolean true if the user can edit the specified object |
 
 #### Example
 
@@ -279,9 +279,9 @@ convenience api for determining if the running user can upsert (insert and updat
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can upsert the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can upsert the specified object |
 
 #### Example
 
@@ -301,9 +301,9 @@ convenience api for determining if the running user can edit / update the specif
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can upsert the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can upsert the specified object |
 
 ### `public static Boolean ups(String objName)`
 
@@ -317,9 +317,9 @@ convenience api for determining if the running user can upsert the specified obj
 
 #### Returns
 
-| Type    | Description                                               |
-| ------- | --------------------------------------------------------- |
-| Boolean | Boolean true if the user can upsert the specified objects |
+| Type      | Description                                               |
+| --------- | --------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can upsert the specified objects |
 
 #### Example
 
@@ -339,9 +339,9 @@ convenience api for determining if the running user can delete/destroy the speci
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can delete the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can delete the specified object |
 
 #### Example
 
@@ -361,9 +361,9 @@ convenience api for determining if the running user can delete the specified obj
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can delete the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can delete the specified object |
 
 ### `public static Boolean destroy(String objName)`
 
@@ -377,9 +377,9 @@ convenience api for determining if the running user can delete the specified obj
 
 #### Returns
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can delete the specified object |
+| Type      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can delete the specified object |
 
 #### Example
 
@@ -400,9 +400,9 @@ public static method to determine if a given field on a given object is Accessib
 
 #### Returns
 
-| Type    | Description                                                                   |
-| ------- | ----------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can read the specified field on the specified object |
+| Type      | Description                                                                   |
+| --------- | ----------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can read the specified field on the specified object |
 
 #### Example
 
@@ -410,7 +410,7 @@ public static method to determine if a given field on a given object is Accessib
 System.debug(CanTheUser.flsAccessible('Account', 'Name'));
 ```
 
-### `public static Map bulkFLSAccessible(String obj, Set<String> fields)`
+### `public static Map<String,Boolean> bulkFLSAccessible(String obj, Set<String> fields)`
 
 bulk form of flsAccessible
 
@@ -423,9 +423,9 @@ bulk form of flsAccessible
 
 #### Returns
 
-| Type                | Description                                                                               |
-| ------------------- | ----------------------------------------------------------------------------------------- |
-| Map<String,Boolean> | `Map<String, Boolean>` where the key is the field name and the value is the accessibility |
+| Type                  | Description                                                                               |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| `Map<String,Boolean>` | `Map<String, Boolean>` where the key is the field name and the value is the accessibility |
 
 #### Example
 
@@ -447,9 +447,9 @@ public static method to determine if a given field on a given object is Updatabl
 
 #### Returns
 
-| Type    | Description                                                                     |
-| ------- | ------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can update the specified field on the specified object |
+| Type      | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the user can update the specified field on the specified object |
 
 #### Example
 
@@ -457,7 +457,7 @@ public static method to determine if a given field on a given object is Updatabl
 System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
 ```
 
-### `public static Map bulkFLSUpdatable(String obj, Set<String> fields)`
+### `public static Map<String,Boolean> bulkFLSUpdatable(String obj, Set<String> fields)`
 
 bulk form of flsUpdatable call
 
@@ -470,9 +470,9 @@ bulk form of flsUpdatable call
 
 #### Returns
 
-| Type                | Description                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------- |
-| Map<String,Boolean> | `Map<String, Boolean>` where the key is the field name and the value is the updatability |
+| Type                  | Description                                                                              |
+| --------------------- | ---------------------------------------------------------------------------------------- |
+| `Map<String,Boolean>` | `Map<String, Boolean>` where the key is the field name and the value is the updatability |
 
 #### Example
 
@@ -495,11 +495,11 @@ Abstracted method for retrieving or calculating (memoization) of the FLS for a g
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
-### `private static Map calculateFLS(String objType)`
+### `private static Map<String,Map<FLSType,Boolean>> calculateFLS(String objType)`
 
 Calculates the FLS for a given object type
 
@@ -511,9 +511,9 @@ Calculates the FLS for a given object type
 
 #### Returns
 
-| Type                             | Description                          |
-| -------------------------------- | ------------------------------------ |
-| Map<String,Map<FLSType,Boolean>> | `Map<String, Map<FLSType, Boolean>>` |
+| Type                               | Description                          |
+| ---------------------------------- | ------------------------------------ |
+| `Map<String,Map<FLSType,Boolean>>` | `Map<String, Map<FLSType, Boolean>>` |
 
 ---
 

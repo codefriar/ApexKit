@@ -36,10 +36,7 @@ public with sharing class Polyfills {
 			result = expectedException
 				.getMessage()
 				.toLowerCase()
-				.substringBetween(
-					'invalid conversion from runtime type ',
-					' to polyfills.guaranteednottoexist'
-				);
+				.substringBetween('invalid conversion from runtime type ', ' to polyfills.guaranteednottoexist');
 		}
 		return result;
 	}
@@ -64,12 +61,8 @@ public with sharing class Polyfills {
 	 *
 	 * @return String the name of the SObject type of the first element in the list
 	 */
-	public static String getSObjectTypeFromListsFirstObject(
-		List<SObject> sObjects
-	) {
-		return (!sObjects.isEmpty())
-			? sObjects.get(0).getSObjectType().getDescribe().getName()
-			: 'sObject';
+	public static String getSObjectTypeFromListsFirstObject(List<SObject> sObjects) {
+		return (!sObjects.isEmpty()) ? sObjects.get(0).getSObjectType().getDescribe().getName() : 'sObject';
 	}
 
 	/**
@@ -84,10 +77,7 @@ public with sharing class Polyfills {
 	 *
 	 * @return Map<Id, SObject> the map of the passed in list, keyed by the passed in key
 	 */
-	public static Map<Id, SObject> idMapFromCollectionByKey(
-		String key,
-		List<SObject> incomingList
-	) {
+	public static Map<Id, SObject> idMapFromCollectionByKey(String key, List<SObject> incomingList) {
 		String objType = getSObjectTypeFromListsFirstObject(incomingList);
 		Type dynamicMapType = Type.forName('Map<Id,' + objType + '>');
 		Map<Id, SObject> returnValues = (Map<Id, SObject>) dynamicMapType.newInstance();
@@ -110,10 +100,7 @@ public with sharing class Polyfills {
 	 *
 	 * @return Map<Id, SObject> the map of the passed in list, keyed by the passed in key
 	 */
-	public static Map<String, SObject> stringMapFromCollectionByKey(
-		String key,
-		List<SObject> incomingList
-	) {
+	public static Map<String, SObject> stringMapFromCollectionByKey(String key, List<SObject> incomingList) {
 		String objType = getSObjectTypeFromListsFirstObject(incomingList);
 		Type dynamicMapType = Type.forName('Map<String,' + objType + '>');
 		Map<String, SObject> returnValues = (Map<String, SObject>) dynamicMapType.newInstance();
@@ -137,10 +124,7 @@ public with sharing class Polyfills {
 	 *
 	 * @return Map<Id, List<SObject>> the map of the passed in list, grouped by the passed in key
 	 */
-	public static Map<Id, List<SObject>> mapFromCollectionWithCollectionValues(
-		String key,
-		List<SObject> incomingList
-	) {
+	public static Map<Id, List<SObject>> mapFromCollectionWithCollectionValues(String key, List<SObject> incomingList) {
 		String objType = getSObjectTypeFromListsFirstObject(incomingList);
 		Type listObjType = Type.forName('List<' + objType + '>');
 		Type dynamicMapType = Type.forName('Map<Id, List<' + objType + '>>');
@@ -148,9 +132,7 @@ public with sharing class Polyfills {
 		for (SObject current : incomingList) {
 			if (current.get(key) != null) {
 				if (returnValues.keySet().contains((Id) current.get(key))) {
-					List<SObject> existingList = (List<SObject>) returnValues.get(
-						(Id) current.get(key)
-					);
+					List<SObject> existingList = (List<SObject>) returnValues.get((Id) current.get(key));
 					existingList.add(current);
 					returnValues.put((Id) current.get(key), existingList);
 				} else {
@@ -183,10 +165,7 @@ public with sharing class Polyfills {
 	 * @return List<String> list containing the string value of the field you passed in from every record in the
 	 * incoming list
 	 */
-	public static List<String> pluckFieldFromList(
-		String fieldName,
-		List<SObject> incomingList
-	) {
+	public static List<String> pluckFieldFromList(String fieldName, List<SObject> incomingList) {
 		List<String> returnValues = new List<String>();
 		for (SObject current : incomingList) {
 			returnValues.add(String.valueOf(current.get(fieldName)));
@@ -208,10 +187,7 @@ public with sharing class Polyfills {
 	 *
 	 * @return Boolean True if any of the strings in the list are in the set
 	 */
-	public static Boolean setContainsAnyItemFromList(
-		Set<String> setToCheck,
-		List<String> listOfPossibleOptions
-	) {
+	public static Boolean setContainsAnyItemFromList(Set<String> setToCheck, List<String> listOfPossibleOptions) {
 		Boolean setContainsAnyElementOfList = false;
 		for (String current : listOfPossibleOptions) {
 			if (setToCheck.contains(current)) {
@@ -251,12 +227,8 @@ public with sharing class Polyfills {
 	 *
 	 * @return Blob the blob with the string appended to it
 	 */
-	public static Blob concatenateBlobAndString(
-		Blob someFile,
-		String supplementalText
-	) {
-		String joinedBlobAndString =
-			getStringifiedBlob(someFile) + supplementalText;
+	public static Blob concatenateBlobAndString(Blob someFile, String supplementalText) {
+		String joinedBlobAndString = getStringifiedBlob(someFile) + supplementalText;
 		return Blob.valueOf(joinedBlobAndString);
 	}
 

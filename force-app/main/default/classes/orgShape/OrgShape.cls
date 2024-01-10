@@ -184,10 +184,7 @@ public with sharing class OrgShape {
 			getAvailableOrgCachePartition().getCapacity();
 			cacheAvailable = true;
 		} catch (Exception ex) {
-			Log.get()
-				.publish(
-					'OrgShape was asked to get the available org cache partition capacity, but failed.'
-				);
+			Log.get().publish('OrgShape was asked to get the available org cache partition capacity, but failed.');
 		}
 		return cacheAvailable;
 	}
@@ -218,10 +215,7 @@ public with sharing class OrgShape {
 
 		try {
 			// this will throw an exception in a data-siloed test.
-			ConnectApi.ChatterUsers.getFollowings(
-				null,
-				String.valueOf(UserInfo.getUserId())
-			);
+			ConnectApi.ChatterUsers.getFollowings(null, String.valueOf(UserInfo.getUserId()));
 			seeAllData = true;
 		} catch (UnsupportedOperationException UE) {
 			System.debug('See all data is not true'); // NOPMD
@@ -249,9 +243,7 @@ public with sharing class OrgShape {
 			return this.safeDefaultCachePartition;
 		}
 		try {
-			PlatformCachePartition partition = (PlatformCachePartition) new SOQL.Builder(
-					'PlatformCachePartition'
-				)
+			PlatformCachePartition partition = (PlatformCachePartition) new SOQL.Builder('PlatformCachePartition')
 				.selectField('developerName')
 				.whereCondition(new Query.Condition().equals('NamespacePrefix', ''))
 				.setScopeLimit(1)
@@ -286,10 +278,7 @@ public with sharing class OrgShape {
 				// This is one of the few queries exempted from the no-query rule
 				// because its a dynamic soql query, and in most orgs, it will fail
 				// on purpose.
-				Integer datedConversionRateCount = Database.query(
-						'SELECT Id FROM DatedConversionRate LIMIT 1'
-					)
-					.size();
+				Integer datedConversionRateCount = Database.query('SELECT Id FROM DatedConversionRate LIMIT 1').size();
 				if (datedConversionRateCount == 1) {
 					isACMEnabled = true;
 				}
@@ -314,8 +303,7 @@ public with sharing class OrgShape {
 	@TestVisible
 	private Organization getOrgShape() {
 		if (isPlatformCacheEnabled()) {
-			return (Organization) getAvailableOrgCachePartition()
-				.get(CachedOrgShape.class, 'requiredButNotUsed');
+			return (Organization) getAvailableOrgCachePartition().get(CachedOrgShape.class, 'requiredButNotUsed');
 		} else {
 			if (this.orgShape != null) {
 				return this.orgShape;
@@ -334,11 +322,7 @@ public with sharing class OrgShape {
 	 * @return      `Organization` Organization Record
 	 */
 	private static Organization getOrgRecord() {
-		return (Organization) new SOQL.Builder('Organization')
-			.selectStandard()
-			.setScopeLimit(1)
-			.build()
-			.getRecord();
+		return (Organization) new SOQL.Builder('Organization').selectStandard().setScopeLimit(1).build().getRecord();
 	}
 
 	/**

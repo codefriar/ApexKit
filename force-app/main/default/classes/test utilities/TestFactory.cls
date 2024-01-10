@@ -1,4 +1,7 @@
 @IsTest
+/**
+ * @description Factory class for creating sObjects.
+ */
 public class TestFactory {
 	/**
 	 * @description When we create a list of SObjects, we need to have a unique field for the insert if there isn't an autonumber field.
@@ -11,15 +14,24 @@ public class TestFactory {
 
 	/**
 	 * @description Creates a single sObject.
-	 * @param sObj  Type of sObject to create.
-	 * @return     `SObject`
+	 * @param sObj  An instance of sObject to create.
+	 * @return     `SObject` object that's had it's required fields populated.
+	 * @example `TestFactory.createSObject(new Account())`
 	 */
 	public static SObject createSObject(SObject sObj) {
-		// Check what type of object we are creating and add any defaults that are needed.
 		String objectName = String.valueOf(sObj.getSObjectType());
-		// Construct the default values class. Salesforce doesn't allow '__' in class names
-		String defaultClassName =
-			objectName.replaceAll('__(c|C)$|__', '') + 'Defaults';
+		/**
+		 * NOTE WELL: This TestFactory is based on conventions, rather than configuration. To that end
+		 * If you want to take advantage of the built in defaults classes, you need to adhere to the following
+		 * naming conventions:
+		 * 1. The class name should be the `object` name with the first letter capitalized
+		 * 2. Followed by the word `Defaults` appended.
+		 * 3. If the class name ends with `__c` or `__C`, then remove the `__c`.
+		 *
+		 * For example, if you wish to have a base set of Account default values, you need to create a class
+		 * named `AccountDefaults` that implements `TestFactoryDefaults`.
+		 */
+		String defaultClassName = objectName.replaceAll('__(c|C)$|__', '') + 'Defaults';
 		// If there is a class that exists for the default values, then use them
 		if (Type.forName('TestFactoryDefaults.' + defaultClassName) != null) {
 			sObj = createSObject(sObj, 'TestFactoryDefaults.' + defaultClassName);
@@ -30,8 +42,9 @@ public class TestFactory {
 	/**
 	 * @description    Creates a single sObject
 	 * @param sObj     Type of sObject to create
-	 * @param doInsert Boolean should this object be inserted?
-	 * @return        `SObject`
+	 * @param doInsert Boolean should this object be inserted? If false, then a fake id will be assigned.
+	 * @return        `SObject` object that's had it's required fields populated.
+	 * @example `TestFactory.createSObject(new Account(), false)`
 	 */
 	public static SObject createSObject(SObject sObj, Boolean doInsert) {
 		SObject retObject = createSObject(sObj);
@@ -69,11 +82,7 @@ public class TestFactory {
 	 * @param doInsert         Boolean should this method insert the created object?
 	 * @return                 `SObject`
 	 */
-	public static SObject createSObject(
-		SObject sObj,
-		String defaultClassName,
-		Boolean doInsert
-	) {
+	public static SObject createSObject(SObject sObj, String defaultClassName, Boolean doInsert) {
 		SObject retObject = createSObject(sObj, defaultClassName);
 		if (doInsert) {
 			insert retObject;
@@ -87,10 +96,7 @@ public class TestFactory {
 	 * @param numberOfObjects Integer number of objects to create
 	 * @return                `SObject[]`
 	 */
-	public static SObject[] createSObjectList(
-		SObject sObj,
-		Integer numberOfObjects
-	) {
+	public static SObject[] createSObjectList(SObject sObj, Integer numberOfObjects) {
 		return createSObjectList(sObj, numberOfObjects, (String) null);
 	}
 
@@ -101,11 +107,7 @@ public class TestFactory {
 	 * @param doInsert         Boolean should this method insert the created object?
 	 * @return                `SObject[]`
 	 */
-	public static SObject[] createSObjectList(
-		SObject sObj,
-		Integer numberOfObjects,
-		Boolean doInsert
-	) {
+	public static SObject[] createSObjectList(SObject sObj, Integer numberOfObjects, Boolean doInsert) {
 		SObject[] retList = createSObjectList(sObj, numberOfObjects, (String) null);
 		if (doInsert) {
 			insert retList;
@@ -128,11 +130,7 @@ public class TestFactory {
 		String defaultClassName,
 		Boolean doInsert
 	) {
-		SObject[] retList = createSObjectList(
-			sObj,
-			numberOfObjects,
-			defaultClassName
-		);
+		SObject[] retList = createSObjectList(sObj, numberOfObjects, defaultClassName);
 		if (doInsert) {
 			insert retList;
 		}
@@ -146,11 +144,7 @@ public class TestFactory {
 	 * @param defaultClassName String name of a class providing defaults
 	 * @return                `SObject[]`
 	 */
-	public static SObject[] createSObjectList(
-		SObject sObj,
-		Integer numberOfObjects,
-		String defaultClassName
-	) {
+	public static SObject[] createSObjectList(SObject sObj, Integer numberOfObjects, String defaultClassName) {
 		SObject[] sObjs = new List<SObject>{};
 		SObject newObj;
 
@@ -162,9 +156,7 @@ public class TestFactory {
 		}
 
 		// Get the name field for the object
-		String nameField = String.valueOf(
-			NAME_FIELD_OVERRIDE_MAP.get(sObj.getSObjectType())
-		);
+		String nameField = String.valueOf(NAME_FIELD_OVERRIDE_MAP.get(sObj.getSObjectType()));
 		if (nameField == null) {
 			nameField = 'Name';
 		}
@@ -191,10 +183,7 @@ public class TestFactory {
 	 * @param sObj     Obj to manipulate.
 	 * @param defaults Defaults map of sObjectField to Object to use for values.
 	 */
-	private static void addFieldDefaults(
-		SObject sObj,
-		Map<Schema.SObjectField, Object> defaults
-	) {
+	private static void addFieldDefaults(SObject sObj, Map<Schema.SObjectField, Object> defaults) {
 		// Loop through the map of fields and if they weren't specifically assigned, fill them.
 		Map<String, Object> populatedFields = sObj.getPopulatedFieldsAsMap();
 		for (Schema.SObjectField field : defaults.keySet()) {
@@ -272,9 +261,7 @@ public class TestFactory {
 	public static User createMinAccessUser(Boolean doInsert) {
 		Id profileId = (Id) new SOQL.Builder('Profile')
 			.selectField('Id')
-			.whereCondition(
-				new Query.Condition().equals('Name', 'Minimum Access - Salesforce')
-			)
+			.whereCondition(new Query.Condition().equals('Name', 'Minimum Access - Salesforce'))
 			.setScopeLimit(1)
 			.build()
 			.getRecord()
@@ -297,10 +284,7 @@ public class TestFactory {
 			.getRecord()
 			.Id;
 
-		PermissionSetAssignment psa = new PermissionSetAssignment(
-			AssigneeId = user.Id,
-			PermissionSetId = permSetId
-		);
+		PermissionSetAssignment psa = new PermissionSetAssignment(AssigneeId = user.Id, PermissionSetId = permSetId);
 		insert psa;
 	}
 
@@ -343,14 +327,8 @@ public class TestFactory {
 	 *
 	 * @return PermissionSet the created permission set.
 	 */
-	public static PermissionSet createPermissionSet(
-		String permSetName,
-		Boolean doInsert
-	) {
-		PermissionSet newPermSet = new PermissionSet(
-			Name = permSetName,
-			Label = 'Test Permission Set'
-		);
+	public static PermissionSet createPermissionSet(String permSetName, Boolean doInsert) {
+		PermissionSet newPermSet = new PermissionSet(Name = permSetName, Label = 'Test Permission Set');
 		if (doInsert) {
 			insert newPermSet;
 		}
@@ -363,10 +341,7 @@ public class TestFactory {
 	 * @param permissionName String name of the custom permission you want created
 	 * @param forUserId Id user to assign the custom permission to.
 	 */
-	public static void enableCustomPermission(
-		String permissionName,
-		Id forUserId
-	) {
+	public static void enableCustomPermission(String permissionName, Id forUserId) {
 		PermissionSet permSet = createPermissionSet('TestPermSet', true);
 
 		Id customPermissionId = [
