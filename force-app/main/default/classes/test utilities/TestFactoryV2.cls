@@ -64,7 +64,6 @@ public with sharing class TestFactoryV2 {
 		}
 		if (forceInsert) {
 			System.debug(LoggingLevel.DEBUG, 'Created SObject: ' + createdSObjects);
-			insert createdSObjects;
 			List<Database.SaveResult> results = Database.insert(createdSObjects, false, AccessLevel.SYSTEM_MODE);
 			for (Database.SaveResult result : results) {
 				if (result.success) {
