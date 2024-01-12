@@ -138,8 +138,8 @@
     </rule>
     <rule ref="category/apex/codestyle.xml/LocalVariableNamingConventions">
         <properties>
-            <property name="finalLocalPattern" value="[a-z][a-zA-Z0-9]{3,}" />
-            <property name="localPattern" value="[a-z][a-zA-Z0-9]{3,}" />
+            <property name="finalLocalPattern" value="[a-z][a-zA-Z0-9]{2,}" />
+            <property name="localPattern" value="[a-z][a-zA-Z0-9]{2,}" />
         </properties>
         <priority>2</priority>
     </rule>

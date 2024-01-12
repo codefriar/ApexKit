@@ -13,14 +13,13 @@ private class PolyfillsTests {
 		Test.startTest();
 		String uuid = Polyfills.generateUUID();
 		Test.stopTest();
-		system.debug(uuid);
 		Assert.isTrue(uuid != null, 'expected to get a uuid back');
 		Assert.areEqual(5, uuid.split('-').size(), 'expected to get 5 parts back');
 	}
 
 	@isTest
 	private static void testPluckFieldFromList() {
-		List<Account> accounts = (List<Account>) TestFactory.createSobjectList(new Account(), 200);
+		List<Account> accounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 200);
 		Test.startTest();
 		List<Object> results = Polyfills.pluckFieldFromList('Name', accounts);
 		Test.stopTest();
@@ -54,8 +53,8 @@ private class PolyfillsTests {
 
 	@isTest
 	private static void testDemonstrateIdMapFromCollectionByKeyPositiveWithList() {
-		List<Account> accounts = (List<Account>) TestFactory.createSObjectList(new Account(), 5, true);
-		List<Contact> contacts = (List<Contact>) TestFactory.createSObjectList(new Contact(), 5, true);
+		List<Account> accounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 5, true);
+		List<Contact> contacts = (List<Contact>) SObjectFactory.createSObjects(new Contact(), 5, true);
 
 		Test.startTest();
 		Map<Id, Account> checkAccountMap = (Map<Id, Account>) Polyfills.idMapFromCollectionByKey('id', accounts);
@@ -84,7 +83,7 @@ private class PolyfillsTests {
 
 	@isTest
 	private static void testDemonstrateStringMapFromCollectionByKeyPositiveWithList() {
-		List<Account> accounts = (List<Account>) TestFactory.createSObjectList(new Account(), 5, true);
+		List<Account> accounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 5, true);
 		for (Account acct : accounts) {
 			acct.name = acct.id;
 		}
@@ -110,11 +109,11 @@ private class PolyfillsTests {
 
 	@isTest
 	private static void testMapFromCollectionWithListOfValuesPostive() {
-		List<Account> accounts = (List<Account>) TestFactory.createSObjectList(new Account(), 5, true);
+		List<Account> accounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 5, true);
 
 		List<Contact> contactList = new List<Contact>();
 		for (Account acct : accounts) {
-			contactList.addAll((List<Contact>) TestFactory.createSObjectList(new Contact(accountId = acct.id), 5, false));
+			contactList.addAll((List<Contact>) SObjectFactory.createSObjects(new Contact(accountId = acct.id), 5, false));
 		}
 		insert contactList;
 
