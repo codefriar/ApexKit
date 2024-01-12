@@ -1,4 +1,4 @@
-//@IsTest
+@IsTest
 /**
  * @description A factory class for generating bogus Ids for testing purposes.
  */
@@ -42,11 +42,8 @@ public with sharing class IdFactory {
 
 	/**
 	 * @description this method accepts a String representation of the sObject type and defers to it's sister methods to generate a bogus Id.
-	 *
 	 * @param objectType String representation of the sObject type ie: Account, Contact, etc.
-	 *
 	 * @return id a plausible, but bogus Id
-	 *
 	 * @example `IdFactory.get('Account');`
 	 */
 	public static Id get(String objectType) {
@@ -59,11 +56,8 @@ public with sharing class IdFactory {
 
 	/**
 	 * @description This method accepts a Type object and defers to it's sister methods to generate a bogus Id.
-	 *
 	 * @param incomingType Type object representing the sObject type ie: Account, Contact, etc.
-	 *
 	 * @return Id a plausible, but bogus Id
-	 *
 	 * @example `IdFactory.get(Type.forName('Account'));`
 	 */
 	public static Id get(Type incomingType) {
@@ -77,9 +71,7 @@ public with sharing class IdFactory {
 
 	/**
 	 * @description This method accepts a generic SObject and defers to it's sister methods to generate a bogus Id.
-	 *
 	 * @param incomingType SObject representing the sObject type ie: Account, Contact, etc.
-	 *
 	 * @return Id a plausible, but bogus Id
 	 */
 	public static Id get(SObject incomingType) {
@@ -88,13 +80,10 @@ public with sharing class IdFactory {
 
 	/**
 	 * @description All the other methods in this class defer to this method eventually to generate a bogus Id.
-	 *
 	 * @param incomingType Schema.SObjectType representing the sObject type ie: Account, Contact, etc.
-	 *
 	 * @return Id a plausible, but bogus Id
 	 */
 	public static Id get(Schema.SObjectType incomingType) {
-		idiosyncrasy++;
 		String prefix = incomingType.getDescribe().getKeyPrefix();
 		if (prefix == null) {
 			throw new IDFactoryException(
@@ -108,9 +97,7 @@ public with sharing class IdFactory {
 	/**
 	 * @description A method for getting a bogus Id for an object that may not return a prefix via standard Schema
 	 * methods. This method is used internally by the other methods in this class once a prefix has been identified.
-	 *
 	 * @param prefix String three character prefix for the object type.
-	 *
 	 * @return Id a plausible, but bogus Id
 	 */
 	private static Id getWithPrefixOverride(String prefix) {
@@ -124,9 +111,7 @@ public with sharing class IdFactory {
 	/**
 	 * @description Certain types of objects do not return a prefix via standard Schema methods. This method is used
 	 * to identify them, and override the prefix with a known value.
-	 *
 	 * @param objectType String representation of the sObject type ie: Account, Contact, etc.
-	 *
 	 * @return String three character prefix for the object type.
 	 */
 	private static String getUnstableObjectPrefix(String objectType) {

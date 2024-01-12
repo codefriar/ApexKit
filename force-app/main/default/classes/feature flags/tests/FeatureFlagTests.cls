@@ -109,7 +109,7 @@ class FeatureFlagTests {
 	@IsTest
 	private static void testFeatureFoundEnabledViaCustomPermissionPositive() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		TestFactory.enableCustomPermission('ApexKit_Example', UserInfo.getUserId());
+		PermissionsHelper.enableCustomPermission('ApexKit_Example', UserInfo.getUserId());
 		dataProvider.overrideFlags(FeatureFlagCommonTests.getTestFlag('TestFlag', false));
 		Map<String, FF_Enabled_For_Custom_Permission__mdt> customPermOverrides = new Map<String, FF_Enabled_For_Custom_Permission__mdt>();
 		customPermOverrides.put(

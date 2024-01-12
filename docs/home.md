@@ -34,6 +34,10 @@ It doesn't do much, but it does illustrate how BulkCallable, Invocable, Universa
 UniversalFlowInputOutputParameter work together to expose multiple methods to Flow.
 Please understand t&hellip;
 
+### [DataBuilder](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/DataBuilder)
+
+This is a fluent interface for building data sets necessary for Apex based testing.
+
 ### [EnqueueNextQueueableProcessStep](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/EnqueueNextQueueableProcessStep)
 
 This class implements the Apex Transaction Finalizer interface. It's used to implement promises. This
@@ -155,6 +159,10 @@ continue to loop, and if so, enqueueing the next iteration. It also ensure passt
 next iteration.
 
 ### [OuroborosTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/OuroborosTests)
+
+### [PermissionsHelper](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/PermissionsHelper)
+
+A test-only helper for manipulating users' permissions, permission sets and permission set groups
 
 ### [Polyfills](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Polyfills)
 
@@ -280,6 +288,25 @@ of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modi&hellip;
 
+### [SObjectFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactory)
+
+a factory class for generating test data.
+This class auto populates required fields and, by default, generates a plausible but fake ID for the record.
+You can use this class directly, or use one of the associated builder classes for generating
+complex data structures.
+This class has the ability to &hellip;
+
+### [SObjectFactoryDefaults](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactoryDefaults)
+
+### [SObjectFactoryHelper](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactoryHelper)
+
+This class contains helper methods used by the SObjectFactory.
+While a bit of an anti-pattern, this class' contents allow SObjectFactory to be more-focused.
+
+### [SObjectFactoryTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactoryTests)
+
+Tests for test utilities.
+
 ### [Safely](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Safely)
 
 Class wraps DML Calls in FLS / Crud checks.
@@ -312,24 +339,6 @@ StubObject fo&hellip;
 
 
 ### [StubUtilities](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/StubUtilities)
-
-
-### [TestFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactory)
-
-Factory class for creating sObjects.
-
-
-
-### [TestFactoryDefaults](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactoryDefaults)
-
-
-### [TestFactoryTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactoryTests)
-
-Created by kevinpoorman on 1/9/24.
-
-
-
-### [TestFactoryV2](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactoryV2)
 
 
 ### [TestPolyfills](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestPolyfills)
@@ -419,6 +428,21 @@ to set the correct property on ouput.
 This class exposes methods from any class that extends Invocable to flows.
 By adding 'extends Invocable' to your class and adding the call method, any class' methods can be
 invoked by this single invocable method.
+
+
+
+### [UserFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UserFactory)
+
+A factory class for generating Users during Unit Tests
+While this class has generic user-building methods, the bulk of this
+class is dedicated to building persona-specific users
+
+
+
+### [UserFactoryHelper](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UserFactoryHelper)
+
+Helper class for the UserFactory class.
+Responsible for manipulation of users and permissions
 
 
 ## FeatureFlag

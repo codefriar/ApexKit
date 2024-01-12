@@ -4,7 +4,7 @@
 
 **Implemented types**
 
-[TestFactory.FieldDefaults](TestFactory.FieldDefaults)
+[SObjectFactory.FieldDefaults](SObjectFactory.FieldDefaults)
 
 ## Methods
 

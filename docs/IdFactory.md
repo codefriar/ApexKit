@@ -1,3 +1,5 @@
+`APIVERSION: 58`
+
 `STATUS: ACTIVE`
 
 A factory class for generating bogus Ids for testing purposes.

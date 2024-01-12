@@ -25,7 +25,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoInsertNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMarketingPersonaUser(true);
 
 		System.runAs(minAccessUser) {
 			Assert.isTrue(!CanTheUser.create(new Account()));
@@ -39,7 +39,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileGeneratesInsertExceptionPositive() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Boolean didCatchTheRightException = false;
 		Account account = (Account) new Account(Name = 'TestAccount', TradeStyle = 'invalid');
 		Test.startTest();
@@ -70,7 +70,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoUpdateNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		PermissionSet ps = new PermissionSet(Label = 'testPermSet', Name = 'testPermSet');
 		insert ps;
@@ -98,7 +98,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileDeleteNegative() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Case c = (Case) new Case(Subject = 'TestCase');
 		insert c;
 
@@ -113,7 +113,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileGeneratesUpdateExceptionPositive() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Boolean didCatchTheRightException = false;
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
@@ -162,7 +162,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoUpsertMethodsNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		PermissionSet ps = new PermissionSet(Label = 'testPermSet', Name = 'testPermSet');
 		insert ps;
@@ -192,7 +192,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileGeneratesUpsertExceptionPositive() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Boolean didCatchTheRightException = false;
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
@@ -223,7 +223,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDeleteWithRegularProfileNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
 		Test.startTest();
@@ -250,7 +250,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoQueryThrowsRemovedFieldsException() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		PermissionSet ps = new PermissionSet(Label = 'testPermSet', Name = 'testPermSet');
 		insert ps;
