@@ -3,7 +3,7 @@
 private class MetadataTriggerFrameworkTests {
 	@IsTest
 	private static void testMetadataTriggerFrameworkNoOppWithoutRecordsPositive() {
-		MetadataTriggerQueryService metadataTriggerQueryServiceStub = (MetadataTriggerQueryService) new Stub.Builder(
+		MetadataTriggerQueryService metadataTriggerQueryServiceStub = (MetadataTriggerQueryService) new StubBuilder(
 				MetadataTriggerQueryService.class
 			)
 			.mockingMethodCall('getMetadataTriggers')
@@ -68,7 +68,7 @@ private class MetadataTriggerFrameworkTests {
 		sampleHandler.Execution_Order__c = 1;
 		sampleHandler.Object__c = 'contact';
 
-		MetadataTriggerQueryService metadataTriggerQueryServiceStub = (MetadataTriggerQueryService) new Stub.Builder(
+		MetadataTriggerQueryService metadataTriggerQueryServiceStub = (MetadataTriggerQueryService) new StubBuilder(
 				MetadataTriggerQueryService.class
 			)
 			.mockingMethodCall('getMetadataTriggers')

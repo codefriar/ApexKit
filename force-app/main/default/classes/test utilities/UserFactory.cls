@@ -10,7 +10,9 @@ public class UserFactory {
 	/**
 	 * @description    Creates a user with the Minimum Access Profile
 	 * @param forceInsert Should this code insert the user?
+	 *
 	 * @return        `User`
+	 * @example `User testUser = UserFactory.createMinAccessPersonaUser(false);`
 	 */
 	public static User createMinAccessPersonaUser(Boolean forceInsert) {
 		return createTestUser(UserFactoryHelper.fetchProfileIdByName('Minimum Access - Salesforce'), forceInsert);
@@ -19,7 +21,9 @@ public class UserFactory {
 	/**
 	 * @description creates a Marketing Persona user
 	 * @param forceInsert Boolean should this user be inserted?
+	 *
 	 * @return User created marketing user
+	 * @example `User testUser = UserFactory.createMinAccessPersonaUser(false);`
 	 */
 	public static User createMarketingPersonaUser(Boolean forceInsert) {
 		User createdUser = createTestUser('Marketing User', forceInsert);
@@ -32,7 +36,9 @@ public class UserFactory {
 	 * @description     creates a test user. Useful for permissions testing
 	 * @param profileId Profile Id to use when creating a user.
 	 * @param forceInsert  Boolean, should this code insert the user?
+	 *
 	 * @return          `User`
+	 * @example `User testUser = UserFactory.createTestUser(someProfileIdVar, false);`
 	 */
 	public static User createTestUser(Id profileId, Boolean forceInsert) {
 		User userToCreate = new User(
@@ -56,7 +62,9 @@ public class UserFactory {
 	 * @description       Creates a test user with a given profile.
 	 * @param profileName Name of the profile to create the user with.
 	 * @param forceInsert    Should this code insert the created user?
+	 *
 	 * @return           `User`
+	 * @example `User testUser = UserFactory.createTestUser('ProfileName', false);`
 	 */
 	public static User createTestUser(String profileName, Boolean forceInsert) {
 		return createTestUser(UserFactoryHelper.fetchProfileIdByName(profileName), forceInsert);

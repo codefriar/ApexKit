@@ -4,7 +4,8 @@
 
 `STATUS: ACTIVE`
 
-Tests for test utilities.
+This is a set of tests, unit and profile based for the SObject and User factories.
+These _require_
 
 ## Methods
 
@@ -43,3 +44,29 @@ Tests for test utilities.
 ### `private static void funcTestCreateSObjectWithAccountAndInsertPositive()`
 
 ## `ISTEST`
+
+## Classes
+
+### SomeDefaultsClass
+
+this is an example custom defaults class to instantiate in the tests
+
+**Implemented types**
+
+[SObjectFactory.FieldDefaults](SObjectFactory.FieldDefaults)
+
+#### Methods
+
+##### `public Map&lt;Schema.SObjectField,Object&gt; getFieldDefaults()`
+
+Interface required method specifying field defaults
+
+###### Returns
+
+| Type                                    | Description                                                                 |
+| --------------------------------------- | --------------------------------------------------------------------------- |
+| `Map&lt;Schema.SObjectField,Object&gt;` | Map&lt;Schema.SObjectField, Object&gt; map of field names to default vaules |
+
+---
+
+---

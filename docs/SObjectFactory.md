@@ -21,6 +21,10 @@ This class has the ability to set default values for fields in 3, hierarchical w
    | Create list of 200 SObjects w/ fake Id | 115ms |
    | Create list of 200 SObjects & insert them | 1216ms |
 
+**See** [SObjectFactoryHelper](https://github.com/codefriar/ApexKit/wiki/SObjectFactoryHelper)
+
+**See** [SObjectFactoryDefaults](https://github.com/codefriar/ApexKit/wiki/SObjectFactoryDefaults)
+
 ## Methods
 
 ### `public static SObject createSObject(SObject prototype)`
@@ -39,6 +43,12 @@ convenience method allowing you to specify just the prototype
 | --------- | ------------------------------------------------ |
 | `SObject` | A created SObject with required fields populated |
 
+#### Example
+
+```apex
+`Account testAccount = (Account) SObjectFactory.createSObject(new Account());`
+```
+
 ### `public static SObject createSObject(SObject prototype, String usingDefaultsClassName)`
 
 Convenience method for creating SObjects using just the prototype and a custom defaults class
@@ -56,19 +66,171 @@ Convenience method for creating SObjects using just the prototype and a custom d
 | --------- | ------------------------------------------------ |
 | `SObject` | A created SObject with required fields populated |
 
+#### Example
+
+```apex
+`Account testAccount = (Account) SObjectFactory.createSObject(new Account(), 'SomeDefaultsClass');`
+```
+
 ### `public static SObject createSObject(SObject prototype, Boolean forceInsert)`
+
+Create sObject variant supporting just the prototype and forceInsert params.
+
+#### Parameters
+
+| Param         | Description                                                                             |
+| ------------- | --------------------------------------------------------------------------------------- |
+| `prototype`   | SObject any SObject to create the SObject from                                          |
+| `forceInsert` | Boolean if true, results in the record being inserted before returning from the method. |
+
+#### Returns
+
+| Type      | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `SObject` | A created SObject with the required fields populated |
+
+#### Example
+
+```apex
+`Account testAccount = (Account) SObjectFactory.createSObject(new Account(), true);`
+```
 
 ### `public static SObject createSObject(SObject prototype, String usingDefaultsClassName, Boolean forceInsert)`
 
+Create SObject variant supporting prototype, custom defaults class and the forceInsert boolean
+
+#### Parameters
+
+| Param                    | Description                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| `prototype`              | SObject the prototype sobject to start from                                               |
+| `usingDefaultsClassName` | String name of the class to instantiate for defaults                                      |
+| `forceInsert`            | Boolean if true, results in the record being inserted prior to returning from the method. |
+
+#### Returns
+
+| Type      | Description                                          |
+| --------- | ---------------------------------------------------- |
+| `SObject` | A Created SObject with the required fields populated |
+
+#### Example
+
+```apex
+`Account testAccount = (Account) SObjectFactory.createSObject(new Account(), );`
+```
+
 ### `private static SObject internalCreateSObject(SObject prototype, String usingDefaultsClassName)`
+
+This is an internal version of the createSObject method used by the param-complete public version of createSObject, and consequently by every method in this class. It's responsible for applying default values to fields in the following order: 1. Custom Default class, if specified 2. The 'org wide' defaults stored in SObjectFactoryDefaults' subclasses.
+
+#### Parameters
+
+| Param                    | Description                                                   |
+| ------------------------ | ------------------------------------------------------------- |
+| `prototype`              | SObject the prototype object to start from                    |
+| `usingDefaultsClassName` | String the name of a Defaults Class to attempt to instantiate |
+
+#### Returns
+
+| Type      | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| `SObject` | SObject A Created SObject with the required fields populated |
 
 ### `public static List<SObject> createSObjects(SObject prototype, Integer count)`
 
+A method to generate a list of SObjects from a single prototype supporting just the prototype, and count params.
+
+#### Parameters
+
+| Param       | Description                                |
+| ----------- | ------------------------------------------ |
+| `prototype` | SObject The prototype object to build from |
+| `count`     | Integer number of objects to generate      |
+
+#### Returns
+
+| Type            | Description                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| `List<SObject>` | List<SObject> A generated list of constructed SObjects with default field values specified. |
+
+#### Example
+
+```apex
+`List<Account> testAccounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 200);`
+```
+
 ### `public static List<SObject> createSObjects(SObject prototype, Integer count, String usingDefaultsClassName)`
+
+A method to generate a list of SObjects from a single prototype supporting just the prototype, count and custom default params
+
+#### Parameters
+
+| Param                    | Description                                                  |
+| ------------------------ | ------------------------------------------------------------ |
+| `prototype`              | SObject The prototype object to build from                   |
+| `count`                  | Integer number of objects to generate                        |
+| `usingDefaultsClassName` | String the name of a class to instantiate for default values |
+
+#### Returns
+
+| Type            | Description                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| `List<SObject>` | List<SObject> A generated list of constructed SObjects with default field values specified. |
+
+#### Example
+
+```apex
+`List<Account> testAccounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 200, 'SomeDefaultsClass');`
+```
 
 ### `public static List<SObject> createSObjects(SObject prototype, Integer count, Boolean forceInsert)`
 
+A method to generate a list of SObjects from a single prototype supporting just the prototype, count and forceInsert params
+
+#### Parameters
+
+| Param         | Description                                                                             |
+| ------------- | --------------------------------------------------------------------------------------- |
+| `prototype`   | SObject The prototype object to build from                                              |
+| `count`       | Integer number of objects to generate                                                   |
+| `forceInsert` | Boolean If true, results in the list being inserted before the method returns the list. |
+
+#### Returns
+
+| Type            | Description                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| `List<SObject>` | List<SObject> A generated list of constructed SObjects with default field values specified. |
+
+#### Example
+
+```apex
+`List<Account> testAccounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 200, false);`
+```
+
 ### `public static List<SObject> createSObjects(SObject prototype, Integer count, String usingDefaultsClassName, Boolean forceInsert)`
+
+A method to generate a list of SObjects from a single prototype
+
+#### Parameters
+
+| Param                    | Description                                                                             |
+| ------------------------ | --------------------------------------------------------------------------------------- |
+| `prototype`              | SObject The prototype object to build from                                              |
+| `count`                  | Integer number of objects to generate                                                   |
+| `usingDefaultsClassName` | String name of a class to instantiate for custom default values                         |
+| `forceInsert`            | Boolean If true, results in the list being inserted before the method returns the list. |
+
+#### Returns
+
+| Type            | Description                                                                                 |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| `List<SObject>` | List<SObject> A generated list of constructed SObjects with default field values specified. |
+
+#### Example
+
+```apex
+`List<Account> testAccounts = (List<Account>) SObjectFactory.createSObjects(new Account(), 200, 'SomeDefaultsClass', false);`
+```
 
 ---
 

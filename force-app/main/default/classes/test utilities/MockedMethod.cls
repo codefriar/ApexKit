@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 /**
  * @description Represents a method call that is mocked as part of a Stub
  * object. This class is marked @isTest, as the object and it's methods are
@@ -13,7 +13,7 @@ public with sharing class MockedMethod {
 	 * @description Every MockedMethod has a methodSignature defining it's
 	 * 'signature' or combination of name, parameter names and parameter types.
 	 */
-	@testVisible
+	@TestVisible
 	private MethodSignature methodSignature;
 	private List<Object> expectedParameters;
 	private Object returnValue;
@@ -21,7 +21,7 @@ public with sharing class MockedMethod {
 	private List<Id> sObjectIds;
 	private Exception customException;
 	private Integer countOfMethodInvocations = 0;
-	@testVisible
+	@TestVisible
 	private static String exceptionMessage = 'Exception thrown by SuperStub.';
 
 	/**
@@ -31,7 +31,7 @@ public with sharing class MockedMethod {
 	 * being mocked.
 	 */
 	public MockedMethod(MethodSignature methodSignature) {
-		this.MethodSignature = methodSignature;
+		this.methodSignature = methodSignature;
 	}
 
 	/**
@@ -47,8 +47,8 @@ public with sharing class MockedMethod {
 		// returning sObjects
 		if (sObjectIds != null) {
 			List<SObject> sObjects = (List<SObject>) expectedParameters[0];
-			for (Integer i = 0; i < sObjects.size(); i++) {
-				sObjects[i].Id = sObjectIds[i];
+			for (Integer iterationCounter = 0; iterationCounter < sObjects.size(); iterationCounter++) {
+				sObjects[iterationCounter].Id = sObjectIds[iterationCounter];
 			}
 			this.returnValue = sObjects;
 		}
@@ -58,7 +58,7 @@ public with sharing class MockedMethod {
 			if (this.customException != null) {
 				throw this.customException;
 			}
-			// or throw a new custom exeption if it's just supposed to throw an
+			// or throw a new custom exception if it's just supposed to throw an
 			// exception
 			throw new Stub.StubException(exceptionMessage);
 		}
@@ -99,7 +99,7 @@ public with sharing class MockedMethod {
 	/**
 	 * @description       Sets this MockedMethod's return value. This is the
 	 * value that will be returned by this mocked method when the stub calls
-	 * a method that has an identical name, signature and input paramter list.
+	 * a method that has an identical name, signature and input parameter list.
 	 * @param returnValue This is the object you want returned.
 	 * @return            `MockedMethod`
 	 */
@@ -137,7 +137,7 @@ public with sharing class MockedMethod {
 	 * @description           Use this variant to have this mocked method return
 	 * a developer-specified exception object. Useful for testing exception
 	 * handling with specific exception types.
-	 * @param customException
+	 * @param customException Exception the exception to throw
 	 * @return                `MockedMethod`
 	 */
 	public MockedMethod throwingException(Exception customException) {
@@ -165,29 +165,30 @@ public with sharing class MockedMethod {
 	 * Note: I thought I could replace this with
 	 * `return this.methodParamsAtExecutionTime.equals(compareTo);`
 	 * but this doesn't work, and to be honest, I'm still investigating why.
-	 * @param compareTo
+	 * @param compareTo A list, passed in at runtime of the called methods' parameter values
 	 * @return          `Boolean`
 	 */
 	private Boolean doRuntimeParametersMatch(List<Object> compareTo) {
 		Boolean matchesSoFar = this.expectedParameters.size() == compareTo.size();
-		for (Integer i = 0; i < compareTo.size(); i++) {
+		for (Integer iterationCounter = 0; iterationCounter < compareTo.size(); iterationCounter++) {
 			if (!matchesSoFar) {
 				break;
 			}
-			matchesSoFar &= String.valueOf(this.expectedParameters[i]) == String.valueOf(compareTo[i]);
+			matchesSoFar &=
+				String.valueOf(this.expectedParameters[iterationCounter]) == String.valueOf(compareTo[iterationCounter]);
 		}
 		return matchesSoFar;
 	}
 
 	/**
-	 * @Description class provides a 'builder' or fluent interface for
+	 * @description class provides a 'builder' or fluent interface for
 	 * constructing MockedMethod objects. While the end-developer can create
 	 * MockedMethod objects directly, the point of this class is to provide an
 	 * intuitive and easy-to-use/comprehend interface for building nuanced
 	 * MockedMethod Objects.
 	 */
 	public class Builder {
-		private MethodSignature.Builder methodSignatureBuilder;
+		private final MethodSignature.Builder methodSignatureBuilder;
 		private List<Object> runtimeParameters;
 		private List<Id> returnSObjectIds;
 		private Exception customException;
@@ -197,11 +198,11 @@ public with sharing class MockedMethod {
 		/**
 		 * @description    Constructor requiring a methodSignatureBuilder object
 		 * and a list of runtime arguments
-		 * @param methodSignatureBuilder
-		 * @param args
+		 * @param methodSignatureBuilder Method signature builder object
+		 * @param argTypes List<System.Type> list of argument types
 		 */
-		public Builder(MethodSignature.Builder methodSignatureBuilder, List<System.Type> args) {
-			this.runtimeParameters = args;
+		public Builder(MethodSignature.Builder methodSignatureBuilder, List<System.Type> argTypes) {
+			this.runtimeParameters = argTypes;
 			this.methodSignatureBuilder = methodSignatureBuilder;
 		}
 
@@ -217,7 +218,7 @@ public with sharing class MockedMethod {
 		}
 
 		/**
-		 * @description convenience methodfor setting a single parameter type
+		 * @description convenience method for setting a single parameter type
 		 * @param  parameter System.Type
 		 * @return      this
 		 */
@@ -226,7 +227,7 @@ public with sharing class MockedMethod {
 		}
 
 		/**
-		 * @description convenience methodfor setting two params
+		 * @description convenience method for setting two params
 		 * @param  parameter  System.Type
 		 * @param  parameter2 System.Type
 		 * @return            this
@@ -236,7 +237,7 @@ public with sharing class MockedMethod {
 		}
 
 		/**
-		 * @description convenience methodfor setting three params
+		 * @description convenience method for setting three params
 		 * @param  parameter  System.Type
 		 * @param  parameter2 System.Type
 		 * @param  parameter3 System.Type
@@ -247,7 +248,7 @@ public with sharing class MockedMethod {
 		}
 
 		/**
-		 * @description convenience methodfor setting four parameters
+		 * @description convenience method for setting four parameters
 		 * @param  parameter  parameter description
 		 * @param  parameter2 parameter2 description
 		 * @param  parameter3 parameter3 description
@@ -270,7 +271,7 @@ public with sharing class MockedMethod {
 		 * @param ids   The list of Ids to assign.
 		 * @return      `MockedMethod.Builder`
 		 */
-		public Stub.Builder returningObjectsWithIds(List<Id> ids) {
+		public StubBuilder returningObjectsWithIds(List<Id> ids) {
 			this.returnSObjectIds = ids;
 			return methodSignatureBuilder.finalizeSignature();
 		}
@@ -279,28 +280,28 @@ public with sharing class MockedMethod {
 		 * @description       This variant allows developers to specify the
 		 * object that will be returned when this mocked method is executed by
 		 * its parent stub.
-		 * @param returnValue
-		 * @return            `Stub.Builder`
+		 * @param returnValue Object the object this mock should return
+		 * @return            `StubBuilder`
 		 */
-		public Stub.Builder returning(Object returnValue) {
+		public StubBuilder returning(Object returnValue) {
 			this.returnValue = returnValue;
 			return methodSignatureBuilder.finalizeSignature();
 		}
 
 		/**
 		 * @description This variant allows developers to specify a void return.
-		 * @return      `Stub.Builder`
+		 * @return      `StubBuilder`
 		 */
-		public Stub.Builder returning() {
+		public StubBuilder returning() {
 			return methodSignatureBuilder.finalizeSignature();
 		}
 
 		/**
 		 * @description This variant allows developers to throw an internally
 		 * generated Stub.StubException object when the method is executed.
-		 * @return      `Stub.Builder`
+		 * @return      `StubBuilder`
 		 */
-		public Stub.Builder throwingException() {
+		public StubBuilder throwingException() {
 			throwException = true;
 			return methodSignatureBuilder.finalizeSignature();
 		}
@@ -312,13 +313,13 @@ public with sharing class MockedMethod {
 		 *
 		 * Note: This only works for custom exceptions.
 		 * Note: Developers construct your exception  like this:
-		 * `<CustomExceptioType> customException = `
+		 * `<CustomExceptionType> customException = `
 		 * `new <CustomExceptionType>('message');`
 		 *
-		 * @param customException
+		 * @param customException Exception the exception that should be thrown
 		 * @return                `MockedMethod`
 		 */
-		public Stub.Builder throwingException(Exception customException) {
+		public StubBuilder throwingException(Exception customException) {
 			this.throwException = true;
 			this.customException = customException;
 			return methodSignatureBuilder.finalizeSignature();
@@ -327,7 +328,7 @@ public with sharing class MockedMethod {
 		/**
 		 * @description     Responsible for returning a fully formed
 		 * MockedMethod instance.
-		 * @param signature
+		 * @param signature MethodSignature a complete method signature
 		 * @return          `MockedMethod`
 		 */
 		public MockedMethod createMockedMethod(MethodSignature signature) {

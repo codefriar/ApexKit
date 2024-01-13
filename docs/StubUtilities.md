@@ -2,14 +2,6 @@
 
 `STATUS: ACTIVE`
 
-## Properties
-
-### `private counter` → `Integer`
-
-a static incrementing counter tied to transaction a new comment
-
----
-
 ## Methods
 
 ### `public static List<Id> generateSObjectIds(String sObjectTypeString, Integer size)`

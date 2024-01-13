@@ -83,7 +83,7 @@ Allows developers to define expected input parameters at execution time. This en
 
 ### `public MockedMethod returning(Object returnValue)`
 
-Sets this MockedMethod's return value. This is the value that will be returned by this mocked method when the stub calls a method that has an identical name, signature and input paramter list.
+Sets this MockedMethod's return value. This is the value that will be returned by this mocked method when the stub calls a method that has an identical name, signature and input parameter list.
 
 #### Parameters
 
@@ -129,9 +129,9 @@ Use this variant to have this mocked method return a developer-specified excepti
 
 #### Parameters
 
-| Param             | Description |
-| ----------------- | ----------- |
-| `customException` |             |
+| Param             | Description                      |
+| ----------------- | -------------------------------- |
+| `customException` | Exception the exception to throw |
 
 #### Returns
 
@@ -162,9 +162,9 @@ Determines if the method, as brokered by the stub object is being called with an
 
 #### Parameters
 
-| Param       | Description |
-| ----------- | ----------- |
-| `compareTo` |             |
+| Param       | Description                                                          |
+| ----------- | -------------------------------------------------------------------- |
+| `compareTo` | A list, passed in at runtime of the called methods' parameter values |
 
 #### Returns
 
@@ -178,20 +178,24 @@ Determines if the method, as brokered by the stub object is being called with an
 
 ### Builder
 
-**Description** class provides a 'builder' or fluent interface for constructing MockedMethod objects. While the end-developer can create MockedMethod objects directly, the point of this class is to provide an intuitive and easy-to-use/comprehend interface for building nuanced MockedMethod Objects.
+class provides a 'builder' or fluent interface for
+constructing MockedMethod objects. While the end-developer can create
+MockedMethod objects directly, the point of this class is to provide an
+intuitive and easy-to-use/comprehend interface for building nuanced
+MockedMethod Objects.
 
 #### Constructors
 
-##### `public Builder(MethodSignature methodSignatureBuilder, List&lt;System.Type&gt; args)`
+##### `public Builder(MethodSignature methodSignatureBuilder, List&lt;System.Type&gt; argTypes)`
 
 Constructor requiring a methodSignatureBuilder object and a list of runtime arguments
 
 ###### Parameters
 
-| Param                    | Description |
-| ------------------------ | ----------- |
-| `methodSignatureBuilder` |             |
-| `args`                   |             |
+| Param                    | Description                                    |
+| ------------------------ | ---------------------------------------------- |
+| `methodSignatureBuilder` | Method signature builder object                |
+| `argTypes`               | List&lt;System.Type&gt; list of argument types |
 
 ---
 
@@ -231,7 +235,7 @@ internal method used to set the parameter values of this MockedMethod instance.
 
 ##### `public MockedMethod withParameterValues(Object parameter)`
 
-convenience methodfor setting a single parameter type
+convenience method for setting a single parameter type
 
 ###### Parameters
 
@@ -247,7 +251,7 @@ convenience methodfor setting a single parameter type
 
 ##### `public MockedMethod withParameterValues(Object parameter, Object parameter2)`
 
-convenience methodfor setting two params
+convenience method for setting two params
 
 ###### Parameters
 
@@ -264,7 +268,7 @@ convenience methodfor setting two params
 
 ##### `public MockedMethod withParameterValues(Object parameter, Object parameter2, Object parameter3)`
 
-convenience methodfor setting three params
+convenience method for setting three params
 
 ###### Parameters
 
@@ -284,7 +288,7 @@ convenience methodfor setting three params
 
 `SUPPRESSWARNINGS`
 
-convenience methodfor setting four parameters
+convenience method for setting four parameters
 
 ###### Parameters
 
@@ -301,7 +305,7 @@ convenience methodfor setting four parameters
 | -------------- | ----------- |
 | `MockedMethod` | this        |
 
-##### `public Stub returningObjectsWithIds(List&lt;Id&gt; ids)`
+##### `public StubBuilder returningObjectsWithIds(List&lt;Id&gt; ids)`
 
 This variant allows developers to specify a list of IDs to be assigned to the returning sObject List
 
@@ -313,61 +317,61 @@ This variant allows developers to specify a list of IDs to be assigned to the re
 
 ###### Returns
 
-| Type   | Description            |
-| ------ | ---------------------- |
-| `Stub` | `MockedMethod.Builder` |
+| Type          | Description            |
+| ------------- | ---------------------- |
+| `StubBuilder` | `MockedMethod.Builder` |
 
-##### `public Stub returning(Object returnValue)`
+##### `public StubBuilder returning(Object returnValue)`
 
 This variant allows developers to specify the object that will be returned when this mocked method is executed by its parent stub.
 
 ###### Parameters
 
-| Param         | Description |
-| ------------- | ----------- |
-| `returnValue` |             |
+| Param         | Description                               |
+| ------------- | ----------------------------------------- |
+| `returnValue` | Object the object this mock should return |
 
 ###### Returns
 
-| Type   | Description    |
-| ------ | -------------- |
-| `Stub` | `Stub.Builder` |
+| Type          | Description   |
+| ------------- | ------------- |
+| `StubBuilder` | `StubBuilder` |
 
-##### `public Stub returning()`
+##### `public StubBuilder returning()`
 
 This variant allows developers to specify a void return.
 
 ###### Returns
 
-| Type   | Description    |
-| ------ | -------------- |
-| `Stub` | `Stub.Builder` |
+| Type          | Description   |
+| ------------- | ------------- |
+| `StubBuilder` | `StubBuilder` |
 
-##### `public Stub throwingException()`
+##### `public StubBuilder throwingException()`
 
 This variant allows developers to throw an internally generated Stub.StubException object when the method is executed.
 
 ###### Returns
 
-| Type   | Description    |
-| ------ | -------------- |
-| `Stub` | `Stub.Builder` |
+| Type          | Description   |
+| ------------- | ------------- |
+| `StubBuilder` | `StubBuilder` |
 
-##### `public Stub throwingException(Exception customException)`
+##### `public StubBuilder throwingException(Exception customException)`
 
-Use this variant to have this mocked method return a developer-specified exception object. Useful for testing exception handling with specific exception types. Note: This only works for custom exceptions. Note: Developers construct your exception like this: `&lt;CustomExceptioType&gt; customException = ` `new &lt;CustomExceptionType&gt;('message');`
+Use this variant to have this mocked method return a developer-specified exception object. Useful for testing exception handling with specific exception types. Note: This only works for custom exceptions. Note: Developers construct your exception like this: `&lt;CustomExceptionType&gt; customException = ` `new &lt;CustomExceptionType&gt;('message');`
 
 ###### Parameters
 
-| Param             | Description |
-| ----------------- | ----------- |
-| `customException` |             |
+| Param             | Description                                   |
+| ----------------- | --------------------------------------------- |
+| `customException` | Exception the exception that should be thrown |
 
 ###### Returns
 
-| Type   | Description    |
-| ------ | -------------- |
-| `Stub` | `MockedMethod` |
+| Type          | Description    |
+| ------------- | -------------- |
+| `StubBuilder` | `MockedMethod` |
 
 ##### `public MockedMethod createMockedMethod(MethodSignature signature)`
 
@@ -375,9 +379,9 @@ Responsible for returning a fully formed MockedMethod instance.
 
 ###### Parameters
 
-| Param       | Description |
-| ----------- | ----------- |
-| `signature` |             |
+| Param       | Description                                 |
+| ----------- | ------------------------------------------- |
+| `signature` | MethodSignature a complete method signature |
 
 ###### Returns
 

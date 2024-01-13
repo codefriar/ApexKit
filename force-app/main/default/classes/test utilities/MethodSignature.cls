@@ -65,7 +65,7 @@ public with sharing class MethodSignature {
 	 * MethodSignature object in a Fluent api style.
 	 */
 	public class Builder {
-		private final Stub.Builder stubBuilder;
+		private final StubBuilder stubBuilder;
 		@TestVisible
 		private String methodName;
 		public List<Type> parameterTypes;
@@ -77,13 +77,13 @@ public with sharing class MethodSignature {
 
 		/**
 		 * @description      Constructor.
-		 * @param builder    A Stub.Builder object
+		 * @param builder    A StubBuilder object
 		 * @param methodName String referencing the name of the method minus
 		 * things like ()
 		 * @param paramTypes A list of System.Types that define the order and
 		 * type of parameters for the method.
 		 */
-		public Builder(Stub.Builder builder, String methodName, List<System.Type> paramTypes) {
+		public Builder(StubBuilder builder, String methodName, List<System.Type> paramTypes) {
 			this.stubBuilder = builder;
 			this.methodName = methodName;
 			this.parameterTypes = paramTypes;
@@ -176,9 +176,9 @@ public with sharing class MethodSignature {
 
 		/**
 		 * @description Called at the end of building a method signature.
-		 * @return      `Stub.Builder`
+		 * @return      `StubBuilder`
 		 */
-		public Stub.Builder finalizeSignature() {
+		public StubBuilder finalizeSignature() {
 			return stubBuilder;
 		}
 
@@ -190,8 +190,8 @@ public with sharing class MethodSignature {
 			MethodSignature signature = new MethodSignature(methodName, parameterTypes);
 
 			List<MockedMethod> methodCalls = new List<MockedMethod>();
-			for (MockedMethod.Builder mb : methodBuilders) {
-				methodCalls.add(mb.createMockedMethod(signature));
+			for (MockedMethod.Builder currentMethodBuilder : methodBuilders) {
+				methodCalls.add(currentMethodBuilder.createMockedMethod(signature));
 			}
 
 			return methodCalls;

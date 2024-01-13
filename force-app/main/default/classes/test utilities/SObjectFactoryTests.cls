@@ -1,9 +1,23 @@
 /**
- * @description Tests for test utilities.
+ * @description This is a set of tests, unit and profile based for the SObject and User factories.
+ * These *require*
  */
 @IsTest
-@SuppressWarnings('PMD.AvoidDebugStatements')
+@SuppressWarnings('PMD.AvoidDebugStatements, PMD.ApexUnitTestClassShouldHaveRunAs')
 private class SObjectFactoryTests {
+	/**
+	 * @description this is an example custom defaults class to instantiate in the tests
+	 */
+	public with sharing class SomeDefaultsClass implements SObjectFactory.FieldDefaults {
+		/**
+		 * @description Interface required method specifying field defaults
+		 * @return Map<Schema.SObjectField, Object> map of field names to default vaules
+		 */
+		public Map<Schema.SObjectField, Object> getFieldDefaults() {
+			return new Map<Schema.SObjectField, Object>{ Account.Name => 'Test Account' };
+		}
+	}
+
 	@IsTest
 	static void profilingTestCreate10IndividualSObjectAccountNoInsertPositive() {
 		Test.startTest();

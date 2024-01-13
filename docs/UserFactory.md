@@ -24,6 +24,12 @@ Creates a user with the Minimum Access Profile
 | ------ | ----------- |
 | `User` | `User`      |
 
+#### Example
+
+```apex
+`User testUser = UserFactory.createMinAccessPersonaUser(false);`
+```
+
 ### `public static User createMarketingPersonaUser(Boolean forceInsert)`
 
 creates a Marketing Persona user
@@ -39,6 +45,12 @@ creates a Marketing Persona user
 | Type   | Description                 |
 | ------ | --------------------------- |
 | `User` | User created marketing user |
+
+#### Example
+
+```apex
+`User testUser = UserFactory.createMinAccessPersonaUser(false);`
+```
 
 ### `public static User createTestUser(Id profileId, Boolean forceInsert)`
 
@@ -57,6 +69,12 @@ creates a test user. Useful for permissions testing
 | ------ | ----------- |
 | `User` | `User`      |
 
+#### Example
+
+```apex
+`User testUser = UserFactory.createTestUser(someProfileIdVar, false);`
+```
+
 ### `public static User createTestUser(String profileName, Boolean forceInsert)`
 
 Creates a test user with a given profile.
@@ -73,5 +91,11 @@ Creates a test user with a given profile.
 | Type   | Description |
 | ------ | ----------- |
 | `User` | `User`      |
+
+#### Example
+
+```apex
+`User testUser = UserFactory.createTestUser('ProfileName', false);`
+```
 
 ---

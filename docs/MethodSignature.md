@@ -91,7 +91,7 @@ MethodSignature object in a Fluent api style.
 
 #### Constructors
 
-##### `public Builder(Stub builder, String methodName, List&lt;System.Type&gt; paramTypes)`
+##### `public Builder(StubBuilder builder, String methodName, List&lt;System.Type&gt; paramTypes)`
 
 Constructor.
 
@@ -99,7 +99,7 @@ Constructor.
 
 | Param        | Description                                                                         |
 | ------------ | ----------------------------------------------------------------------------------- |
-| `builder`    | A Stub.Builder object                                                               |
+| `builder`    | A StubBuilder object                                                                |
 | `methodName` | String referencing the name of the method minus things like ()                      |
 | `paramTypes` | A list of System.Types that define the order and type of parameters for the method. |
 
@@ -115,7 +115,7 @@ Constructor.
 
 ##### `public parameterTypes` → `List&lt;Type&gt;`
 
-##### `private stubBuilder` → `Stub`
+##### `private stubBuilder` → `StubBuilder`
 
 ---
 
@@ -219,15 +219,15 @@ Four parameter variant. Brokers to omnibus method.
 | -------------- | ---------------------- |
 | `MockedMethod` | `MockedMethod.Builder` |
 
-##### `public Stub finalizeSignature()`
+##### `public StubBuilder finalizeSignature()`
 
 Called at the end of building a method signature.
 
 ###### Returns
 
-| Type   | Description    |
-| ------ | -------------- |
-| `Stub` | `Stub.Builder` |
+| Type          | Description   |
+| ------------- | ------------- |
+| `StubBuilder` | `StubBuilder` |
 
 ##### `public List&lt;MockedMethod&gt; buildMockedMethod()`
 
