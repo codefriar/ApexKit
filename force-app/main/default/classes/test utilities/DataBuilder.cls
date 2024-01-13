@@ -1,5 +1,16 @@
 /**
  * @description This is a fluent interface for building data sets necessary for Apex based testing.
+ *
+ * This is only a prototype, and can't realistically be built out universally, as the objects etc
+ * that individual orgs will use / need will differ.
+ *
+ * @example
+ * ```apex
+ * DataBuilder.UnitOfWork testDataTree = new DataBuilder(false)
+ *  .withAccounts(200)
+ *  .withContacts(200)
+ *  .build()
+ * ```
  */
 @IsTest
 public class DataBuilder {
@@ -13,7 +24,7 @@ public class DataBuilder {
 	 * @return DataBuiler this.
 	 */
 	public DataBuilder forceInset(Boolean forceInsert) {
-		this.forceInsert = forceInsert;
+		this.forceInsert = forceInsert == null ? false : forceInsert;
 		return this;
 	}
 

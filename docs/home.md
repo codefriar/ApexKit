@@ -37,6 +37,8 @@ Please understand t&hellip;
 ### [DataBuilder](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/DataBuilder)
 
 This is a fluent interface for building data sets necessary for Apex based testing.
+This is only a prototype, and can't realistically be built out universally, as the objects etc
+that individual orgs will use / need will differ.
 
 ### [EnqueueNextQueueableProcessStep](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/EnqueueNextQueueableProcessStep)
 

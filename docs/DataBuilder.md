@@ -3,6 +3,8 @@
 `STATUS: ACTIVE`
 
 This is a fluent interface for building data sets necessary for Apex based testing.
+This is only a prototype, and can't realistically be built out universally, as the objects etc
+that individual orgs will use / need will differ.
 
 ## Fields
 
