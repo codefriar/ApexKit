@@ -340,10 +340,13 @@ along with it's companion classes:
 
 ### [StubBuilder](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/StubBuilder)
 
-Builder pattern for creating stubs with a fluent interface.
-Note, there are three 'Builder' classes, each an inner class of the object that the builder builds. In this case,
-this builder inner class is responsible for building Stub objects.
-While you can directly instantiate the Stub class, the ide&hellip;
+StubBuilder is a class that allows you to build a Stub object for a given object type. The Stub object can then be used in unit tests to mock the object type.
+
+# Using StubBuilder
+
+## Overview
+
+StubBuilder is designed to be an intuitive, fluent way to generate StubProvider based Stub objects with Mock&hellip;
 
 ### [StubUtilities](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/StubUtilities)
 

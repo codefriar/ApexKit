@@ -9,7 +9,7 @@ private class MetadataTriggerFrameworkTests {
 			.mockingMethodCall('getMetadataTriggers')
 			.withParameterTypes()
 			.returning(new List<Metadata_Driven_Trigger__mdt>())
-			.defineStub(true);
+			.defineStub();
 
 		MetadataTriggerFramework mdtHandler = new MetadataTriggerFramework(metadataTriggerQueryServiceStub);
 
@@ -74,7 +74,7 @@ private class MetadataTriggerFrameworkTests {
 			.mockingMethodCall('getMetadataTriggers')
 			.withParameterTypes()
 			.returning(new List<Metadata_Driven_Trigger__mdt>{ sampleHandler })
-			.defineStub(true);
+			.defineStub();
 
 		MetadataTriggerFramework mdtHandler = new MetadataTriggerFramework(metadataTriggerQueryServiceStub);
 

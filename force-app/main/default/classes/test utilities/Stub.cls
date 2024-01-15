@@ -15,11 +15,12 @@
  *  // also specifying a couple of methods to be mocked you'd do something like this:
  *
  * Foo fooStub = new StubBuilder('foo.class') // This creates the Stub object to mimic a live instance of `Foo`
-	.mockingMethodCall('someMethodName') // specifies a method with no params to mock OR
-	.mockingMethodCall('someMethodName',
-	.withParameterTypes()
+	.mockingMethodCall('someInstanceMethodOfFooClassName') // specifies a method with no params to mock OR
+	.withParameterTypes() // specifies the expected paramater types (not values)
+	.returning(aValueOrObjectYouveConstructed)
+	.mockingMethodCall('someInstanceMethodOfFooClassName2', variableContainingAListOfParamTypes) // specifies a method with params to mock
 	.returning() || .throwingException() || .throwingException(ExceptionObj)
-	.mockingMethodCall('secondMethodName', ...)
+	.mockingMethodCall('someInstanceMethodOfFooClassName3', ...)
 	.withParameterTypes()
 	.returning() || .throwingException() || .throwingException(ExceptionObj)
 	.createStub(true)
