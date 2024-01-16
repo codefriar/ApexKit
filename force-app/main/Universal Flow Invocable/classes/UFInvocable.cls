@@ -38,8 +38,8 @@ public abstract class UFInvocable implements BulkCallable {
 	 * @description a 2D point.
 	 */
 	class Point implements Comparable {
-		final Integer x;
-		final Integer y;
+		final Integer x; // NOPMD
+		final Integer y; // NOPMD
 		final Integer hashCode;
 		/**
 		 * @description Constructor
@@ -128,11 +128,11 @@ public abstract class UFInvocable implements BulkCallable {
 		 * @return `List<List<UniversalFlowInputOutput>>` the flow inputs from a collection of flow inputs
 		 */
 		public List<List<UniversalFlowInputOutput>> executeBulk() {
-			System.debug(JSON.serialize(this));
+			System.debug(LoggingLevel.DEBUG, JSON.serialize(this));
 			prepare();
-			System.debug(JSON.serialize(this));
+			System.debug(LoggingLevel.DEBUG, JSON.serialize(this));
 			loadClasses();
-			System.debug(JSON.serialize(this));
+			System.debug(LoggingLevel.DEBUG, JSON.serialize(this));
 			processInputs();
 			return outputs;
 		}
