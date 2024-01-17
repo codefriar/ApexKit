@@ -11,7 +11,7 @@
  */
 public with sharing class ULID {
 	/**
-	 * This character set is the complete list of allowed characters in
+	 * @description This character set is the complete list of allowed characters in
 	 * a ULID string. It intentionally does not include characters that
 	 * may be ambiguously read, such as i, l, o, and u characters.
 	 */
@@ -65,7 +65,7 @@ public with sharing class ULID {
 	 * @return  `String`
 	 */
 	public static String generate() {
-		return encodeTimestamp(DateTime.now().getTime(), TIMELENGTH) + generateRandomString(RANDOMLENGTH);
+		return encodeTimestamp(Datetime.now().getTime(), TIMELENGTH) + generateRandomString(RANDOMLENGTH);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public with sharing class ULID {
 	private static String encodeTimestamp(Long dtSeed, Long timeLength) {
 		Long modulo;
 		String retString = '';
-		for (Long l = timeLength; timeLength > 0; timeLength--) {
+		for (Long timestampIterationVar = timeLength; timeLength > 0; timeLength--) {
 			modulo = Math.mod(dtSeed, CHARACTERSETSIZE);
 			retString = CHARACTERSET[modulo.intValue()] + retString;
 			dtSeed = (dtSeed - modulo) / CHARACTERSETSIZE;
@@ -96,8 +96,8 @@ public with sharing class ULID {
 	 */
 	private static String generateRandomString(Integer length) {
 		Integer[] retString = new List<Integer>(length);
-		for (Integer l = 0; l < length; l++) {
-			retString[l] = fetchRandomCharacterFromCharacterSet().charAt(0);
+		for (Integer localIterationCounter = 0; localIterationCounter < length; localIterationCounter++) {
+			retString[localIterationCounter] = fetchRandomCharacterFromCharacterSet().charAt(0);
 		}
 		return String.fromCharArray(retString);
 	}

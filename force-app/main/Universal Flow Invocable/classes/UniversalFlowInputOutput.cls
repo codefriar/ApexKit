@@ -1,6 +1,7 @@
 /**
  * @description This is a common object for passing data from a flow, into a class method, and back out to flow.
  */
+@SuppressWarnings('PMD.StdCyclomaticComplexity')
 public class UniversalFlowInputOutput {
 	/**
 	 * @description String representing Apex recognized name of the class you're instantiating.
@@ -63,8 +64,16 @@ public class UniversalFlowInputOutput {
 	 * is a hard limitation of the Flow action framework and the Apex Defined Data Types. This is not a limitation
 	 * of this pattern / framework. If you want to, say pass a list of records to a method, you'll need to pass a
 	 * list of strings, and query for the objects in the Apex. #sorryNothingICanDo.
+	 *
+	 * Note: This method is currently suppressing PMD warnings for cognitive, standard and cyclomatic complexity as
+	 * as method length. Unfortunately, I don't see a good re-factor path forward to reduce these, as the sheer number
+	 * of if statements is what's killing it.
+	 *
 	 * @return Map<String, Object> This returns a map of parameters you're passing to your method.
 	 */
+	@SuppressWarnings(
+		'PMD.cognitiveComplexity, PMD.CyclomaticComplexity, PMD.NcssMethodCount, PMD.StdCyclomaticComplexity'
+	)
 	public Map<String, Object> toCallableParamMap() {
 		Map<String, Object> paramMap = new Map<String, Object>();
 		if (parameters == null) {

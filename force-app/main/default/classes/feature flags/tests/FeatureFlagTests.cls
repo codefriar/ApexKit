@@ -1,3 +1,4 @@
+@SuppressWarnings('PMD.ApexUnitTestClassShouldHaveRunAs')
 @IsTest
 class FeatureFlagTests {
 	@IsTest
@@ -121,11 +122,11 @@ class FeatureFlagTests {
 			)
 		);
 		dataProvider.overridePerCustomPermissionOverrides(customPermOverrides);
-		FeatureFlag ff = new FeatureFlag(dataProvider);
+		FeatureFlag featureFlag = new FeatureFlag(dataProvider);
 
 		System.runAs(new User(Id = UserInfo.getUserId())) {
 			Test.startTest();
-			Boolean result = ff.isEnabled('TestFlag');
+			Boolean result = featureFlag.isEnabled('TestFlag');
 			Test.stopTest();
 			Assert.areEqual(true, result, 'Expected TestFlag to be enabled by custom permission');
 		}
