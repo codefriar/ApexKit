@@ -71,7 +71,7 @@ jobs:
       # Cache node_modules to speed up the process
       - name: 'Restore node_modules cache'
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: npm-${{ hashFiles('**/package-lock.json') }}
