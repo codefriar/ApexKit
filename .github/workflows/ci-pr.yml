@@ -50,7 +50,7 @@ jobs:
         with:
           version: 'latest'
           sourcePath: 'force-app'
-          rulesets: 'pmd/ruleset.xml'
+          rulesets: 'ruleset.xml'
 
       - name: Upload violations file in SARIF format
         if: steps.pmd.outputs.violations != 0

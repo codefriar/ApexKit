@@ -42,9 +42,9 @@ Method is responsible for determining if it's safe to enqueue the next iteration
 
 #### Returns
 
-| Type    | Description                                                                            |
-| ------- | -------------------------------------------------------------------------------------- |
-| Boolean | Boolean True if enqueuing the next iteration will not violate any Apex governor limits |
+| Type      | Description                                                                            |
+| --------- | -------------------------------------------------------------------------------------- |
+| `Boolean` | Boolean True if enqueuing the next iteration will not violate any Apex governor limits |
 
 ### `public void execute(FinalizerContext context)`
 

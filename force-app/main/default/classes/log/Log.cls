@@ -5,6 +5,7 @@
  * @see LogException
  * @see LogTriggerHandler
  */
+@SuppressWarnings('PMD.CognitiveComplexity')
 public with sharing class Log {
 	public static Boolean publishToStandardLogs = false;
 
@@ -96,22 +97,25 @@ public with sharing class Log {
 		}
 		alsoPublishToStandardLogs(rawLogs);
 		List<Database.SaveResult> publishResults = EventBus.publish(rawLogs);
+		handlePublishingErrors(publishResults);
+
+		this.buffer.clear();
+	}
+
+	/**
+	 * @description this method is a stub for what your org wants to do when publishing logs fails.
+	 * @param publishResults List<Database.SaveResult> the list of save results to handle.
+	 */
+	private static void handlePublishingErrors(List<Database.SaveResult> publishResults) {
 		if (publishResults.size() > 0) {
 			for (Database.SaveResult result : publishResults) {
 				if (!result.isSuccess()) {
 					for (Database.Error err : result.getErrors()) {
-						System.debug(
-							'Error returned: ' +
-								err.getStatusCode() +
-								' - ' +
-								err.getMessage()
-						);
+						System.debug(LoggingLevel.ERROR, 'Error returned: ' + err.getStatusCode() + ' - ' + err.getMessage());
 					}
 				}
 			}
 		}
-
-		this.buffer.clear();
 	}
 
 	/**
@@ -124,10 +128,7 @@ public with sharing class Log {
 		if (QuiddityGuard.quiddityIsATestContext() || Log.publishToStandardLogs) {
 			for (Log__e logEvent : logEvents) {
 				String headerFooter = '######### Logging from the Log Class #########';
-				System.debug(
-					LoggingLevel.valueOf(logEvent.Severity__c),
-					headerFooter + '\n' + logEvent + '\n' + headerFooter
-				);
+				System.debug(LoggingLevel.valueOf(logEvent.Severity__c), headerFooter + '\n' + logEvent + '\n' + headerFooter);
 			}
 		}
 	}

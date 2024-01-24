@@ -54,9 +54,9 @@ Returns the value of the specified feature flag This method is deterministic. It
 
 #### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+| Type     | Description |
+| -------- | ----------- |
+| `String` | `String`    |
 
 ### `public Boolean isEnabled(String featureFlagName)`
 
@@ -70,9 +70,9 @@ Returns true if the specified feature flag is enabled This is the main method of
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `public Boolean isNotEnabled(String featureFlag)`
 
@@ -86,9 +86,9 @@ Convenience method for determining if a feature flag is not enabled
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `private Boolean isUniversallyEnabled(String featureFlagName)`
 
@@ -104,9 +104,9 @@ Logical test for global enablement of a feature
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `private Boolean isEnabledOnOrAfterToday(String featureFlagName)`
 
@@ -126,9 +126,9 @@ Logical test for per-user enablement of a feature
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ### `private Boolean isEnabledByCustomPermissionForUser(String featureFlagName)`
 
@@ -144,8 +144,8 @@ Logic gate for determining if a feature flag is enabled for this user based on a
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 ---

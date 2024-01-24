@@ -52,7 +52,7 @@ the current context of the trigger, override-able in tests
 
 ### `public override void afterUndelete()`
 
-### `public void run()`
+### `public virtual void run()`
 
 _Inherited_
 
@@ -72,9 +72,9 @@ A method to guard against invalid execution contexts
 
 #### Returns
 
-| Type    | Description                                                                     |
-| ------- | ------------------------------------------------------------------------------- |
-| Boolean | true if the execution context is invalid or if this trigger handler is bypassed |
+| Type      | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `Boolean` | true if the execution context is invalid or if this trigger handler is bypassed |
 
 ### `public void setMaxLoopCount(Integer max)`
 
@@ -158,9 +158,9 @@ Allows developers to check whether a given trigger handler class is currently by
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `Boolean`   |
 
 #### Example
 
@@ -198,8 +198,8 @@ Returns the string version of the handler class being invoked
 
 #### Returns
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| String | `String` Name of the Handler |
+| Type     | Description                  |
+| -------- | ---------------------------- |
+| `String` | `String` Name of the Handler |
 
 ---

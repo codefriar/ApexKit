@@ -50,9 +50,9 @@ A static wrapper for the main makeApiCall method
 
 #### Returns
 
-| Type         | Description    |
-| ------------ | -------------- |
-| HttpResponse | `HTTPResponse` |
+| Type           | Description    |
+| -------------- | -------------- |
+| `HttpResponse` | `HTTPResponse` |
 
 #### Example
 
