@@ -54,7 +54,7 @@ jobs:
 
       - name: Upload violations file in SARIF format
         if: steps.pmd.outputs.violations != 0
-        uses: github/codeql-action/upload-sarif@v2
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: pmd-report.sarif
           category: PMD analysis
@@ -71,7 +71,7 @@ jobs:
       # Cache node_modules to speed up the process
       - name: 'Restore node_modules cache'
         id: cache-npm
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: npm-${{ hashFiles('**/package-lock.json') }}
@@ -198,7 +198,7 @@ jobs:
 
       # Trigger packaging PR workflow
       - name: 'Trigger packaging PR workflow if needed'
-        uses: peter-evans/repository-dispatch@v2
+        uses: peter-evans/repository-dispatch@v3
         if: steps.checkForChanges.outputs.hasChanges == 'true'
         with:
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
