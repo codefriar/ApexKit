@@ -2,13 +2,9 @@
 	"orgName": "ApexKit Company",
 	"description": "ApexKitV2.5",
 	"edition": "Developer",
-	
+
 	"hasSampleData": true,
-	"features": [
-		"EinsteinGPTForDevelopers",
-		"EnableSetPasswordInApi",
-		"PlatformCache"
-	],
+	"features": ["EinsteinGPTForDevelopers", "EnableSetPasswordInApi", "PlatformCache"],
 	"settings": {
 		"lightningExperienceSettings": {
 			"enableS1DesktopEnabled": true

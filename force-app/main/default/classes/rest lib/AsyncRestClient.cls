@@ -24,11 +24,7 @@ public with sharing class AsyncRestClient implements System.Queueable, Database.
 	 * @param apiCall RestLibApiCall The RestLibApiCall that describes your callout
 	 * @param handlerClass Type a type reference to the finalizer to be used.
 	 */
-	public AsyncRestClient(
-		String namedCredentialName,
-		RestLibApiCall apiCall,
-		Type handlerClass
-	) {
+	public AsyncRestClient(String namedCredentialName, RestLibApiCall apiCall, Type handlerClass) {
 		this.namedCredentialName = namedCredentialName;
 		this.apiCall = apiCall;
 		this.handlerClass = handlerClass;
@@ -42,10 +38,7 @@ public with sharing class AsyncRestClient implements System.Queueable, Database.
 	 */
 	public void execute(QueueableContext qc) {
 		AsyncRestLibFinalizer theFinalizer = (AsyncRestLibFinalizer) handlerClass.newInstance();
-		theFinalizer.response = RestClient.makeApiCall(
-			this.namedCredentialName,
-			apiCall
-		);
+		theFinalizer.response = RestClient.makeApiCall(this.namedCredentialName, apiCall);
 		System.attachFinalizer(theFinalizer);
 	}
 }
