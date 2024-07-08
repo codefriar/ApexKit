@@ -1,3 +1,5 @@
+`APIVERSION: 58`
+
 `STATUS: ACTIVE`
 
 Generic logging framework that persists across DML reversions by publishing a Platform Event
@@ -38,9 +40,9 @@ Singleton pattern `get` method.
 
 #### Returns
 
-| Type | Description |
-| ---- | ----------- |
-| Log  | `Log`       |
+| Type  | Description |
+| ----- | ----------- |
+| `Log` | `Log`       |
 
 ### `public void add(String messageToLog)`
 
@@ -87,6 +89,16 @@ Add an formatted exception message to the buffer without publishing it.
 ### `public void publish()`
 
 Publish any messages currently in the buffer, without adding any new ones.
+
+### `private static void handlePublishingErrors(List<Database.SaveResult> publishResults)`
+
+this method is a stub for what your org wants to do when publishing logs fails.
+
+#### Parameters
+
+| Param            | Description                                                   |
+| ---------------- | ------------------------------------------------------------- |
+| `publishResults` | List<Database.SaveResult> the list of save results to handle. |
 
 ### `private static void alsoPublishToStandardLogs(List<Log__e> logEvents)`
 

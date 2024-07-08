@@ -3,13 +3,8 @@
   <component name="FacetManager">
     <facet type="IlluminatedCloud" name="Illuminated Cloud">
       <configuration>
-        <option name="connectionName" value="Apexkit" />
+        <option name="connectionName" value="Apexkit2" />
         <option name="connectionType" value="SFDX" />
-        <option name="moduleContents">
-          <ModuleContents>
-            <option name="contentSelectionType" value="SELECTED" />
-          </ModuleContents>
-        </option>
       </configuration>
     </facet>
   </component>
@@ -21,7 +16,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.sf" />
       <excludeFolder url="file://$MODULE_DIR$/.sfdx" />
     </content>
-    <orderEntry type="jdk" jdkName="IlluminatedCloud (ApexKit/Apexkit)" jdkType="IlluminatedCloud" />
+    <orderEntry type="jdk" jdkName="IlluminatedCloud (ApexKit/Apexkit2)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="SonarLintModuleSettings">

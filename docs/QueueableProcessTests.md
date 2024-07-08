@@ -76,7 +76,7 @@ Returns the ID of the Queueable job for which this finalizer is defined.
 
 | Type | Description |
 | ---- | ----------- |
-| Id   | `Id`        |
+| `Id` | `Id`        |
 
 ##### `public Exception getException()`
 
@@ -84,9 +84,9 @@ Returns the exception with which the Queueable job failed when getResult is `UNH
 
 ###### Returns
 
-| Type      | Description |
-| --------- | ----------- |
-| Exception | `Exception` |
+| Type        | Description |
+| ----------- | ----------- |
+| `Exception` | `Exception` |
 
 ##### `public String getRequestId()`
 
@@ -94,9 +94,9 @@ Returns the request ID, a string that uniquely identifies the request, and can b
 
 ###### Returns
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+| Type     | Description |
+| -------- | ----------- |
+| `String` | `String`    |
 
 ##### `public ParentJobResult getResult()`
 
@@ -104,9 +104,9 @@ Returns the System.ParentJobResult enum, which represents the result of the pare
 
 ###### Returns
 
-| Type            | Description       |
-| --------------- | ----------------- |
-| ParentJobResult | `ParentJobResult` |
+| Type              | Description       |
+| ----------------- | ----------------- |
+| `ParentJobResult` | `ParentJobResult` |
 
 ---
 

@@ -92,8 +92,8 @@ Implements the Callable interface. This allows the class to be used outside of a
 
 #### Returns
 
-| Type   | Description         |
-| ------ | ------------------- |
-| Object | Object returns null |
+| Type     | Description         |
+| -------- | ------------------- |
+| `Object` | Object returns null |
 
 ---

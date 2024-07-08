@@ -93,11 +93,7 @@ public class Query {
 			this.direction = direction;
 		}
 
-		public SortOrder(
-			String fieldName,
-			SortDirection direction,
-			SortNullRecords nullRecords
-		) {
+		public SortOrder(String fieldName, SortDirection direction, SortNullRecords nullRecords) {
 			this(fieldName, direction);
 			this.nullRecords = nullRecords;
 		}
@@ -253,8 +249,7 @@ public class Query {
 		}
 
 		public String toDateLiteralString() {
-			return dateLiteralName +
-				(numberOfUnits == null ? '' : ':' + numberOfUnits);
+			return dateLiteralName + (numberOfUnits == null ? '' : ':' + numberOfUnits);
 		}
 
 		public override String toString() {
@@ -293,18 +288,12 @@ public class Query {
 			elseFieldList = new Set<String>();
 		}
 
-		public TypeOf whenSObjectType(
-			String sobjectType,
-			Set<String> whenFieldList
-		) {
+		public TypeOf whenSObjectType(String sobjectType, Set<String> whenFieldList) {
 			sobjectType2FieldList.put(sobjectType, whenFieldList);
 			return this;
 		}
 
-		public TypeOf whenSObjectType(
-			String sobjectType,
-			List<String> whenFieldList
-		) {
+		public TypeOf whenSObjectType(String sobjectType, List<String> whenFieldList) {
 			sobjectType2FieldList.put(sobjectType, new Set<String>(whenFieldList));
 			return this;
 		}
@@ -328,25 +317,13 @@ public class Query {
 			List<String> typeOfConditions = new List<String>();
 			for (String sobjectType : sobjectType2FieldList.keySet()) {
 				typeOfConditions.add(
-					'WHEN ' +
-						sobjectType +
-						' THEN ' +
-						String.join(
-							new List<String>(sobjectType2FieldList.get(sobjectType)),
-							', '
-						)
+					'WHEN ' + sobjectType + ' THEN ' + String.join(new List<String>(sobjectType2FieldList.get(sobjectType)), ', ')
 				);
 			}
 			if (!elseFieldList.isEmpty()) {
-				typeOfConditions.add(
-					'ELSE ' + String.join(new List<String>(elseFieldList), ', ')
-				);
+				typeOfConditions.add('ELSE ' + String.join(new List<String>(elseFieldList), ', '));
 			}
-			return 'TYPEOF ' +
-				polymorphicReference +
-				' ' +
-				String.join(typeOfConditions, ' ') +
-				' END';
+			return 'TYPEOF ' + polymorphicReference + ' ' + String.join(typeOfConditions, ' ') + ' END';
 		}
 
 		public override String toString() {
@@ -379,9 +356,7 @@ public class Query {
 			return this;
 		}
 
-		public SearchCondition negateSubSearchCondition(
-			SearchCondition searchCondition
-		) {
+		public SearchCondition negateSubSearchCondition(SearchCondition searchCondition) {
 			searchExpressions.add(new DenialSearchExpression(searchCondition));
 			return this;
 		}
@@ -492,10 +467,7 @@ public class Query {
 			addLimitStatement(queryStatements);
 			addOffsetStatement(queryStatements);
 
-			return objectTypeName +
-				(queryStatements.isEmpty()
-					? ''
-					: ' (' + String.join(queryStatements, ' ') + ')');
+			return objectTypeName + (queryStatements.isEmpty() ? '' : ' (' + String.join(queryStatements, ' ') + ')');
 		}
 
 		private void addFieldListStatement(List<String> queryStatements) {
@@ -617,11 +589,7 @@ public class Query {
 		private Object value;
 
 		@TestVisible
-		private FieldExpression(
-			String fieldName,
-			String comparisonOperator,
-			Object value
-		) {
+		private FieldExpression(String fieldName, String comparisonOperator, Object value) {
 			this.fieldName = fieldName;
 			this.comparisonOperator = comparisonOperator;
 			this.value = value;
@@ -646,96 +614,40 @@ public class Query {
 			} else if (value instanceof Date) {
 				String dateString = String.valueOf(value);
 				Integer indexOfTimePart = dateString.indexOf(' ');
-				return indexOfTimePart > 0
-					? dateString.substring(0, indexOfTimePart)
-					: dateString;
+				return indexOfTimePart > 0 ? dateString.substring(0, indexOfTimePart) : dateString;
 			} else if (value instanceof Datetime) {
 				Datetime d = (Datetime) value;
 				return d.formatGmt('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ');
 			} else if (value instanceof List<String>) {
-				return '(' +
-					String.join(convertToStringList((List<String>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((List<String>) value), ', ') + ')';
 			} else if (value instanceof Set<String>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<String>((Set<String>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<String>((Set<String>) value)), ', ') + ')';
 			} else if (value instanceof Set<Id>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Id>((Set<Id>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Id>((Set<Id>) value)), ', ') + ')';
 			} else if (value instanceof List<Date>) {
-				return '(' +
-					String.join(convertToStringList((List<Date>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((List<Date>) value), ', ') + ')';
 			} else if (value instanceof Set<Date>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Date>((Set<Date>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Date>((Set<Date>) value)), ', ') + ')';
 			} else if (value instanceof List<Datetime>) {
-				return '(' +
-					String.join(convertToStringList((List<Datetime>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((List<Datetime>) value), ', ') + ')';
 			} else if (value instanceof Set<Datetime>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Datetime>((Set<Datetime>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Datetime>((Set<Datetime>) value)), ', ') + ')';
 			} else if (value instanceof List<Integer>) {
-				return '(' +
-					String.join(convertToStringList((List<Integer>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((List<Integer>) value), ', ') + ')';
 			} else if (value instanceof Set<Integer>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Integer>((Set<Integer>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Integer>((Set<Integer>) value)), ', ') + ')';
 			} else if (value instanceof List<Long>) {
-				return '(' +
-					String.join(convertToStringList((List<Long>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((List<Long>) value), ', ') + ')';
 			} else if (value instanceof Set<Long>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Long>((Set<Long>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Long>((Set<Long>) value)), ', ') + ')';
 			} else if (value instanceof List<Double>) {
-				return '(' +
-					String.join(convertToStringList((List<Double>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((List<Double>) value), ', ') + ')';
 			} else if (value instanceof Set<Double>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Double>((Set<Double>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Double>((Set<Double>) value)), ', ') + ')';
 			} else if (value instanceof Set<Decimal>) {
-				return '(' +
-					String.join(
-						convertToStringList(new List<Decimal>((Set<Decimal>) value)),
-						', '
-					) +
-					')';
+				return '(' + String.join(convertToStringList(new List<Decimal>((Set<Decimal>) value)), ', ') + ')';
 			} else if (value instanceof Set<Set<String>>) {
-				return '(' +
-					String.join(convertToStringList((Set<Set<String>>) value), ', ') +
-					')';
+				return '(' + String.join(convertToStringList((Set<Set<String>>) value), ', ') + ')';
 			} else if (value instanceof SOQL.Builder) {
 				SOQL.Builder builder = (SOQL.Builder) value;
 				SOQL query = builder.build();
@@ -761,11 +673,7 @@ public class Query {
 			for (Date value : values) {
 				String dateString = String.valueOf(value);
 				Integer indexOfTimePart = dateString.indexOf(' ');
-				dateValues.add(
-					indexOfTimePart > 0
-						? dateString.substring(0, indexOfTimePart)
-						: dateString
-				);
+				dateValues.add(indexOfTimePart > 0 ? dateString.substring(0, indexOfTimePart) : dateString);
 			}
 			return dateValues;
 		}
