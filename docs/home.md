@@ -11,6 +11,8 @@ AsyncRestApi calls
 
 Provides a similar interface to Callable, but bulkified to handle multiple sets of parameters.
 
+### [CAssert](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/CAssert)
+
 ### [CachePartitionType](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/CachePartitionType)
 
 Enum for partition type.
