@@ -28,9 +28,7 @@ public with sharing class TriggerContext {
 	 */
 	public Boolean isInvalidExecutionContext() {
 		if (!this.isTriggerBeingTested || this.context == null) {
-			throw new TriggerFrameworkException(
-				'Trigger handler called outside of Trigger execution'
-			);
+			throw new TriggerFrameworkException('Trigger handler called outside of Trigger execution');
 		}
 
 		return false;
@@ -43,10 +41,7 @@ public with sharing class TriggerContext {
 	 * @param overrideForTesting Is the trigger running in a test context?
 	 */
 	@TestVisible
-	private void setTriggerContext(
-		String overriddenContext,
-		Boolean overrideForTesting
-	) {
+	private void setTriggerContext(String overriddenContext, Boolean overrideForTesting) {
 		if (!Trigger.isExecuting && !overrideForTesting) {
 			this.isTriggerBeingTested = false;
 			this.context = Trigger.operationType;
@@ -126,9 +121,7 @@ public with sharing class TriggerContext {
 				this.context = TriggerOperation.AFTER_UNDELETE;
 			}
 			when else {
-				throw new TriggerFrameworkException(
-					'Unexpected trigger context manually set'
-				);
+				throw new TriggerFrameworkException('Unexpected trigger context manually set');
 			}
 		}
 	}

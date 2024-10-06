@@ -104,10 +104,7 @@ public with sharing class Safely {
 			return new List<Database.UpsertResult>();
 		}
 		if (CanTheUser.edit(records) && CanTheUser.create(records)) {
-			SObjectAccessDecision securityDecision = guardAgainstRemovedFields(
-				AccessType.UPSERTABLE,
-				records
-			);
+			SObjectAccessDecision securityDecision = guardAgainstRemovedFields(AccessType.UPSERTABLE, records);
 
 			return Database.upsert(securityDecision.getRecords(), this.allOrNothing);
 		}
@@ -164,10 +161,7 @@ public with sharing class Safely {
 	 */
 	public List<SObject> doQuery(String query) {
 		List<SObject> records = Database.query(query);
-		SObjectAccessDecision securityDecision = guardAgainstRemovedFields(
-			AccessType.READABLE,
-			records
-		);
+		SObjectAccessDecision securityDecision = guardAgainstRemovedFields(AccessType.READABLE, records);
 		return securityDecision.getRecords();
 	}
 
@@ -180,32 +174,20 @@ public with sharing class Safely {
 	 *
 	 * @return List<Database.SaveResult> - the results of the DML call
 	 */
-	private List<Database.SaveResult> doDML(
-		System.AccessType accessType,
-		List<SObject> records
-	) {
+	private List<Database.SaveResult> doDML(System.AccessType accessType, List<SObject> records) {
 		// guard against an empty but non-null list of records.
 		if (records.isEmpty()) {
 			return new List<Database.SaveResult>();
 		}
 
-		SObjectAccessDecision securityDecision = guardAgainstRemovedFields(
-			accessType,
-			records
-		);
+		SObjectAccessDecision securityDecision = guardAgainstRemovedFields(accessType, records);
 
 		switch on accessType {
 			when CREATABLE {
-				return Database.insert(
-					securityDecision.getRecords(),
-					this.allOrNothing
-				);
+				return Database.insert(securityDecision.getRecords(), this.allOrNothing);
 			}
 			when UPDATABLE {
-				return Database.update(
-					securityDecision.getRecords(),
-					this.allOrNothing
-				);
+				return Database.update(securityDecision.getRecords(), this.allOrNothing);
 			}
 			// impossible, but required by compiler
 			when else {
@@ -222,10 +204,7 @@ public with sharing class Safely {
 	 *
 	 * @return SObjectAccessDecision - the results of the Security Access Decision
 	 */
-	private SObjectAccessDecision guardAgainstRemovedFields(
-		System.AccessType accessType,
-		List<SObject> records
-	) {
+	private SObjectAccessDecision guardAgainstRemovedFields(System.AccessType accessType, List<SObject> records) {
 		SObjectAccessDecision securityDecision = Security.stripInaccessible(
 			accessType, // What kind of Access are we checking?
 			records, // The records to check
@@ -234,8 +213,7 @@ public with sharing class Safely {
 		Map<String, Set<String>> removedFields = securityDecision.getRemovedFields();
 		if (this.throwIfRemovedFields && !removedFields.isEmpty()) {
 			throw new RemovedFieldsException(
-				'ThrowIfRemovedFields is enabled and the following fields were removed: ' +
-				removedFields
+				'ThrowIfRemovedFields is enabled and the following fields were removed: ' + removedFields
 			);
 		}
 		return securityDecision;

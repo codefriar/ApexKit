@@ -36,9 +36,9 @@ Increment the internal counter returning the results of this.exceeded().
 
 #### Returns
 
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | `Boolean` true if count will exceed max count or is less than 0. |
+| Type      | Description                                                      |
+| --------- | ---------------------------------------------------------------- |
+| `Boolean` | `Boolean` true if count will exceed max count or is less than 0. |
 
 ### `public Boolean exceeded()`
 
@@ -46,9 +46,9 @@ Determines if this we're about to exceed the loop count.
 
 #### Returns
 
-| Type    | Description                                     |
-| ------- | ----------------------------------------------- |
-| Boolean | `Boolean` true if less than 0 or more than max. |
+| Type      | Description                                     |
+| --------- | ----------------------------------------------- |
+| `Boolean` | `Boolean` true if less than 0 or more than max. |
 
 ### `public Integer getMax()`
 
@@ -56,9 +56,9 @@ Returns the max loop count.
 
 #### Returns
 
-| Type    | Description               |
-| ------- | ------------------------- |
-| Integer | `Integer` max loop count. |
+| Type      | Description               |
+| --------- | ------------------------- |
+| `Integer` | `Integer` max loop count. |
 
 ### `public Integer getCount()`
 
@@ -66,9 +66,9 @@ Returns the current loop count.
 
 #### Returns
 
-| Type    | Description                   |
-| ------- | ----------------------------- |
-| Integer | `Integer` current loop count. |
+| Type      | Description                   |
+| --------- | ----------------------------- |
+| `Integer` | `Integer` current loop count. |
 
 ### `public void setMax(Integer max)`
 

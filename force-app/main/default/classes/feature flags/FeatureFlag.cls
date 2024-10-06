@@ -104,14 +104,12 @@ public with sharing class FeatureFlag {
 	 */
 	@TestVisible
 	private Boolean isUniversallyEnabled(String featureFlagName) {
-		return (dataProvider.featureFlags.get(featureFlagName).isEnabled__c ||
-		isEnabledOnOrAfterToday(featureFlagName));
+		return (dataProvider.featureFlags.get(featureFlagName).isEnabled__c || isEnabledOnOrAfterToday(featureFlagName));
 	}
 
 	@TestVisible
 	private Boolean isEnabledOnOrAfterToday(String featureFlagName) {
-		return Date.today() >=
-			dataProvider.featureFlags.get(featureFlagName).isEnabled_After__c;
+		return Date.today() >= dataProvider.featureFlags.get(featureFlagName).isEnabled_After__c;
 	}
 
 	/**
@@ -142,11 +140,7 @@ public with sharing class FeatureFlag {
 	private Boolean isEnabledByCustomPermissionForUser(String featureFlagName) {
 		Boolean isEnabledByCustomPermission = false;
 
-		for (
-			String customPermissionName : dataProvider.enablingCustomPermissions(
-				featureFlagName
-			)
-		) {
+		for (String customPermissionName : dataProvider.enablingCustomPermissions(featureFlagName)) {
 			if (FeatureManagement.checkPermission(customPermissionName)) {
 				isEnabledByCustomPermission = true;
 				break;

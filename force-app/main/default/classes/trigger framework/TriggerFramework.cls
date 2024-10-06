@@ -111,10 +111,7 @@ public virtual class TriggerFramework {
 	public void setMaxLoopCount(Integer max) {
 		String handlerName = getHandlerName();
 		if (!TriggerFramework.LOOP_COUNT_MAP.containsKey(handlerName)) {
-			TriggerFramework.LOOP_COUNT_MAP.put(
-				handlerName,
-				new TriggerFrameworkLoopCount(max)
-			);
+			TriggerFramework.LOOP_COUNT_MAP.put(handlerName, new TriggerFrameworkLoopCount(max));
 		} else {
 			TriggerFramework.LOOP_COUNT_MAP.get(handlerName).setMax(max);
 		}
@@ -140,11 +137,7 @@ public virtual class TriggerFramework {
 	public static void bypass(String handlerName) {
 		String stackTrace = Polyfills.generateStackTrace();
 		Log.get()
-			.publish(
-				handlerName.toLowerCase() +
-					' is being bypassed. This stackTrace may help you debug it. ' +
-					stackTrace
-			);
+			.publish(handlerName.toLowerCase() + ' is being bypassed. This stackTrace may help you debug it. ' + stackTrace);
 		TriggerFramework.bypassedHandlers.add(handlerName.toLowerCase());
 	}
 
@@ -168,9 +161,7 @@ public virtual class TriggerFramework {
 	 * TriggerFramework.isBypassed('AccountTriggerFramework');
 	 */
 	public static Boolean isBypassed(String handlerName) {
-		return TriggerFramework.bypassedHandlers.contains(
-			handlerName.toLowerCase()
-		);
+		return TriggerFramework.bypassedHandlers.contains(handlerName.toLowerCase());
 	}
 
 	/**
@@ -195,15 +186,11 @@ public virtual class TriggerFramework {
 	protected void addToLoopCount() {
 		String handlerName = getHandlerName();
 		if (TriggerFramework.LOOP_COUNT_MAP.containsKey(handlerName)) {
-			Boolean exceeded = TriggerFramework.LOOP_COUNT_MAP.get(handlerName)
-				.increment();
+			Boolean exceeded = TriggerFramework.LOOP_COUNT_MAP.get(handlerName).increment();
 			if (exceeded) {
 				Integer max = TriggerFramework.LOOP_COUNT_MAP.get(handlerName).max;
 				throw new TriggerFrameworkException(
-					'Maximum loop count of ' +
-						String.valueOf(max) +
-						' reached in ' +
-						handlerName
+					'Maximum loop count of ' + String.valueOf(max) + ' reached in ' + handlerName
 				);
 			}
 		}

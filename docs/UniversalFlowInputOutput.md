@@ -1,3 +1,5 @@
+`APIVERSION: 58`
+
 `STATUS: ACTIVE`
 
 This is a common object for passing data from a flow, into a class method, and back out to flow.
@@ -62,15 +64,17 @@ While the parameters list is used for passing parameters to the method you're ca
 
 ## Methods
 
-### `public Map toCallableParamMap()`
+### `public Map<String,Object> toCallableParamMap()`
 
-Method is responsible for converting the list of UniversalFlowInputOutputParameter objects delivered by the Flow action framework, to a Map&lt;String, Object&gt; needed by the Callable interface. Note, this is a hard limitation of the Flow action framework and the Apex Defined Data Types. This is not a limitation of this pattern / framework. If you want to, say pass a list of records to a method, you'll need to pass a list of strings, and query for the objects in the Apex. #sorryNothingICanDo.
+`SUPPRESSWARNINGS`
+
+Method is responsible for converting the list of UniversalFlowInputOutputParameter objects delivered by the Flow action framework, to a Map&lt;String, Object&gt; needed by the Callable interface. Note, this is a hard limitation of the Flow action framework and the Apex Defined Data Types. This is not a limitation of this pattern / framework. If you want to, say pass a list of records to a method, you'll need to pass a list of strings, and query for the objects in the Apex. #sorryNothingICanDo. Note: This method is currently suppressing PMD warnings for cognitive, standard and cyclomatic complexity as as method length. Unfortunately, I don't see a good re-factor path forward to reduce these, as the sheer number of if statements is what's killing it.
 
 #### Returns
 
-| Type               | Description                                                                         |
-| ------------------ | ----------------------------------------------------------------------------------- |
-| Map<String,Object> | Map<String, Object> This returns a map of parameters you're passing to your method. |
+| Type                 | Description                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| `Map<String,Object>` | Map<String, Object> This returns a map of parameters you're passing to your method. |
 
 ### `public override String toString()`
 
@@ -78,8 +82,8 @@ Used to provide a usable key for the Map that uses this method.
 
 #### Returns
 
-| Type   | Description                                        |
-| ------ | -------------------------------------------------- |
-| String | `String` This value maps unique class/method names |
+| Type     | Description                                        |
+| -------- | -------------------------------------------------- |
+| `String` | `String` This value maps unique class/method names |
 
 ---

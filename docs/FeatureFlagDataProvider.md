@@ -63,7 +63,7 @@ Used to correlate related metadata records for per-permission set enablement of 
 
 ## Methods
 
-### `public Set enablingPermissionSets(String featureFlagName)`
+### `public Set<String> enablingPermissionSets(String featureFlagName)`
 
 Returns set of ids corresponding to permission set ids that provide feature enablement for the indicated feature flag
 
@@ -75,11 +75,11 @@ Returns set of ids corresponding to permission set ids that provide feature enab
 
 #### Returns
 
-| Type        | Description                     |
-| ----------- | ------------------------------- |
-| Set<String> | `Set<Id>` of permission set ids |
+| Type          | Description                     |
+| ------------- | ------------------------------- |
+| `Set<String>` | `Set<Id>` of permission set ids |
 
-### `public Set enablingCustomPermissions(String featureFlagName)`
+### `public Set<String> enablingCustomPermissions(String featureFlagName)`
 
 Returns set of Strings representing custom permission names that provide feature enablement for the indicated feature flag
 
@@ -91,19 +91,19 @@ Returns set of Strings representing custom permission names that provide feature
 
 #### Returns
 
-| Type        | Description                              |
-| ----------- | ---------------------------------------- |
-| Set<String> | `Set<String>` of custom permission names |
+| Type          | Description                              |
+| ------------- | ---------------------------------------- |
+| `Set<String>` | `Set<String>` of custom permission names |
 
-### `public List fetchUsersAssignedPermissionSets()`
+### `public List<String> fetchUsersAssignedPermissionSets()`
 
 Used to find a users' assigned permission set ids. This is intentionally tied to the _executing users' userId_.
 
 #### Returns
 
-| Type         | Description                                                           |
-| ------------ | --------------------------------------------------------------------- |
-| List<String> | `List<Id>` a list of permission set id's assigned to the current user |
+| Type           | Description                                                           |
+| -------------- | --------------------------------------------------------------------- |
+| `List<String>` | `List<Id>` a list of permission set id's assigned to the current user |
 
 ### `private void overrideFlags(Map<String,Feature_Flag__mdt> flags)`
 
@@ -141,7 +141,7 @@ Allows testers to inject custom metadata records that are not present in the org
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | `perCustomPermissionOverrides` | Map of flags to override this class' loading of custom metadata for per-custom-permission enablement of features |
 
-### `private static Map rekeyMapByFeatureFlagName(Map<String,SObject> incomingMap, Map<String,List<SObject>> memoizedMap, Map<String,Feature_Flag__mdt> correlatingMap, String keyField)`
+### `private static Map<String,List<SObject>> rekeyMapByFeatureFlagName(Map<String,SObject> incomingMap, Map<String,List<SObject>> memoizedMap, Map<String,Feature_Flag__mdt> correlatingMap, String keyField)`
 
 `SUPPRESSWARNINGS`
 
@@ -158,8 +158,8 @@ given an incoming map, create and return a new map where the keys are a from the
 
 #### Returns
 
-| Type                      | Description                  |
-| ------------------------- | ---------------------------- |
-| Map<String,List<SObject>> | `Map<String, List<sObject>>` |
+| Type                        | Description                  |
+| --------------------------- | ---------------------------- |
+| `Map<String,List<SObject>>` | `Map<String, List<sObject>>` |
 
 ---

@@ -34,6 +34,12 @@ It doesn't do much, but it does illustrate how BulkCallable, Invocable, Universa
 UniversalFlowInputOutputParameter work together to expose multiple methods to Flow.
 Please understand t&hellip;
 
+### [DataBuilder](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/DataBuilder)
+
+This is a fluent interface for building data sets necessary for Apex based testing.
+This is only a prototype, and can't realistically be built out universally, as the objects etc
+that individual orgs will use / need will differ.
+
 ### [EnqueueNextQueueableProcessStep](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/EnqueueNextQueueableProcessStep)
 
 This class implements the Apex Transaction Finalizer interface. It's used to implement promises. This
@@ -155,6 +161,10 @@ continue to loop, and if so, enqueueing the next iteration. It also ensure passt
 next iteration.
 
 ### [OuroborosTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/OuroborosTests)
+
+### [PermissionsHelper](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/PermissionsHelper)
+
+A test-only helper for manipulating users' permissions, permission sets and permission set groups
 
 ### [Polyfills](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Polyfills)
 
@@ -280,6 +290,31 @@ of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modi&hellip;
 
+### [SObjectFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactory)
+
+a factory class for generating test data.
+This class auto populates required fields and, by default, generates a plausible but fake ID for the record.
+You can use this class directly, or use one of the associated builder classes for generating
+complex data structures.
+This class has the ability to &hellip;
+
+### [SObjectFactoryDefaults](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactoryDefaults)
+
+class exists as a namespace for 'org-wide' default values on common SObjects.
+Each inner class represents one type of SObject and implements the SObjectFactory.FieldDefaults interface.
+That interface dictates a map of SOBjectField =&gt; Object. SObjectFactory will apply these org-wide defaults
+as it c&hellip;
+
+### [SObjectFactoryHelper](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactoryHelper)
+
+This class contains helper methods used by the SObjectFactory.
+While a bit of an anti-pattern, this class' contents allow SObjectFactory to be more-focused.
+
+### [SObjectFactoryTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/SObjectFactoryTests)
+
+This is a set of tests, unit and profile based for the SObject and User factories.
+These _require_
+
 ### [Safely](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Safely)
 
 Class wraps DML Calls in FLS / Crud checks.
@@ -296,66 +331,55 @@ still need a&hellip;
 
 ### [Stub](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Stub)
 
-This class helps you construct and manage StubProvider
-conforming objects for use in Unit Tests. It, along with it's companion
-classes:
+This class helps you construct and manage StubProvider conforming objects for use in Unit Tests. It,
+along with it's companion classes:
 
 -   MockedMethod
 -   MethodSignature
-    and their builder-pattern inner classes are designed to work together
-    with a fluent API style like this:
+    and their builder-pattern inner classes are designed to work together with a fluent API style like this:
 
-```apex
-StubObject fo&hellip;
+### [StubBuilder](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/StubBuilder)
 
+StubBuilder is a class that allows you to build a Stub object for a given object type. The Stub object can then be used in unit tests to mock the object type.
+
+# Using StubBuilder
+
+## Overview
+
+StubBuilder is designed to be an intuitive, fluent way to generate StubProvider based Stub objects with Mock&hellip;
 
 ### [StubUtilities](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/StubUtilities)
-
-
-### [TestFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestFactory)
-
 
 ### [TestPolyfills](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TestPolyfills)
 
 This class is not a unit test of the polyfills class but a
 set of polyfills for unit testing.
 
-
-
 ### [TriggerContext](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TriggerContext)
 
 A class encapsulating the trigger context. Before/after insert/update/delete etc.
-
-
 
 ### [TriggerFramework](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TriggerFramework)
 
 An opinionated trigger handler framework.
 
-
-
 ### [TriggerFrameworkException](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TriggerFrameworkException)
 
 An exception that is thrown when an error occurs in the Trigger Framework
-
-
 
 ### [TriggerFrameworkLoopCount](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TriggerFrameworkLoopCount)
 
 inner class for managing the loop count per handler
 
-
-
 ### [TriggerFrameworkTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TriggerFrameworkTests)
-
 
 ### [UFInvocable](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UFInvocable)
 
 This provides a common interface for classes & methods developers want to expose to flow.
 Intrepid developers will note you could just implement the Callable interface in all of your classes.
 However, this class provides a few benefits:
-- It provides a common interface for all of your classes, whic&hellip;
 
+-   It provides a common interface for all of your classes, whic&hellip;
 
 ### [ULID](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/ULID)
 
@@ -366,7 +390,6 @@ Think of them as a UUIDv4, but sortable. Similar to UUIDv7.
 These are, effectively a universally unique identifier
 but one tha&hellip;
 
-
 ### [ULIDTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/ULIDTests)
 
 This seems like a woefully inadequate test class.
@@ -375,19 +398,13 @@ The single public method is fully tested by this class' method.
 Because ULIDs are intentionally random, there's no way to test
 deterministic output.
 
-
-
 ### [UniversalBulkInvocable](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UniversalBulkInvocable)
 
 This class contains the one and only invocable method that will be displayed in the flow builder.
 
-
-
 ### [UniversalFlowInputOutput](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UniversalFlowInputOutput)
 
 This is a common object for passing data from a flow, into a class method, and back out to flow.
-
-
 
 ### [UniversalFlowInputOutputParameter](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UniversalFlowInputOutputParameter)
 
@@ -395,14 +412,22 @@ This class contains the object definition used by the Universal Invocable Action
 to expose variables of every type allowed by the InvocableVariable method in a single object. It uses type detection
 to set the correct property on ouput.
 
-
-
 ### [UniversalInvocable](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UniversalInvocable)
 
 This class exposes methods from any class that extends Invocable to flows.
 By adding 'extends Invocable' to your class and adding the call method, any class' methods can be
 invoked by this single invocable method.
 
+### [UserFactory](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UserFactory)
+
+A factory class for generating Users during Unit Tests
+While this class has generic user-building methods, the bulk of this
+class is dedicated to building persona-specific users
+
+### [UserFactoryHelper](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UserFactoryHelper)
+
+Helper class for the UserFactory class.
+Responsible for manipulation of users and permissions
 
 ## FeatureFlag
 
@@ -410,18 +435,11 @@ invoked by this single invocable method.
 
 Convenience class for checking feature flags. This is purely Syntactic sugar.
 
-
-
 ### [FeatureFlag](https://github.com/codefriar/ApexKit/wiki/FeatureFlag/FeatureFlag)
 
 Provides a unified, simple and testable api for feature flags
-
-
 
 ### [FeatureFlagDataProvider](https://github.com/codefriar/ApexKit/wiki/FeatureFlag/FeatureFlagDataProvider)
 
 This class is responsible for querying / fetching FeatureFlag data. This is separate from the
 FeatureFlag flag class to facilitate proper unit testing. (and just good design)
-
-
-```

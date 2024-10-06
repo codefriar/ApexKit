@@ -39,9 +39,9 @@ A method to determine if the current Quiddity context is within a caller-supplie
 
 #### Returns
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `boolean`   |
+| Type      | Description |
+| --------- | ----------- |
+| `Boolean` | `boolean`   |
 
 ### `public static Boolean isNotAcceptableQuiddity(List<Quiddity> acceptableQuiddites)`
 
@@ -55,9 +55,9 @@ Method to determine if the current Quiddity context is not acceptable
 
 #### Returns
 
-| Type    | Description                                                                       |
-| ------- | --------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the current quiddity is not in the list of acceptable quiddities. |
+| Type      | Description                                                                       |
+| --------- | --------------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the current quiddity is not in the list of acceptable quiddities. |
 
 ### `public static Quiddity quiddity()`
 
@@ -65,9 +65,9 @@ method grabs the current quiddity from the request object
 
 #### Returns
 
-| Type     | Description                    |
-| -------- | ------------------------------ |
-| Quiddity | Quiddity The current quiddity. |
+| Type       | Description                    |
+| ---------- | ------------------------------ |
+| `Quiddity` | Quiddity The current quiddity. |
 
 ### `public static Boolean quiddityIsATestContext()`
 
@@ -75,8 +75,8 @@ Syntactic sugar method for determining if the current request quiddity is a know
 
 #### Returns
 
-| Type    | Description                                                                     |
-| ------- | ------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the current quiddity is in the list of trusted test quiddities. |
+| Type      | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| `Boolean` | Boolean true if the current quiddity is in the list of trusted test quiddities. |
 
 ---

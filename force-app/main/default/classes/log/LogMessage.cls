@@ -88,11 +88,7 @@ public with sharing class LogMessage {
 	public LogMessage(Exception ex) {
 		this.message = String.format(
 			EXCEPTION_STRING_FORMAT,
-			new List<String>{
-				ex.getTypeName(),
-				ex.getMessage(),
-				ex.getStackTraceString()
-			}
+			new List<String>{ ex.getTypeName(), ex.getMessage(), ex.getStackTraceString() }
 		);
 		this.severity = LoggingLevel.ERROR;
 	}
