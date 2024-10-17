@@ -1,3 +1,5 @@
+`APIVERSION: 58`
+
 `STATUS: ACTIVE`
 
 A factory class for generating bogus Ids for testing purposes.
@@ -38,7 +40,7 @@ this method accepts a String representation of the sObject type and defers to it
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | id a plausible, but bogus Id |
+| `Id` | id a plausible, but bogus Id |
 
 #### Example
 
@@ -60,7 +62,7 @@ This method accepts a Type object and defers to it's sister methods to generate 
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+| `Id` | Id a plausible, but bogus Id |
 
 #### Example
 
@@ -82,7 +84,7 @@ This method accepts a generic SObject and defers to it's sister methods to gener
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+| `Id` | Id a plausible, but bogus Id |
 
 ### `public static Id get(Schema incomingType)`
 
@@ -98,7 +100,7 @@ All the other methods in this class defer to this method eventually to generate 
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+| `Id` | Id a plausible, but bogus Id |
 
 ### `private static Id getWithPrefixOverride(String prefix)`
 
@@ -114,7 +116,7 @@ A method for getting a bogus Id for an object that may not return a prefix via s
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+| `Id` | Id a plausible, but bogus Id |
 
 ### `private static String getUnstableObjectPrefix(String objectType)`
 
@@ -128,9 +130,9 @@ Certain types of objects do not return a prefix via standard Schema methods. Thi
 
 #### Returns
 
-| Type   | Description                                        |
-| ------ | -------------------------------------------------- |
-| String | String three character prefix for the object type. |
+| Type     | Description                                        |
+| -------- | -------------------------------------------------- |
+| `String` | String three character prefix for the object type. |
 
 ---
 

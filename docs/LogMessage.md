@@ -80,6 +80,6 @@ converts this object to an event for publishing
 
 | Type     | Description |
 | -------- | ----------- |
-| Log\_\_e | `SObject`   |
+| `Log__e` | `SObject`   |
 
 ---

@@ -57,9 +57,9 @@ This method provides a syntactic sugar for adding a new QueueableProcess to the 
 
 #### Returns
 
-| Type             | Description                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------- |
-| QueueableProcess | Returns a Queueable Process instance that can be used to chain additional QueueableProcess instances. |
+| Type               | Description                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| `QueueableProcess` | Returns a Queueable Process instance that can be used to chain additional QueueableProcess instances. |
 
 ### `public Id start()`
 
@@ -69,7 +69,7 @@ This method starts the QueueableProcess chain. It's the entry point for the proc
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id - Id of the Enqueued job. |
+| `Id` | Id - Id of the Enqueued job. |
 
 ### `public Id start(Object initialPassthrough)`
 
@@ -85,13 +85,13 @@ This method starts the QueueableProcess chain. It's the entry point for the proc
 
 | Type | Description                  |
 | ---- | ---------------------------- |
-| Id   | Id - Id of the Enqueued job. |
+| `Id` | Id - Id of the Enqueued job. |
 
 ### `public void execute()`
 
 This must be implemented by extending classes. Developers - implement this method with the work you want executed asynchronously.
 
-### `public void handleException(Exception incomingException)`
+### `public virtual void handleException(Exception incomingException)`
 
 this is a default implementation of an handleError method. It's called by the finalizer if the developer doesn't implement their own handleError method. Developers can write per-step error handling by implementing their own handleError method as `public override void handleError(Exception incomingException)`
 
@@ -101,7 +101,7 @@ this is a default implementation of an handleError method. It's called by the fi
 | ------------------- | ----------------------------------------------------------- |
 | `incomingException` | Exception - the exception that was thrown during execution. |
 
-### `public void execute(QueueableContext context)`
+### `public virtual void execute(QueueableContext context)`
 
 This is required by the Queueable interface. It's the essence of how the QueueableProcess pattern is implemented in Apex.
 
