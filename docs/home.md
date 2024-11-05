@@ -349,6 +349,14 @@ inner class for managing the loop count per handler
 ### [TriggerFrameworkTests](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/TriggerFrameworkTests)
 
 
+### [Tuple](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/Tuple)
+
+Tuple represents a key-value pair. Kinda. Don't come at me math nerds.
+You may be asking why this exists, given the existence of Map. Unfortuately Map isn't available everywhere.
+Notably, it's not available in Apex-defined Data Types used by Flow/Invocable actions.
+Additionally, `Object` is not a v&hellip;
+
+
 ### [UFInvocable](https://github.com/codefriar/ApexKit/wiki/Miscellaneous/UFInvocable)
 
 This provides a common interface for classes & methods developers want to expose to flow.
