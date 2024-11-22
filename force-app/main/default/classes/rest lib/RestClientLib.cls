@@ -26,12 +26,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 */
 	@TestVisible
 	@SuppressWarnings('PMD.ExcessiveParameterList')
-	protected HttpResponse makeApiCall(
-		HttpVerb method,
-		String path,
-		String query,
-		String body
-	) {
+	protected HttpResponse makeApiCall(HttpVerb method, String path, String query, String body) {
 		return this.makeApiCall(new RestLibApiCall(method, path, query, body));
 	}
 
@@ -44,11 +39,7 @@ public with sharing virtual class RestClientLib extends RestClient {
 	 * @return      `HTTPResponse`
 	 */
 	@TestVisible
-	protected HttpResponse makeApiCall(
-		HttpVerb method,
-		String path,
-		String query
-	) {
+	protected HttpResponse makeApiCall(HttpVerb method, String path, String query) {
 		return this.makeApiCall(new RestLibApiCall(method, path, query, ''));
 	}
 

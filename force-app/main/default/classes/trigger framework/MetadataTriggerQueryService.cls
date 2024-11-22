@@ -31,9 +31,7 @@ public with sharing class MetadataTriggerQueryService {
 	 */
 	@SuppressWarnings('PMD.ApexCRUDViolation')
 	public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers() {
-		return (List<Metadata_Driven_Trigger__mdt>) new SOQL.Builder(
-				'Metadata_Driven_Trigger__mdt'
-			)
+		return (List<Metadata_Driven_Trigger__mdt>) new SOQL.Builder('Metadata_Driven_Trigger__mdt')
 			.selectField('Class__c')
 			.whereCondition(
 				new Query.Condition()
@@ -43,10 +41,7 @@ public with sharing class MetadataTriggerQueryService {
 						'Id',
 						new SOQL.Builder('Disabled_for__mdt')
 							.selectField('Metadata_Driven_Trigger__c')
-							.whereCondition(
-								new Query.Condition()
-									.equals('User_Email__c', UserInfo.getUserName())
-							)
+							.whereCondition(new Query.Condition().equals('User_Email__c', UserInfo.getUserName()))
 							.build()
 					)
 			)
@@ -79,10 +74,7 @@ public with sharing class MetadataTriggerQueryService {
 	 *
 	 * @throws MetadataTriggerFrameworkException when both triggerNew and triggerOld are null
 	 */
-	public static String getSObjectType(
-		List<SObject> triggerNew,
-		List<SObject> triggerOld
-	) {
+	public static String getSObjectType(List<SObject> triggerNew, List<SObject> triggerOld) {
 		if (triggerNew != null) {
 			return Polyfills.getSObjectTypeFromListsFirstObject(triggerNew);
 		} else if (triggerOld != null) {

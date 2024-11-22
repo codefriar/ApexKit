@@ -98,8 +98,8 @@ Ensures that the inputted string ends in a `/` makes callouts more robust.
 
 #### Returns
 
-| Type   | Description                                               |
-| ------ | --------------------------------------------------------- |
-| String | inputted string with `/` if it didn't already end in one. |
+| Type     | Description                                               |
+| -------- | --------------------------------------------------------- |
+| `String` | inputted string with `/` if it didn't already end in one. |
 
 ---
