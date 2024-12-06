@@ -89,8 +89,7 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 			this.queueableContextHistory = new List<QueueableContext>();
 		}
 		this.queueableContextHistory.add(context);
-		// invoke the abstract method `execute`. see the comment above.
-		execute();
+		
 		// create a new instance of the finalizer class. Note that we're passing in the list of remaining steps and the
 		// passthrough data.
 		Finalizer nextStep = new EnqueueNextQueueableProcessStep(
@@ -102,5 +101,7 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 		// Attach the finalizer to system context. This will take care of enqueueing the next QueueableProcess step in
 		// the nextStep.
 		System.attachFinalizer(nextStep);
+		// invoke the abstract method `execute`. see the comment above.
+		execute();
 	}
 }
