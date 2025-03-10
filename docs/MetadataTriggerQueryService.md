@@ -27,7 +27,7 @@ Initialize objectTypeName as an empty string to avoid null errors
 
 ## Methods
 
-### `public List getMetadataTriggers()`
+### `public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()`
 
 `SUPPRESSWARNINGS`
 
@@ -37,7 +37,7 @@ This query finds an ordered list trigger handler classes to execute. It ignores 
 
 | Type                                 | Description                          |
 | ------------------------------------ | ------------------------------------ |
-| List<Metadata_Driven_Trigger\_\_mdt> | `List<Metadata_Driven_Trigger__mdt>` |
+| `List<Metadata_Driven_Trigger__mdt>` | `List<Metadata_Driven_Trigger__mdt>` |
 
 ### `public static String getSObjectType(List<SObject> triggerNew, List<SObject> triggerOld)`
 
@@ -52,9 +52,9 @@ This determines the active sObject type by describing the first record in the tr
 
 #### Returns
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| String | `String` the ObjectType name |
+| Type     | Description                  |
+| -------- | ---------------------------- |
+| `String` | `String` the ObjectType name |
 
 #### Throws
 

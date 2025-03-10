@@ -44,10 +44,7 @@ public with sharing class SOQLTest {
 		insert admin;
 
 		System.runAs(admin) {
-			insert new List<Account>{
-				new Account(Name = 'Test 1'),
-				new Account(Name = 'Test 2')
-			};
+			insert new List<Account>{ new Account(Name = 'Test 1'), new Account(Name = 'Test 2') };
 		}
 	}
 
@@ -132,9 +129,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Database.QueryLocator expectedQueryLocator = Database.getQueryLocator(
-				queryString
-			);
+			Database.QueryLocator expectedQueryLocator = Database.getQueryLocator(queryString);
 			Assert.areEqual(expectedQueryLocator.getQuery(), queryLocator.getQuery());
 		}
 	}
@@ -199,10 +194,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.fieldsToSelect.contains(fieldName),
-				builder.fieldsToSelect
-			);
+			System.assert(builder.fieldsToSelect.contains(fieldName), builder.fieldsToSelect);
 		}
 	}
 
@@ -224,10 +216,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.fieldsToSelect.containsAll(fieldNames),
-				builder.fieldsToSelect
-			);
+			System.assert(builder.fieldsToSelect.containsAll(fieldNames), builder.fieldsToSelect);
 		}
 	}
 
@@ -249,10 +238,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.fieldsToSelect.containsAll(fieldNames),
-				builder.fieldsToSelect
-			);
+			System.assert(builder.fieldsToSelect.containsAll(fieldNames), builder.fieldsToSelect);
 		}
 	}
 
@@ -292,16 +278,10 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			String expectedSubQueryString =
-				'(' +
-				contactsSubquery.getQueryString() +
-				')';
+			String expectedSubQueryString = '(' + contactsSubquery.getQueryString() + ')';
 			Assert.isTrue(
 				builder.fieldsToSelect.contains(expectedSubQueryString),
-				'Expected Subquery: ' +
-					expectedSubQueryString +
-					' Actual Fields: ' +
-					builder.fieldsToSelect
+				'Expected Subquery: ' + expectedSubQueryString + ' Actual Fields: ' + builder.fieldsToSelect
 			);
 		}
 	}
@@ -316,10 +296,7 @@ public with sharing class SOQLTest {
 			Query.TypeOf ownerTypeOf = new Query.TypeOf('Owner')
 				.whenSObjectType(
 					User.SObjectType.getDescribe().getName(),
-					new Set<String>{
-						User.Id.getDescribe().getName(),
-						User.Username.getDescribe().getName()
-					}
+					new Set<String>{ User.Id.getDescribe().getName(), User.Username.getDescribe().getName() }
 				)
 				.elseFieldList('Id');
 
@@ -331,10 +308,7 @@ public with sharing class SOQLTest {
 
 			Assert.isTrue(
 				builder.typeOfClauses.contains(ownerTypeOf),
-				'Expected TypeOf: ' +
-					ownerTypeOf +
-					' Actual Type Of clauses: ' +
-					builder.typeOfClauses
+				'Expected TypeOf: ' + ownerTypeOf + ' Actual Type Of clauses: ' + builder.typeOfClauses
 			);
 		}
 	}
@@ -346,8 +320,7 @@ public with sharing class SOQLTest {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType);
 
-			Query.Condition condition = new Query.Condition()
-				.equals('Reason', 'Other');
+			Query.Condition condition = new Query.Condition().equals('Reason', 'Other');
 
 			Test.startTest();
 
@@ -357,14 +330,9 @@ public with sharing class SOQLTest {
 
 			Assert.areEqual(1, builder.whereCondition.expressions.size());
 
-			Query.Expression expectedExpression = new Query.ConditionExpression(
-				condition
-			);
+			Query.Expression expectedExpression = new Query.ConditionExpression(condition);
 			Query.Expression actualExpression = builder.whereCondition.expressions[0];
-			Assert.areEqual(
-				expectedExpression.toExpressionString(),
-				actualExpression.toExpressionString()
-			);
+			Assert.areEqual(expectedExpression.toExpressionString(), actualExpression.toExpressionString());
 		}
 	}
 
@@ -397,11 +365,7 @@ public with sharing class SOQLTest {
 			String field = Case.CreatedDate.getDescribe().getName();
 			Query.SortDirection sortDirection = Query.SortDirection.DESCENDING;
 			Query.SortNullRecords sortNullRecords = Query.SortNullRecords.LAST;
-			Query.SortOrder expectedSortOrder = new Query.SortOrder(
-				field,
-				sortDirection,
-				sortNullRecords
-			);
+			Query.SortOrder expectedSortOrder = new Query.SortOrder(field, sortDirection, sortNullRecords);
 
 			Test.startTest();
 
@@ -412,10 +376,7 @@ public with sharing class SOQLTest {
 			Assert.areEqual(1, builder.sortOrders.size());
 
 			Query.SortOrder actualSortOrder = builder.sortOrders[0];
-			Assert.areEqual(
-				expectedSortOrder.toSortOrderString(),
-				actualSortOrder.toSortOrderString()
-			);
+			Assert.areEqual(expectedSortOrder.toSortOrderString(), actualSortOrder.toSortOrderString());
 		}
 	}
 
@@ -470,10 +431,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.statementFor.contains('REFERENCE'),
-				builder.statementFor
-			);
+			System.assert(builder.statementFor.contains('REFERENCE'), builder.statementFor);
 		}
 	}
 
@@ -490,10 +448,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.statementFor.contains('UPDATE'),
-				builder.statementFor
-			);
+			System.assert(builder.statementFor.contains('UPDATE'), builder.statementFor);
 		}
 	}
 
@@ -510,10 +465,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.statementFor.contains('VIEW'),
-				builder.statementFor
-			);
+			System.assert(builder.statementFor.contains('VIEW'), builder.statementFor);
 		}
 	}
 
@@ -530,10 +482,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.statementUpdate.contains('TRACKING'),
-				builder.statementUpdate
-			);
+			System.assert(builder.statementUpdate.contains('TRACKING'), builder.statementUpdate);
 		}
 	}
 
@@ -550,10 +499,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			System.assert(
-				builder.statementUpdate.contains('VIEWSTAT'),
-				builder.statementUpdate
-			);
+			System.assert(builder.statementUpdate.contains('VIEWSTAT'), builder.statementUpdate);
 		}
 	}
 
@@ -564,9 +510,7 @@ public with sharing class SOQLTest {
 			String objectType = Case.SObjectType.getDescribe().getName();
 			SOQL.Builder builder = new SOQL.Builder(objectType)
 				.selectField(Case.CreatedDate.getDescribe().getName())
-				.selectFields(
-					new List<String>{ Case.AccountId.getDescribe().getName() }
-				)
+				.selectFields(new List<String>{ Case.AccountId.getDescribe().getName() })
 				.selectFields(new Set<String>{ Case.OwnerId.getDescribe().getName() })
 				.addSubQuery(new SOQL.Builder('Contacts').build())
 				.addTypeOf(
@@ -616,8 +560,7 @@ public with sharing class SOQLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Case.SObjectType.getDescribe().getName();
-			SOQL.Builder builder = new SOQL.Builder(objectType)
-				.addScope(Query.Scope.EVERYTHING);
+			SOQL.Builder builder = new SOQL.Builder(objectType).addScope(Query.Scope.EVERYTHING);
 
 			Test.startTest();
 
@@ -647,10 +590,7 @@ public with sharing class SOQLTest {
 				.whereCondition(
 					new Query.Condition(Query.LogicalOperator.OR_VALUE)
 						.equals('Owner.Type', 'User')
-						.equals(
-							Case.CreatedDate.getDescribe().getName(),
-							new Query.DateLiteral('LAST_N_DAYS', 100)
-						)
+						.equals(Case.CreatedDate.getDescribe().getName(), new Query.DateLiteral('LAST_N_DAYS', 100))
 				);
 
 			Test.startTest();
@@ -675,13 +615,7 @@ public with sharing class SOQLTest {
 			SOQL.Builder builder = new SOQL.Builder(objectType)
 				.orderBy(new Query.SortOrder('Origin'))
 				.orderBy(new Query.SortOrder('Reason', Query.SortDirection.DESCENDING))
-				.orderBy(
-					new Query.SortOrder(
-						'AccountId',
-						Query.SortDirection.ASCENDING,
-						Query.SortNullRecords.LAST
-					)
-				);
+				.orderBy(new Query.SortOrder('AccountId', Query.SortDirection.ASCENDING, Query.SortNullRecords.LAST));
 
 			Test.startTest();
 
@@ -735,10 +669,7 @@ public with sharing class SOQLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = Case.SObjectType.getDescribe().getName();
-			SOQL.Builder builder = new SOQL.Builder(objectType)
-				.setForReference()
-				.setForUpdate()
-				.setForView();
+			SOQL.Builder builder = new SOQL.Builder(objectType).setForReference().setForUpdate().setForView();
 
 			Test.startTest();
 
@@ -746,10 +677,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				'SELECT Id FROM Case FOR REFERENCE, UPDATE, VIEW',
-				query.getQueryString()
-			);
+			Assert.areEqual('SELECT Id FROM Case FOR REFERENCE, UPDATE, VIEW', query.getQueryString());
 		}
 	}
 
@@ -758,9 +686,7 @@ public with sharing class SOQLTest {
 		User admin = selectTestUser();
 		System.runAs(admin) {
 			String objectType = 'FAQ__kav';
-			SOQL.Builder builder = new SOQL.Builder(objectType)
-				.setUpdateTracking()
-				.setUpdateViewStat();
+			SOQL.Builder builder = new SOQL.Builder(objectType).setUpdateTracking().setUpdateViewStat();
 
 			Test.startTest();
 
@@ -768,10 +694,7 @@ public with sharing class SOQLTest {
 
 			Test.stopTest();
 
-			Assert.areEqual(
-				'SELECT Id FROM FAQ__kav UPDATE TRACKING, VIEWSTAT',
-				query.getQueryString()
-			);
+			Assert.areEqual('SELECT Id FROM FAQ__kav UPDATE TRACKING, VIEWSTAT', query.getQueryString());
 		}
 	}
 

@@ -5,10 +5,7 @@
 private class QueueableProcessTests {
 	@TestSetup
 	private static void setup() {
-		Account testAccount = new Account(
-			Name = 'Test Account',
-			ShippingStreet = '0'
-		);
+		Account testAccount = new Account(Name = 'Test Account', ShippingStreet = '0');
 		insert testAccount;
 	}
 
@@ -46,9 +43,7 @@ private class QueueableProcessTests {
 	}
 
 	private static void fireQueueableProcess(Account testAccount) {
-		QueueableProcess queueableProcess = new ExampleQueueableProcessSteps.Step1(
-			testAccount.Id
-		);
+		QueueableProcess queueableProcess = new ExampleQueueableProcessSteps.Step1(testAccount.Id);
 		queueableProcess
 			.then(new ExampleQueueableProcessSteps.Step1(testAccount.Id))
 			.then(new ExampleQueueableProcessSteps.Step1(testAccount.Id))
@@ -72,9 +67,7 @@ private class QueueableProcessTests {
 		);
 
 		Test.startTest();
-		finalizer.execute(
-			new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION)
-		);
+		finalizer.execute(new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION));
 		Test.stopTest();
 		List<LogEvent__c> logEvents = [
 			SELECT Id, Log_Data__c, Severity__c
@@ -103,14 +96,9 @@ private class QueueableProcessTests {
 		);
 
 		Test.startTest();
-		finalizer.execute(
-			new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION)
-		);
+		finalizer.execute(new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION));
 		Test.stopTest();
-		Assert.isTrue(
-			QueueableProcess.defaultHandleExceptionCalled,
-			'Expected to fire handleException'
-		);
+		Assert.isTrue(QueueableProcess.defaultHandleExceptionCalled, 'Expected to fire handleException');
 	}
 
 	@IsTest
@@ -133,14 +121,9 @@ private class QueueableProcessTests {
 		);
 
 		Test.startTest();
-		finalizer.execute(
-			new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION)
-		);
+		finalizer.execute(new MockFinalizerContext(ParentJobResult.UNHANDLED_EXCEPTION));
 		Test.stopTest();
-		Assert.isTrue(
-			ExampleQueueableProcessSteps.handleExceptionCalled,
-			'Expected to fire handleException'
-		);
+		Assert.isTrue(ExampleQueueableProcessSteps.handleExceptionCalled, 'Expected to fire handleException');
 	}
 
 	// private helper methods

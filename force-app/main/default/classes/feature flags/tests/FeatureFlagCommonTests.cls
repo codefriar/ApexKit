@@ -23,10 +23,7 @@ public class FeatureFlagCommonTests {
 	 *
 	 * @return Map<String, Feature_Flag__mdt> test flag
 	 */
-	public static Map<String, Feature_Flag__mdt> getTestFlag(
-		String flagName,
-		Boolean enabled
-	) {
+	public static Map<String, Feature_Flag__mdt> getTestFlag(String flagName, Boolean enabled) {
 		Map<String, Feature_Flag__mdt> testFlag = new Map<String, Feature_Flag__mdt>();
 		testFlag.put(
 			'TestFlag',
