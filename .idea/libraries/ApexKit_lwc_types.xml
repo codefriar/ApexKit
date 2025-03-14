@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ApexKit/lwc_types">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/.illuminatedCloud/lwc/types" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/.illuminatedCloud/lwc/types" />
+    </SOURCES>
+  </library>
+</component>

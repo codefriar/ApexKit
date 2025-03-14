@@ -20,6 +20,117 @@ private class RestLibTests {
 	}
 
 	/**
+	 * @description Tests the fluent interface for RestLibApiCall with GET
+	 */
+	@isTest
+	private static void testRestLibApiCallFluentInterface() {
+		Test.startTest();
+		RestLibApiCall apiCall = RestLibApiCall.create()
+			.usingGet()
+			.withPath('/test')
+			.withQuery('param=value')
+			.withHeader('Test-Header', 'TestValue');
+		Test.stopTest();
+
+		Assert.areEqual(HttpVerb.GET, apiCall.method, 'Method should be GET');
+		Assert.areEqual(
+			'/test/',
+			apiCall.path,
+			'Path should be /test/ with trailing slash'
+		);
+		Assert.areEqual(
+			'param=value',
+			apiCall.query,
+			'Query should be set correctly'
+		);
+		Assert.isTrue(
+			apiCall.functionalHeaders.containsKey('Test-Header'),
+			'Custom header should be present'
+		);
+		Assert.areEqual(
+			'TestValue',
+			apiCall.functionalHeaders.get('Test-Header'),
+			'Header value should match'
+		);
+	}
+
+	/**
+	 * @description Tests the fluent interface for RestLibApiCall with POST and body
+	 */
+	@isTest
+	private static void testRestLibApiCallFluentInterfaceWithPost() {
+		String testBody = '{"test":"value"}';
+
+		Test.startTest();
+		RestLibApiCall apiCall = RestLibApiCall.create()
+			.usingPost()
+			.withPath('/resource')
+			.withBody(testBody)
+			.withHeaders(
+				new Map<String, String>{
+					'Content-Type' => 'application/json',
+					'X-Custom' => 'CustomValue'
+				}
+			);
+		Test.stopTest();
+
+		Assert.areEqual(HttpVerb.POST, apiCall.method, 'Method should be POST');
+		Assert.areEqual(
+			'/resource/',
+			apiCall.path,
+			'Path should be /resource/ with trailing slash'
+		);
+		Assert.areEqual(testBody, apiCall.body, 'Body should be set correctly');
+		Assert.isTrue(apiCall.hasBody, 'hasBody should be true for POST with body');
+		Assert.areEqual(
+			'CustomValue',
+			apiCall.functionalHeaders.get('X-Custom'),
+			'Custom header should be set'
+		);
+		Assert.areEqual(
+			'application/json',
+			apiCall.functionalHeaders.get('Content-Type'),
+			'Content-Type should be set'
+		);
+	}
+
+	/**
+	 * @description Tests the fluent interface for RestLibApiCall with PATCH (which is handled specially)
+	 */
+	@isTest
+	private static void testRestLibApiCallFluentInterfaceWithPatch() {
+		String testBody = '{"field":"newValue"}';
+
+		Test.startTest();
+		RestLibApiCall apiCall = RestLibApiCall.create()
+			.usingPatch()
+			.withPath('/resource/123')
+			.withBody(testBody);
+		Test.stopTest();
+
+		// PATCH is converted to POST with special parameters
+		Assert.areEqual(
+			HttpVerb.POST,
+			apiCall.method,
+			'Method should be POST when using PATCH'
+		);
+		Assert.areEqual(
+			'/resource/123/',
+			apiCall.path,
+			'Path should be correct with trailing slash'
+		);
+		Assert.areEqual(testBody, apiCall.body, 'Body should be set correctly');
+		Assert.isTrue(
+			apiCall.hasBody,
+			'hasBody should be true for PATCH with body'
+		);
+		Assert.isTrue(
+			apiCall.encodedQuery.contains('_HttpMethod=PATCH'),
+			'Should have PATCH parameter in query'
+		);
+	}
+
+	/**
 	 * Note: we do not have a constructor test for the no param
 	 * constructor. Because it's access modifier is protected
 	 * we cannot use that constructor - the compiler throws an error
