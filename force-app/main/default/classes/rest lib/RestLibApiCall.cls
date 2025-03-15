@@ -12,46 +12,134 @@ public with sharing class RestLibApiCall {
 	};
 
 	/**
+	 * @description The default timeout value in milliseconds
+	 */
+	public static final Integer DEFAULT_TIMEOUT = 120000;
+
+	/**
 	 * @description stores the httpverb defined in the enum
 	 */
-	public HttpVerb method { get; private set; }
+	private HttpVerb methodValue;
+	public HttpVerb method {
+		get {
+			return methodValue;
+		}
+		private set {
+			methodValue = value;
+		}
+	}
+
+	/**
+	 * @description Returns the string representation of the HTTP method
+	 * @return String representation of the HTTP method (returns 'DELETE' for DEL)
+	 */
+	public String methodString {
+		get {
+			if (method == HttpVerb.DEL) {
+				return 'DELETE';
+			}
+			return method.name();
+		}
+	}
 	/**
 	 * @description Stores the path to the resource
 	 */
-	public String path { get; private set; }
+	private String pathValue;
+	public String path {
+		get {
+			if (String.isBlank(pathValue)) {
+				return '/';
+			}
+			return pathValue.startsWith('/') ? pathValue : '/' + pathValue;
+		}
+		private set {
+			pathValue = value;
+		}
+	}
 	/**
 	 * @description stores the encoded URL parameters
 	 */
-	public String encodedQuery { get; private set; }
+	private String encodedQueryValue;
+	public String encodedQuery {
+		get {
+			if (String.isBlank(encodedQueryValue)) {
+				return null;
+			}
+			return encodedQueryValue.startsWith('?')
+				? encodedQueryValue
+				: '?' + encodedQueryValue;
+		}
+		private set {
+			encodedQueryValue = value;
+		}
+	}
 	/**
 	 * @description The query string to be appended to the path
 	 */
-	public String query { get; private set; }
+	private String queryValue;
+	public String query {
+		get {
+			return queryValue;
+		}
+		private set {
+			queryValue = value;
+		}
+	}
+
+	/**
+	 * @description stores the timeout value in milliseconds
+	 */
+	private Integer timeoutValue;
+	public Integer timeout {
+		get {
+			return timeoutValue != null ? timeoutValue : DEFAULT_TIMEOUT;
+		}
+		private set {
+			timeoutValue = value;
+		}
+	}
 	/**
 	 * @description body the string encoded body to be included in the request
 	 */
-	public String body { get; private set; }
+	private String bodyValue;
+	public String body {
+		get {
+			return bodyValue;
+		}
+		private set {
+			bodyValue = value;
+		}
+	}
 	/**
 	 * @description Property returning true if there is a body and the method is POST or PUT
 	 */
 	public Boolean hasBody {
 		get {
-			return String.isNotBlank(body) &&
-				(method == HttpVerb.POST ||
-				method == HttpVerb.PUT);
+			return String.isNotBlank(bodyValue) &&
+				(methodValue == HttpVerb.POST ||
+				methodValue == HttpVerb.PUT);
 		}
 	}
-	final Map<String, String> headers { get; private set; }
+	private Map<String, String> headersValue;
+	final Map<String, String> headers {
+		get {
+			return headersValue;
+		}
+		private set {
+			headersValue = value;
+		}
+	}
 
 	/**
-	 * @description
+	 * @description Returns headers with default values when none are specified
+	 * @return Map of headers with defaults applied when necessary
 	 */
 	public Map<String, String> functionalHeaders {
 		get {
-			if (headers == null) {
+			if (headersValue == null) {
 				return RestLibApiCall.defaultHeaders;
 			}
-			return headers;
+			return headersValue;
 		}
 	}
 
@@ -73,14 +161,14 @@ public with sharing class RestLibApiCall {
 	 * @return The current instance for chaining
 	 */
 	public RestLibApiCall withMethod(HttpVerb method) {
-		this.method = method;
+		this.methodValue = method;
 		if (method == HttpVerb.PATCH) {
 			// Handle PATCH as POST with custom parameter
-			this.method = HttpVerb.POST;
-			if (this.encodedQuery == null) {
-				this.encodedQuery = '?_HttpMethod=PATCH';
+			this.methodValue = HttpVerb.POST;
+			if (this.encodedQueryValue == null) {
+				this.encodedQueryValue = '?_HttpMethod=PATCH';
 			} else {
-				this.encodedQuery += '?_HttpMethod=PATCH';
+				this.encodedQueryValue += '?_HttpMethod=PATCH';
 			}
 		}
 		return this;
@@ -140,7 +228,7 @@ public with sharing class RestLibApiCall {
 	 * @return The current instance for chaining
 	 */
 	public RestLibApiCall withPath(String path) {
-		this.path = ensureStringEndsInSlash(path);
+		this.pathValue = ensureStringEndsInSlash(path);
 		return this;
 	}
 
@@ -150,8 +238,8 @@ public with sharing class RestLibApiCall {
 	 * @return The current instance for chaining
 	 */
 	public RestLibApiCall withQuery(String query) {
-		this.query = query;
-		this.encodedQuery = EncodingUtil.urlEncode(query, 'UTF-8');
+		this.queryValue = query;
+		this.encodedQueryValue = EncodingUtil.urlEncode(query, 'UTF-8');
 		return this;
 	}
 
@@ -161,7 +249,7 @@ public with sharing class RestLibApiCall {
 	 * @return The current instance for chaining
 	 */
 	public RestLibApiCall withBody(String body) {
-		this.body = body;
+		this.bodyValue = body;
 		return this;
 	}
 
@@ -171,7 +259,7 @@ public with sharing class RestLibApiCall {
 	 * @return The current instance for chaining
 	 */
 	public RestLibApiCall withHeaders(Map<String, String> headers) {
-		this.headers = headers;
+		this.headersValue = headers;
 		return this;
 	}
 
@@ -182,10 +270,20 @@ public with sharing class RestLibApiCall {
 	 * @return The current instance for chaining
 	 */
 	public RestLibApiCall withHeader(String key, String value) {
-		if (this.headers == null) {
-			this.headers = new Map<String, String>();
+		if (this.headersValue == null) {
+			this.headersValue = new Map<String, String>();
 		}
-		this.headers.put(key, value);
+		this.headersValue.put(key, value);
+		return this;
+	}
+
+	/**
+	 * @description Sets the timeout for this API call
+	 * @param timeout Integer timeout value in milliseconds
+	 * @return The current instance for chaining
+	 */
+	public RestLibApiCall withTimeout(Integer timeout) {
+		this.timeout = timeout;
 		return this;
 	}
 
@@ -206,16 +304,16 @@ public with sharing class RestLibApiCall {
 		String body,
 		Map<String, String> headers
 	) {
-		this.method = method;
-		this.path = ensureStringEndsInSlash(path);
-		this.query = query;
-		this.body = body;
-		this.headers = headers;
+		this.methodValue = method;
+		this.pathValue = ensureStringEndsInSlash(path);
+		this.queryValue = query;
+		this.bodyValue = body;
+		this.headersValue = headers;
 
-		this.encodedQuery = EncodingUtil.urlEncode(query, 'UTF-8');
+		this.encodedQueryValue = EncodingUtil.urlEncode(query, 'UTF-8');
 		if (method == HttpVerb.PATCH) {
-			method = HttpVerb.POST;
-			encodedQuery += '?_HttpMethod=PATCH';
+			this.methodValue = HttpVerb.POST;
+			this.encodedQueryValue += '?_HttpMethod=PATCH';
 		}
 	}
 

@@ -1,69 +1,255 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testConstructorChains()`
+### `testConstructorChains()`
 
 `ISTEST`
 
-### `private static void testDoInsertMethodsNoThrowPositive()`
+#### Signature
+
+```apex
+private static void testConstructorChains()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoInsertMethodsNoThrowPositive()`
 
 `ISTEST`
 
-### `private static void testDoInsertNegative()`
+#### Signature
+
+```apex
+private static void testDoInsertMethodsNoThrowPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoInsertNegative()`
 
 `ISTEST`
 
-### `private static void testMarketingProfileGeneratesInsertExceptionPositive()`
+#### Signature
+
+```apex
+private static void testDoInsertNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testMarketingProfileGeneratesInsertExceptionPositive()`
 
 `ISTEST`
 
-### `private static void testDoUpdateMethodsNoThrowPositive()`
+#### Signature
+
+```apex
+private static void testMarketingProfileGeneratesInsertExceptionPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoUpdateMethodsNoThrowPositive()`
 
 `ISTEST`
 
-### `private static void testDoUpdateNegative()`
+#### Signature
+
+```apex
+private static void testDoUpdateMethodsNoThrowPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoUpdateNegative()`
 
 `ISTEST`
 
-### `private static void testMarketingProfileDeleteNegative()`
+#### Signature
+
+```apex
+private static void testDoUpdateNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testMarketingProfileDeleteNegative()`
 
 `ISTEST`
 
-### `private static void testMarketingProfileGeneratesUpdateExceptionPositive()`
+#### Signature
+
+```apex
+private static void testMarketingProfileDeleteNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testMarketingProfileGeneratesUpdateExceptionPositive()`
 
 `ISTEST`
 
-### `private static void testDoUpsertMethodsNoThrowPositive()`
+#### Signature
+
+```apex
+private static void testMarketingProfileGeneratesUpdateExceptionPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoUpsertMethodsNoThrowPositive()`
 
 `ISTEST`
 
-### `private static void testDoUpsertMethodsNegative()`
+#### Signature
+
+```apex
+private static void testDoUpsertMethodsNoThrowPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoUpsertMethodsNegative()`
 
 `ISTEST`
 
-### `private static void testMarketingProfileGeneratesUpsertExceptionPositive()`
+#### Signature
+
+```apex
+private static void testDoUpsertMethodsNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testMarketingProfileGeneratesUpsertExceptionPositive()`
 
 `ISTEST`
 
-### `private static void testDeleteWithRegularProfilePositive()`
+#### Signature
+
+```apex
+private static void testMarketingProfileGeneratesUpsertExceptionPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDeleteWithRegularProfilePositive()`
 
 `ISTEST`
 
-### `private static void testDeleteWithRegularProfileNegative()`
+#### Signature
+
+```apex
+private static void testDeleteWithRegularProfilePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDeleteWithRegularProfileNegative()`
 
 `ISTEST`
 
-### `private static void testDoQueryPositive()`
+#### Signature
+
+```apex
+private static void testDeleteWithRegularProfileNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoQueryPositive()`
 
 `ISTEST`
 
-### `private static void testDoQueryThrowsRemovedFieldsException()`
+#### Signature
+
+```apex
+private static void testDoQueryPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDoQueryThrowsRemovedFieldsException()`
 
 `ISTEST`
 
-### `private static void emptyCollections()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testDoQueryThrowsRemovedFieldsException()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `emptyCollections()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void emptyCollections()
+```
+
+#### Return Type
+
+**void**

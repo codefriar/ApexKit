@@ -1,390 +1,753 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 Represents a method call that is mocked as part of a Stub
 object. This class is marked
 
-**IsTest** , as the object and it's methods are not useful outside of a Test context. This file contains not only the MockedMethod class, but an inner Builder class. It is expected most developers will utilize the Builder class to construct instances of MockedMethod.
+**IsTest**
 
-## Constructors
+, as the object and it&#x27;s methods are
+not useful outside of a Test context.
 
-### `public MockedMethod(MethodSignature methodSignature)`
-
-Constructor requiring a method signature. This is used to prevent constructing MockedMethods without a signature.
-
-#### Parameters
-
-| Param             | Description                                                  |
-| ----------------- | ------------------------------------------------------------ |
-| `methodSignature` | We need this to define the shape of the method being mocked. |
-
----
+This file contains not only the MockedMethod class, but an inner Builder
+class. It is expected most developers will utilize the Builder class to
+construct instances of MockedMethod.
 
 ## Fields
 
-### `private countOfMethodInvocations` → `Integer`
-
-### `private customException` → `Exception`
-
-### `private exceptionMessage` → `String`
+### `methodSignature`
 
 `TESTVISIBLE`
 
-### `private expectedParameters` → `List<Object>`
+Every MockedMethod has a methodSignature defining it&#x27;s
+&#x27;signature&#x27; or combination of name, parameter names and parameter types.
 
-### `private methodSignature` → `MethodSignature`
+#### Signature
 
-`TESTVISIBLE`
+```apex
+private methodSignature
+```
 
-Every MockedMethod has a methodSignature defining it's 'signature' or combination of name, parameter names and parameter types.
+#### Type
 
-### `private returnValue` → `Object`
-
-### `private sObjectIds` → `List<Id>`
-
-### `private throwException` → `Boolean`
+[MethodSignature](MethodSignature.md)
 
 ---
+
+### `expectedParameters`
+
+#### Signature
+
+```apex
+private expectedParameters
+```
+
+#### Type
+
+List&lt;Object&gt;
+
+---
+
+### `returnValue`
+
+#### Signature
+
+```apex
+private returnValue
+```
+
+#### Type
+
+Object
+
+---
+
+### `throwException`
+
+#### Signature
+
+```apex
+private throwException
+```
+
+#### Type
+
+Boolean
+
+---
+
+### `sObjectIds`
+
+#### Signature
+
+```apex
+private sObjectIds
+```
+
+#### Type
+
+List&lt;Id&gt;
+
+---
+
+### `customException`
+
+#### Signature
+
+```apex
+private customException
+```
+
+#### Type
+
+Exception
+
+---
+
+### `countOfMethodInvocations`
+
+#### Signature
+
+```apex
+private countOfMethodInvocations
+```
+
+#### Type
+
+Integer
+
+---
+
+### `exceptionMessage`
+
+`TESTVISIBLE`
+
+#### Signature
+
+```apex
+private static exceptionMessage
+```
+
+#### Type
+
+String
+
+## Constructors
+
+### `MockedMethod(methodSignature)`
+
+Constructor requiring a method signature. This is
+used to prevent constructing MockedMethods without a signature.
+
+#### Signature
+
+```apex
+public MockedMethod(MethodSignature methodSignature)
+```
+
+#### Parameters
+
+| Name            | Type                                  | Description                                                                  |
+| --------------- | ------------------------------------- | ---------------------------------------------------------------------------- |
+| methodSignature | [MethodSignature](MethodSignature.md) | We need this to define the shape of the method,[object Object],being mocked. |
 
 ## Methods
 
-### `public Object handleCall()`
+### `handleCall()`
 
-This method is invoked by it's parent stub object, and is responsible for returning the mocked value.
+This method is invoked by it&#x27;s parent stub object, and is
+responsible for returning the mocked value.
 
-#### Returns
+#### Signature
 
-| Type   | Description |
-| ------ | ----------- |
-| Object | `Object`    |
+```apex
+public Object handleCall()
+```
 
-### `public void assertMockedMethodWasCalled()`
+#### Return Type
+
+**Object**
+
+,[object Object]
+
+---
+
+### `assertMockedMethodWasCalled()`
 
 `SUPPRESSWARNINGS`
 
-If this MockedMethod has not been called cause a failing assertion.
+If this MockedMethod has not been called cause a failing
+assertion.
 
-### `public MockedMethod withParameterValues(List<Object> args)`
+#### Signature
 
-Allows developers to define expected input parameters at execution time. This enables developers to mock the same method call N number of times, with different input parameters.
+```apex
+public void assertMockedMethodWasCalled()
+```
 
-#### Parameters
+#### Return Type
 
-| Param  | Description                                                                                                                                                                                |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `args` | A list of Objects that you want to this MockedMethod to to respond to. These objects must exactly match what your code invokes in order for your stub to return the specified mock output. |
-
-#### Returns
-
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
-
-### `public MockedMethod returning(Object returnValue)`
-
-Sets this MockedMethod's return value. This is the value that will be returned by this mocked method when the stub calls a method that has an identical name, signature and input paramter list.
-
-#### Parameters
-
-| Param         | Description                           |
-| ------------- | ------------------------------------- |
-| `returnValue` | This is the object you want returned. |
-
-#### Returns
-
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
-
-### `public MockedMethod returning(List<Id> incomingIds)`
-
-Use this variant of returning when you want the mocked method to return a list of sObjects (generic) with a specific set of IDs
-
-#### Parameters
-
-| Param         | Description                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------- |
-| `incomingIds` | A list of ID's. Note, they don't have to be ids of the same sObject type. Order is preserved. |
-
-#### Returns
-
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
-
-### `public MockedMethod throwingException()`
-
-Use this method when you need the mocked method to throw an exception. Incredibly useful for testing exception handling! Note: This variant results in a generic StubException being thrown.
-
-#### Returns
-
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
-
-### `public MockedMethod throwingException(Exception customException)`
-
-Use this variant to have this mocked method return a developer-specified exception object. Useful for testing exception handling with specific exception types.
-
-#### Parameters
-
-| Param             | Description |
-| ----------------- | ----------- |
-| `customException` |             |
-
-#### Returns
-
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
-
-### `public Boolean doMethodSignaturesAndParametersMatch(MethodSignature methodSignature, List<Object> runtimeParameters)`
-
-determines if the current method call matches on both a method signature level and against specified input parameters.
-
-#### Parameters
-
-| Param               | Description                                                                         |
-| ------------------- | ----------------------------------------------------------------------------------- |
-| `methodSignature`   | A method signature to match against.                                                |
-| `runtimeParameters` | a List of objects representing the actual values - at runtime - of the method call. |
-
-#### Returns
-
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
-
-### `private Boolean doRuntimeParametersMatch(List<Object> compareTo)`
-
-Determines if the method, as brokered by the stub object is being called with an expected set of parameters. Note: I thought I could replace this with `return this.methodParamsAtExecutionTime.equals(compareTo);` but this doesn't work, and to be honest, I'm still investigating why.
-
-#### Parameters
-
-| Param       | Description |
-| ----------- | ----------- |
-| `compareTo` |             |
-
-#### Returns
-
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+**void**
 
 ---
+
+### `withParameterValues(args)`
+
+Allows developers to define expected input parameters at
+execution time. This enables developers to mock the same method call N
+number of times, with different input parameters.
+
+#### Signature
+
+```apex
+public MockedMethod withParameterValues(List<Object> args)
+```
+
+#### Parameters
+
+| Name | Type               | Description                                             |
+| ---- | ------------------ | ------------------------------------------------------- |
+| args | List&lt;Object&gt; | A list of Objects that you want to this MockedMethod to |
+
+to respond to. These objects must exactly match what your code invokes
+in order for your stub to return the specified mock output. |
+
+#### Return Type
+
+**[MockedMethod](MockedMethod.md)**
+
+,[object Object]
+
+---
+
+### `returning(returnValue)`
+
+Sets this MockedMethod&#x27;s return value. This is the
+value that will be returned by this mocked method when the stub calls
+a method that has an identical name, signature and input paramter list.
+
+#### Signature
+
+```apex
+public MockedMethod returning(Object returnValue)
+```
+
+#### Parameters
+
+| Name        | Type   | Description                           |
+| ----------- | ------ | ------------------------------------- |
+| returnValue | Object | This is the object you want returned. |
+
+#### Return Type
+
+**[MockedMethod](MockedMethod.md)**
+
+,[object Object]
+
+---
+
+### `returning(incomingIds)`
+
+Use this variant of returning when you want the
+mocked method to return a list of sObjects (generic) with a specific set
+of IDs
+
+#### Signature
+
+```apex
+public MockedMethod returning(List<Id> incomingIds)
+```
+
+#### Parameters
+
+| Name                                   | Type           | Description                                                      |
+| -------------------------------------- | -------------- | ---------------------------------------------------------------- |
+| incomingIds                            | List&lt;Id&gt; | A list of ID&#x27;s. Note, they don&#x27;t have to be ids of the |
+| same sObject type. Order is preserved. |
+
+#### Return Type
+
+**[MockedMethod](MockedMethod.md)**
+
+,[object Object]
+
+---
+
+### `throwingException()`
+
+Use this method when you need the mocked method to throw an
+exception. Incredibly useful for testing exception handling!
+
+Note: This variant results in a generic StubException being thrown.
+
+#### Signature
+
+```apex
+public MockedMethod throwingException()
+```
+
+#### Return Type
+
+**[MockedMethod](MockedMethod.md)**
+
+,[object Object]
+
+---
+
+### `throwingException(customException)`
+
+Use this variant to have this mocked method return
+a developer-specified exception object. Useful for testing exception
+handling with specific exception types.
+
+#### Signature
+
+```apex
+public MockedMethod throwingException(Exception customException)
+```
+
+#### Parameters
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| customException | Exception |             |
+
+#### Return Type
+
+**[MockedMethod](MockedMethod.md)**
+
+,[object Object]
+
+---
+
+### `doMethodSignaturesAndParametersMatch(methodSignature, runtimeParameters)`
+
+determines if the current method call matches
+on both a method signature level and against specified input parameters.
+
+#### Signature
+
+```apex
+public Boolean doMethodSignaturesAndParametersMatch(MethodSignature methodSignature, List<Object> runtimeParameters)
+```
+
+#### Parameters
+
+| Name                                      | Type                                  | Description                               |
+| ----------------------------------------- | ------------------------------------- | ----------------------------------------- |
+| methodSignature                           | [MethodSignature](MethodSignature.md) | A method signature to match against.      |
+| runtimeParameters                         | List&lt;Object&gt;                    | a List of objects representing the actual |
+| values - at runtime - of the method call. |
+
+#### Return Type
+
+**Boolean**
+
+,[object Object]
+
+---
+
+### `doRuntimeParametersMatch(compareTo)`
+
+Determines if the method, as brokered by the stub object
+is being called with an expected set of parameters.
+
+Note: I thought I could replace this with
+`return this.methodParamsAtExecutionTime.equals(compareTo);`
+but this doesn&#x27;t work, and to be honest, I&#x27;m still investigating why.
+
+#### Signature
+
+```apex
+private Boolean doRuntimeParametersMatch(List<Object> compareTo)
+```
+
+#### Parameters
+
+| Name      | Type               | Description |
+| --------- | ------------------ | ----------- |
+| compareTo | List&lt;Object&gt; |             |
+
+#### Return Type
+
+**Boolean**
+
+,[object Object]
 
 ## Classes
 
-### Builder
-
-**Description** class provides a 'builder' or fluent interface for constructing MockedMethod objects. While the end-developer can create MockedMethod objects directly, the point of this class is to provide an intuitive and easy-to-use/comprehend interface for building nuanced MockedMethod Objects.
-
-#### Constructors
-
-##### `public Builder(MethodSignature methodSignatureBuilder, List&lt;System.Type&gt; args)`
-
-Constructor requiring a methodSignatureBuilder object and a list of runtime arguments
-
-###### Parameters
-
-| Param                    | Description |
-| ------------------------ | ----------- |
-| `methodSignatureBuilder` |             |
-| `args`                   |             |
-
----
+### Builder Class
 
 #### Fields
 
-##### `private customException` → `Exception`
+##### `methodSignatureBuilder`
 
-##### `private methodSignatureBuilder` → `MethodSignature`
+###### Signature
 
-##### `private returnSObjectIds` → `List&lt;Id&gt;`
+```apex
+private methodSignatureBuilder
+```
 
-##### `private returnValue` → `Object`
+###### Type
 
-##### `private runtimeParameters` → `List&lt;Object&gt;`
-
-##### `private throwException` → `Boolean`
+MethodSignature.Builder
 
 ---
 
-#### Methods
+##### `runtimeParameters`
 
-##### `private MockedMethod setParameterValues(List&lt;Object&gt; parameters)`
+###### Signature
 
-internal method used to set the parameter values of this MockedMethod instance.
+```apex
+private runtimeParameters
+```
+
+###### Type
+
+List&lt;Object&gt;
+
+---
+
+##### `returnSObjectIds`
+
+###### Signature
+
+```apex
+private returnSObjectIds
+```
+
+###### Type
+
+List&lt;Id&gt;
+
+---
+
+##### `customException`
+
+###### Signature
+
+```apex
+private customException
+```
+
+###### Type
+
+Exception
+
+---
+
+##### `throwException`
+
+###### Signature
+
+```apex
+private throwException
+```
+
+###### Type
+
+Boolean
+
+---
+
+##### `returnValue`
+
+###### Signature
+
+```apex
+private returnValue
+```
+
+###### Type
+
+Object
+
+#### Constructors
+
+##### `Builder(methodSignatureBuilder, args)`
+
+Constructor requiring a methodSignatureBuilder object
+and a list of runtime arguments
+
+###### Signature
+
+```apex
+public Builder(MethodSignature.Builder methodSignatureBuilder, List<System.Type> args)
+```
 
 ###### Parameters
 
-| Param        | Description         |
-| ------------ | ------------------- |
-| `parameters` | list of System.Type |
+| Name                   | Type                    | Description |
+| ---------------------- | ----------------------- | ----------- |
+| methodSignatureBuilder | MethodSignature.Builder |             |
+| args                   | List&lt;System.Type&gt; |             |
 
-###### Returns
+#### Methods
 
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+##### `setParameterValues(parameters)`
 
-##### `public MockedMethod withParameterValues(Object parameter)`
+internal method used to set the parameter values of this
+MockedMethod instance.
+
+###### Signature
+
+```apex
+private MockedMethod.Builder setParameterValues(List<Object> parameters)
+```
+
+###### Parameters
+
+| Name       | Type               | Description         |
+| ---------- | ------------------ | ------------------- |
+| parameters | List&lt;Object&gt; | list of System.Type |
+
+###### Return Type
+
+**MockedMethod.Builder**
+
+,[object Object]
+
+---
+
+##### `withParameterValues(parameter)`
 
 convenience methodfor setting a single parameter type
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterValues(Object parameter)
+```
+
 ###### Parameters
 
-| Param       | Description |
-| ----------- | ----------- |
-| `parameter` | System.Type |
+| Name      | Type   | Description |
+| --------- | ------ | ----------- |
+| parameter | Object | System.Type |
 
-###### Returns
+###### Return Type
 
-| Type         | Description |
-| ------------ | ----------- |
-| MockedMethod | this        |
+**MockedMethod.Builder**
 
-##### `public MockedMethod withParameterValues(Object parameter, Object parameter2)`
+this
+
+---
+
+##### `withParameterValues(parameter, parameter2)`
 
 convenience methodfor setting two params
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterValues(Object parameter, Object parameter2)
+```
+
 ###### Parameters
 
-| Param        | Description |
-| ------------ | ----------- |
-| `parameter`  | System.Type |
-| `parameter2` | System.Type |
+| Name       | Type   | Description |
+| ---------- | ------ | ----------- |
+| parameter  | Object | System.Type |
+| parameter2 | Object | System.Type |
 
-###### Returns
+###### Return Type
 
-| Type         | Description |
-| ------------ | ----------- |
-| MockedMethod | this        |
+**MockedMethod.Builder**
 
-##### `public MockedMethod withParameterValues(Object parameter, Object parameter2, Object parameter3)`
+this
+
+---
+
+##### `withParameterValues(parameter, parameter2, parameter3)`
 
 convenience methodfor setting three params
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterValues(Object parameter, Object parameter2, Object parameter3)
+```
+
 ###### Parameters
 
-| Param        | Description |
-| ------------ | ----------- |
-| `parameter`  | System.Type |
-| `parameter2` | System.Type |
-| `parameter3` | System.Type |
+| Name       | Type   | Description |
+| ---------- | ------ | ----------- |
+| parameter  | Object | System.Type |
+| parameter2 | Object | System.Type |
+| parameter3 | Object | System.Type |
 
-###### Returns
+###### Return Type
 
-| Type         | Description        |
-| ------------ | ------------------ |
-| MockedMethod | return description |
+**MockedMethod.Builder**
 
-##### `public MockedMethod withParameterValues(Object parameter, Object parameter2, Object parameter3, Object parameter4)`
+return description
+
+---
+
+##### `withParameterValues(parameter, parameter2, parameter3, parameter4)`
 
 `SUPPRESSWARNINGS`
 
 convenience methodfor setting four parameters
 
-###### Parameters
+###### Signature
 
-| Param        | Description            |
-| ------------ | ---------------------- |
-| `parameter`  | parameter description  |
-| `parameter2` | parameter2 description |
-| `parameter3` | parameter3 description |
-| `parameter4` | parameter4 description |
-
-###### Returns
-
-| Type         | Description |
-| ------------ | ----------- |
-| MockedMethod | this        |
-
-##### `public Stub returningObjectsWithIds(List&lt;Id&gt; ids)`
-
-This variant allows developers to specify a list of IDs to be assigned to the returning sObject List
+```apex
+public MockedMethod.Builder withParameterValues(Object parameter, Object parameter2, Object parameter3, Object parameter4)
+```
 
 ###### Parameters
 
-| Param | Description                |
-| ----- | -------------------------- |
-| `ids` | The list of Ids to assign. |
+| Name       | Type   | Description            |
+| ---------- | ------ | ---------------------- |
+| parameter  | Object | parameter description  |
+| parameter2 | Object | parameter2 description |
+| parameter3 | Object | parameter3 description |
+| parameter4 | Object | parameter4 description |
 
-###### Returns
+###### Return Type
 
-| Type | Description            |
-| ---- | ---------------------- |
-| Stub | `MockedMethod.Builder` |
+**MockedMethod.Builder**
 
-##### `public Stub returning(Object returnValue)`
+this
 
-This variant allows developers to specify the object that will be returned when this mocked method is executed by its parent stub.
+---
+
+##### `returningObjectsWithIds(ids)`
+
+This variant allows developers to specify a list of
+IDs to be assigned to the returning sObject List
+
+###### Signature
+
+```apex
+public Stub.Builder returningObjectsWithIds(List<Id> ids)
+```
 
 ###### Parameters
 
-| Param         | Description |
-| ------------- | ----------- |
-| `returnValue` |             |
+| Name | Type           | Description                |
+| ---- | -------------- | -------------------------- |
+| ids  | List&lt;Id&gt; | The list of Ids to assign. |
 
-###### Returns
+###### Return Type
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
+**Stub.Builder**
 
-##### `public Stub returning()`
+,[object Object]
+
+---
+
+##### `returning(returnValue)`
+
+This variant allows developers to specify the
+object that will be returned when this mocked method is executed by
+its parent stub.
+
+###### Signature
+
+```apex
+public Stub.Builder returning(Object returnValue)
+```
+
+###### Parameters
+
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| returnValue | Object |             |
+
+###### Return Type
+
+**Stub.Builder**
+
+,[object Object]
+
+---
+
+##### `returning()`
 
 This variant allows developers to specify a void return.
 
-###### Returns
+###### Signature
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
+```apex
+public Stub.Builder returning()
+```
 
-##### `public Stub throwingException()`
+###### Return Type
 
-This variant allows developers to throw an internally generated Stub.StubException object when the method is executed.
+**Stub.Builder**
 
-###### Returns
-
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
-
-##### `public Stub throwingException(Exception customException)`
-
-Use this variant to have this mocked method return a developer-specified exception object. Useful for testing exception handling with specific exception types. Note: This only works for custom exceptions. Note: Developers construct your exception like this: `&lt;CustomExceptioType&gt; customException = ` `new &lt;CustomExceptionType&gt;('message');`
-
-###### Parameters
-
-| Param             | Description |
-| ----------------- | ----------- |
-| `customException` |             |
-
-###### Returns
-
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `MockedMethod` |
-
-##### `public MockedMethod createMockedMethod(MethodSignature signature)`
-
-Responsible for returning a fully formed MockedMethod instance.
-
-###### Parameters
-
-| Param       | Description |
-| ----------- | ----------- |
-| `signature` |             |
-
-###### Returns
-
-| Type         | Description    |
-| ------------ | -------------- |
-| MockedMethod | `MockedMethod` |
+,[object Object]
 
 ---
 
+##### `throwingException()`
+
+This variant allows developers to throw an internally
+generated Stub.StubException object when the method is executed.
+
+###### Signature
+
+```apex
+public Stub.Builder throwingException()
+```
+
+###### Return Type
+
+**Stub.Builder**
+
+,[object Object]
+
 ---
+
+##### `throwingException(customException)`
+
+Use this variant to have this mocked method
+return a developer-specified exception object. Useful for testing
+exception handling with specific exception types.
+
+Note: This only works for custom exceptions.
+Note: Developers construct your exception like this:
+`<CustomExceptioType> customException = `
+`new <CustomExceptionType>('message');`
+
+###### Signature
+
+```apex
+public Stub.Builder throwingException(Exception customException)
+```
+
+###### Parameters
+
+| Name            | Type      | Description |
+| --------------- | --------- | ----------- |
+| customException | Exception |             |
+
+###### Return Type
+
+**Stub.Builder**
+
+,[object Object]
+
+---
+
+##### `createMockedMethod(signature)`
+
+Responsible for returning a fully formed
+MockedMethod instance.
+
+###### Signature
+
+```apex
+public MockedMethod createMockedMethod(MethodSignature signature)
+```
+
+###### Parameters
+
+| Name      | Type                                  | Description |
+| --------- | ------------------------------------- | ----------- |
+| signature | [MethodSignature](MethodSignature.md) |             |
+
+###### Return Type
+
+**[MockedMethod](MockedMethod.md)**
+
+,[object Object]

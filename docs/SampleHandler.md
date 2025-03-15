@@ -1,186 +1,371 @@
 `ISTEST`
 
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 This class is a sample trigger handler for use while testing
 the metadataTriggerHandler. Because custom metadata cannot be inserted, and
 because the MetadataTriggerHandler instantiates handler classes from custom
 metadata records, even when we stub/mock the metadata record retrieval we
 still need an actual class that it can instantiate.
+
 Note, this class is annotated with
+
+**IsTest**
+
+to prevent its use outside of
+tests, not because it contains tests.
 
 **Inheritance**
 
-[TriggerFramework](https://github.com/codefriar/ApexKit/wiki/TriggerFramework)
-&gt;
-SampleHandler
-
-**IsTest** to prevent its use outside of tests, not because it contains tests.
+[TriggerFramework](TriggerFramework.md)
 
 ## Fields
 
-### `public bypassedHandlers` → `Set<String>`
+### `bypassedHandlers`
 
 _Inherited_
 
 a set of handler names that are bypassed
 
-### `protected triggerContext` → `TriggerContext`
+#### Signature
+
+```apex
+public static bypassedHandlers
+```
+
+#### Type
+
+Set&lt;String&gt;
+
+---
+
+### `triggerContext`
 
 _Inherited_
+
 `TESTVISIBLE`
 
 the current context of the trigger, override-able in tests
 
----
+#### Signature
+
+```apex
+protected triggerContext
+```
+
+#### Type
+
+[TriggerContext](TriggerContext.md)
 
 ## Methods
 
-### `public override void beforeInsert()`
+### `beforeInsert()`
 
-### `public override void beforeUpdate()`
+#### Signature
 
-### `public override void afterInsert()`
+```apex
+public override void beforeInsert()
+```
 
-### `public override void afterUpdate()`
+#### Return Type
 
-### `public override void beforeDelete()`
+**void**
 
-### `public override void afterDelete()`
+---
 
-### `public override void afterUndelete()`
+### `beforeUpdate()`
 
-### `public void run()`
+#### Signature
+
+```apex
+public override void beforeUpdate()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterInsert()`
+
+#### Signature
+
+```apex
+public override void afterInsert()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterUpdate()`
+
+#### Signature
+
+```apex
+public override void afterUpdate()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `beforeDelete()`
+
+#### Signature
+
+```apex
+public override void beforeDelete()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterDelete()`
+
+#### Signature
+
+```apex
+public override void afterDelete()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterUndelete()`
+
+#### Signature
+
+```apex
+public override void afterUndelete()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `run()`
 
 _Inherited_
 
-This is main brokering method that is called by the trigger. It's responsible for determining the proper context, and calling the correct method
+This is main brokering method that is called by the trigger.
+It&#x27;s responsible for determining the proper context, and calling the
+correct method
+
+#### Signature
+
+```apex
+public virtual void run()
+```
+
+#### Return Type
+
+**void**
 
 #### Example
 
-```apex
 AccountTriggerFramework.run();
-```
 
-### `protected Boolean standardValidationFails()`
+---
+
+### `standardValidationFails()`
 
 _Inherited_
 
 A method to guard against invalid execution contexts
 
-#### Returns
+#### Signature
 
-| Type    | Description                                                                     |
-| ------- | ------------------------------------------------------------------------------- |
-| Boolean | true if the execution context is invalid or if this trigger handler is bypassed |
+```apex
+protected Boolean standardValidationFails()
+```
 
-### `public void setMaxLoopCount(Integer max)`
+#### Return Type
+
+**Boolean**
+
+true if the execution context is invalid or if this trigger handler is bypassed
+
+---
+
+### `setMaxLoopCount(max)`
 
 _Inherited_
 
-Allows developers to prevent trigger loops, or allow a limited number of them by setting the maximum number of times this trigger is called.
+Allows developers to prevent trigger loops, or allow
+a limited number of them by setting the maximum number of times
+this trigger is called.
+
+#### Signature
+
+```apex
+public void setMaxLoopCount(Integer max)
+```
 
 #### Parameters
 
-| Param | Description                                                                   |
-| ----- | ----------------------------------------------------------------------------- |
-| `max` | A valid number (generally 1) of times you'd like to allow the trigger to run. |
+| Name                         | Type    | Description                                           |
+| ---------------------------- | ------- | ----------------------------------------------------- |
+| max                          | Integer | A valid number (generally 1) of times you&#x27;d like |
+| to allow the trigger to run. |
+
+#### Return Type
+
+**void**
 
 #### Example
 
-```apex
 In the context of a TriggerFramework class,
 this.setMaxLoopCount(5);
-```
 
-### `public void clearMaxLoopCount()`
+---
+
+### `clearMaxLoopCount()`
 
 _Inherited_
 
 Allows developers to turn off the max loop count
 
-#### Example
+#### Signature
 
 ```apex
+public void clearMaxLoopCount()
+```
+
+#### Return Type
+
+**void**
+
+#### Example
+
 In the context of a TriggerFramework class,
 this.clearMaxLoopCount();
-```
 
-### `public static void bypass(String handlerName)`
+---
 
-_Inherited_
-
-Allows developers to conditionally bypass (disable) other triggers that _also_ implement this TriggerFramework
-
-#### Parameters
-
-| Param         | Description                                          |
-| ------------- | ---------------------------------------------------- |
-| `handlerName` | Class name (String) of the trigger handler to bypass |
-
-#### Example
-
-```apex
-TriggerFramework.bypass('AccountTriggerFramework');
-```
-
-### `public static void clearBypass(String handlerName)`
+### `bypass(handlerName)`
 
 _Inherited_
 
-Removes a given trigger handler class name from the list of bypassed trigger handlers.
+Allows developers to conditionally bypass (disable)
+other triggers that _also_ implement this TriggerFramework
+
+#### Signature
+
+```apex
+public static void bypass(String handlerName)
+```
 
 #### Parameters
 
-| Param         | Description                                       |
-| ------------- | ------------------------------------------------- |
-| `handlerName` | Handler class name to remove from the bypass list |
+| Name        | Type   | Description                                          |
+| ----------- | ------ | ---------------------------------------------------- |
+| handlerName | String | Class name (String) of the trigger handler to bypass |
+
+#### Return Type
+
+**void**
 
 #### Example
 
-```apex
-TriggerFramework.clearBypass('AccountTriggerFramework');
-```
+TriggerFramework.bypass(&#x27;AccountTriggerFramework&#x27;);
 
-### `public static Boolean isBypassed(String handlerName)`
+---
+
+### `clearBypass(handlerName)`
 
 _Inherited_
 
-Allows developers to check whether a given trigger handler class is currently bypassed.
+Removes a given trigger handler class name from
+the list of bypassed trigger handlers.
+
+#### Signature
+
+```apex
+public static void clearBypass(String handlerName)
+```
 
 #### Parameters
 
-| Param         | Description                                        |
-| ------------- | -------------------------------------------------- |
-| `handlerName` | The name of the trigger handler class to check for |
+| Name        | Type   | Description                                       |
+| ----------- | ------ | ------------------------------------------------- |
+| handlerName | String | Handler class name to remove from the bypass list |
 
-#### Returns
+#### Return Type
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+**void**
 
 #### Example
 
+TriggerFramework.clearBypass(&#x27;AccountTriggerFramework&#x27;);
+
+---
+
+### `isBypassed(handlerName)`
+
+_Inherited_
+
+Allows developers to check whether a given trigger
+handler class is currently bypassed.
+
+#### Signature
+
 ```apex
-TriggerFramework.isBypassed('AccountTriggerFramework');
+public static Boolean isBypassed(String handlerName)
 ```
 
-### `public static void clearAllBypasses()`
+#### Parameters
+
+| Name        | Type   | Description                                        |
+| ----------- | ------ | -------------------------------------------------- |
+| handlerName | String | The name of the trigger handler class to check for |
+
+#### Return Type
+
+**Boolean**
+
+,[object Object]
+
+#### Example
+
+TriggerFramework.isBypassed(&#x27;AccountTriggerFramework&#x27;);
+
+---
+
+### `clearAllBypasses()`
 
 _Inherited_
 
 removes all classes from the bypass list
 
-#### Example
+#### Signature
 
 ```apex
-TriggerFramework.clearAllBypasses();
+public static void clearAllBypasses()
 ```
 
-### `protected void addToLoopCount()`
+#### Return Type
+
+**void**
+
+#### Example
+
+TriggerFramework.clearAllBypasses();
+
+---
+
+### `addToLoopCount()`
 
 _Inherited_
 
@@ -188,18 +373,35 @@ _Inherited_
 
 private instance methods
 
-### `protected String getHandlerName()`
+#### Signature
+
+```apex
+protected void addToLoopCount()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `getHandlerName()`
 
 _Inherited_
 
 `TESTVISIBLE`
 
-Returns the string version of the handler class being invoked
+Returns the string version of the handler class being
+invoked
 
-#### Returns
+#### Signature
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| String | `String` Name of the Handler |
+```apex
+protected String getHandlerName()
+```
 
----
+#### Return Type
+
+**String**
+
+,[object Object], Name of the Handler

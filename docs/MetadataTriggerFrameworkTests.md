@@ -1,43 +1,149 @@
 `SUPPRESSWARNINGS`
 
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testMetadataTriggerFrameworkNoOppWithoutRecordsPositive()`
+### `testMetadataTriggerFrameworkNoOppWithoutRecordsPositive()`
 
 `ISTEST`
 
-### `private static void testExecutesBeforeInsertPositive()`
+#### Signature
 
-`ISTEST`
+```apex
+private static void testMetadataTriggerFrameworkNoOppWithoutRecordsPositive()
+```
 
-### `private static void testExecutesBeforeUpdatePositive()`
+#### Return Type
 
-`ISTEST`
-
-### `private static void testExecutesBeforeDeletePositive()`
-
-`ISTEST`
-
-### `private static void testExecutesAfterInsertPositive()`
-
-`ISTEST`
-
-### `private static void testExecutesAfterUpdatePositive()`
-
-`ISTEST`
-
-### `private static void testExecutesAfterDeletePositive()`
-
-`ISTEST`
-
-### `private static void testExecutesAfterUndeletePositive()`
-
-`ISTEST`
-
-### `private static void exerciseTriggerHandlerPositive(String context)`
+**void**
 
 ---
+
+### `testExecutesBeforeInsertPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesBeforeInsertPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testExecutesBeforeUpdatePositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesBeforeUpdatePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testExecutesBeforeDeletePositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesBeforeDeletePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testExecutesAfterInsertPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesAfterInsertPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testExecutesAfterUpdatePositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesAfterUpdatePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testExecutesAfterDeletePositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesAfterDeletePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testExecutesAfterUndeletePositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testExecutesAfterUndeletePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `exerciseTriggerHandlerPositive(context)`
+
+#### Signature
+
+```apex
+private static void exerciseTriggerHandlerPositive(String context)
+```
+
+#### Parameters
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| context | String |             |
+
+#### Return Type
+
+**void**

@@ -1,61 +1,116 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Fields
 
-### `private codeDidTryToReEnqueue` → `Boolean`
+### `codeDidTryToReEnqueue`
 
-a test only circuit breaker to ensure that the OuroborosFinalizer is called and that in turn it calls the Ouroboros code again.
+a test only circuit breaker to ensure that the OuroborosFinalizer is called and that
+in turn it calls the Ouroboros code again.
 
----
+#### Signature
+
+```apex
+private codeDidTryToReEnqueue
+```
+
+#### Type
+
+Boolean
 
 ## Methods
 
-### `private static void testOuroborosFunctionalNegative()`
+### `testOuroborosFunctionalNegative()`
 
 `ISTEST`
 
-### `private static void testClassName()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testOuroborosFunctionalNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testClassName()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testClassName()
+```
+
+#### Return Type
+
+**void**
 
 ## Classes
 
-### ExampleOuroborosImplementation
+### ExampleOuroborosImplementation Class
 
 This is an example implementation of Ouroboros that will be used to test the functionality
 
-**Inheritance**
-
-[Ouroboros](https://github.com/codefriar/ApexKit/wiki/Ouroboros)
-&gt;
-ExampleOuroborosImplementation
-
 #### Fields
 
-##### `private completedExecutions` → `Integer`
+##### `executionCount`
 
-##### `private executionCount` → `Integer`
+###### Signature
+
+```apex
+private executionCount
+```
+
+###### Type
+
+Integer
 
 ---
+
+##### `completedExecutions`
+
+###### Signature
+
+```apex
+private completedExecutions
+```
+
+###### Type
+
+Integer
 
 #### Methods
 
-##### `public override Boolean hasExitCriteriaBeenMet()`
+##### `hasExitCriteriaBeenMet()`
 
 Required method that returns true if the exit criteria has been met.
 
-###### Returns
+###### Signature
 
-| Type    | Description                                                        |
-| ------- | ------------------------------------------------------------------ |
-| Boolean | Boolean - true if the exit criteria has been met, false otherwise. |
+```apex
+public override Boolean hasExitCriteriaBeenMet()
+```
 
-##### `public override void execute()`
+###### Return Type
+
+**Boolean**
+
+Boolean - true if the exit criteria has been met, false otherwise.
+
+---
+
+##### `execute()`
 
 This is the method that will be called when the Ouroboros executes the job.
 
----
+###### Signature
 
----
+```apex
+public override void execute()
+```
+
+###### Return Type
+
+**void**

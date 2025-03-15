@@ -1,21 +1,63 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testQuiddityGuardFindsTestQuiddityPositive()`
+### `testQuiddityGuardFindsTestQuiddityPositive()`
 
 `ISTEST`
 
-### `private static void testQuiddityOverrideReturnsFalsePositive()`
+#### Signature
+
+```apex
+private static void testQuiddityGuardFindsTestQuiddityPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testQuiddityOverrideReturnsFalsePositive()`
 
 `ISTEST`
 
-### `private static void testQuiddityPositive()`
+#### Signature
+
+```apex
+private static void testQuiddityOverrideReturnsFalsePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testQuiddityPositive()`
 
 `ISTEST`
 
-### `private static void testIsNotAcceptableQuiddityPositive()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testQuiddityPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testIsNotAcceptableQuiddityPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testIsNotAcceptableQuiddityPositive()
+```
+
+#### Return Type
+
+**void**

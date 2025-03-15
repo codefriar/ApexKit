@@ -1,43 +1,77 @@
-`STATUS: ACTIVE`
-
-class exists to allow the Metadata Trigger Framework to be invoked from a Flow
-
 ## Methods
 
-### `public static void invokeMetadataTriggerFramework(List<Inputs> inputParams)`
+### `invokeMetadataTriggerFramework(inputParams)`
 
 `INVOCABLEMETHOD`
 
 Invokes the Metadata Trigger Framework
 
+#### Signature
+
+```apex
+public static void invokeMetadataTriggerFramework(List<Inputs> inputParams)
+```
+
 #### Parameters
 
-| Param         | Description                                                             |
-| ------------- | ----------------------------------------------------------------------- |
-| `inputParams` | List<Inputs> - List of inputs to pass to the Metadata Trigger Framework |
+| Name        | Type               | Description                                                                   |
+| ----------- | ------------------ | ----------------------------------------------------------------------------- |
+| inputParams | List&lt;Inputs&gt; | List&lt;Inputs&gt; - List of inputs to pass to the Metadata Trigger Framework |
 
----
+#### Return Type
+
+**void**
 
 ## Classes
 
-### Inputs
+### Inputs Class
 
 An internal class representing the inputs to the Metadata Trigger Framework
 
 #### Fields
 
-##### `public context` → `TriggerOperation`
+##### `context`
 
 `INVOCABLEVARIABLE`
 
-##### `public triggerNew` → `List&lt;SObject&gt;`
+###### Signature
 
-`OTHER`
+```apex
+public context
+```
 
-##### `public triggerOld` → `List&lt;SObject&gt;`
+###### Type
 
-`OTHER`
+TriggerOperation
 
 ---
 
+##### `triggerNew`
+
+`OTHER`
+
+###### Signature
+
+```apex
+public triggerNew
+```
+
+###### Type
+
+List&lt;SObject&gt;
+
 ---
+
+##### `triggerOld`
+
+`OTHER`
+
+###### Signature
+
+```apex
+public triggerOld
+```
+
+###### Type
+
+List&lt;SObject&gt;

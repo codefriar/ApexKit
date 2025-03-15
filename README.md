@@ -12,19 +12,19 @@ That said, Apex Kit consists of a number of 'libraries' that can be used indepen
 
 ### Specifically Apex Kit contains:
 
--   Feature Flags: A library for gating features and functionality for specific users. Supports gating based on org wide on/off, permission sets and custom permissions.
--   Log: a bullet proof logging solution thats guaranteed to log, even when a transaction fails, or an exception occurs.
--   OrgShape: a class for inspecting the current runtime environment, and the features / functionality the org has enabled. This includes a number of polyfill methods to determine or synthesize information about your org.
--   Ouroboros - (Needs a better name): This is a library for developing Queueable jobs that self-re-enqueue until a given condition is met. In other words, this helps you build classes of work that can process massive quantities of data, one chunk at a time.
--   Polyfills: Polyfills contains methods Salesforce should have provided, but doesn't. Look here before implementing a method you _thought_ already existed only to find out Salesforce doesn't provide it.
--   Promises: This library helps you write chainable bits of discrete asynchronous work that are executed in order. Effectively, it provides developers Javascript Promises, but in Apex. Super powerful, and flexible, especially for long-chains of API calls.
--   Query Lib: A library for making SOQL and SOSL queries via a builder-style API / DSL. While not necessary, QueryLib queries enforce CRUD/FLS security. _this library is tightly coupled to Safely(see below), for now_
--   Quiddity: (I didn't name this one. That's on Salesforce) A library for inspecting the runtime execution context of the current transaction. Additionally provides gating functionality allowing developers using it to prevent code paths in select execution contexts. i.e.: don't run this code in a user-driven context.
--   Rest Library: This library provides a consistent abstraction for making REST callouts. Either on a one-off basis, or at on a complete API integration level. (see wiki for examples).
--   Safely: Safely has two parts - first, a user permission checking library called 'canTheUser' which helps developers determine crud and fls at runtime. The second part, 'Safely', wraps DML calls in Apex Security Decision objects - stripping fields and objects the user doesn't have access to. This library makes it super simple to safely make DML calls.
--   Test Utilities: Contains a test data factory, a HTTP Callout Mock factory, and a Stubbing library that enables developers to define a stub/mock declaratively, there in their test. Deprecates so much boilerplate.
--   Trigger Framework: is, well, a trigger framework. This one is controlled entirely through custom metadata and has built in support for per-user bypass. _helpful for mass data imports_
--   ULID: This is a library for generating Universally Unique Lexicographically Sortable Identifiers. These are similar in concept to UUID's but are sortable, because the first 10 digits are a Crockford encoded timestamp.
+- Feature Flags: A library for gating features and functionality for specific users. Supports gating based on org wide on/off, permission sets and custom permissions.
+- Log: a bullet proof logging solution thats guaranteed to log, even when a transaction fails, or an exception occurs.
+- OrgShape: a class for inspecting the current runtime environment, and the features / functionality the org has enabled. This includes a number of polyfill methods to determine or synthesize information about your org.
+- Ouroboros - (Needs a better name): This is a library for developing Queueable jobs that self-re-enqueue until a given condition is met. In other words, this helps you build classes of work that can process massive quantities of data, one chunk at a time.
+- Polyfills: Polyfills contains methods Salesforce should have provided, but doesn't. Look here before implementing a method you _thought_ already existed only to find out Salesforce doesn't provide it.
+- Promises: This library helps you write chainable bits of discrete asynchronous work that are executed in order. Effectively, it provides developers Javascript Promises, but in Apex. Super powerful, and flexible, especially for long-chains of API calls.
+- Query Lib: A library for making SOQL and SOSL queries via a builder-style API / DSL. While not necessary, QueryLib queries enforce CRUD/FLS security. _this library is tightly coupled to Safely(see below), for now_
+- Quiddity: (I didn't name this one. That's on Salesforce) A library for inspecting the runtime execution context of the current transaction. Additionally provides gating functionality allowing developers using it to prevent code paths in select execution contexts. i.e.: don't run this code in a user-driven context.
+- Rest Library: This library provides a consistent abstraction for making REST callouts. Either on a one-off basis, or at on a complete API integration level. (see wiki for examples).
+- Safely: Safely has two parts - first, a user permission checking library called 'canTheUser' which helps developers determine crud and fls at runtime. The second part, 'Safely', wraps DML calls in Apex Security Decision objects - stripping fields and objects the user doesn't have access to. This library makes it super simple to safely make DML calls.
+- Test Utilities: Contains a test data factory, a HTTP Callout Mock factory, and a Stubbing library that enables developers to define a stub/mock declaratively, there in their test. Deprecates so much boilerplate.
+- Trigger Framework: is, well, a trigger framework. This one is controlled entirely through custom metadata and has built in support for per-user bypass. _helpful for mass data imports_
+- ULID: This is a library for generating Universally Unique Lexicographically Sortable Identifiers. These are similar in concept to UUID's but are sortable, because the first 10 digits are a Crockford encoded timestamp.
 
 ## Design Philosophy
 

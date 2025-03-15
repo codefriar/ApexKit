@@ -1,143 +1,216 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 This class contains two inner classes used for testing the QueueableProcess framework.
 
 ## Fields
 
-### `private handleExceptionCalled` → `Boolean`
+### `handleExceptionCalled`
 
 `TESTVISIBLE`
 
-A 'circuit breaker' to be tripped when the handle exception method is called. This is only used for testing.
+A &#x27;circuit breaker&#x27; to be tripped when the handle exception method is called. This is only
+used for testing.
 
----
+#### Signature
+
+```apex
+private static handleExceptionCalled
+```
+
+#### Type
+
+Boolean
 
 ## Methods
 
-### `public static Account fetchAccountByIdForDemoPurposes(Id accountId)`
+### `fetchAccountByIdForDemoPurposes(accountId)`
 
-A de-duplication effort to fetch the account by ID. Used only by this class' examples.
+A de-duplication effort to fetch the account by ID. Used only by this class&#x27; examples.
+
+#### Signature
+
+```apex
+public static Account fetchAccountByIdForDemoPurposes(Id accountId)
+```
 
 #### Parameters
 
-| Param       | Description             |
-| ----------- | ----------------------- |
-| `accountId` | Id account id to fetch. |
+| Name      | Type | Description             |
+| --------- | ---- | ----------------------- |
+| accountId | Id   | Id account id to fetch. |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                          |
-| ------- | ---------------------------------------------------- |
-| Account | Account returns the account object referenced by id. |
+**Account**
 
----
+Account returns the account object referenced by id.
 
 ## Classes
 
-### Step1
+### Step1 Class
 
 Step1 is an inner class that conforms to QueueableProcess. It represents an example step in a
-process that updates an account's shipping street. It also increments the data passthrough by 1.
+process that updates an account&#x27;s shipping street. It also increments the data passthrough by 1.
 
-**Inheritance**
+#### Fields
 
-[QueueableProcess](https://github.com/codefriar/ApexKit/wiki/QueueableProcess)
-&gt;
-Step1
+##### `accountId`
+
+The Account Id to work with
+
+###### Signature
+
+```apex
+private final accountId
+```
+
+###### Type
+
+Id
 
 #### Constructors
 
-##### `public Step1()`
+##### `Step1()`
 
 `SUPPRESSWARNINGS`
 
-This is a required no-arg/no-opp constructor. When/if the class is instantiated by the error handler, this constructor is used.
+This is a required no-arg/no-opp constructor. When/if the class is instantiated by the
+error handler, this constructor is used.
 
-##### `public Step1(Id accountId)`
+###### Signature
+
+```apex
+public Step1()
+```
+
+---
+
+##### `Step1(accountId)`
 
 The normal constructor. Accepts a accountId.
 
+###### Signature
+
+```apex
+public Step1(Id accountId)
+```
+
 ###### Parameters
 
-| Param       | Description                   |
-| ----------- | ----------------------------- |
-| `accountId` | Id the account id to process. |
-
----
-
-#### Fields
-
-##### `private accountId` → `Id`
-
-The Account Id to work with
-
----
+| Name      | Type | Description                   |
+| --------- | ---- | ----------------------------- |
+| accountId | Id   | Id the account id to process. |
 
 #### Methods
 
-##### `public override void execute()`
+##### `execute()`
 
-This is the main execute method required by the QueueableProcess abstract class. This is where developers will place the code to execute asynchronously in this step. In this case, all it does is fetch an account and increment the shipping street by 1. #riviting.
+This is the main execute method required by the QueueableProcess abstract class. This is where
+developers will place the code to execute asynchronously in this step. In this case, all it does is fetch
+an account and increment the shipping street by 1. #riviting.
 
-##### `public override void handleException(Exception e)`
+###### Signature
 
-This is an optionally overridable method from the QueueableProcess abstract class. If this method is defined on your class, should the execute method above fail at runtime, the QueueableProcess finalizer will instantiate this class, and call this method. This allows developers to write per-step customized error handling. In this case, we're just setting a static boolean to true so we can test the functionality.
+```apex
+public override void execute()
+```
 
-###### Parameters
+###### Return Type
 
-| Param | Description                     |
-| ----- | ------------------------------- |
-| `e`   | Exception any exception object. |
+**void**
 
 ---
 
-### Step2
+##### `handleException(e)`
 
-This is a second example of a QueueableProcess step. It's very similar to the first, but it
+This is an optionally overridable method from the QueueableProcess abstract class. If this
+method is defined on your class, should the execute method above fail at runtime, the QueueableProcess
+finalizer will instantiate this class, and call this method. This allows developers to write per-step
+customized error handling. In this case, we&#x27;re just setting a static boolean to true so we can test the
+functionality.
+
+###### Signature
+
+```apex
+public override void handleException(Exception e)
+```
+
+###### Parameters
+
+| Name | Type      | Description                     |
+| ---- | --------- | ------------------------------- |
+| e    | Exception | Exception any exception object. |
+
+###### Return Type
+
+**void**
+
+### Step2 Class
+
+This is a second example of a QueueableProcess step. It&#x27;s very similar to the first, but it
 manipulates the account phone field.
 
-**Inheritance**
+#### Fields
 
-[QueueableProcess](https://github.com/codefriar/ApexKit/wiki/QueueableProcess)
-&gt;
-Step2
+##### `accountId`
+
+The Account Id to work with
+
+###### Signature
+
+```apex
+private final accountId
+```
+
+###### Type
+
+Id
 
 #### Constructors
 
-##### `public Step2()`
+##### `Step2()`
 
 `SUPPRESSWARNINGS`
 
-a no-arg/no-opp constructor. This is required for the QueueableProcess framework to be instantiated dynamically should an error condition occur during the execution of the process.
+a no-arg/no-opp constructor. This is required for the QueueableProcess framework to be
+instantiated dynamically should an error condition occur during the execution of the process.
 
-##### `public Step2(Id accountId)`
+###### Signature
+
+```apex
+public Step2()
+```
+
+---
+
+##### `Step2(accountId)`
 
 Standard constructor accepting an account id.
 
+###### Signature
+
+```apex
+public Step2(Id accountId)
+```
+
 ###### Parameters
 
-| Param       | Description                   |
-| ----------- | ----------------------------- |
-| `accountId` | Id the account id to process. |
-
----
-
-#### Fields
-
-##### `private accountId` → `Id`
-
-The Account Id to work with
-
----
+| Name      | Type | Description                   |
+| --------- | ---- | ----------------------------- |
+| accountId | Id   | Id the account id to process. |
 
 #### Methods
 
-##### `public override void execute()`
+##### `execute()`
 
-This is the main execute method required by the QueueableProcess abstract class. This is where developers will place the code they want to execute asynchronously in this step. In this case, all it does update the account phone field when the data Passthrough isn't null.
+This is the main execute method required by the QueueableProcess abstract class. This is where
+developers will place the code they want to execute asynchronously in this step. In this case, all it does
+update the account phone field when the data Passthrough isn&#x27;t null.
 
----
+###### Signature
 
----
+```apex
+public override void execute()
+```
+
+###### Return Type
+
+**void**

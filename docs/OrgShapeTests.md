@@ -1,49 +1,157 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Fields
 
-### `private orgCheck` → `Organization`
+### `orgShape`
 
-### `private orgShape` → `OrgShape`
+#### Signature
+
+```apex
+private static orgShape
+```
+
+#### Type
+
+[OrgShape](OrgShape.md)
 
 ---
 
+### `orgCheck`
+
+#### Signature
+
+```apex
+private static orgCheck
+```
+
+#### Type
+
+Organization
+
 ## Methods
 
-### `private static void testOrgShapeProperties()`
+### `testOrgShapeProperties()`
 
 `ISTEST`
 
-### `private static void testAdvancedMultiCurrencyManagement()`
+#### Signature
+
+```apex
+private static void testOrgShapeProperties()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testAdvancedMultiCurrencyManagement()`
 
 `ISTEST`
 
-### `private static void testPlatformCachePositive()`
+#### Signature
+
+```apex
+private static void testAdvancedMultiCurrencyManagement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPlatformCachePositive()`
 
 `ISTEST`
 
-### `private static void testGetSafeDefaultCachePartitionMemoized()`
+#### Signature
+
+```apex
+private static void testPlatformCachePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetSafeDefaultCachePartitionMemoized()`
 
 `ISTEST`
 
-### `private static void testPlatformCacheDisabledWhenSeeAllDataTrue()`
+#### Signature
+
+```apex
+private static void testGetSafeDefaultCachePartitionMemoized()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPlatformCacheDisabledWhenSeeAllDataTrue()`
 
 `ISTEST`
-
 `SUPPRESSWARNINGS`
 
-### `private static void testSeeAllDataPositiveWhenEnabled()`
+#### Signature
+
+```apex
+private static void testPlatformCacheDisabledWhenSeeAllDataTrue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSeeAllDataPositiveWhenEnabled()`
 
 `ISTEST`
-
 `SUPPRESSWARNINGS`
 
-### `private static void testSeeAllDataFalseWhenDisabled()`
+#### Signature
+
+```apex
+private static void testSeeAllDataPositiveWhenEnabled()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSeeAllDataFalseWhenDisabled()`
 
 `ISTEST`
 
-### `private static void testCacheIsUsedPositive()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testSeeAllDataFalseWhenDisabled()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testCacheIsUsedPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testCacheIsUsedPositive()
+```
+
+#### Return Type
+
+**void**

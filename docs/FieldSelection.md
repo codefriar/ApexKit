@@ -1,1 +1,5 @@
-`STATUS: ACTIVE`
+| Value    | Description |
+| -------- | ----------- |
+| ALL      |             |
+| STANDARD |             |
+| CUSTOM   |             |

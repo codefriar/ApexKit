@@ -1,77 +1,324 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testConstructorPositive()`
+### `testConstructorPositive()`
 
 `ISTEST`
 
-Executes a positive test case of the Constructor. Expects the named credential to be set.
+Executes a positive test case of the Constructor.
+Expects the named credential to be set.
 
-### `private static void testStaticMakeApiCallFullParamsPositive()`
+#### Signature
 
-`ISTEST`
+```apex
+private static void testConstructorPositive()
+```
 
-Note: we do not have a constructor test for the no param constructor. Because it's access modifier is protected we cannot use that constructor - the compiler throws an error noting the method is not visible
+#### Return Type
 
-### `private static void testStaticMakeApiCallNoHeadersOrBodyParamsPositive()`
+**void**
 
-`ISTEST`
+---
 
-### `private static void testStaticMakeApiCallNoHeadersOrBodyOrQueryParamsPositive()`
-
-`ISTEST`
-
-### `private static void testGetWithPathAndQueryPositive()`
-
-`ISTEST`
-
-Convenience, Instance Methods These 6 methods are not utilized by our API service class.
-
-### `private static void testGetWithPathPositive()`
+### `testRestLibApiCallFluentInterface()`
 
 `ISTEST`
 
-Positive test case for convenience method needing only path and query params.
+Tests the fluent interface for RestLibApiCall with GET
 
-### `private static void testDelWithPathPositive()`
+#### Signature
 
-`ISTEST`
+```apex
+private static void testRestLibApiCallFluentInterface()
+```
 
-### `private static void testDelWithPathAndQueryPositive()`
+#### Return Type
 
-`ISTEST`
+**void**
 
-### `private static void testPostWithPathAndBodyPositive()`
+---
 
-`ISTEST`
-
-### `private static void testPostWithPathQueryAndBodyPositive()`
-
-`ISTEST`
-
-### `private static void testPutWithPathAndBodyPositive()`
+### `testRestLibApiCallFluentInterfaceWithPost()`
 
 `ISTEST`
 
-### `private static void testPutWithPathQueryAndBodyPositive()`
+Tests the fluent interface for RestLibApiCall with POST and body
+
+#### Signature
+
+```apex
+private static void testRestLibApiCallFluentInterfaceWithPost()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testRestLibApiCallFluentInterfaceWithPatch()`
 
 `ISTEST`
 
-### `private static void testPatchWithPathQueryAndBodyPositive()`
+Tests the fluent interface for RestLibApiCall with PATCH (which is handled specially)
+
+#### Signature
+
+```apex
+private static void testRestLibApiCallFluentInterfaceWithPatch()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testStaticMakeApiCallFullParamsPositive()`
 
 `ISTEST`
 
-### `private static void testPatchWithPathAndBodyPositive()`
+Note: we do not have a constructor test for the no param
+constructor. Because it&#x27;s access modifier is protected
+we cannot use that constructor - the compiler throws an error
+noting the method is not visible
+
+#### Signature
+
+```apex
+private static void testStaticMakeApiCallFullParamsPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testStaticMakeApiCallNoHeadersOrBodyParamsPositive()`
 
 `ISTEST`
 
-### `private static void testProtectedRestLibConstructorPositive()`
+#### Signature
+
+```apex
+private static void testStaticMakeApiCallNoHeadersOrBodyParamsPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testStaticMakeApiCallNoHeadersOrBodyOrQueryParamsPositive()`
 
 `ISTEST`
 
-### `private static void testEnsureStringEndsInSlashPositiveStartWithoutSlash()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testStaticMakeApiCallNoHeadersOrBodyOrQueryParamsPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetWithPathAndQueryPositive()`
+
+`ISTEST`
+
+Convenience, Instance Methods
+These 6 methods are not utilized by our API service
+class.
+
+#### Signature
+
+```apex
+private static void testGetWithPathAndQueryPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetWithPathPositive()`
+
+`ISTEST`
+
+Positive test case for convenience method needing only
+path and query params.
+
+#### Signature
+
+```apex
+private static void testGetWithPathPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDelWithPathPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDelWithPathPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDelWithPathAndQueryPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDelWithPathAndQueryPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPostWithPathAndBodyPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPostWithPathAndBodyPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPostWithPathQueryAndBodyPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPostWithPathQueryAndBodyPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPutWithPathAndBodyPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPutWithPathAndBodyPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPutWithPathQueryAndBodyPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPutWithPathQueryAndBodyPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPatchWithPathQueryAndBodyPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPatchWithPathQueryAndBodyPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPatchWithPathAndBodyPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPatchWithPathAndBodyPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testProtectedRestLibConstructorPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testProtectedRestLibConstructorPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testEnsureStringEndsInSlashPositiveStartWithoutSlash()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testEnsureStringEndsInSlashPositiveStartWithoutSlash()
+```
+
+#### Return Type
+
+**void**

@@ -23,6 +23,7 @@
     </content>
     <orderEntry type="jdk" jdkName="IlluminatedCloud (ApexKit/Apexkit)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="ApexKit/lwc_types" level="project" />
   </component>
   <component name="SonarLintModuleSettings">
     <option name="uniqueId" value="7cc09334-4e62-4f27-b623-e4fc41bfd0c5" />

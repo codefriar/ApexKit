@@ -1,18 +1,18 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 MIT License
+
 Copyright (c) 2020 Rafał Kopaczewski
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
+of this software and associated documentation files (the &quot;Software&quot;), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -22,138 +22,542 @@ SOFTWARE.
 
 ## Methods
 
-### `private static void testSetup()`
+### `testSetup()`
 
 `TESTSETUP`
 
-### `private static void testSOQLConstructor()`
+#### Signature
 
-`ISTEST`
+```apex
+private static void testSetup()
+```
 
-### `private static void testSOQLGetQueryString()`
+#### Return Type
 
-`ISTEST`
-
-### `private static void testSOQLGetRecord()`
-
-`ISTEST`
-
-### `private static void testSOQLGetRecords()`
-
-`ISTEST`
-
-### `private static void testSOQLGetQueryLocator()`
-
-`ISTEST`
-
-### `private static void testSOQLToStringOverride()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderConstructor()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSelectSingleField()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSelectFieldsAsList()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSelectFieldsAsSet()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderAddSubQuery()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderAddTypeOf()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWhereCondition()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderAddScope()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderOrderBy()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetScopeLimit()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetOffset()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetForReference()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetForUpdate()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetForView()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetUpdateTracking()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderSetUpdateViewStat()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithSelectStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithFromStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithScopeStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithWhereStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithOrderStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithLimitStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithOffsetStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithForStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderWithUpdateStatement()`
-
-`ISTEST`
-
-### `private static void testSOQLBuilderToStringOverride()`
-
-`ISTEST`
-
-### `private static User selectTestUser()`
+**void**
 
 ---
+
+### `testSOQLConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLGetQueryString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLGetQueryString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLGetRecord()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLGetRecord()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLGetRecords()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLGetRecords()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLGetQueryLocator()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLGetQueryLocator()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSelectSingleField()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSelectSingleField()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSelectFieldsAsList()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSelectFieldsAsList()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSelectFieldsAsSet()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSelectFieldsAsSet()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderAddSubQuery()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderAddSubQuery()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderAddTypeOf()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderAddTypeOf()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWhereCondition()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWhereCondition()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderAddScope()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderAddScope()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderOrderBy()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderOrderBy()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetScopeLimit()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetScopeLimit()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetOffset()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetOffset()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetForReference()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetForReference()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetForUpdate()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetForUpdate()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetForView()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetForView()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetUpdateTracking()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetUpdateTracking()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderSetUpdateViewStat()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderSetUpdateViewStat()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithSelectStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithSelectStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithFromStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithFromStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithScopeStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithScopeStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithWhereStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithWhereStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithOrderStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithOrderStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithLimitStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithLimitStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithOffsetStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithOffsetStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithForStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithForStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderWithUpdateStatement()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderWithUpdateStatement()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSOQLBuilderToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSOQLBuilderToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `selectTestUser()`
+
+#### Signature
+
+```apex
+private static User selectTestUser()
+```
+
+#### Return Type
+
+**User**

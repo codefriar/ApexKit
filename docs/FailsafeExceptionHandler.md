@@ -1,99 +1,149 @@
-`STATUS: ACTIVE`
-
-This class is a polyfill for the handling exceptions. Rather than writing
 boilerplate exception handling code everywhere, this class can be used to log exceptions.
 
-**Implemented types**
+**Implements**
 
-[System.Callable](System.Callable)
-
-## Constructors
-
-### `public FailsafeExceptionHandler()`
-
-`SUPPRESSWARNINGS`
-
-### `public FailsafeExceptionHandler(Exception incomingException)`
-
-Constructor usage for a single exception.
-
-#### Parameters
-
-| Param               | Description                            |
-| ------------------- | -------------------------------------- |
-| `incomingException` | Exception the Exception to be handled. |
-
-#### Example
-
-```apex
-`new FailsafeExceptionHandler(incomingException);`
-```
-
-### `public FailsafeExceptionHandler(List<Exception> incomingExceptions)`
-
-Constructor usage for a list of exceptions.
-
-#### Parameters
-
-| Param                | Description                                           |
-| -------------------- | ----------------------------------------------------- |
-| `incomingExceptions` | List<Exception> the list of exceptions to be handled. |
-
-#### Example
-
-```apex
-`new FailsafeExceptionHandler(incomingExceptions);`
-```
-
----
+System.Callable
 
 ## Fields
 
-### `private logger` → `Log`
+### `logger`
 
 `TESTVISIBLE`
 
 An instance of Log to log exceptions.
 
+#### Signature
+
+```apex
+private final logger
+```
+
+#### Type
+
+[Log](Log.md)
+
+## Constructors
+
+### `FailsafeExceptionHandler()`
+
+`SUPPRESSWARNINGS`
+
+#### Signature
+
+```apex
+public FailsafeExceptionHandler()
+```
+
 ---
+
+### `FailsafeExceptionHandler(incomingException)`
+
+Constructor usage for a single exception.
+
+#### Signature
+
+```apex
+public FailsafeExceptionHandler(Exception incomingException)
+```
+
+#### Parameters
+
+| Name              | Type      | Description                            |
+| ----------------- | --------- | -------------------------------------- |
+| incomingException | Exception | Exception the Exception to be handled. |
+
+#### Example
+
+`new FailsafeExceptionHandler(incomingException);`
+
+---
+
+### `FailsafeExceptionHandler(incomingExceptions)`
+
+Constructor usage for a list of exceptions.
+
+#### Signature
+
+```apex
+public FailsafeExceptionHandler(List<Exception> incomingExceptions)
+```
+
+#### Parameters
+
+| Name               | Type                  | Description                                                 |
+| ------------------ | --------------------- | ----------------------------------------------------------- |
+| incomingExceptions | List&lt;Exception&gt; | List&lt;Exception&gt; the list of exceptions to be handled. |
+
+#### Example
+
+`new FailsafeExceptionHandler(incomingExceptions);`
 
 ## Methods
 
-### `public void handledException(Exception incomingException)`
+### `handledException(incomingException)`
 
 Handles an incoming exception by adding it to the log list.
 
+#### Signature
+
+```apex
+public void handledException(Exception incomingException)
+```
+
 #### Parameters
 
-| Param               | Description                            |
-| ------------------- | -------------------------------------- |
-| `incomingException` | Exception the exception to be handled. |
+| Name              | Type      | Description                            |
+| ----------------- | --------- | -------------------------------------- |
+| incomingException | Exception | Exception the exception to be handled. |
 
-### `public void handleExceptions(List<Exception> exceptions)`
+#### Return Type
+
+**void**
+
+---
+
+### `handleExceptions(exceptions)`
 
 handles an list of incoming exceptions
 
+#### Signature
+
+```apex
+public void handleExceptions(List<Exception> exceptions)
+```
+
 #### Parameters
 
-| Param        | Description                                           |
-| ------------ | ----------------------------------------------------- |
-| `exceptions` | List<Exception> the list of exceptions to be handled. |
+| Name       | Type                  | Description                                                 |
+| ---------- | --------------------- | ----------------------------------------------------------- |
+| exceptions | List&lt;Exception&gt; | List&lt;Exception&gt; the list of exceptions to be handled. |
 
-### `public Object call(String action, Map<String,Object> args)`
+#### Return Type
+
+**void**
+
+---
+
+### `call(action, args)`
 
 Implements the Callable interface. This allows the class to be used outside of a package boundary.
 
+#### Signature
+
+```apex
+public Object call(String action, Map<String,Object> args)
+```
+
 #### Parameters
 
-| Param    | Description                                                                                                 |
-| -------- | ----------------------------------------------------------------------------------------------------------- |
-| `action` | String the action to be performed. The only one handled in this class is 'handleException'.                 |
-| `args`   | Map<String, Object> the arguments to be passed to the action. in this case 'incomingException' => Exception |
+| Name                                               | Type                     | Description                                                                                           |
+| -------------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| action                                             | String                   | String the action to be performed. The only one handled in this class is &#x27;handleException&#x27;. |
+| args                                               | Map&lt;String,Object&gt; | Map&lt;String, Object&gt; the arguments to be passed to the action. in this case                      |
+| &#x27;incomingException&#x27; &#x3D;&gt; Exception |
 
-#### Returns
+#### Return Type
 
-| Type   | Description         |
-| ------ | ------------------- |
-| Object | Object returns null |
+**Object**
 
----
+Object returns null

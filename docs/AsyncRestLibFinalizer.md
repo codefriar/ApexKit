@@ -1,40 +1,66 @@
-`STATUS: ACTIVE`
-
 Abstract class defining a common interface with default implementation for finalizers handling
 AsyncRestApi calls
 
-**Implemented types**
+**Implements**
 
-[Finalizer](Finalizer)
+Finalizer
 
 ## Fields
 
-### `public response` → `HttpResponse`
+### `response`
 
 the HTTP response object
 
----
+#### Signature
+
+```apex
+public response
+```
+
+#### Type
+
+HttpResponse
 
 ## Methods
 
-### `private void execute(HttpResponse response)`
+### `execute(response)`
 
 The extending class must implement this method to handle the HTTP response
 
+#### Signature
+
+```apex
+private abstract void execute(HttpResponse response)
+```
+
 #### Parameters
 
-| Param      | Description                                 |
-| ---------- | ------------------------------------------- |
-| `response` | HttpResponse response object to be handled. |
+| Name     | Type         | Description                                 |
+| -------- | ------------ | ------------------------------------------- |
+| response | HttpResponse | HttpResponse response object to be handled. |
 
-### `private void execute(FinalizerContext fc)`
+#### Return Type
+
+**void**
+
+---
+
+### `execute(fc)`
 
 Execution method of the finalizer. required by the interface.
 
+#### Signature
+
+```apex
+private void execute(FinalizerContext fc)
+```
+
 #### Parameters
 
-| Param | Description                                                        |
-| ----- | ------------------------------------------------------------------ |
-| `fc`  | FinalizerContext Context object dependency injected by Salesforce. |
+| Name | Type             | Description                                                        |
+| ---- | ---------------- | ------------------------------------------------------------------ |
+| fc   | FinalizerContext | FinalizerContext Context object dependency injected by Salesforce. |
 
----
+#### Return Type
+
+**void**

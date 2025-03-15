@@ -1,57 +1,193 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testGetSObjectTypeFromListPositiveNoType()`
+### `testGetSObjectTypeFromListPositiveNoType()`
 
 `ISTEST`
 
-### `private static void testGenerateUUID()`
+#### Signature
+
+```apex
+private static void testGetSObjectTypeFromListPositiveNoType()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGenerateUUID()`
 
 `ISTEST`
 
-### `private static void testPluckFieldFromList()`
+#### Signature
+
+```apex
+private static void testGenerateUUID()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPluckFieldFromList()`
 
 `ISTEST`
 
-### `private static void testGenerateStacktracePositive()`
+#### Signature
+
+```apex
+private static void testPluckFieldFromList()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGenerateStacktracePositive()`
 
 `ISTEST`
 
-### `private static void testTypeObjFromInstance()`
+#### Signature
+
+```apex
+private static void testGenerateStacktracePositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeObjFromInstance()`
 
 `ISTEST`
 
-### `private static void testClassNameFromInstance()`
+#### Signature
+
+```apex
+private static void testTypeObjFromInstance()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testClassNameFromInstance()`
 
 `ISTEST`
 
-### `private static void testDemonstrateIdMapFromCollectionByKeyPositiveWithList()`
+#### Signature
+
+```apex
+private static void testClassNameFromInstance()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDemonstrateIdMapFromCollectionByKeyPositiveWithList()`
 
 `ISTEST`
 
-### `private static void testDemonstrateStringMapFromCollectionByKeyPositiveWithList()`
+#### Signature
+
+```apex
+private static void testDemonstrateIdMapFromCollectionByKeyPositiveWithList()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDemonstrateStringMapFromCollectionByKeyPositiveWithList()`
 
 `ISTEST`
 
-### `private static void testMapFromCollectionWithListOfValuesPostive()`
+#### Signature
+
+```apex
+private static void testDemonstrateStringMapFromCollectionByKeyPositiveWithList()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testMapFromCollectionWithListOfValuesPostive()`
 
 `ISTEST`
 
-### `private static void testSetContainsAnyItemFromListPositive()`
+#### Signature
+
+```apex
+private static void testMapFromCollectionWithListOfValuesPostive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSetContainsAnyItemFromListPositive()`
 
 `SUPPRESSWARNINGS`
-
 `ISTEST`
 
-### `private static void testSetDoesNOTContainsAnyItemFromListPositive()`
+#### Signature
+
+```apex
+private static void testSetContainsAnyItemFromListPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSetDoesNOTContainsAnyItemFromListPositive()`
 
 `SUPPRESSWARNINGS`
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSetDoesNOTContainsAnyItemFromListPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `givenAStringAndABlob_CanConcatenateIntoOneBlob()`
 
 `ISTEST`
 
-### `private static void givenAStringAndABlob_CanConcatenateIntoOneBlob()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void givenAStringAndABlob_CanConcatenateIntoOneBlob()
+```
+
+#### Return Type
+
+**void**

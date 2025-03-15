@@ -1,1 +1,4 @@
-`STATUS: ACTIVE`
+| Value      | Description |
+| ---------- | ----------- |
+| ACCESSIBLE |             |
+| UPDATABLE  |             |

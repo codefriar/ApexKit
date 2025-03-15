@@ -1,125 +1,473 @@
 `TESTVISIBLE`
 
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Fields
 
-### `private TRIGGER_CONTEXT_ERROR` → `String`
+### `TRIGGER_CONTEXT_ERROR`
 
-### `private handler` → `TriggerFrameworkTests`
+#### Signature
 
-### `private lastMethodCalled` → `String`
+```apex
+private static final TRIGGER_CONTEXT_ERROR
+```
+
+#### Type
+
+String
 
 ---
 
+### `lastMethodCalled`
+
+#### Signature
+
+```apex
+private static lastMethodCalled
+```
+
+#### Type
+
+String
+
+---
+
+### `handler`
+
+#### Signature
+
+```apex
+private static handler
+```
+
+#### Type
+
+TriggerFrameworkTests.TestHandler
+
 ## Methods
 
-### `private static void testBeforeInsert()`
+### `testBeforeInsert()`
 
 `ISTEST`
 
 unit tests
 
-### `private static void testBeforeUpdate()`
+#### Signature
 
-`ISTEST`
+```apex
+private static void testBeforeInsert()
+```
 
-### `private static void testBeforeDelete()`
+#### Return Type
 
-`ISTEST`
-
-### `private static void testAfterInsert()`
-
-`ISTEST`
-
-### `private static void testAfterUpdate()`
-
-`ISTEST`
-
-### `private static void testAfterDelete()`
-
-`ISTEST`
-
-### `private static void testAfterUndelete()`
-
-`ISTEST`
-
-### `private static void testNonTriggerContext()`
-
-`ISTEST`
-
-### `private static void testBypassAPI()`
-
-`ISTEST`
-
-### `private static void testLoopCount()`
-
-`ISTEST`
-
-### `private static void testLoopCountClass()`
-
-`ISTEST`
-
-### `private static void testGetHandlerName()`
-
-`ISTEST`
-
-### `private static void testVirtualMethods()`
-
-`ISTEST`
-
-### `private static void resetTest()`
-
-testing utilities
-
-### `private static void beforeInsertMode()`
-
-### `private static void beforeUpdateMode()`
-
-### `private static void beforeDeleteMode()`
-
-### `private static void afterInsertMode()`
-
-### `private static void afterUpdateMode()`
-
-### `private static void afterDeleteMode()`
-
-### `private static void afterUndeleteMode()`
+**void**
 
 ---
 
+### `testBeforeUpdate()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testBeforeUpdate()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testBeforeDelete()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testBeforeDelete()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testAfterInsert()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testAfterInsert()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testAfterUpdate()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testAfterUpdate()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testAfterDelete()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testAfterDelete()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testAfterUndelete()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testAfterUndelete()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testNonTriggerContext()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testNonTriggerContext()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testBypassAPI()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testBypassAPI()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testLoopCount()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testLoopCount()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testLoopCountClass()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testLoopCountClass()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetHandlerName()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testGetHandlerName()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testVirtualMethods()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testVirtualMethods()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `resetTest()`
+
+testing utilities
+
+#### Signature
+
+```apex
+private static void resetTest()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `beforeInsertMode()`
+
+#### Signature
+
+```apex
+private static void beforeInsertMode()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `beforeUpdateMode()`
+
+#### Signature
+
+```apex
+private static void beforeUpdateMode()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `beforeDeleteMode()`
+
+#### Signature
+
+```apex
+private static void beforeDeleteMode()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterInsertMode()`
+
+#### Signature
+
+```apex
+private static void afterInsertMode()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterUpdateMode()`
+
+#### Signature
+
+```apex
+private static void afterUpdateMode()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterDeleteMode()`
+
+#### Signature
+
+```apex
+private static void afterDeleteMode()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `afterUndeleteMode()`
+
+#### Signature
+
+```apex
+private static void afterUndeleteMode()
+```
+
+#### Return Type
+
+**void**
+
 ## Classes
 
-### TestHandler
+### TestHandler Class
 
 `TESTVISIBLE`
 
 test implementation of the TriggerHandler
 
-**Inheritance**
-
-[TriggerFramework](https://github.com/codefriar/ApexKit/wiki/TriggerFramework)
-&gt;
-TestHandler
-
 #### Methods
 
-##### `public override void beforeInsert()`
+##### `beforeInsert()`
 
-##### `public override void beforeUpdate()`
+###### Signature
 
-##### `public override void beforeDelete()`
+```apex
+public override void beforeInsert()
+```
 
-##### `public override void afterInsert()`
+###### Return Type
 
-##### `public override void afterUpdate()`
-
-##### `public override void afterDelete()`
-
-##### `public override void afterUndelete()`
+**void**
 
 ---
 
+##### `beforeUpdate()`
+
+###### Signature
+
+```apex
+public override void beforeUpdate()
+```
+
+###### Return Type
+
+**void**
+
 ---
+
+##### `beforeDelete()`
+
+###### Signature
+
+```apex
+public override void beforeDelete()
+```
+
+###### Return Type
+
+**void**
+
+---
+
+##### `afterInsert()`
+
+###### Signature
+
+```apex
+public override void afterInsert()
+```
+
+###### Return Type
+
+**void**
+
+---
+
+##### `afterUpdate()`
+
+###### Signature
+
+```apex
+public override void afterUpdate()
+```
+
+###### Return Type
+
+**void**
+
+---
+
+##### `afterDelete()`
+
+###### Signature
+
+```apex
+public override void afterDelete()
+```
+
+###### Return Type
+
+**void**
+
+---
+
+##### `afterUndelete()`
+
+###### Signature
+
+```apex
+public override void afterUndelete()
+```
+
+###### Return Type
+
+**void**

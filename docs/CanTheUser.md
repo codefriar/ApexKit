@@ -1,14 +1,11 @@
-`STATUS: ACTIVE`
-
-A reusable, intuitive library for determining whether or not the
 current use can create, read, edit, or delete objects as well as
 determining if the user has access or update permissions on specific fields.
 This class name was chosen to facilitate easy-to-understand and read code.
 Whenever you need to check FLS or CRUD access your code reads like this
 `if(CanTheUser.read(new account())){}` making the calling and use of this
 code easy and intuitive.
-<br>
-This class' name was chosen to facilitate easy-to-understand and read
+&lt;br&gt;
+This class&#x27; name was chosen to facilitate easy-to-understand and read
 code. Whenever you need to check FLS or CRUD access your code reads like
 this
 `if(CanTheUser.read(new account())){}` making the calling and use of this
@@ -16,515 +13,702 @@ code easy and intuitive.
 
 ## Fields
 
-### `private MEMOIZED_FLS_RESULTS` → `Map<String,Map<FLSType,Boolean>>`
+### `MEMOIZED_FLS_RESULTS`
 
-This variable stores, within the same transaction, all previously calculated FLS results for an object. This prevents multiple calls to this library within the same transaction from executing more than a single describe call.
+This variable stores, within the same transaction, all previously calculated
+FLS results for an object. This prevents multiple calls to this library within the same
+transaction from executing more than a single describe call.
 
----
+#### Signature
+
+```apex
+private static final MEMOIZED_FLS_RESULTS
+```
+
+#### Type
+
+Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;
 
 ## Methods
 
-### `private static Boolean crud(SObject obj, CrudType permission)`
+### `crud(obj, permission)`
 
 `TESTVISIBLE`
 
-A method to determine if the running user can perform the specified CRUD operation on the specified object, or object type.
+A method to determine if the running user can perform the specified CRUD operation on the specified
+object, or object type.
+
+#### Signature
+
+```apex
+private static Boolean crud(SObject obj, CrudType permission)
+```
 
 #### Parameters
 
-| Param        | Description                    |
-| ------------ | ------------------------------ |
-| `obj`        | the object type to check       |
-| `permission` | create, read, update or delete |
+| Name       | Type                    | Description                    |
+| ---------- | ----------------------- | ------------------------------ |
+| obj        | SObject                 | the object type to check       |
+| permission | [CrudType](CrudType.md) | create, read, update or delete |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                                                               |
-| ------- | ----------------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can perform the specified CRUD operation on the specified object |
+**Boolean**
+
+Boolean true if the user can perform the specified CRUD operation on the specified object
 
 #### Example
 
-```apex
 System.debug(CanTheUser.crud(new Account(), CanTheUser.CrudType.READABLE));
+
+---
+
+### `crud(objs, permission)`
+
+`TESTVISIBLE`
+
+a list accepting version of the crud method. It returns CRUD results for the first object in the
+list. Use this method to see if the running user can, for instance, Create an Account, Contact, or Opportunity
+
+#### Signature
+
+```apex
+private static Boolean crud(List<SObject> objs, CrudType permission)
 ```
 
-### `private static Boolean crud(List<SObject> objs, CrudType permission)`
+#### Parameters
+
+| Name       | Type                    | Description                                       |
+| ---------- | ----------------------- | ------------------------------------------------- |
+| objs       | List&lt;SObject&gt;     | List&lt;SObject&gt; the list of SObjects to check |
+| permission | [CrudType](CrudType.md) | CrudType the CRUD type to check ie: Create        |
+
+#### Return Type
+
+**Boolean**
+
+Boolean true if the user can perform the specified CRUD operation on the first object in the list
+
+---
+
+### `crud(objectName, permission)`
 
 `TESTVISIBLE`
 
-a list accepting version of the crud method. It returns CRUD results for the first object in the list. Use this method to see if the running user can, for instance, Create an Account, Contact, or Opportunity
+A method to determine if the running user can perform the specified CRUD operation on the specified
+object, or object type.
+
+#### Signature
+
+```apex
+private static Boolean crud(String objectName, CrudType permission)
+```
 
 #### Parameters
 
-| Param        | Description                                 |
-| ------------ | ------------------------------------------- |
-| `objs`       | List<SObject> the list of SObjects to check |
-| `permission` | CrudType the CRUD type to check ie: Create  |
+| Name       | Type                    | Description                                |
+| ---------- | ----------------------- | ------------------------------------------ |
+| objectName | String                  | String the name of the object to check     |
+| permission | [CrudType](CrudType.md) | CrudType the CRUD type to check ie: Create |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                                                                       |
-| ------- | ------------------------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can perform the specified CRUD operation on the first object in the list |
+**Boolean**
 
-### `private static Boolean crud(String objectName, CrudType permission)`
+Boolean true if the user can perform the specified CRUD operation on the specified object
 
-`TESTVISIBLE`
+---
 
-A method to determine if the running user can perform the specified CRUD operation on the specified object, or object type.
-
-#### Parameters
-
-| Param        | Description                                |
-| ------------ | ------------------------------------------ |
-| `objectName` | String the name of the object to check     |
-| `permission` | CrudType the CRUD type to check ie: Create |
-
-#### Returns
-
-| Type    | Description                                                                               |
-| ------- | ----------------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can perform the specified CRUD operation on the specified object |
-
-### `public static Boolean create(SObject obj)`
+### `create(obj)`
 
 convenience api for determining if the running user can create the specified object
 
+#### Signature
+
+```apex
+public static Boolean create(SObject obj)
+```
+
 #### Parameters
 
-| Param | Description                                |
-| ----- | ------------------------------------------ |
-| `obj` | Object type to check create permissions on |
+| Name | Type    | Description                                |
+| ---- | ------- | ------------------------------------------ |
+| obj  | SObject | Object type to check create permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can create the specified object |
+**Boolean**
+
+Boolean true if the user can create the specified object
 
 #### Example
 
-```apex
 System.debug(CanTheUser.create(new Account()));
+
+---
+
+### `create(objs)`
+
+convenience api for determining if the running user can create the specified object
+
+#### Signature
+
+```apex
+public static Boolean create(List<SObject> objs)
 ```
 
-### `public static Boolean create(List<SObject> objs)`
+#### Parameters
+
+| Name                                 | Type                | Description                                                                            |
+| ------------------------------------ | ------------------- | -------------------------------------------------------------------------------------- |
+| objs                                 | List&lt;SObject&gt; | list of objects. Only the first will be checked. (logically, a list is of uniform type |
+| and, and if the user can create one) |
+
+#### Return Type
+
+**Boolean**
+
+Boolean true if the user can create the first object in the list
+
+---
+
+### `create(objName)`
 
 convenience api for determining if the running user can create the specified object
 
-#### Parameters
+#### Signature
 
-| Param  | Description                                                                                                                 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `objs` | list of objects. Only the first will be checked. (logically, a list is of uniform type and, and if the user can create one) |
-
-#### Returns
-
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | Boolean true if the user can create the first object in the list |
-
-### `public static Boolean create(String objName)`
-
-convenience api for determining if the running user can create the specified object
+```apex
+public static Boolean create(String objName)
+```
 
 #### Parameters
 
-| Param     | Description                                |
-| --------- | ------------------------------------------ |
-| `objName` | Object type to check create permissions on |
+| Name    | Type   | Description                                |
+| ------- | ------ | ------------------------------------------ |
+| objName | String | Object type to check create permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can create the specified object |
+**Boolean**
+
+Boolean true if the user can create the specified object
 
 #### Example
 
-```apex
-System.debug(CanTheUser.create('Account'));
-```
+System.debug(CanTheUser.create(&#x27;Account&#x27;));
 
-### `public static Boolean read(SObject obj)`
+---
+
+### `read(obj)`
 
 convenience api for determining if the running user can read / access the specified object
 
+#### Signature
+
+```apex
+public static Boolean read(SObject obj)
+```
+
 #### Parameters
 
-| Param | Description                              |
-| ----- | ---------------------------------------- |
-| `obj` | object type to check read permissions on |
+| Name | Type    | Description                              |
+| ---- | ------- | ---------------------------------------- |
+| obj  | SObject | object type to check read permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can read the specified object |
+**Boolean**
+
+Boolean true if the user can read the specified object
 
 #### Example
 
-```apex
 System.debug(CanTheUser.read(new Account()));
-```
 
-### `public static Boolean read(List<SObject> objs)`
+---
+
+### `read(objs)`
 
 convenience api for determining if the running user can read / access the specified objects
 
+#### Signature
+
+```apex
+public static Boolean read(List<SObject> objs)
+```
+
 #### Parameters
 
-| Param  | Description                              |
-| ------ | ---------------------------------------- |
-| `objs` | object type to check read permissions on |
+| Name | Type                | Description                              |
+| ---- | ------------------- | ---------------------------------------- |
+| objs | List&lt;SObject&gt; | object type to check read permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can read the specified object |
+**Boolean**
 
-### `public static Boolean read(String objName)`
+Boolean true if the user can read the specified object
+
+---
+
+### `read(objName)`
 
 convenience api for determining if the running user can read the specified object
 
+#### Signature
+
+```apex
+public static Boolean read(String objName)
+```
+
 #### Parameters
 
-| Param     | Description                              |
-| --------- | ---------------------------------------- |
-| `objName` | Object type to check read permissions on |
+| Name    | Type   | Description                              |
+| ------- | ------ | ---------------------------------------- |
+| objName | String | Object type to check read permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can read the specified object |
+**Boolean**
+
+Boolean true if the user can read the specified object
 
 #### Example
 
-```apex
-System.debug(CanTheUser.read('Account'));
-```
+System.debug(CanTheUser.read(&#x27;Account&#x27;));
 
-### `public static Boolean edit(SObject obj)`
+---
+
+### `edit(obj)`
 
 convenience api for determining if the running user can edit / update the specified object
 
+#### Signature
+
+```apex
+public static Boolean edit(SObject obj)
+```
+
 #### Parameters
 
-| Param | Description                              |
-| ----- | ---------------------------------------- |
-| `obj` | object type to check edit permissions on |
+| Name | Type    | Description                              |
+| ---- | ------- | ---------------------------------------- |
+| obj  | SObject | object type to check edit permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can edit the specified object |
+**Boolean**
+
+Boolean true if the user can edit the specified object
 
 #### Example
 
-```apex
 System.debug(CanTheUser.edit(new Account()));
-```
 
-### `public static Boolean edit(List<SObject> objs)`
+---
+
+### `edit(objs)`
 
 convenience api for determining if the running user can edit / update the specified objects
 
+#### Signature
+
+```apex
+public static Boolean edit(List<SObject> objs)
+```
+
 #### Parameters
 
-| Param  | Description                              |
-| ------ | ---------------------------------------- |
-| `objs` | object type to check edit permissions on |
+| Name | Type                | Description                              |
+| ---- | ------------------- | ---------------------------------------- |
+| objs | List&lt;SObject&gt; | object type to check edit permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can edit the specified object |
+**Boolean**
 
-### `public static Boolean edit(String objName)`
+Boolean true if the user can edit the specified object
+
+---
+
+### `edit(objName)`
 
 convenience api for determining if the running user can edit the specified object
 
+#### Signature
+
+```apex
+public static Boolean edit(String objName)
+```
+
 #### Parameters
 
-| Param     | Description                              |
-| --------- | ---------------------------------------- |
-| `objName` | Object type to check edit permissions on |
+| Name    | Type   | Description                              |
+| ------- | ------ | ---------------------------------------- |
+| objName | String | Object type to check edit permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                            |
-| ------- | ------------------------------------------------------ |
-| Boolean | Boolean true if the user can edit the specified object |
+**Boolean**
+
+Boolean true if the user can edit the specified object
 
 #### Example
 
-```apex
-System.debug(CanTheUser.edit('Account'));
-```
+System.debug(CanTheUser.edit(&#x27;Account&#x27;));
 
-### `public static Boolean ups(SObject obj)`
+---
+
+### `ups(obj)`
 
 convenience api for determining if the running user can upsert (insert and update) the specified objects
 
+#### Signature
+
+```apex
+public static Boolean ups(SObject obj)
+```
+
 #### Parameters
 
-| Param | Description                              |
-| ----- | ---------------------------------------- |
-| `obj` | object type to check edit permissions on |
+| Name | Type    | Description                              |
+| ---- | ------- | ---------------------------------------- |
+| obj  | SObject | object type to check edit permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can upsert the specified object |
+**Boolean**
+
+Boolean true if the user can upsert the specified object
 
 #### Example
 
-```apex
 System.debug(CanTheUser.ups(new Account()));
-```
 
-### `public static Boolean ups(List<SObject> objs)`
+---
+
+### `ups(objs)`
 
 convenience api for determining if the running user can edit / update the specified objects
 
+#### Signature
+
+```apex
+public static Boolean ups(List<SObject> objs)
+```
+
 #### Parameters
 
-| Param  | Description                                |
-| ------ | ------------------------------------------ |
-| `objs` | object type to check upsert permissions on |
+| Name | Type                | Description                                |
+| ---- | ------------------- | ------------------------------------------ |
+| objs | List&lt;SObject&gt; | object type to check upsert permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can upsert the specified object |
+**Boolean**
 
-### `public static Boolean ups(String objName)`
+Boolean true if the user can upsert the specified object
+
+---
+
+### `ups(objName)`
 
 convenience api for determining if the running user can upsert the specified object
 
+#### Signature
+
+```apex
+public static Boolean ups(String objName)
+```
+
 #### Parameters
 
-| Param     | Description                                |
-| --------- | ------------------------------------------ |
-| `objName` | Object type to check upsert permissions on |
+| Name    | Type   | Description                                |
+| ------- | ------ | ------------------------------------------ |
+| objName | String | Object type to check upsert permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                               |
-| ------- | --------------------------------------------------------- |
-| Boolean | Boolean true if the user can upsert the specified objects |
+**Boolean**
+
+Boolean true if the user can upsert the specified objects
 
 #### Example
 
-```apex
-System.debug(CanTheUser.ups('Account'));
-```
+System.debug(CanTheUser.ups(&#x27;Account&#x27;));
 
-### `public static Boolean destroy(SObject obj)`
+---
+
+### `destroy(obj)`
 
 convenience api for determining if the running user can delete/destroy the specified object
 
+#### Signature
+
+```apex
+public static Boolean destroy(SObject obj)
+```
+
 #### Parameters
 
-| Param | Description                                 |
-| ----- | ------------------------------------------- |
-| `obj` | object type to check destroy permissions on |
+| Name | Type    | Description                                 |
+| ---- | ------- | ------------------------------------------- |
+| obj  | SObject | object type to check destroy permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can delete the specified object |
+**Boolean**
+
+Boolean true if the user can delete the specified object
 
 #### Example
 
-```apex
 System.debug(CanTheUser.destroy(new Account()));
+
+---
+
+### `destroy(objs)`
+
+convenience api for determining if the running user can delete the specified object
+
+#### Signature
+
+```apex
+public static Boolean destroy(List<SObject> objs)
 ```
 
-### `public static Boolean destroy(List<SObject> objs)`
+#### Parameters
+
+| Name | Type                | Description                                |
+| ---- | ------------------- | ------------------------------------------ |
+| objs | List&lt;SObject&gt; | Object type to check delete permissions on |
+
+#### Return Type
+
+**Boolean**
+
+Boolean true if the user can delete the specified object
+
+---
+
+### `destroy(objName)`
 
 convenience api for determining if the running user can delete the specified object
 
-#### Parameters
+#### Signature
 
-| Param  | Description                                |
-| ------ | ------------------------------------------ |
-| `objs` | Object type to check delete permissions on |
-
-#### Returns
-
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can delete the specified object |
-
-### `public static Boolean destroy(String objName)`
-
-convenience api for determining if the running user can delete the specified object
+```apex
+public static Boolean destroy(String objName)
+```
 
 #### Parameters
 
-| Param     | Description                                |
-| --------- | ------------------------------------------ |
-| `objName` | Object type to check create permissions on |
+| Name    | Type   | Description                                |
+| ------- | ------ | ------------------------------------------ |
+| objName | String | Object type to check create permissions on |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                              |
-| ------- | -------------------------------------------------------- |
-| Boolean | Boolean true if the user can delete the specified object |
+**Boolean**
+
+Boolean true if the user can delete the specified object
 
 #### Example
 
-```apex
-System.debug(CanTheUser.destroy('Account'));
-```
+System.debug(CanTheUser.destroy(&#x27;Account&#x27;));
 
-### `public static Boolean flsAccessible(String obj, String field)`
+---
+
+### `flsAccessible(obj, field)`
 
 public static method to determine if a given field on a given object is Accessible (readable)
 
+#### Signature
+
+```apex
+public static Boolean flsAccessible(String obj, String field)
+```
+
 #### Parameters
 
-| Param   | Description                                |
-| ------- | ------------------------------------------ |
-| `obj`   | the object in question, in string form     |
-| `field` | the field in question in SObjectField form |
+| Name  | Type   | Description                                |
+| ----- | ------ | ------------------------------------------ |
+| obj   | String | the object in question, in string form     |
+| field | String | the field in question in SObjectField form |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                                                   |
-| ------- | ----------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can read the specified field on the specified object |
+**Boolean**
+
+Boolean true if the user can read the specified field on the specified object
 
 #### Example
 
-```apex
-System.debug(CanTheUser.flsAccessible('Account', 'Name'));
-```
+System.debug(CanTheUser.flsAccessible(&#x27;Account&#x27;, &#x27;Name&#x27;));
 
-### `public static Map bulkFLSAccessible(String obj, Set<String> fields)`
+---
+
+### `bulkFLSAccessible(obj, fields)`
 
 bulk form of flsAccessible
 
+#### Signature
+
+```apex
+public static Map<String,Boolean> bulkFLSAccessible(String obj, Set<String> fields)
+```
+
 #### Parameters
 
-| Param    | Description                               |
-| -------- | ----------------------------------------- |
-| `obj`    | Obj name on which to check                |
-| `fields` | Set of Fields to check for accessibility. |
+| Name   | Type              | Description                               |
+| ------ | ----------------- | ----------------------------------------- |
+| obj    | String            | Obj name on which to check                |
+| fields | Set&lt;String&gt; | Set of Fields to check for accessibility. |
 
-#### Returns
+#### Return Type
 
-| Type                | Description                                                                               |
-| ------------------- | ----------------------------------------------------------------------------------------- |
-| Map<String,Boolean> | `Map<String, Boolean>` where the key is the field name and the value is the accessibility |
+**Map&lt;String,Boolean&gt;**
+
+,[object Object], where the key is the field name and the value is the accessibility
 
 #### Example
 
-```apex
-String[] fields = new String[]{'Name', 'ShippingStreet'};
-System.debug(CanTheUser.bulkFLSAccessible('Account', fields));
-```
+String[] fields &#x3D; new String[]{&#x27;Name&#x27;, &#x27;ShippingStreet&#x27;};
+System.debug(CanTheUser.bulkFLSAccessible(&#x27;Account&#x27;, fields));
 
-### `public static Boolean flsUpdatable(String obj, String field)`
+---
+
+### `flsUpdatable(obj, field)`
 
 public static method to determine if a given field on a given object is Updatable.
 
+#### Signature
+
+```apex
+public static Boolean flsUpdatable(String obj, String field)
+```
+
 #### Parameters
 
-| Param   | Description                          |
-| ------- | ------------------------------------ |
-| `obj`   | the string version of an object name |
-| `field` | the field to check                   |
+| Name  | Type   | Description                          |
+| ----- | ------ | ------------------------------------ |
+| obj   | String | the string version of an object name |
+| field | String | the field to check                   |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                                                     |
-| ------- | ------------------------------------------------------------------------------- |
-| Boolean | Boolean true if the user can update the specified field on the specified object |
+**Boolean**
+
+Boolean true if the user can update the specified field on the specified object
 
 #### Example
 
-```apex
-System.debug(CanTheUser.flsUpdatable('Account', 'Name'));
-```
+System.debug(CanTheUser.flsUpdatable(&#x27;Account&#x27;, &#x27;Name&#x27;));
 
-### `public static Map bulkFLSUpdatable(String obj, Set<String> fields)`
+---
+
+### `bulkFLSUpdatable(obj, fields)`
 
 bulk form of flsUpdatable call
 
+#### Signature
+
+```apex
+public static Map<String,Boolean> bulkFLSUpdatable(String obj, Set<String> fields)
+```
+
 #### Parameters
 
-| Param    | Description                 |
-| -------- | --------------------------- |
-| `obj`    | Name of the object          |
-| `fields` | Set of Field names to check |
+| Name   | Type              | Description                 |
+| ------ | ----------------- | --------------------------- |
+| obj    | String            | Name of the object          |
+| fields | Set&lt;String&gt; | Set of Field names to check |
 
-#### Returns
+#### Return Type
 
-| Type                | Description                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------- |
-| Map<String,Boolean> | `Map<String, Boolean>` where the key is the field name and the value is the updatability |
+**Map&lt;String,Boolean&gt;**
+
+,[object Object], where the key is the field name and the value is the updatability
 
 #### Example
 
-```apex
-String[] fields = new String[]{'Name', 'ShippingStreet'};
-System.debug(CanTheUser.bulkFLSUpdatable('Account', fields));
-```
+String[] fields &#x3D; new String[]{&#x27;Name&#x27;, &#x27;ShippingStreet&#x27;};
+System.debug(CanTheUser.bulkFLSUpdatable(&#x27;Account&#x27;, fields));
 
-### `private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType checkType)`
+---
+
+### `getFLSForFieldOnObject(obj, field, checkType)`
 
 Abstracted method for retrieving or calculating (memoization) of the FLS for a given field on a given object.
 
+#### Signature
+
+```apex
+private static Boolean getFLSForFieldOnObject(String obj, String field, FLSType checkType)
+```
+
 #### Parameters
 
-| Param       | Description                            |
-| ----------- | -------------------------------------- |
-| `obj`       | String version of object name to check |
-| `field`     | String version of the field to check   |
-| `checkType` | Enum of Accessible or Updatable.       |
+| Name      | Type                  | Description                            |
+| --------- | --------------------- | -------------------------------------- |
+| obj       | String                | String version of object name to check |
+| field     | String                | String version of the field to check   |
+| checkType | [FLSType](FLSType.md) | Enum of Accessible or Updatable.       |
 
-#### Returns
+#### Return Type
 
-| Type    | Description |
-| ------- | ----------- |
-| Boolean | `Boolean`   |
+**Boolean**
 
-### `private static Map calculateFLS(String objType)`
+,[object Object]
+
+---
+
+### `calculateFLS(objType)`
 
 Calculates the FLS for a given object type
 
+#### Signature
+
+```apex
+private static Map<String,Map<FLSType,Boolean>> calculateFLS(String objType)
+```
+
 #### Parameters
 
-| Param     | Description                    |
-| --------- | ------------------------------ |
-| `objType` | String name of the object type |
+| Name    | Type   | Description                    |
+| ------- | ------ | ------------------------------ |
+| objType | String | String name of the object type |
 
-#### Returns
+#### Return Type
 
-| Type                             | Description                          |
-| -------------------------------- | ------------------------------------ |
-| Map<String,Map<FLSType,Boolean>> | `Map<String, Map<FLSType, Boolean>>` |
+**Map&lt;String,Map&lt;FLSType,Boolean&gt;&gt;**
 
----
+,[object Object]
 
 ## Enums
 
-### CrudType
+### CrudType Enum
 
 An ENUM specifying the various types of CRUD operations
 
-### FLSType
+#### Values
+
+| Value      | Description |
+| ---------- | ----------- |
+| CREATEABLE |             |
+| READABLE   |             |
+| EDITABLE   |             |
+| DELETABLE  |             |
+| UPSERTABLE |             |
+
+### FLSType Enum
 
 An ENUM specifying the various types of FLS operations available.
 
----
+#### Values
+
+| Value      | Description |
+| ---------- | ----------- |
+| ACCESSIBLE |             |
+| UPDATABLE  |             |

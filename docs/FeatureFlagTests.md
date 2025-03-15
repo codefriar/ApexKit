@@ -1,49 +1,175 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testDefaultConstructorPositive()`
+### `testDefaultConstructorPositive()`
 
 `ISTEST`
 
-### `private static void testFlagFoundButDisabledReturnsFixedString()`
+#### Signature
+
+```apex
+private static void testDefaultConstructorPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFlagFoundButDisabledReturnsFixedString()`
 
 `ISTEST`
 
-### `private static void testFlagNotFoundReturnsFixedString()`
+#### Signature
+
+```apex
+private static void testFlagFoundButDisabledReturnsFixedString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFlagNotFoundReturnsFixedString()`
 
 `ISTEST`
 
-### `private static void testFlagFoundAndEnabledReturnsValue()`
+#### Signature
+
+```apex
+private static void testFlagNotFoundReturnsFixedString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFlagFoundAndEnabledReturnsValue()`
 
 `ISTEST`
 
-### `private static void testFeatureFlagNotFoundReturnsFalse()`
+#### Signature
+
+```apex
+private static void testFlagFoundAndEnabledReturnsValue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFeatureFlagNotFoundReturnsFalse()`
 
 `ISTEST`
 
-### `private static void testFeatureFlagFoundReturnsTrue()`
+#### Signature
+
+```apex
+private static void testFeatureFlagNotFoundReturnsFalse()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFeatureFlagFoundReturnsTrue()`
 
 `ISTEST`
 
-### `private static void testFeatureFlagFoundIsNotEnabledReturnsTrue()`
+#### Signature
+
+```apex
+private static void testFeatureFlagFoundReturnsTrue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFeatureFlagFoundIsNotEnabledReturnsTrue()`
 
 `ISTEST`
 
-### `private static void testFeatureFlagFoundWrapperIsNotEnabledReturnsTrue()`
+#### Signature
+
+```apex
+private static void testFeatureFlagFoundIsNotEnabledReturnsTrue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFeatureFlagFoundWrapperIsNotEnabledReturnsTrue()`
 
 `ISTEST`
 
-### `private static void testFeatureFlagEnabledForPermSetFoundReturnsTrue()`
+#### Signature
+
+```apex
+private static void testFeatureFlagFoundWrapperIsNotEnabledReturnsTrue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFeatureFlagEnabledForPermSetFoundReturnsTrue()`
 
 `ISTEST`
 
-### `private static void testFetchUsersAssignedPermissionSetsPositive()`
+#### Signature
+
+```apex
+private static void testFeatureFlagEnabledForPermSetFoundReturnsTrue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFetchUsersAssignedPermissionSetsPositive()`
 
 `ISTEST`
 
-### `private static void testFeatureFoundEnabledViaCustomPermissionPositive()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testFetchUsersAssignedPermissionSetsPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFeatureFoundEnabledViaCustomPermissionPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testFeatureFoundEnabledViaCustomPermissionPositive()
+```
+
+#### Return Type
+
+**void**

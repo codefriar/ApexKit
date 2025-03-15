@@ -9,7 +9,7 @@ rm -fr docs &&
 #rm -fr force-app/main/default/staticresources/documentation && \
 
 # Generate Apex doc files
-./node_modules/.bin/apexdocs-generate -p global public private protected namespaceaccessible -s force-app/main/ -g plain-markdown --sanitizeHtml --includeMetadata && \
+./node_modules/.bin/apexdocs markdown -p global public private protected namespaceaccessible -s force-app/main/default/classes && \
 
 # Remove doc index
 #rm docs/index.md && \

@@ -1,70 +1,128 @@
-`STATUS: ACTIVE`
-
-A class encapsulating the trigger context. Before/after insert/update/delete etc.
-
-## Constructors
-
-### `public TriggerContext()`
-
-A default contstructor that sets the context to null and override to false
-
----
-
 ## Fields
 
-### `public context` → `TriggerOperation`
+### `context`
 
 the TriggerOperation this context revolves arround
 
-### `public isTriggerBeingTested` → `Boolean`
+#### Signature
 
-A boolean override for testing purposes
+```apex
+public context
+```
+
+#### Type
+
+TriggerOperation
 
 ---
 
+### `isTriggerBeingTested`
+
+A boolean override for testing purposes
+
+#### Signature
+
+```apex
+public isTriggerBeingTested
+```
+
+#### Type
+
+Boolean
+
+## Constructors
+
+### `TriggerContext()`
+
+A default contstructor that sets the context to null and override to false
+
+#### Signature
+
+```apex
+public TriggerContext()
+```
+
 ## Methods
 
-### `public Boolean isInvalidExecutionContext()`
+### `isInvalidExecutionContext()`
 
 make sure this trigger should continue to run
 
-#### Returns
+#### Signature
 
-| Type    | Description                                          |
-| ------- | ---------------------------------------------------- |
-| Boolean | `Boolean` true if the trigger should continue to run |
+```apex
+public Boolean isInvalidExecutionContext()
+```
+
+#### Return Type
+
+**Boolean**
+
+,[object Object], true if the trigger should continue to run
 
 #### Throws
 
-| Exception                   | Description                                |
-| --------------------------- | ------------------------------------------ |
-| `TriggerFrameworkException` | thrown when executing outside of a trigger |
+[TriggerFrameworkException](TriggerFrameworkException.md): thrown when executing outside of a,[object Object],trigger
 
-### `private void setTriggerContext(String overriddenContext, Boolean overrideForTesting)`
+---
+
+### `setTriggerContext(overriddenContext, overrideForTesting)`
 
 `TESTVISIBLE`
 
 Internal method for manually setting the trigger context
 
+#### Signature
+
+```apex
+private void setTriggerContext(String overriddenContext, Boolean overrideForTesting)
+```
+
 #### Parameters
 
-| Param                | Description                               |
-| -------------------- | ----------------------------------------- |
-| `overriddenContext`  | The current trigger Context               |
-| `overrideForTesting` | Is the trigger running in a test context? |
+| Name               | Type    | Description                               |
+| ------------------ | ------- | ----------------------------------------- |
+| overriddenContext  | String  | The current trigger Context               |
+| overrideForTesting | Boolean | Is the trigger running in a test context? |
 
-### `private void setContextDuringNormalExecution()`
+#### Return Type
+
+**void**
+
+---
+
+### `setContextDuringNormalExecution()`
 
 A method to set the trigger context during normal system execution.
 
-### `private void setManuallyOverriddenContext(String overriddenContext)`
+#### Signature
+
+```apex
+private void setContextDuringNormalExecution()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `setManuallyOverriddenContext(overriddenContext)`
 
 A private test visible method for manually overriding the context
 
+#### Signature
+
+```apex
+private void setManuallyOverriddenContext(String overriddenContext)
+```
+
 #### Parameters
 
-| Param               | Description                  |
-| ------------------- | ---------------------------- |
-| `overriddenContext` | the context to forcibly set. |
+| Name              | Type   | Description                  |
+| ----------------- | ------ | ---------------------------- |
+| overriddenContext | String | the context to forcibly set. |
 
----
+#### Return Type
+
+**void**

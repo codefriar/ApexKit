@@ -1,83 +1,152 @@
-`STATUS: ACTIVE`
+## Fields
 
-inner class for managing the loop count per handler
+### `max`
+
+#### Signature
+
+```apex
+public max
+```
+
+#### Type
+
+Integer
+
+---
+
+### `count`
+
+#### Signature
+
+```apex
+public count
+```
+
+#### Type
+
+Integer
 
 ## Constructors
 
-### `public TriggerFrameworkLoopCount()`
+### `TriggerFrameworkLoopCount()`
 
 Loop counter method with default of 5.
 
-### `public TriggerFrameworkLoopCount(Integer max)`
+#### Signature
+
+```apex
+public TriggerFrameworkLoopCount()
+```
+
+---
+
+### `TriggerFrameworkLoopCount(max)`
 
 Sets loop count based on the param.
 
+#### Signature
+
+```apex
+public TriggerFrameworkLoopCount(Integer max)
+```
+
 #### Parameters
 
-| Param | Description                       |
-| ----- | --------------------------------- |
-| `max` | Maximum number of loops to allow. |
-
----
-
-## Fields
-
-### `public count` → `Integer`
-
-### `public max` → `Integer`
-
----
+| Name | Type    | Description                       |
+| ---- | ------- | --------------------------------- |
+| max  | Integer | Maximum number of loops to allow. |
 
 ## Methods
 
-### `public Boolean increment()`
+### `increment()`
 
-Increment the internal counter returning the results of this.exceeded().
+Increment the internal counter returning the results of
+this.exceeded().
 
-#### Returns
+#### Signature
 
-| Type    | Description                                                      |
-| ------- | ---------------------------------------------------------------- |
-| Boolean | `Boolean` true if count will exceed max count or is less than 0. |
+```apex
+public Boolean increment()
+```
 
-### `public Boolean exceeded()`
+#### Return Type
 
-Determines if this we're about to exceed the loop count.
+**Boolean**
 
-#### Returns
+,[object Object], true if count will exceed max count or is less,[object Object],than 0.
 
-| Type    | Description                                     |
-| ------- | ----------------------------------------------- |
-| Boolean | `Boolean` true if less than 0 or more than max. |
+---
 
-### `public Integer getMax()`
+### `exceeded()`
+
+Determines if this we&#x27;re about to exceed the loop count.
+
+#### Signature
+
+```apex
+public Boolean exceeded()
+```
+
+#### Return Type
+
+**Boolean**
+
+,[object Object], true if less than 0 or more than max.
+
+---
+
+### `getMax()`
 
 Returns the max loop count.
 
-#### Returns
+#### Signature
 
-| Type    | Description               |
-| ------- | ------------------------- |
-| Integer | `Integer` max loop count. |
+```apex
+public Integer getMax()
+```
 
-### `public Integer getCount()`
+#### Return Type
+
+**Integer**
+
+,[object Object], max loop count.
+
+---
+
+### `getCount()`
 
 Returns the current loop count.
 
-#### Returns
+#### Signature
 
-| Type    | Description                   |
-| ------- | ----------------------------- |
-| Integer | `Integer` current loop count. |
+```apex
+public Integer getCount()
+```
 
-### `public void setMax(Integer max)`
+#### Return Type
+
+**Integer**
+
+,[object Object], current loop count.
+
+---
+
+### `setMax(max)`
 
 Sets the max loop size
 
+#### Signature
+
+```apex
+public void setMax(Integer max)
+```
+
 #### Parameters
 
-| Param | Description                |
-| ----- | -------------------------- |
-| `max` | The integer to set max to. |
+| Name | Type    | Description                |
+| ---- | ------- | -------------------------- |
+| max  | Integer | The integer to set max to. |
 
----
+#### Return Type
+
+**void**

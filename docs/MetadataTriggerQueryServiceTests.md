@@ -1,21 +1,63 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testGetMetadataTriggers()`
+### `testGetMetadataTriggers()`
 
 `ISTEST`
 
-### `private static void testGetSObjectTypeNegative()`
+#### Signature
+
+```apex
+private static void testGetMetadataTriggers()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetSObjectTypeNegative()`
 
 `ISTEST`
 
-### `private static void testGetSObjectTypePositiveFromTriggerNew()`
+#### Signature
+
+```apex
+private static void testGetSObjectTypeNegative()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetSObjectTypePositiveFromTriggerNew()`
 
 `ISTEST`
 
-### `private static void testGetSObjectTypePositiveFromTriggerOld()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testGetSObjectTypePositiveFromTriggerNew()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testGetSObjectTypePositiveFromTriggerOld()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testGetSObjectTypePositiveFromTriggerOld()
+```
+
+#### Return Type
+
+**void**

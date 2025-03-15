@@ -1,244 +1,396 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
-Class models a callable apex method's 'signature' or combination
+Class models a callable apex method&#x27;s &#x27;signature&#x27; or combination
 of Name, Parameter types and Parameter values. This is separate from a
 MockedMethod, because it can be constructed at runtime for comparison against
 established MockedMethods.
 
+## Fields
+
+### `methodName`
+
+`TESTVISIBLE`
+
+#### Signature
+
+```apex
+private methodName
+```
+
+#### Type
+
+String
+
+---
+
+### `methodParameterTypes`
+
+`TESTVISIBLE`
+
+#### Signature
+
+```apex
+private methodParameterTypes
+```
+
+#### Type
+
+List&lt;Type&gt;
+
 ## Constructors
 
-### `public MethodSignature(String methodName, List<Type> paramTypes)`
+### `MethodSignature(methodName, paramTypes)`
 
-Constructor requiring a method name and list of parameters. This method cannot be constructed without these.
+Constructor requiring a method name and list of parameters. This method cannot be constructed
+without these.
+
+#### Signature
+
+```apex
+public MethodSignature(String methodName, List<Type> paramTypes)
+```
 
 #### Parameters
 
-| Param        | Description                                        |
-| ------------ | -------------------------------------------------- |
-| `methodName` | String Name of the method to be mocked             |
-| `paramTypes` | List<System.Type> of the parameters for the method |
-
----
-
-## Fields
-
-### `private methodName` → `String`
-
-`TESTVISIBLE`
-
-### `private methodParameterTypes` → `List<Type>`
-
-`TESTVISIBLE`
-
----
+| Name       | Type             | Description                                              |
+| ---------- | ---------------- | -------------------------------------------------------- |
+| methodName | String           | String Name of the method to be mocked                   |
+| paramTypes | List&lt;Type&gt; | List&lt;System.Type&gt; of the parameters for the method |
 
 ## Methods
 
-### `public Boolean verifySignatureMatch(MethodSignature otherSignature)`
+### `verifySignatureMatch(otherSignature)`
 
-This is used to compare the signature of a MockedMethod, against another instance. Used at runtime to compare an actually requested method call against pre-defined mocks.
+This is used to compare the signature of a
+MockedMethod, against another instance. Used at runtime to compare
+an actually requested method call against pre-defined mocks.
 
-#### Parameters
+#### Signature
 
-| Param            | Description                                             |
-| ---------------- | ------------------------------------------------------- |
-| `otherSignature` | the secondary MethodSignature object to compare against |
-
-#### Returns
-
-| Type    | Description                                                  |
-| ------- | ------------------------------------------------------------ |
-| Boolean | `Boolean` true if the signatures match, false if they do not |
-
-### `private static Boolean verifyMethodNamesMatch(String originalMethodName, String comparatorMethodName)`
-
-Returns true if the current MethodSignature's methodName is a case insensitive match to the comparison's methodName
+```apex
+public Boolean verifySignatureMatch(MethodSignature otherSignature)
+```
 
 #### Parameters
 
-| Param                  | Description                               |
-| ---------------------- | ----------------------------------------- |
-| `originalMethodName`   | String name of the method name called     |
-| `comparatorMethodName` | String name of the method name to compare |
+| Name           | Type                                  | Description                                             |
+| -------------- | ------------------------------------- | ------------------------------------------------------- |
+| otherSignature | [MethodSignature](MethodSignature.md) | the secondary MethodSignature object to compare against |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                               |
-| ------- | ----------------------------------------- |
-| Boolean | `Boolean` true if the method names match, |
+**Boolean**
 
-### `public String getMethodName()`
-
-returns the method name for this signature
-
-#### Returns
-
-| Type   | Description        |
-| ------ | ------------------ |
-| String | String method name |
+,[object Object], true if the signatures match, false if they do not
 
 ---
 
+### `verifyMethodNamesMatch(originalMethodName, comparatorMethodName)`
+
+Returns true if the current MethodSignature&#x27;s
+methodName is a case insensitive match to the comparison&#x27;s methodName
+
+#### Signature
+
+```apex
+private static Boolean verifyMethodNamesMatch(String originalMethodName, String comparatorMethodName)
+```
+
+#### Parameters
+
+| Name                 | Type   | Description                               |
+| -------------------- | ------ | ----------------------------------------- |
+| originalMethodName   | String | String name of the method name called     |
+| comparatorMethodName | String | String name of the method name to compare |
+
+#### Return Type
+
+**Boolean**
+
+,[object Object], true if the method names match,
+
+---
+
+### `getMethodName()`
+
+returns the method name for this signature
+
+#### Signature
+
+```apex
+public String getMethodName()
+```
+
+#### Return Type
+
+**String**
+
+String method name
+
 ## Classes
 
-### Builder
+### Builder Class
 
 While a MethodSignature object can be created directly the
 more common use case is to use this Builder class to construct the
 MethodSignature object in a Fluent api style.
 
-#### Constructors
+#### Fields
 
-##### `public Builder(Stub builder, String methodName, List&lt;System.Type&gt; paramTypes)`
+##### `stubBuilder`
 
-Constructor.
+###### Signature
 
-###### Parameters
+```apex
+private final stubBuilder
+```
 
-| Param        | Description                                                                         |
-| ------------ | ----------------------------------------------------------------------------------- |
-| `builder`    | A Stub.Builder object                                                               |
-| `methodName` | String referencing the name of the method minus things like ()                      |
-| `paramTypes` | A list of System.Types that define the order and type of parameters for the method. |
+###### Type
+
+Stub.Builder
 
 ---
 
-#### Fields
-
-##### `private methodBuilders` → `List&lt;MockedMethod.Builder&gt;`
-
-##### `private methodName` → `String`
+##### `methodName`
 
 `TESTVISIBLE`
 
-##### `public parameterTypes` → `List&lt;Type&gt;`
+###### Signature
 
-##### `private stubBuilder` → `Stub`
+```apex
+private methodName
+```
+
+###### Type
+
+String
 
 ---
 
-#### Methods
+##### `parameterTypes`
 
-##### `public MockedMethod withParameterTypes()`
+###### Signature
 
-This variant handles the situation where a mocked method was called without parameters.
+```apex
+public parameterTypes
+```
 
-###### Returns
+###### Type
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| MockedMethod | `MockedMethod.Builder` |
+List&lt;Type&gt;
 
-##### `public MockedMethod withParameterTypes(List&lt;System.Type&gt; parameters)`
+---
 
-Omnibus variant that handles a list(N) of parameters.
+##### `methodBuilders`
+
+###### Signature
+
+```apex
+private final methodBuilders
+```
+
+###### Type
+
+List&lt;MockedMethod.Builder&gt;
+
+#### Constructors
+
+##### `Builder(builder, methodName, paramTypes)`
+
+Constructor.
+
+###### Signature
+
+```apex
+public Builder(Stub.Builder builder, String methodName, List<System.Type> paramTypes)
+```
 
 ###### Parameters
 
-| Param        | Description                           |
-| ------------ | ------------------------------------- |
-| `parameters` | List&lt;System.Type&gt; of parameters |
+| Name       | Type                    | Description                                                                                         |
+| ---------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
+| builder    | Stub.Builder            | A Stub.Builder object                                                                               |
+| methodName | String                  | String referencing the name of the method minus,[object Object],things like ()                      |
+| paramTypes | List&lt;System.Type&gt; | A list of System.Types that define the order and,[object Object],type of parameters for the method. |
 
-###### Returns
+#### Methods
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| MockedMethod | `MockedMethod.Builder` |
+##### `withParameterTypes()`
 
-##### `public MockedMethod withParameterTypes(System parameter)`
+This variant handles the situation where a mocked method
+was called without parameters.
+
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterTypes()
+```
+
+###### Return Type
+
+**MockedMethod.Builder**
+
+,[object Object]
+
+---
+
+##### `withParameterTypes(parameters)`
+
+Omnibus variant that handles a list(N) of
+parameters.
+
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterTypes(List<System.Type> parameters)
+```
+
+###### Parameters
+
+| Name       | Type                    | Description                           |
+| ---------- | ----------------------- | ------------------------------------- |
+| parameters | List&lt;System.Type&gt; | List&lt;System.Type&gt; of parameters |
+
+###### Return Type
+
+**MockedMethod.Builder**
+
+,[object Object]
+
+---
+
+##### `withParameterTypes(parameter)`
 
 This variant handles a single parameter, brokers to omnibus method.
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterTypes(System.Type parameter)
+```
+
 ###### Parameters
 
-| Param       | Description           |
-| ----------- | --------------------- |
-| `parameter` | Type of the parameter |
+| Name      | Type        | Description           |
+| --------- | ----------- | --------------------- |
+| parameter | System.Type | Type of the parameter |
 
-###### Returns
+###### Return Type
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| MockedMethod | `MockedMethod.Builder` |
+**MockedMethod.Builder**
 
-##### `public MockedMethod withParameterTypes(System parameter, System parameter2)`
+,[object Object]
+
+---
+
+##### `withParameterTypes(parameter, parameter2)`
 
 Two parameter variant. Brokers to omnibus method.
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterTypes(System.Type parameter, System.Type parameter2)
+```
+
 ###### Parameters
 
-| Param        | Description                  |
-| ------------ | ---------------------------- |
-| `parameter`  | Type of the parameter        |
-| `parameter2` | Type of the second parameter |
+| Name       | Type        | Description                  |
+| ---------- | ----------- | ---------------------------- |
+| parameter  | System.Type | Type of the parameter        |
+| parameter2 | System.Type | Type of the second parameter |
 
-###### Returns
+###### Return Type
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| MockedMethod | `MockedMethod.Builder` |
+**MockedMethod.Builder**
 
-##### `public MockedMethod withParameterTypes(System parameter, System parameter2, System parameter3)`
+,[object Object]
+
+---
+
+##### `withParameterTypes(parameter, parameter2, parameter3)`
 
 Three parameter variant. Brokers to omnibus method.
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterTypes(System.Type parameter, System.Type parameter2, System.Type parameter3)
+```
+
 ###### Parameters
 
-| Param        | Description                  |
-| ------------ | ---------------------------- |
-| `parameter`  | Type of the parameter        |
-| `parameter2` | Type of the second parameter |
-| `parameter3` | Type of the third parameter  |
+| Name       | Type        | Description                  |
+| ---------- | ----------- | ---------------------------- |
+| parameter  | System.Type | Type of the parameter        |
+| parameter2 | System.Type | Type of the second parameter |
+| parameter3 | System.Type | Type of the third parameter  |
 
-###### Returns
+###### Return Type
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| MockedMethod | `MockedMethod.Builder` |
+**MockedMethod.Builder**
 
-##### `public MockedMethod withParameterTypes(System parameter, System parameter2, System parameter3, System parameter4)`
+,[object Object]
+
+---
+
+##### `withParameterTypes(parameter, parameter2, parameter3, parameter4)`
 
 `SUPPRESSWARNINGS`
 
 Four parameter variant. Brokers to omnibus method.
 
+###### Signature
+
+```apex
+public MockedMethod.Builder withParameterTypes(System.Type parameter, System.Type parameter2, System.Type parameter3, System.Type parameter4)
+```
+
 ###### Parameters
 
-| Param        | Description                  |
-| ------------ | ---------------------------- |
-| `parameter`  | Type of the parameter        |
-| `parameter2` | Type of the second parameter |
-| `parameter3` | Type of the third parameter  |
-| `parameter4` | Type of the fourth parameter |
+| Name       | Type        | Description                  |
+| ---------- | ----------- | ---------------------------- |
+| parameter  | System.Type | Type of the parameter        |
+| parameter2 | System.Type | Type of the second parameter |
+| parameter3 | System.Type | Type of the third parameter  |
+| parameter4 | System.Type | Type of the fourth parameter |
 
-###### Returns
+###### Return Type
 
-| Type         | Description            |
-| ------------ | ---------------------- |
-| MockedMethod | `MockedMethod.Builder` |
+**MockedMethod.Builder**
 
-##### `public Stub finalizeSignature()`
+,[object Object]
+
+---
+
+##### `finalizeSignature()`
 
 Called at the end of building a method signature.
 
-###### Returns
+###### Signature
 
-| Type | Description    |
-| ---- | -------------- |
-| Stub | `Stub.Builder` |
+```apex
+public Stub.Builder finalizeSignature()
+```
 
-##### `public List buildMockedMethod()`
+###### Return Type
+
+**Stub.Builder**
+
+,[object Object]
+
+---
+
+##### `buildMockedMethod()`
 
 Creates the MockedMethod matching this method signature.
 
-###### Returns
+###### Signature
 
-| Type                     | Description                |
-| ------------------------ | -------------------------- |
-| List&lt;MockedMethod&gt; | `List&lt;MockedMethod&gt;` |
+```apex
+public List<MockedMethod> buildMockedMethod()
+```
 
----
+###### Return Type
 
----
+**List&lt;MockedMethod&gt;**
+
+,[object Object]

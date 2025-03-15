@@ -1,81 +1,156 @@
-`STATUS: ACTIVE`
-
-This class implements the ULID spec in Apex.
 You can find that standard here: https://github.com/ulid/spec
-ULID === Universally Unique Lexicographically Sortable Identifier
+ULID &#x3D;&#x3D;&#x3D; Universally Unique Lexicographically Sortable Identifier
 Think of them as a UUIDv4, but sortable. Similar to UUIDv7.
 These are, effectively a universally unique identifier
 but one that is _sortable_.
+
 This class is a port of the Javascript ULID
 reference implementation.
 
 ## Fields
 
-### `private CHARACTERSET` → `List<String>`
+### `CHARACTERSET`
 
-This character set is the complete list of allowed characters in a ULID string. It intentionally does not include characters that may be ambiguously read, such as i, l, o, and u characters.
+This character set is the complete list of allowed characters in
+a ULID string. It intentionally does not include characters that
+may be ambiguously read, such as i, l, o, and u characters.
 
-### `private CHARACTERSETSIZE` → `Long`
+#### Signature
 
-### `private RANDOMLENGTH` → `Integer`
+```apex
+private static final CHARACTERSET
+```
 
-### `private TIMELENGTH` → `Long`
+#### Type
+
+List&lt;String&gt;
 
 ---
+
+### `CHARACTERSETSIZE`
+
+#### Signature
+
+```apex
+private static final CHARACTERSETSIZE
+```
+
+#### Type
+
+Long
+
+---
+
+### `TIMELENGTH`
+
+#### Signature
+
+```apex
+private static final TIMELENGTH
+```
+
+#### Type
+
+Long
+
+---
+
+### `RANDOMLENGTH`
+
+#### Signature
+
+```apex
+private static final RANDOMLENGTH
+```
+
+#### Type
+
+Integer
 
 ## Methods
 
-### `public static String generate()`
+### `generate()`
 
-Generates a ULID string according to spec. https://github.com/ulid/spec
+Generates a ULID string according to spec.
+https://github.com/ulid/spec
 
-#### Returns
+#### Signature
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+```apex
+public static String generate()
+```
 
-### `private static String encodeTimestamp(Long dtSeed, Long timeLength)`
+#### Return Type
 
-Encodes a given timestamp into characters from the acceptable character set above.
+**String**
+
+,[object Object]
+
+---
+
+### `encodeTimestamp(dtSeed, timeLength)`
+
+Encodes a given timestamp into characters from
+the acceptable character set above.
+
+#### Signature
+
+```apex
+private static String encodeTimestamp(Long dtSeed, Long timeLength)
+```
 
 #### Parameters
 
-| Param        | Description                                    |
-| ------------ | ---------------------------------------------- |
-| `dtSeed`     | long form of Timestamp to encode               |
-| `timeLength` | how many characters of the timestamp to encode |
+| Name       | Type | Description                                    |
+| ---------- | ---- | ---------------------------------------------- |
+| dtSeed     | Long | long form of Timestamp to encode               |
+| timeLength | Long | how many characters of the timestamp to encode |
 
-#### Returns
+#### Return Type
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+**String**
 
-### `private static String generateRandomString(Integer length)`
+,[object Object]
 
-generates a random string from the character set of a given length.
+---
+
+### `generateRandomString(length)`
+
+generates a random string from the character set
+of a given length.
+
+#### Signature
+
+```apex
+private static String generateRandomString(Integer length)
+```
 
 #### Parameters
 
-| Param    | Description                              |
-| -------- | ---------------------------------------- |
-| `length` | Integer length of the string to generate |
+| Name   | Type    | Description                              |
+| ------ | ------- | ---------------------------------------- |
+| length | Integer | Integer length of the string to generate |
 
-#### Returns
+#### Return Type
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+**String**
 
-### `private static String fetchRandomCharacterFromCharacterSet()`
+,[object Object]
+
+---
+
+### `fetchRandomCharacterFromCharacterSet()`
 
 pulls a random character from the character set.
 
-#### Returns
+#### Signature
 
-| Type   | Description |
-| ------ | ----------- |
-| String | `String`    |
+```apex
+private static String fetchRandomCharacterFromCharacterSet()
+```
 
----
+#### Return Type
+
+**String**
+
+,[object Object]

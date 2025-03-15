@@ -1,57 +1,74 @@
-`STATUS: ACTIVE`
-
-Convenience class for checking feature flags. This is purely Syntactic sugar.
-
 **Group** FeatureFlag
 
 ## Methods
 
-### `public static Boolean isEnabled(String featureName)`
+### `isEnabled(featureName)`
 
 Convenience method for checking if a feature is enabled.
 
+#### Signature
+
+```apex
+public static Boolean isEnabled(String featureName)
+```
+
 #### Parameters
 
-| Param         | Description                  |
-| ------------- | ---------------------------- |
-| `featureName` | String feature name to check |
+| Name        | Type   | Description                  |
+| ----------- | ------ | ---------------------------- |
+| featureName | String | String feature name to check |
 
-#### Returns
+#### Return Type
 
-| Type    | Description                                                                                                                                                      |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Boolean | True if the feature is enabled by any of the following: Universally enabled, or enabled for the current user based on permission set, custom permission or time. |
+**Boolean**
 
-### `public static Boolean isNotEnabled(String featureName)`
+True if the feature is enabled by any of the following: Universally enabled, or enabled for the current,[object Object],user based on permission set, custom permission or time.
+
+---
+
+### `isNotEnabled(featureName)`
 
 logical inverse of the isEnabled method.
 
-#### Parameters
+#### Signature
 
-| Param         | Description                  |
-| ------------- | ---------------------------- |
-| `featureName` | String feature name to check |
-
-#### Returns
-
-| Type    | Description                            |
-| ------- | -------------------------------------- |
-| Boolean | Boolean, returns inverse of isEnabled. |
-
-### `public static String value(String featureName)`
-
-Law of diminishing returns here. This isn't tested, per-say. It's underlying FeatureFlag implementation _is_ tested, however.
+```apex
+public static Boolean isNotEnabled(String featureName)
+```
 
 #### Parameters
 
-| Param         | Description                      |
-| ------------- | -------------------------------- |
-| `featureName` | String the feature name to check |
+| Name        | Type   | Description                  |
+| ----------- | ------ | ---------------------------- |
+| featureName | String | String feature name to check |
 
-#### Returns
+#### Return Type
 
-| Type   | Description                                                       |
-| ------ | ----------------------------------------------------------------- |
-| String | String the value stored in custom metadata for this feature flag. |
+**Boolean**
+
+Boolean, returns inverse of isEnabled.
 
 ---
+
+### `value(featureName)`
+
+Law of diminishing returns here. This isn&#x27;t tested, per-say. It&#x27;s underlying FeatureFlag
+implementation _is_ tested, however.
+
+#### Signature
+
+```apex
+public static String value(String featureName)
+```
+
+#### Parameters
+
+| Name        | Type   | Description                      |
+| ----------- | ------ | -------------------------------- |
+| featureName | String | String the feature name to check |
+
+#### Return Type
+
+**String**
+
+String the value stored in custom metadata for this feature flag.

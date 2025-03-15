@@ -1,147 +1,236 @@
-`STATUS: ACTIVE`
-
-A factory class for generating bogus Ids for testing purposes.
-
 ## Fields
 
-### `private DEFAULT_ID_LENGTH` → `Integer`
+### `SERVER_ID`
 
-Integer representing the length of the Id. Default is 18.
+This property gives us an authentic ID for this org which we can use to grab the Instance ID
+according to the latest release notes:
+What constitutes a valid Salesforce Object ID is being redefined as Salesforce expands out the instance ID
+(also known as a pod identifier or server ID). The 4th, 5th, and 6th characters would be used for server ID.
+The 7th character still remains reserved. Any coded assumptions about the structure of a valid or invalid ID
+should be reevaluated going forward. Note: Existing Apex functionality around IDs will transition to the new
+format.
 
-### `private SERVER_ID` → `String`
+#### Signature
 
-This property gives us an authentic ID for this org which we can use to grab the Instance ID according to the latest release notes: What constitutes a valid Salesforce Object ID is being redefined as Salesforce expands out the instance ID (also known as a pod identifier or server ID). The 4th, 5th, and 6th characters would be used for server ID. The 7th character still remains reserved. Any coded assumptions about the structure of a valid or invalid ID should be reevaluated going forward. Note: Existing Apex functionality around IDs will transition to the new format.
+```apex
+private static final SERVER_ID
+```
 
-### `private UNSTABLE_TYPE_PREFIX_OVERRIDES` → `Map<String,String>`
+#### Type
 
-There are certain types of objects that do not return a prefix. This map contains string keys that map to known values for these 'unstable' types. This map is used to identify the correct prefix when a developer requests an Id for an unstable type. This is likely an incomplete list. If you find an unstable type that is not in this list, please add it, and submit a PR. Daniel Bollinger has a great blog post useful for filling in the gaps when an object doesn't return a prefix. http://www.fishofprey.com/2011/09/obscure-salesforce-object-key-prefixes.html
+String
 
-### `private idiosyncrasy` → `Integer`
+---
+
+### `UNSTABLE_TYPE_PREFIX_OVERRIDES`
+
+There are certain types of objects that do not return a prefix. This map contains string keys that
+map to known values for these &#x27;unstable&#x27; types. This map is used to identify the correct prefix when a developer
+requests an Id for an unstable type.
+
+This is likely an incomplete list. If you find an unstable type that is not in this list, please add it, and
+submit a PR.
+Daniel Bollinger has a great blog post useful for filling in the gaps when an object doesn&#x27;t return a prefix.
+http://www.fishofprey.com/2011/09/obscure-salesforce-object-key-prefixes.html
+
+#### Signature
+
+```apex
+private static final UNSTABLE_TYPE_PREFIX_OVERRIDES
+```
+
+#### Type
+
+Map&lt;String,String&gt;
+
+---
+
+### `idiosyncrasy`
 
 Integer to be appended to the end of the Id. Incremented each time a new Id is generated.
 
+#### Signature
+
+```apex
+private static idiosyncrasy
+```
+
+#### Type
+
+Integer
+
 ---
+
+### `DEFAULT_ID_LENGTH`
+
+Integer representing the length of the Id. Default is 18.
+
+#### Signature
+
+```apex
+private static final DEFAULT_ID_LENGTH
+```
+
+#### Type
+
+Integer
 
 ## Methods
 
-### `public static Id get(String objectType)`
+### `get(objectType)`
 
-this method accepts a String representation of the sObject type and defers to it's sister methods to generate a bogus Id.
+this method accepts a String representation of the sObject type and defers to it&#x27;s sister methods to generate a bogus Id.
+
+#### Signature
+
+```apex
+public static Id get(String objectType)
+```
 
 #### Parameters
 
-| Param        | Description                                                          |
-| ------------ | -------------------------------------------------------------------- |
-| `objectType` | String representation of the sObject type ie: Account, Contact, etc. |
+| Name       | Type   | Description                                                          |
+| ---------- | ------ | -------------------------------------------------------------------- |
+| objectType | String | String representation of the sObject type ie: Account, Contact, etc. |
 
-#### Returns
+#### Return Type
 
-| Type | Description                  |
-| ---- | ---------------------------- |
-| Id   | id a plausible, but bogus Id |
+**Id**
+
+id a plausible, but bogus Id
 
 #### Example
 
-```apex
 `IdFactory.get('Account');`
+
+---
+
+### `get(incomingType)`
+
+This method accepts a Type object and defers to it&#x27;s sister methods to generate a bogus Id.
+
+#### Signature
+
+```apex
+public static Id get(Type incomingType)
 ```
-
-### `public static Id get(Type incomingType)`
-
-This method accepts a Type object and defers to it's sister methods to generate a bogus Id.
 
 #### Parameters
 
-| Param          | Description                                                          |
-| -------------- | -------------------------------------------------------------------- |
-| `incomingType` | Type object representing the sObject type ie: Account, Contact, etc. |
+| Name         | Type | Description                                                          |
+| ------------ | ---- | -------------------------------------------------------------------- |
+| incomingType | Type | Type object representing the sObject type ie: Account, Contact, etc. |
 
-#### Returns
+#### Return Type
 
-| Type | Description                  |
-| ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+**Id**
+
+Id a plausible, but bogus Id
 
 #### Example
 
-```apex
 `IdFactory.get(Type.forName('Account'));`
+
+---
+
+### `get(incomingType)`
+
+This method accepts a generic SObject and defers to it&#x27;s sister methods to generate a bogus Id.
+
+#### Signature
+
+```apex
+public static Id get(SObject incomingType)
 ```
-
-### `public static Id get(SObject incomingType)`
-
-This method accepts a generic SObject and defers to it's sister methods to generate a bogus Id.
 
 #### Parameters
 
-| Param          | Description                                                      |
-| -------------- | ---------------------------------------------------------------- |
-| `incomingType` | SObject representing the sObject type ie: Account, Contact, etc. |
+| Name         | Type    | Description                                                      |
+| ------------ | ------- | ---------------------------------------------------------------- |
+| incomingType | SObject | SObject representing the sObject type ie: Account, Contact, etc. |
 
-#### Returns
+#### Return Type
 
-| Type | Description                  |
-| ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+**Id**
 
-### `public static Id get(Schema incomingType)`
+Id a plausible, but bogus Id
+
+---
+
+### `get(incomingType)`
 
 All the other methods in this class defer to this method eventually to generate a bogus Id.
 
-#### Parameters
+#### Signature
 
-| Param          | Description                                                                 |
-| -------------- | --------------------------------------------------------------------------- |
-| `incomingType` | Schema.SObjectType representing the sObject type ie: Account, Contact, etc. |
-
-#### Returns
-
-| Type | Description                  |
-| ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
-
-### `private static Id getWithPrefixOverride(String prefix)`
-
-A method for getting a bogus Id for an object that may not return a prefix via standard Schema methods. This method is used internally by the other methods in this class once a prefix has been identified.
+```apex
+public static Id get(Schema.SObjectType incomingType)
+```
 
 #### Parameters
 
-| Param    | Description                                        |
-| -------- | -------------------------------------------------- |
-| `prefix` | String three character prefix for the object type. |
+| Name         | Type               | Description                                                                 |
+| ------------ | ------------------ | --------------------------------------------------------------------------- |
+| incomingType | Schema.SObjectType | Schema.SObjectType representing the sObject type ie: Account, Contact, etc. |
 
-#### Returns
+#### Return Type
 
-| Type | Description                  |
-| ---- | ---------------------------- |
-| Id   | Id a plausible, but bogus Id |
+**Id**
 
-### `private static String getUnstableObjectPrefix(String objectType)`
-
-Certain types of objects do not return a prefix via standard Schema methods. This method is used to identify them, and override the prefix with a known value.
-
-#### Parameters
-
-| Param        | Description                                                          |
-| ------------ | -------------------------------------------------------------------- |
-| `objectType` | String representation of the sObject type ie: Account, Contact, etc. |
-
-#### Returns
-
-| Type   | Description                                        |
-| ------ | -------------------------------------------------- |
-| String | String three character prefix for the object type. |
+Id a plausible, but bogus Id
 
 ---
+
+### `getWithPrefixOverride(prefix)`
+
+A method for getting a bogus Id for an object that may not return a prefix via standard Schema
+methods. This method is used internally by the other methods in this class once a prefix has been identified.
+
+#### Signature
+
+```apex
+private static Id getWithPrefixOverride(String prefix)
+```
+
+#### Parameters
+
+| Name   | Type   | Description                                        |
+| ------ | ------ | -------------------------------------------------- |
+| prefix | String | String three character prefix for the object type. |
+
+#### Return Type
+
+**Id**
+
+Id a plausible, but bogus Id
+
+---
+
+### `getUnstableObjectPrefix(objectType)`
+
+Certain types of objects do not return a prefix via standard Schema methods. This method is used
+to identify them, and override the prefix with a known value.
+
+#### Signature
+
+```apex
+private static String getUnstableObjectPrefix(String objectType)
+```
+
+#### Parameters
+
+| Name       | Type   | Description                                                          |
+| ---------- | ------ | -------------------------------------------------------------------- |
+| objectType | String | String representation of the sObject type ie: Account, Contact, etc. |
+
+#### Return Type
+
+**String**
+
+String three character prefix for the object type.
 
 ## Classes
 
-### IDFactoryException
+### IDFactoryException Class
 
 internally thrown exception for when the incoming data type is null or invalid
-
-**Inheritance**
-
-IDFactoryException
-
----

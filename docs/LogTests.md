@@ -1,13 +1,31 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testDirectPublishMethodsPositive()`
+### `testDirectPublishMethodsPositive()`
 
 `ISTEST`
 
-### `private static void testLogMultipleItemPositive()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testDirectPublishMethodsPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testLogMultipleItemPositive()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testLogMultipleItemPositive()
+```
+
+#### Return Type
+
+**void**

@@ -1,13 +1,31 @@
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 ## Methods
 
-### `private static void testEnablingPermissionSetsPositive()`
+### `testEnablingPermissionSetsPositive()`
 
 `ISTEST`
 
-### `private static void testReturnEmptySetWhenNoPermSetOverridesFound()`
+#### Signature
 
-## `ISTEST`
+```apex
+private static void testEnablingPermissionSetsPositive()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testReturnEmptySetWhenNoPermSetOverridesFound()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testReturnEmptySetWhenNoPermSetOverridesFound()
+```
+
+#### Return Type
+
+**void**

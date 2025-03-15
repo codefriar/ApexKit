@@ -1,65 +1,93 @@
-`STATUS: ACTIVE`
-
-Class encapsulates the querying of Metadata_Driven_Trigger\_\_mdt records on behalf of the
 MetadataTriggerHandlerClass class. It is not intended to be used directly by developers.
-
-## Constructors
-
-### `public MetadataTriggerQueryService(String objectTypeName)`
-
-Constructor for trigger query service
-
-#### Parameters
-
-| Param            | Description                 |
-| ---------------- | --------------------------- |
-| `objectTypeName` | String The object Type name |
-
----
 
 ## Fields
 
-### `private objType` → `String`
+### `objType`
 
 Initialize objectTypeName as an empty string to avoid null errors
 
----
+#### Signature
 
-## Methods
+```apex
+private objType
+```
 
-### `public List getMetadataTriggers()`
+#### Type
 
-`SUPPRESSWARNINGS`
+String
 
-This query finds an ordered list trigger handler classes to execute. It ignores any classes that are marked as disabled. <br>Note: It will exclude any triggerHandler metadata records for which the user's email address is found in a related `disabled_for__mdt` record. <br>Admins and Developers can selectively disable trigger handlers for all or selected individuals _without_ deploying.
+## Constructors
 
-#### Returns
+### `MetadataTriggerQueryService(objectTypeName)`
 
-| Type                                 | Description                          |
-| ------------------------------------ | ------------------------------------ |
-| List<Metadata_Driven_Trigger\_\_mdt> | `List<Metadata_Driven_Trigger__mdt>` |
+Constructor for trigger query service
 
-### `public static String getSObjectType(List<SObject> triggerNew, List<SObject> triggerOld)`
+#### Signature
 
-This determines the active sObject type by describing the first record in the trigger New / Old list
+```apex
+public MetadataTriggerQueryService(String objectTypeName)
+```
 
 #### Parameters
 
-| Param        | Description                        |
-| ------------ | ---------------------------------- |
-| `triggerNew` | List<sObject> The trigger.new list |
-| `triggerOld` | List<sObject> The trigger.old list |
+| Name           | Type   | Description                 |
+| -------------- | ------ | --------------------------- |
+| objectTypeName | String | String The object Type name |
 
-#### Returns
+## Methods
 
-| Type   | Description                  |
-| ------ | ---------------------------- |
-| String | `String` the ObjectType name |
+### `getMetadataTriggers()`
+
+`SUPPRESSWARNINGS`
+
+This query finds an ordered list trigger handler classes
+to execute. It ignores any classes that are marked as disabled.
+
+&lt;br&gt;Note: It will exclude any triggerHandler metadata records for which
+the user&#x27;s email address is found in a related `disabled_for__mdt`
+record.
+
+&lt;br&gt;Admins and Developers can selectively disable trigger handlers
+for all or selected individuals _without_ deploying.
+
+#### Signature
+
+```apex
+public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers()
+```
+
+#### Return Type
+
+**List&lt;Metadata_Driven_Trigger\_\_mdt&gt;**
+
+,[object Object]
+
+---
+
+### `getSObjectType(triggerNew, triggerOld)`
+
+This determines the active sObject type by describing the first
+record in the trigger New / Old list
+
+#### Signature
+
+```apex
+public static String getSObjectType(List<SObject> triggerNew, List<SObject> triggerOld)
+```
+
+#### Parameters
+
+| Name       | Type                | Description                              |
+| ---------- | ------------------- | ---------------------------------------- |
+| triggerNew | List&lt;SObject&gt; | List&lt;sObject&gt; The trigger.new list |
+| triggerOld | List&lt;SObject&gt; | List&lt;sObject&gt; The trigger.old list |
+
+#### Return Type
+
+**String**
+
+,[object Object], the ObjectType name
 
 #### Throws
 
-| Exception                           | Description                                  |
-| ----------------------------------- | -------------------------------------------- |
-| `MetadataTriggerFrameworkException` | when both triggerNew and triggerOld are null |
-
----
+[MetadataTriggerFrameworkException](MetadataTriggerFrameworkException.md): when both triggerNew and triggerOld are null

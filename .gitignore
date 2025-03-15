@@ -46,3 +46,10 @@ $RECYCLE.BIN/
 pmd/pmd.csv
 /.idea/sonarlint/
 /pmd/*.csv
+
+# Added by Illuminated Cloud
+/out/
+target/
+/.illuminatedCloud/
+**/tsconfig*.json
+**/*.tsbuildinfo

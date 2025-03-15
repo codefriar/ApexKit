@@ -1,3 +1,6 @@
-`STATUS: ACTIVE`
+## Values
 
-Enum for partition type.
+| Value   | Description |
+| ------- | ----------- |
+| SESSION |             |
+| ORG     |             |

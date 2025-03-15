@@ -1,229 +1,339 @@
-`STATUS: ACTIVE`
-
-Class wraps DML Calls in FLS / Crud checks.
-
 ## Fields
 
-### `private allOrNothing` → `Boolean`
+### `allOrNothing`
 
 `TESTVISIBLE`
 
-### `private throwIfRemovedFields` → `Boolean`
+#### Signature
 
-`TESTVISIBLE`
+```apex
+private allOrNothing
+```
+
+#### Type
+
+Boolean
 
 ---
+
+### `throwIfRemovedFields`
+
+`TESTVISIBLE`
+
+#### Signature
+
+```apex
+private throwIfRemovedFields
+```
+
+#### Type
+
+Boolean
 
 ## Methods
 
-### `public Safely allOrNothing()`
+### `allOrNothing()`
 
 Triggers the flag to throw an exception if fields are removed
 
-#### Returns
+#### Signature
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| Safely | Safely - the current instance of the Safely class |
+```apex
+public Safely allOrNothing()
+```
 
-### `public Safely throwIfRemovedFields()`
+#### Return Type
+
+**[Safely](Safely.md)**
+
+Safely - the current instance of the Safely class
+
+---
+
+### `throwIfRemovedFields()`
 
 Sets the throwIfRemovedFields flag to true
 
-#### Returns
+#### Signature
 
-| Type   | Description                                       |
-| ------ | ------------------------------------------------- |
-| Safely | Safely - the current instance of the Safely class |
+```apex
+public Safely throwIfRemovedFields()
+```
 
-### `public List doInsert(List<SObject> records)`
+#### Return Type
+
+**[Safely](Safely.md)**
+
+Safely - the current instance of the Safely class
+
+---
+
+### `doInsert(records)`
 
 A method for safely inserting a list of records
 
+#### Signature
+
+```apex
+public List<Database.SaveResult> doInsert(List<SObject> records)
+```
+
 #### Parameters
 
-| Param     | Description           |
-| --------- | --------------------- |
-| `records` | the records to insert |
+| Name    | Type                | Description           |
+| ------- | ------------------- | --------------------- |
+| records | List&lt;SObject&gt; | the records to insert |
 
-#### Returns
+#### Return Type
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.saveResult> - the results of the insert |
+**List&lt;Database.SaveResult&gt;**
 
-### `public List doInsert(SObject record)`
+List&lt;Database.saveResult&gt; - the results of the insert
+
+---
+
+### `doInsert(record)`
 
 A method for safely inserting a single record
 
+#### Signature
+
+```apex
+public List<Database.SaveResult> doInsert(SObject record)
+```
+
 #### Parameters
 
-| Param    | Description                    |
-| -------- | ------------------------------ |
-| `record` | SObject - the record to insert |
+| Name   | Type    | Description                    |
+| ------ | ------- | ------------------------------ |
+| record | SObject | SObject - the record to insert |
 
-#### Returns
+#### Return Type
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the insert |
+**List&lt;Database.SaveResult&gt;**
 
-### `public List doUpdate(List<SObject> records)`
+List&lt;Database.SaveResult&gt; - the results of the insert
+
+---
+
+### `doUpdate(records)`
 
 A method for safely updating a list of records
 
+#### Signature
+
+```apex
+public List<Database.SaveResult> doUpdate(List<SObject> records)
+```
+
 #### Parameters
 
-| Param     | Description                           |
-| --------- | ------------------------------------- |
-| `records` | List<SObject> - the records to update |
+| Name    | Type                | Description                                 |
+| ------- | ------------------- | ------------------------------------------- |
+| records | List&lt;SObject&gt; | List&lt;SObject&gt; - the records to update |
 
-#### Returns
+#### Return Type
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the update |
+**List&lt;Database.SaveResult&gt;**
 
-### `public List doUpdate(SObject record)`
+List&lt;Database.SaveResult&gt; - the results of the update
+
+---
+
+### `doUpdate(record)`
 
 a method for safely updating a single record
 
+#### Signature
+
+```apex
+public List<Database.SaveResult> doUpdate(SObject record)
+```
+
 #### Parameters
 
-| Param    | Description                    |
-| -------- | ------------------------------ |
-| `record` | SObject - the record to update |
+| Name   | Type    | Description                    |
+| ------ | ------- | ------------------------------ |
+| record | SObject | SObject - the record to update |
 
-#### Returns
+#### Return Type
 
-| Type                      | Description                                           |
-| ------------------------- | ----------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the update |
+**List&lt;Database.SaveResult&gt;**
 
-### `public List doUpsert(List<SObject> records)`
+List&lt;Database.SaveResult&gt; - the results of the update
+
+---
+
+### `doUpsert(records)`
 
 A method for safely upserting a list of records
 
+#### Signature
+
+```apex
+public List<Database.UpsertResult> doUpsert(List<SObject> records)
+```
+
 #### Parameters
 
-| Param     | Description                           |
-| --------- | ------------------------------------- |
-| `records` | List<SObject> - the records to upsert |
+| Name    | Type                | Description                                 |
+| ------- | ------------------- | ------------------------------------------- |
+| records | List&lt;SObject&gt; | List&lt;SObject&gt; - the records to upsert |
 
-#### Returns
+#### Return Type
 
-| Type                        | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| List<Database.UpsertResult> | List<Database.UpsertResult> - the results of the upsert |
+**List&lt;Database.UpsertResult&gt;**
 
-### `public List doUpsert(SObject record)`
+List&lt;Database.UpsertResult&gt; - the results of the upsert
+
+---
+
+### `doUpsert(record)`
 
 a method for safely upserting a single record
 
+#### Signature
+
+```apex
+public List<Database.UpsertResult> doUpsert(SObject record)
+```
+
 #### Parameters
 
-| Param    | Description                    |
-| -------- | ------------------------------ |
-| `record` | SObject - the record to upsert |
+| Name   | Type    | Description                    |
+| ------ | ------- | ------------------------------ |
+| record | SObject | SObject - the record to upsert |
 
-#### Returns
+#### Return Type
 
-| Type                        | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| List<Database.UpsertResult> | List<Database.UpsertResult> - the results of the upsert |
+**List&lt;Database.UpsertResult&gt;**
 
-### `public List doDelete(List<SObject> records)`
+List&lt;Database.UpsertResult&gt; - the results of the upsert
+
+---
+
+### `doDelete(records)`
 
 a method for safely deleting a list of records
 
+#### Signature
+
+```apex
+public List<Database.DeleteResult> doDelete(List<SObject> records)
+```
+
 #### Parameters
 
-| Param     | Description                           |
-| --------- | ------------------------------------- |
-| `records` | List<SObject> - the records to delete |
+| Name    | Type                | Description                                 |
+| ------- | ------------------- | ------------------------------------------- |
+| records | List&lt;SObject&gt; | List&lt;SObject&gt; - the records to delete |
 
-#### Returns
+#### Return Type
 
-| Type                        | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| List<Database.DeleteResult> | List<Database.DeleteResult> - the results of the delete |
+**List&lt;Database.DeleteResult&gt;**
 
-### `public List doDelete(SObject record)`
+List&lt;Database.DeleteResult&gt; - the results of the delete
+
+---
+
+### `doDelete(record)`
 
 a method for safely deleting a single record
 
+#### Signature
+
+```apex
+public List<Database.DeleteResult> doDelete(SObject record)
+```
+
 #### Parameters
 
-| Param    | Description                    |
-| -------- | ------------------------------ |
-| `record` | SOBject - the record to delete |
+| Name   | Type    | Description                    |
+| ------ | ------- | ------------------------------ |
+| record | SObject | SOBject - the record to delete |
 
-#### Returns
+#### Return Type
 
-| Type                        | Description                                                  |
-| --------------------------- | ------------------------------------------------------------ |
-| List<Database.DeleteResult> | List<Database.DeleteResult> - the results of the delete call |
+**List&lt;Database.DeleteResult&gt;**
 
-### `public List doQuery(String query)`
+List&lt;Database.DeleteResult&gt; - the results of the delete call
+
+---
+
+### `doQuery(query)`
 
 A method for safely querying records
 
+#### Signature
+
+```apex
+public List<SObject> doQuery(String query)
+```
+
 #### Parameters
 
-| Param   | Description                   |
-| ------- | ----------------------------- |
-| `query` | String - the query to execute |
+| Name  | Type   | Description                   |
+| ----- | ------ | ----------------------------- |
+| query | String | String - the query to execute |
 
-#### Returns
+#### Return Type
 
-| Type          | Description                              |
-| ------------- | ---------------------------------------- |
-| List<SObject> | List<SObject> - the results of the query |
+**List&lt;SObject&gt;**
 
-### `private List doDML(System accessType, List<SObject> records)`
+List&lt;SObject&gt; - the results of the query
+
+---
+
+### `doDML(accessType, records)`
 
 A method for safely performing DML
 
+#### Signature
+
+```apex
+private List<Database.SaveResult> doDML(System.AccessType accessType, List<SObject> records)
+```
+
 #### Parameters
 
-| Param        | Description                                                          |
-| ------------ | -------------------------------------------------------------------- |
-| `accessType` | AccessType - the type of access to check for                         |
-| `records`    | List<SObject> - the records to perform a Security Access Decision on |
+| Name       | Type                | Description                                                                |
+| ---------- | ------------------- | -------------------------------------------------------------------------- |
+| accessType | System.AccessType   | AccessType - the type of access to check for                               |
+| records    | List&lt;SObject&gt; | List&lt;SObject&gt; - the records to perform a Security Access Decision on |
 
-#### Returns
+#### Return Type
 
-| Type                      | Description                                             |
-| ------------------------- | ------------------------------------------------------- |
-| List<Database.SaveResult> | List<Database.SaveResult> - the results of the DML call |
+**List&lt;Database.SaveResult&gt;**
 
-### `private SObjectAccessDecision guardAgainstRemovedFields(System accessType, List<SObject> records)`
+List&lt;Database.SaveResult&gt; - the results of the DML call
+
+---
+
+### `guardAgainstRemovedFields(accessType, records)`
 
 method guards against removed fields by throwing an exception, if throwIfRemovedFields is enabled
 
+#### Signature
+
+```apex
+private SObjectAccessDecision guardAgainstRemovedFields(System.AccessType accessType, List<SObject> records)
+```
+
 #### Parameters
 
-| Param        | Description                                                          |
-| ------------ | -------------------------------------------------------------------- |
-| `accessType` | AccessType - the type of access to check for                         |
-| `records`    | List<SObject> - the records to perform a Security Access Decision on |
+| Name       | Type                | Description                                                                |
+| ---------- | ------------------- | -------------------------------------------------------------------------- |
+| accessType | System.AccessType   | AccessType - the type of access to check for                               |
+| records    | List&lt;SObject&gt; | List&lt;SObject&gt; - the records to perform a Security Access Decision on |
 
-#### Returns
+#### Return Type
 
-| Type                  | Description                                                         |
-| --------------------- | ------------------------------------------------------------------- |
-| SObjectAccessDecision | SObjectAccessDecision - the results of the Security Access Decision |
+**SObjectAccessDecision**
 
----
+SObjectAccessDecision - the results of the Security Access Decision
 
 ## Classes
 
-### RemovedFieldsException
+### RemovedFieldsException Class
 
 A custom exception that is thrown from the safely class
-
-**Inheritance**
-
-RemovedFieldsException
-
----

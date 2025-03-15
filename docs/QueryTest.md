@@ -1,20 +1,20 @@
 `SUPPRESSWARNINGS`
 
-`APIVERSION: 58`
-
-`STATUS: ACTIVE`
-
 MIT License
+
 Copyright (c) 2020 Rafał Kopaczewski
+
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
+of this software and associated documentation files (the &quot;Software&quot;), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
+
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -24,274 +24,1113 @@ SOFTWARE.
 
 ## Methods
 
-### `private static void testSetup()`
+### `testSetup()`
 
 `TESTSETUP`
 
-### `private static void testFieldExpressionConstructor()`
+#### Signature
 
-`ISTEST`
+```apex
+private static void testSetup()
+```
 
-### `private static void testFieldExpressionValueFormat()`
+#### Return Type
 
-`ISTEST`
-
-### `private static void testFieldExpressionValueFormatUnsupportedValue()`
-
-`ISTEST`
-
-### `private static void testFieldExpressionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testFieldExpressionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testConditionExpressionConstructor()`
-
-`ISTEST`
-
-### `private static void testConditionExpressionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testConditionExpressionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testConditionDenialExpressionConstructor()`
-
-`ISTEST`
-
-### `private static void testConditionDenialExpressionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testConditionDenialExpressionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testDateLiteralConstructorForDateLiteralName()`
-
-`ISTEST`
-
-### `private static void testDateLiteralConstructorForDateLiteralNameWithNumberOfUnits()`
-
-`ISTEST`
-
-### `private static void testDateLiteralToDateLiteralStringForDateLiteralName()`
-
-`ISTEST`
-
-### `private static void testDateLiteralToDateLiteralStringForDateLiteralNameWithNumberOfUnits()`
-
-`ISTEST`
-
-### `private static void testDateLiteralToStringOverride()`
-
-`ISTEST`
-
-### `private static void testScriptVariableConstructor()`
-
-`ISTEST`
-
-### `private static void testScriptVariableToScriptVariableString()`
-
-`ISTEST`
-
-### `private static void testScriptVariableToStringOverride()`
-
-`ISTEST`
-
-### `private static void testConditionDefaultConstructor()`
-
-`ISTEST`
-
-### `private static void testConditionParametrizedConstructor()`
-
-`ISTEST`
-
-### `private static void testConditionEquals()`
-
-`ISTEST`
-
-### `private static void testConditionNotEquals()`
-
-`ISTEST`
-
-### `private static void testConditionLessThan()`
-
-`ISTEST`
-
-### `private static void testConditionLessOrEqual()`
-
-`ISTEST`
-
-### `private static void testConditionGreaterThan()`
-
-`ISTEST`
-
-### `private static void testConditionGreaterOrEquals()`
-
-`ISTEST`
-
-### `private static void testConditionIsLike()`
-
-`ISTEST`
-
-### `private static void testConditionIsIn()`
-
-`ISTEST`
-
-### `private static void testConditionIsNotIn()`
-
-`ISTEST`
-
-### `private static void testConditionIncludesSetOfValueSets()`
-
-`ISTEST`
-
-### `private static void testConditionIncludesValueSet()`
-
-`ISTEST`
-
-### `private static void testConditionExcludesSetOfValueSets()`
-
-`ISTEST`
-
-### `private static void testConditionExcludesValueSet()`
-
-`ISTEST`
-
-### `private static void assertFieldConditionExpression(String fieldName, String comparisonOperator, Object value, Query condition)`
-
-### `private static void testConditionWithSubcondition()`
-
-`ISTEST`
-
-### `private static void testConditionWithNegatedSubcondition()`
-
-`ISTEST`
-
-### `private static void testConditionConjunctionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testConditionDisjunctionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testConditionToExpressionStringUnsupporterOperator()`
-
-`ISTEST`
-
-### `private static String prepareExpectedConditionString(Query condition)`
-
-### `private static void testConditionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testSortOrderConstructorFieldName()`
-
-`ISTEST`
-
-### `private static void testSortOrderConstructorSortDirection()`
-
-`ISTEST`
-
-### `private static void testSortOrderConstructorNullRecords()`
-
-`ISTEST`
-
-### `private static void testSortOrderStringAscendingNullsLast()`
-
-`ISTEST`
-
-### `private static void testSortOrderStringAscendingNullsFirst()`
-
-`ISTEST`
-
-### `private static void testSortOrderStringDescendingNullsLast()`
-
-`ISTEST`
-
-### `private static void testSortOrderStringDescendingNullsFirst()`
-
-`ISTEST`
-
-### `private static void testSortOrderToStringOverride()`
-
-`ISTEST`
-
-### `private static void testPhraseExpressionConstructor()`
-
-`ISTEST`
-
-### `private static void testPhraseExpressionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testPhraseExpressionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testSearchExpressionConstructor()`
-
-`ISTEST`
-
-### `private static void testSearchExpressionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testSearchExpressionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testDenialSearchExpressionConstructor()`
-
-`ISTEST`
-
-### `private static void testDenialSearchExpressionToExpressionString()`
-
-`ISTEST`
-
-### `private static void testDenialSearchExpressionToStringOverride()`
-
-`ISTEST`
-
-### `private static void testTypeOfConstructor()`
-
-`ISTEST`
-
-### `private static void testTypeOfWhenSObjectTypeWithFieldSet()`
-
-`ISTEST`
-
-### `private static void testTypeOfWhenSObjectTypeWithFieldList()`
-
-`ISTEST`
-
-### `private static void testTypeOfElseFieldListWithFieldSet()`
-
-`ISTEST`
-
-### `private static void testTypeOfElseFieldListWithFieldList()`
-
-`ISTEST`
-
-### `private static void testTypeOfElseFieldListWithSingleField()`
-
-`ISTEST`
-
-### `private static void testTypeOfString()`
-
-`ISTEST`
-
-### `private static void testTypeOftoStringOverride()`
-
-`ISTEST`
-
-### `private static User selectTestUser()`
+**void**
 
 ---
+
+### `testFieldExpressionConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testFieldExpressionConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFieldExpressionValueFormat()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testFieldExpressionValueFormat()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFieldExpressionValueFormatUnsupportedValue()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testFieldExpressionValueFormatUnsupportedValue()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFieldExpressionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testFieldExpressionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testFieldExpressionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testFieldExpressionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionExpressionConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionExpressionConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionExpressionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionExpressionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionExpressionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionExpressionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionDenialExpressionConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionDenialExpressionConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionDenialExpressionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionDenialExpressionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionDenialExpressionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionDenialExpressionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDateLiteralConstructorForDateLiteralName()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDateLiteralConstructorForDateLiteralName()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDateLiteralConstructorForDateLiteralNameWithNumberOfUnits()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDateLiteralConstructorForDateLiteralNameWithNumberOfUnits()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDateLiteralToDateLiteralStringForDateLiteralName()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDateLiteralToDateLiteralStringForDateLiteralName()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDateLiteralToDateLiteralStringForDateLiteralNameWithNumberOfUnits()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDateLiteralToDateLiteralStringForDateLiteralNameWithNumberOfUnits()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDateLiteralToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDateLiteralToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testScriptVariableConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testScriptVariableConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testScriptVariableToScriptVariableString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testScriptVariableToScriptVariableString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testScriptVariableToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testScriptVariableToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionDefaultConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionDefaultConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionParametrizedConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionParametrizedConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionEquals()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionEquals()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionNotEquals()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionNotEquals()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionLessThan()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionLessThan()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionLessOrEqual()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionLessOrEqual()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionGreaterThan()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionGreaterThan()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionGreaterOrEquals()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionGreaterOrEquals()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionIsLike()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionIsLike()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionIsIn()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionIsIn()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionIsNotIn()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionIsNotIn()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionIncludesSetOfValueSets()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionIncludesSetOfValueSets()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionIncludesValueSet()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionIncludesValueSet()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionExcludesSetOfValueSets()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionExcludesSetOfValueSets()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionExcludesValueSet()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionExcludesValueSet()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `assertFieldConditionExpression(fieldName, comparisonOperator, value, condition)`
+
+#### Signature
+
+```apex
+private static void assertFieldConditionExpression(String fieldName, String comparisonOperator, Object value, Query.Condition condition)
+```
+
+#### Parameters
+
+| Name               | Type            | Description |
+| ------------------ | --------------- | ----------- |
+| fieldName          | String          |             |
+| comparisonOperator | String          |             |
+| value              | Object          |             |
+| condition          | Query.Condition |             |
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionWithSubcondition()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionWithSubcondition()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionWithNegatedSubcondition()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionWithNegatedSubcondition()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionConjunctionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionConjunctionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionDisjunctionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionDisjunctionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testConditionToExpressionStringUnsupporterOperator()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionToExpressionStringUnsupporterOperator()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `prepareExpectedConditionString(condition)`
+
+#### Signature
+
+```apex
+private static String prepareExpectedConditionString(Query.Condition condition)
+```
+
+#### Parameters
+
+| Name      | Type            | Description |
+| --------- | --------------- | ----------- |
+| condition | Query.Condition |             |
+
+#### Return Type
+
+**String**
+
+---
+
+### `testConditionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testConditionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderConstructorFieldName()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderConstructorFieldName()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderConstructorSortDirection()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderConstructorSortDirection()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderConstructorNullRecords()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderConstructorNullRecords()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderStringAscendingNullsLast()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderStringAscendingNullsLast()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderStringAscendingNullsFirst()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderStringAscendingNullsFirst()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderStringDescendingNullsLast()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderStringDescendingNullsLast()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderStringDescendingNullsFirst()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderStringDescendingNullsFirst()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSortOrderToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSortOrderToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPhraseExpressionConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPhraseExpressionConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPhraseExpressionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPhraseExpressionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testPhraseExpressionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testPhraseExpressionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSearchExpressionConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSearchExpressionConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSearchExpressionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSearchExpressionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testSearchExpressionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testSearchExpressionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDenialSearchExpressionConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDenialSearchExpressionConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDenialSearchExpressionToExpressionString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDenialSearchExpressionToExpressionString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testDenialSearchExpressionToStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testDenialSearchExpressionToStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfConstructor()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfConstructor()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfWhenSObjectTypeWithFieldSet()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfWhenSObjectTypeWithFieldSet()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfWhenSObjectTypeWithFieldList()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfWhenSObjectTypeWithFieldList()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfElseFieldListWithFieldSet()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfElseFieldListWithFieldSet()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfElseFieldListWithFieldList()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfElseFieldListWithFieldList()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfElseFieldListWithSingleField()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfElseFieldListWithSingleField()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOfString()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOfString()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `testTypeOftoStringOverride()`
+
+`ISTEST`
+
+#### Signature
+
+```apex
+private static void testTypeOftoStringOverride()
+```
+
+#### Return Type
+
+**void**
+
+---
+
+### `selectTestUser()`
+
+#### Signature
+
+```apex
+private static User selectTestUser()
+```
+
+#### Return Type
+
+**User**
