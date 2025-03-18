@@ -33,6 +33,22 @@ The single public method is fully tested by this class&#x27; method.
 Because ULIDs are intentionally random, there&#x27;s no way to test
 deterministic output.
 
+### [CustomMetadataUtilDeploymentCallback](miscellaneous/CustomMetadataUtilDeploymentCallback.md)
+
+Callback implementation for Custom Metadata deployment operations
+
+### [CustomMetadataUtilities](miscellaneous/CustomMetadataUtilities.md)
+
+Utility class for creating and updating Custom Metadata records programmatically
+
+### [CustomMetadataUtilDeployCallbackTests](miscellaneous/CustomMetadataUtilDeployCallbackTests.md)
+
+Test class for CustomMetadataUtilDeploymentCallback
+
+### [CustomMetadataUtilitiesTests](miscellaneous/CustomMetadataUtilitiesTests.md)
+
+Test class for CustomMetadataUtilities
+
 ### [FeatureFlagCommonTests](miscellaneous/FeatureFlagCommonTests.md)
 
 Class serves to DRY code for various testing methods that
