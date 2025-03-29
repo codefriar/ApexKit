@@ -31,7 +31,7 @@
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </actionCalls>
-    <apiVersion>58.0</apiVersion>
+    <apiVersion>63.0</apiVersion>
     <assignments>
         <name>create_list_of_parameters</name>
         <label>create list of parameters</label>
