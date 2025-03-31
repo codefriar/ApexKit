@@ -1,12 +1,19 @@
-# ShipStation Salesforce Integration - Dev Guide
+# ApexKit Salesforce Integration - Dev Guide
 
-## Commands
+## Tool Usage
+
+- **Salesforce Operations:** ALWAYS use the `mcp__sfMcp` server tools for ALL Salesforce related work, including:
+    - Apex testing: Use `mcp__sfMcp__sf_apex_run_test` instead of local sfdx/sf commands
+    - Deployments: Use `mcp__sfMcp__sf_project_deploy_start` instead of local deploy commands
+    - Org operations: Use `mcp__sfMcp__sf_org_*` tools for any org-related tasks
+    - SOQL/SOSL queries: Use `mcp__sfMcp__sf_data_query` instead of local sfdx/sf commands
+- **GitHub/Git Operations:** Use the `mcp__GitHub` server for all GitHub and Git related activities
+
+## Commands (Only use if mcp\_\_sfMcp tools unavailable)
 
 - **Lint:** `npm run lint` (ESLint for JS files)
 - **Format:** `npm run prettier` (all files) | `npm run prettier:verify` (check only)
 - **Test LWC:** `npm run test` | `npm run test:unit:watch` (watch mode) | `npm run test:unit:debug` (debug)
-- **Test Apex:** `sfdx force:apex:test:run` (all tests) | `sfdx force:apex:test:run -n TestClassName` (single)
-- **Deploy:** `sfdx force:source:deploy -p force-app/` | `sfdx force:source:deploy -m ApexClass:ClassName`
 
 ## Code Style
 
