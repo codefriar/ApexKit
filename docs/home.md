@@ -13,6 +13,22 @@ FeatureFlag flag class to facilitate proper unit testing. (and just good design)
 
 ## Miscellaneous
 
+### [BaseRepo](miscellaneous/BaseRepo.md)
+
+Virtual base repository that every Repository must extend from. This class provides base implementations for common repository CRUD operations.
+More specific implementations must be added to the extending classes.
+No SObject specific queries are to be added to this base class. SObject specific queries are to be added to the extending classes.
+All SObject specific queries are to be done WITH USER_MODE.
+All SObject specific queries are to contain a Limit Statement.
+
+There are now overloads provided for all DML operations that allow unsafe DML operations to be performed
+but they require certain criteria be met as follows.
+
+1. Create an instance of this class using the overloaded constructor to permit unsafe DML operations.
+2. The calling code must provide an
+
+### [BaseRepoTests](miscellaneous/BaseRepoTests.md)
+
 ### [ULID](miscellaneous/ULID.md)
 
 This class implements the ULID spec in Apex.

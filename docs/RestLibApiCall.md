@@ -36,7 +36,7 @@ Integer
 
 ### `methodValue`
 
-stores the httpverb defined in the enum
+stores the http verb defined in the enum
 
 #### Signature
 
