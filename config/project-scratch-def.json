@@ -1,20 +1,19 @@
 {
-	"orgName": "ApexKit Company",
-	"description": "ApexKitV2.5",
-	"edition": "Developer",
-
-	"hasSampleData": true,
-	"features": [
-		"EinsteinGPTForDevelopers",
-		"EnableSetPasswordInApi",
-		"PlatformCache"
-	],
-	"settings": {
-		"lightningExperienceSettings": {
-			"enableS1DesktopEnabled": true
-		},
-		"mobileSettings": {
-			"enableS1EncryptedStoragePref2": false
-		}
-	}
+  "orgName": "Ignoti Et Quasi Occulti",
+  "description": "ApexKit",
+  "edition": "Developer",
+  "hasSampleData": false,
+  "features": [
+    "EinsteinGPTForDevelopers",
+    "EnableSetPasswordInApi",
+    "PlatformCache"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
 }
