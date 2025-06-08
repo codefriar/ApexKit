@@ -6,5 +6,5 @@ public enum ParameterMatcher {
 	/**
 	 * @description Matches any parameter value regardless of the actual runtime value
 	 */
-	ANYPARAMETER
+	ANYVALUE
 }

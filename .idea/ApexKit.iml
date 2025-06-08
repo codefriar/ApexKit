@@ -5,11 +5,6 @@
       <configuration>
         <option name="connectionName" value="Apexkit" />
         <option name="connectionType" value="SFDX" />
-        <option name="moduleContents">
-          <ModuleContents>
-            <option name="contentSelectionType" value="SELECTED" />
-          </ModuleContents>
-        </option>
       </configuration>
     </facet>
   </component>

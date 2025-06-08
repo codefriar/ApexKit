@@ -154,8 +154,12 @@ public with sharing class MockedMethod {
 	 * values - at runtime - of the method call.
 	 * @return                `Boolean`
 	 */
-	public Boolean doMethodSignaturesAndParametersMatch(MethodSignature methodSignature, List<Object> runtimeParameters) {
-		return this.methodSignature.verifySignatureMatch(methodSignature) && doRuntimeParametersMatch(runtimeParameters);
+	public Boolean doMethodSignaturesAndParametersMatch(
+		MethodSignature methodSignature,
+		List<Object> runtimeParameters
+	) {
+		return this.methodSignature.verifySignatureMatch(methodSignature) &&
+			doRuntimeParametersMatch(runtimeParameters);
 	}
 
 	/**
@@ -175,16 +179,18 @@ public with sharing class MockedMethod {
 				break;
 			}
 
-			// If the expected parameter is ParameterMatcher.ANY, we accept any value for this parameter
+			// If the expected parameter is ParameterMatcher.ANYPARAMETER, we accept any value for this parameter
 			if (
 				this.expectedParameters[i] instanceof ParameterMatcher &&
-				this.expectedParameters[i] == ParameterMatcher.ANYPARAMETER
+				this.expectedParameters[i] == ParameterMatcher.ANYVALUE
 			) {
 				// Skip equality check for this parameter - it automatically matches
 				continue;
 			}
 
-			matchesSoFar &= String.valueOf(this.expectedParameters[i]) == String.valueOf(compareTo[i]);
+			matchesSoFar &=
+				String.valueOf(this.expectedParameters[i]) ==
+				String.valueOf(compareTo[i]);
 		}
 		return matchesSoFar;
 	}
@@ -210,7 +216,10 @@ public with sharing class MockedMethod {
 		 * @param methodSignatureBuilder MethodSignature.Builder object to use
 		 * @param args List of System.Type
 		 */
-		public Builder(MethodSignature.Builder methodSignatureBuilder, List<System.Type> args) {
+		public Builder(
+			MethodSignature.Builder methodSignatureBuilder,
+			List<System.Type> args
+		) {
 			this.runtimeParameters = args;
 			this.methodSignatureBuilder = methodSignatureBuilder;
 		}
@@ -241,7 +250,10 @@ public with sharing class MockedMethod {
 		 * @param  parameter2 System.Type
 		 * @return            this
 		 */
-		public MockedMethod.Builder withParameterValues(Object parameter, Object parameter2) {
+		public MockedMethod.Builder withParameterValues(
+			Object parameter,
+			Object parameter2
+		) {
 			return this.setParameterValues(new List<Object>{ parameter, parameter2 });
 		}
 
@@ -252,8 +264,14 @@ public with sharing class MockedMethod {
 		 * @param  parameter3 System.Type
 		 * @return            return description
 		 */
-		public MockedMethod.Builder withParameterValues(Object parameter, Object parameter2, Object parameter3) {
-			return this.setParameterValues(new List<Object>{ parameter, parameter2, parameter3 });
+		public MockedMethod.Builder withParameterValues(
+			Object parameter,
+			Object parameter2,
+			Object parameter3
+		) {
+			return this.setParameterValues(
+				new List<Object>{ parameter, parameter2, parameter3 }
+			);
 		}
 
 		/**
@@ -271,7 +289,9 @@ public with sharing class MockedMethod {
 			Object parameter3,
 			Object parameter4
 		) {
-			return this.setParameterValues(new List<Object>{ parameter, parameter2, parameter3, parameter4 });
+			return this.setParameterValues(
+				new List<Object>{ parameter, parameter2, parameter3, parameter4 }
+			);
 		}
 
 		/**
@@ -341,7 +361,8 @@ public with sharing class MockedMethod {
 		 * @return          `MockedMethod`
 		 */
 		public MockedMethod createMockedMethod(MethodSignature signature) {
-			MockedMethod mockedMethod = new MockedMethod(signature).withParameterValues(runtimeParameters);
+			MockedMethod mockedMethod = new MockedMethod(signature)
+				.withParameterValues(runtimeParameters);
 			if (returnSObjectIds != null) {
 				mockedMethod.returning(returnSObjectIds);
 			}
