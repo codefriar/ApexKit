@@ -2,6 +2,7 @@
   <dictionary name="project">
     <words>
       <w>anyvalue</w>
+      <w>memoizes</w>
     </words>
   </dictionary>
 </component>
