@@ -1,6 +1,11 @@
 /**
  * @description Helper class for the UserFactory class.
  * Responsible for manipulation of users and permissions
+ *
+ * Note: This class does *no* error handling. Because it's used in the setup and preparation of test data,
+ * it's on the developer to ensure the methods are called with existing, valid data like profile names.
+ * If, for instance, a developer fat-fingers a profile name, the query on ~ line 20 will fail, and throw
+ * an exception.
  */
 
 @IsTest

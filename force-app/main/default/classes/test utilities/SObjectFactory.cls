@@ -56,10 +56,27 @@ public with sharing class SObjectFactory {
 		return createSObject(prototype, usingDefaultsClassName, false);
 	}
 
+	/**
+	 * @description Creates an SObject with the given prototype and forceInsert flag.
+	 *
+	 * @param prototype The prototype SObject.
+	 * @param forceInsert Flag indicating whether to force insertion.
+	 *
+	 * @return The created SObject.
+	 */
 	public static SObject createSObject(SObject prototype, Boolean forceInsert) {
 		return createSObject(prototype, null, forceInsert);
 	}
 
+	/**
+	 * @description Creates an SObject with the given prototype, using defaults from the specified class, and optionally inserts it into the database.
+	 *
+	 * @param prototype The prototype SObject to be created.
+	 * @param usingDefaultsClassName The name of the class providing default values for the SObject.
+	 * @param forceInsert Indicates whether to insert the SObject into the database.
+	 *
+	 * @return The created SObject.
+	 */
 	public static SObject createSObject(
 		SObject prototype,
 		String usingDefaultsClassName,
@@ -94,10 +111,27 @@ public with sharing class SObjectFactory {
 		return prototype;
 	}
 
+	/**
+	 * @description Creates a list of SObjects based on the provided prototype and count.
+	 *
+	 * @param prototype The SObject prototype to base the created SObjects on.
+	 * @param count The number of SObjects to create.
+	 *
+	 * @return A list of created SObjects.
+	 */
 	public static List<SObject> createSObjects(SObject prototype, Integer count) {
 		return createSObjects(prototype, count, null, false);
 	}
 
+	/**
+	 * @description Creates a list of SObjects based on the provided prototype, count, and defaults class name.
+	 *
+	 * @param prototype The prototype SObject to base the new SObjects on.
+	 * @param count The number of SObjects to create.
+	 * @param usingDefaultsClassName The name of the class to use for default values.
+	 *
+	 * @return A list of created SObjects.
+	 */
 	public static List<SObject> createSObjects(
 		SObject prototype,
 		Integer count,
@@ -106,6 +140,15 @@ public with sharing class SObjectFactory {
 		return createSObjects(prototype, count, usingDefaultsClassName, false);
 	}
 
+	/**
+	 * @description Creates a list of sObjects based on the provided prototype, count, and forceInsert flag.
+	 *
+	 * @param prototype The prototype SObject to base the created objects on.
+	 * @param count The number of SObjects to create.
+	 * @param forceInsert Flag indicating whether to force insertion of the created SObjects.
+	 *
+	 * @return List of created SObjects.
+	 */
 	public static List<SObject> createSObjects(
 		SObject prototype,
 		Integer count,
@@ -114,6 +157,17 @@ public with sharing class SObjectFactory {
 		return createSObjects(prototype, count, null, forceInsert);
 	}
 
+	/**
+	 * @description Creates a list of SObjects based on a prototype, count, defaults class, and force insert flag.
+	 *
+	 * @param prototype The prototype SObject to clone.
+	 * @param count The number of SObjects to create.
+	 * @param usingDefaultsClassName The name of the defaults class to use.
+	 * @param forceInsert Whether to force insert the created SObjects.
+	 *
+	 * @return A list of created SObjects.
+	 */
+	@SuppressWarnings('PMD.ExcessiveParameterList')
 	public static List<SObject> createSObjects(
 		SObject prototype,
 		Integer count,

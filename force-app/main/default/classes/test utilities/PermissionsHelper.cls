@@ -1,5 +1,10 @@
 /**
  * @description A test-only helper for manipulating users' permissions, permission sets and permission set groups
+ *
+ * Note: This class does *no* error handling. Because it's used in the setup and preparation of test data,
+ * it's on the developer to ensure the methods are called with existing, valid data like permission set names.
+ * If, for instance, a developer fat-fingers a permission set name, the query on ~ line 74 will fail, and throw
+ * an exception.
  */
 
 @IsTest
