@@ -257,7 +257,7 @@ private class PolyfillsTests {
 	}
 
 	@IsTest
-	private static void givenAStringAndABlob_CanConcatenateIntoOneBlob() {
+	private static void givenAStringAndABlobCanConcatenateIntoOneBlob() {
 		String oneCharacter = '1';
 		Blob oneCharacterInAFile = Blob.valueOf(oneCharacter);
 
