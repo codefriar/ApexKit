@@ -158,7 +158,7 @@ private class SObjectFactoryTests {
 		Assert.areEqual(
 			1,
 			checkAccounts.size(),
-			'expected 200 accounts to be created'
+			'expected 1 accounts to be created'
 		);
 	}
 }

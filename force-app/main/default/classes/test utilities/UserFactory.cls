@@ -42,7 +42,8 @@ public class UserFactory {
 			ProfileId = profileId,
 			LastName = 'last',
 			Email = 'Testuser@test.example.com',
-			Username = 'Testuser@test.example.com' + Crypto.getRandomInteger(),
+			Username = 'Testuser@test.example.com' +
+				Math.abs(Crypto.getRandomInteger()),
 			CompanyName = 'TEST',
 			Title = 'title',
 			Alias = 'alias',
