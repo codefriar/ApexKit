@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 private class SafelyTests {
 	@IsTest
 	private static void testConstructorChains() {
@@ -41,7 +41,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoInsertNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		System.runAs(minAccessUser) {
 			Assert.isTrue(!CanTheUser.create(new Account()));
@@ -59,11 +59,11 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileGeneratesInsertExceptionPositive() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Boolean didCatchTheRightException = false;
 		Account account = (Account) new Account(
 			Name = 'TestAccount',
-			TradeStyle = 'invalid'
+			Tradestyle = 'invalid'
 		);
 		Test.startTest();
 		System.runAs(marketingUser) {
@@ -96,7 +96,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoUpdateNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		PermissionSet ps = new PermissionSet(
 			Label = 'testPermSet',
@@ -117,7 +117,7 @@ private class SafelyTests {
 			AssigneeId = minAccessUser.Id
 		);
 		System.runAs(minAccessUser) {
-			Account account = (Account) new Account(name = 'TestAccount');
+			Account account = (Account) new Account(Name = 'TestAccount');
 			Assert.isTrue(CanTheUser.create(account));
 			insert account;
 
@@ -137,7 +137,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileDeleteNegative() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Case c = (Case) new Case(Subject = 'TestCase');
 		insert c;
 
@@ -156,11 +156,11 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileGeneratesUpdateExceptionPositive() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Boolean didCatchTheRightException = false;
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
-		account.TradeStyle = 'off limits field';
+		account.Tradestyle = 'off limits field';
 		Test.startTest();
 		System.runAs(marketingUser) {
 			try {
@@ -186,7 +186,7 @@ private class SafelyTests {
 		Account account2 = (Account) new Account(Name = 'TestAccount');
 		List<Account> accounts = new List<Account>{ account, account2 };
 		Test.startTest();
-		List<Database.upsertResult> insertResults = new Safely().doUpsert(account);
+		List<Database.UpsertResult> insertResults = new Safely().doUpsert(account);
 		List<Database.UpsertResult> mixedResults = new Safely().doUpsert(accounts);
 		Test.stopTest();
 		Assert.areEqual(
@@ -198,7 +198,7 @@ private class SafelyTests {
 		Assert.isTrue(insertResults.get(0).success, 'This dml should succeed');
 		Integer updated = 0;
 		Integer inserted = 0;
-		for (Database.upsertResult result : mixedResults) {
+		for (Database.UpsertResult result : mixedResults) {
 			Assert.isTrue(result.success, 'This dml should succeed');
 			if (result.created) {
 				inserted++;
@@ -212,7 +212,7 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDoUpsertMethodsNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		PermissionSet ps = new PermissionSet(
 			Label = 'testPermSet',
@@ -256,11 +256,11 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testMarketingProfileGeneratesUpsertExceptionPositive() {
-		User marketingUser = TestFactory.createMarketingUser(true);
+		User marketingUser = UserFactory.createMarketingPersonaUser(true);
 		Boolean didCatchTheRightException = false;
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
-		account.TradeStyle = 'off limits field';
+		account.Tradestyle = 'off limits field';
 		Test.startTest();
 		System.runAs(marketingUser) {
 			try {
@@ -283,7 +283,7 @@ private class SafelyTests {
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
 		Test.startTest();
-		List<Database.deleteResult> results = new Safely()
+		List<Database.DeleteResult> results = new Safely()
 			.throwIfRemovedFields()
 			.doDelete(account);
 		Test.stopTest();
@@ -292,11 +292,11 @@ private class SafelyTests {
 
 	@IsTest
 	private static void testDeleteWithRegularProfileNegative() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
 		Test.startTest();
-		List<Database.deleteResult> results;
+		List<Database.DeleteResult> results;
 		System.runAs(minAccessUser) {
 			results = new Safely().throwIfRemovedFields().doDelete(account);
 		}
@@ -310,16 +310,16 @@ private class SafelyTests {
 		Account account = (Account) new Account(Name = 'TestAccount');
 		insert account;
 		Test.startTest();
-		List<Account> accounts = (List<Account>) new Safely()
+		List<Account> accounts = new Safely()
 			.throwIfRemovedFields()
 			.doQuery('SELECT ID, Name FROM Account');
 		Test.stopTest();
-		Assert.areEqual(1, Accounts.size(), 'expected to find one record');
+		Assert.areEqual(1, accounts.size(), 'expected to find one record');
 	}
 
 	@IsTest
 	private static void testDoQueryThrowsRemovedFieldsException() {
-		User minAccessUser = TestFactory.createMinAccessUser(true);
+		User minAccessUser = UserFactory.createMinAccessPersonaUser(true);
 
 		PermissionSet ps = new PermissionSet(
 			Label = 'testPermSet',
@@ -347,7 +347,7 @@ private class SafelyTests {
 			Test.startTest();
 			Safely saf = new Safely();
 			try {
-				List<Account> accounts = (List<Account>) saf
+				saf
 					.throwIfRemovedFields()
 					.doQuery('SELECT ID, Name, TradeStyle FROM Account');
 			} catch (Safely.RemovedFieldsException rfe) {
