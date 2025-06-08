@@ -161,7 +161,7 @@ class FeatureFlagTests {
 	@IsTest
 	private static void testFeatureFoundEnabledViaCustomPermissionPositive() {
 		FeatureFlagDataProvider dataProvider = new FeatureFlagDataProvider();
-		TestFactory.enableCustomPermission('ApexKit_Example', UserInfo.getUserId());
+		PermissionsHelper.enableCustomPermission('ApexKit_Example', UserInfo.getUserId());
 		dataProvider.overrideFlags(
 			FeatureFlagCommonTests.getTestFlag('TestFlag', false)
 		);

@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 private class PolyfillsTests {
-	@isTest
+	@IsTest
 	private static void testGetSObjectTypeFromListPositiveNoType() {
 		Test.startTest();
 		String results = Polyfills.getSObjectTypeFromListsFirstObject(
@@ -13,32 +13,28 @@ private class PolyfillsTests {
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testGenerateUUID() {
 		Test.startTest();
 		String uuid = Polyfills.generateUUID();
 		Test.stopTest();
-		system.debug(uuid);
 		Assert.isTrue(uuid != null, 'expected to get a uuid back');
 		Assert.areEqual(5, uuid.split('-').size(), 'expected to get 5 parts back');
 	}
 
-	@isTest
+	@IsTest
 	private static void testPluckFieldFromList() {
-		List<Account> accounts = (List<Account>) TestFactory.createSobjectList(
-			new Account(),
-			200
-		);
+		List<Account> accounts = SObjectFactory.createSObjects(new Account(), 200);
 		Test.startTest();
 		List<Object> results = Polyfills.pluckFieldFromList('Name', accounts);
 		Test.stopTest();
 		Assert.areEqual(200, results.size());
 	}
 
-	@isTest
+	@IsTest
 	private static void testGenerateStacktracePositive() {
 		Test.startTest();
-		String results = Polyfills.generateStacktrace();
+		String results = Polyfills.generateStackTrace();
 		Test.stopTest();
 		Assert.isTrue(
 			results.containsIgnoreCase('PolyfillsTests'),
@@ -46,7 +42,7 @@ private class PolyfillsTests {
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testTypeObjFromInstance() {
 		Test.startTest();
 		Type results = Polyfills.typeObjFromInstance(new Account());
@@ -55,7 +51,7 @@ private class PolyfillsTests {
 		Assert.areEqual(results, expected, 'expected to get account back');
 	}
 
-	@isTest
+	@IsTest
 	private static void testClassNameFromInstance() {
 		Test.startTest();
 		String results = Polyfills.classNameFromInstance(new Account());
@@ -66,14 +62,14 @@ private class PolyfillsTests {
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void testDemonstrateIdMapFromCollectionByKeyPositiveWithList() {
-		List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
+		List<Account> accounts = SObjectFactory.createSObjects(
 			new Account(),
 			5,
 			true
 		);
-		List<Contact> contacts = (List<Contact>) TestFactory.createSObjectList(
+		List<Contact> contacts = SObjectFactory.createSObjects(
 			new Contact(),
 			5,
 			true
@@ -101,7 +97,7 @@ private class PolyfillsTests {
 			'Expected to get 5 contacts back'
 		);
 
-		for (id accountId : checkAccountMap.keySet()) {
+		for (Id accountId : checkAccountMap.keySet()) {
 			Assert.areEqual(
 				checkAccountMap.get(accountId).getSObjectType(),
 				Account.getSObjectType(),
@@ -109,7 +105,7 @@ private class PolyfillsTests {
 			);
 		}
 
-		for (id contactId : checkContactMap.keySet()) {
+		for (Id contactId : checkContactMap.keySet()) {
 			Assert.areEqual(
 				checkContactMap.get(contactId).getSObjectType(),
 				Contact.getSObjectType(),
@@ -118,15 +114,15 @@ private class PolyfillsTests {
 		}
 	}
 
-	@isTest
+	@IsTest
 	private static void testDemonstrateStringMapFromCollectionByKeyPositiveWithList() {
-		List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
+		List<Account> accounts = SObjectFactory.createSObjects(
 			new Account(),
 			5,
 			true
 		);
 		for (Account acct : accounts) {
-			acct.name = acct.id;
+			acct.Name = acct.Id;
 		}
 		update accounts;
 		Test.startTest();
@@ -143,7 +139,7 @@ private class PolyfillsTests {
 			'Expected to get 5 accounts back'
 		);
 
-		for (id accountId : checkAccountMap.keySet()) {
+		for (Id accountId : checkAccountMap.keySet()) {
 			Assert.areEqual(
 				checkAccountMap.get(accountId).getSObjectType(),
 				Account.getSObjectType(),
@@ -152,9 +148,9 @@ private class PolyfillsTests {
 		}
 	}
 
-	@isTest
+	@IsTest
 	private static void testMapFromCollectionWithListOfValuesPostive() {
-		List<Account> accounts = (List<Account>) TestFactory.createSObjectList(
+		List<Account> accounts = SObjectFactory.createSObjects(
 			new Account(),
 			5,
 			true
@@ -163,8 +159,8 @@ private class PolyfillsTests {
 		List<Contact> contactList = new List<Contact>();
 		for (Account acct : accounts) {
 			contactList.addAll(
-				(List<Contact>) TestFactory.createSObjectList(
-					new Contact(accountId = acct.id),
+				(List<Contact>) SObjectFactory.createSObjects(
+					new Contact(AccountId = acct.Id),
 					5,
 					false
 				)
@@ -173,7 +169,7 @@ private class PolyfillsTests {
 		insert contactList;
 
 		Test.startTest();
-		Map<Id, List<Contact>> checkResults = (Map<Id, List<Contact>>) Polyfills.mapFromCollectionWithCollectionValues(
+		Map<Id, List<Contact>> checkResults = Polyfills.mapFromCollectionWithCollectionValues(
 			'AccountId',
 			contactList
 		);
@@ -181,7 +177,7 @@ private class PolyfillsTests {
 
 		Assert.areEqual(
 			5,
-			checkResults.keyset().size(),
+			checkResults.keySet().size(),
 			'Expected to find 5 accountIds'
 		);
 
@@ -199,7 +195,7 @@ private class PolyfillsTests {
 			for (Contact contact : checkResults.get(accountId)) {
 				Assert.areEqual(
 					contact.getSObjectType(),
-					Contact.getSObjectType(),
+					contact.getSObjectType(),
 					'Expected to find contacts'
 				);
 			}
@@ -207,7 +203,7 @@ private class PolyfillsTests {
 	}
 
 	@SuppressWarnings('PMD.AvoidHardcodingId')
-	@isTest
+	@IsTest
 	private static void testSetContainsAnyItemFromListPositive() {
 		Set<String> testSet = new Set<String>();
 		testSet.add('0011h00000xR1GfAAK');
@@ -234,7 +230,7 @@ private class PolyfillsTests {
 	}
 
 	@SuppressWarnings('PMD.AvoidHardcodingId')
-	@isTest
+	@IsTest
 	private static void testSetDoesNOTContainsAnyItemFromListPositive() {
 		Set<String> testSet = new Set<String>();
 		testSet.add('0011h00000xR1GfAAK');
@@ -260,7 +256,7 @@ private class PolyfillsTests {
 		);
 	}
 
-	@isTest
+	@IsTest
 	private static void givenAStringAndABlob_CanConcatenateIntoOneBlob() {
 		String oneCharacter = '1';
 		Blob oneCharacterInAFile = Blob.valueOf(oneCharacter);
