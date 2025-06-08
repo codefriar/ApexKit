@@ -40,7 +40,7 @@ public with sharing class SObjectFactory {
 	 * @return A created SObject with required fields populated
 	 */
 	public static SObject createSObject(SObject prototype) {
-		return createSObject(prototype, null, false);
+		return createSObject(prototype, null, false, false);
 	}
 
 	/**
@@ -53,7 +53,7 @@ public with sharing class SObjectFactory {
 		SObject prototype,
 		String usingDefaultsClassName
 	) {
-		return createSObject(prototype, usingDefaultsClassName, false);
+		return createSObject(prototype, usingDefaultsClassName, false, false);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public with sharing class SObjectFactory {
 	 * @return The created SObject.
 	 */
 	public static SObject createSObject(SObject prototype, Boolean forceInsert) {
-		return createSObject(prototype, null, forceInsert);
+		return createSObject(prototype, null, forceInsert, false);
 	}
 
 	/**
@@ -82,10 +82,29 @@ public with sharing class SObjectFactory {
 		String usingDefaultsClassName,
 		Boolean forceInsert
 	) {
+		return createSObject(prototype, usingDefaultsClassName, forceInsert, false);
+	}
+
+	/**
+	 * @description Creates an SObject with the given prototype, using defaults from the specified class, optionally inserts it into the database, and optionally prevents fake ID generation.
+	 *
+	 * @param prototype The prototype SObject to be created.
+	 * @param usingDefaultsClassName The name of the class providing default values for the SObject.
+	 * @param forceInsert Indicates whether to insert the SObject into the database.
+	 * @param preventFakeId Indicates whether to prevent fake ID generation when not inserting.
+	 *
+	 * @return The created SObject.
+	 */
+	public static SObject createSObject(
+		SObject prototype,
+		String usingDefaultsClassName,
+		Boolean forceInsert,
+		Boolean preventFakeId
+	) {
 		prototype = internalCreateSObject(prototype, usingDefaultsClassName);
 		if (forceInsert) {
 			Database.insert(prototype, AccessLevel.SYSTEM_MODE);
-		} else {
+		} else if (!preventFakeId) {
 			prototype.Id = IdFactory.get(prototype);
 		}
 		return prototype;
@@ -120,7 +139,7 @@ public with sharing class SObjectFactory {
 	 * @return A list of created SObjects.
 	 */
 	public static List<SObject> createSObjects(SObject prototype, Integer count) {
-		return createSObjects(prototype, count, null, false);
+		return createSObjects(prototype, count, null, false, false);
 	}
 
 	/**
@@ -137,7 +156,7 @@ public with sharing class SObjectFactory {
 		Integer count,
 		String usingDefaultsClassName
 	) {
-		return createSObjects(prototype, count, usingDefaultsClassName, false);
+		return createSObjects(prototype, count, usingDefaultsClassName, false, false);
 	}
 
 	/**
@@ -154,7 +173,7 @@ public with sharing class SObjectFactory {
 		Integer count,
 		Boolean forceInsert
 	) {
-		return createSObjects(prototype, count, null, forceInsert);
+		return createSObjects(prototype, count, null, forceInsert, false);
 	}
 
 	/**
@@ -174,6 +193,28 @@ public with sharing class SObjectFactory {
 		String usingDefaultsClassName,
 		Boolean forceInsert
 	) {
+		return createSObjects(prototype, count, usingDefaultsClassName, forceInsert, false);
+	}
+
+	/**
+	 * @description Creates a list of SObjects based on a prototype, count, defaults class, force insert flag, and preventFakeId flag.
+	 *
+	 * @param prototype The prototype SObject to clone.
+	 * @param count The number of SObjects to create.
+	 * @param usingDefaultsClassName The name of the defaults class to use.
+	 * @param forceInsert Whether to force insert the created SObjects.
+	 * @param preventFakeId Whether to prevent fake ID generation when not inserting.
+	 *
+	 * @return A list of created SObjects.
+	 */
+	@SuppressWarnings('PMD.ExcessiveParameterList')
+	public static List<SObject> createSObjects(
+		SObject prototype,
+		Integer count,
+		String usingDefaultsClassName,
+		Boolean forceInsert,
+		Boolean preventFakeId
+	) {
 		List<SObject> createdSObjects = new List<SObject>();
 		SObject constructedFromPrototype = internalCreateSObject(
 			prototype,
@@ -187,7 +228,8 @@ public with sharing class SObjectFactory {
 				SObjectFactoryHelper.mutateCloneToRespectNameAndAutonumberRules(
 					clonedSObject,
 					!forceInsert,
-					iterationCounter
+					iterationCounter,
+					preventFakeId
 				)
 			);
 		}

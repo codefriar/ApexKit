@@ -1,15 +1,11 @@
 @IsTest
 private class ParameterMatcherTest {
-	private class TestClass {
-		public String methodWithParameters(String param1, Integer param2) {
-			return param1 + String.valueOf(param2);
-		}
-	}
-
 	@IsTest
 	static void testAnyParameterMatcher() {
 		// Arrange
-		TestClass mockObject = (TestClass) new Stub.Builder(TestClass.class)
+		ParameterMatcherTestClass mockObject = (ParameterMatcherTestClass) new Stub.Builder(
+				ParameterMatcherTestClass.class
+			)
 			.mockingMethodCall('methodWithParameters')
 			.withParameterTypes(String.class, Integer.class)
 			.withParameterValues('testValue', ParameterMatcher.ANYVALUE)
@@ -36,7 +32,9 @@ private class ParameterMatcherTest {
 	@IsTest
 	static void testMultipleAnyParameterMatchers() {
 		// Arrange
-		TestClass mockObject = (TestClass) new Stub.Builder(TestClass.class)
+		ParameterMatcherTestClass mockObject = (ParameterMatcherTestClass) new Stub.Builder(
+				ParameterMatcherTestClass.class
+			)
 			.mockingMethodCall('methodWithParameters')
 			.withParameterTypes(String.class, Integer.class)
 			.withParameterValues(ParameterMatcher.ANYVALUE, ParameterMatcher.ANYVALUE)
@@ -63,7 +61,9 @@ private class ParameterMatcherTest {
 	@IsTest
 	static void testMixedExactAndAnyMatchers() {
 		// Arrange
-		TestClass mockObject = (TestClass) new Stub.Builder(TestClass.class)
+		ParameterMatcherTestClass mockObject = (ParameterMatcherTestClass) new Stub.Builder(
+				ParameterMatcherTestClass.class
+			)
 			// First stub with exact first parameter and ANY second parameter
 			.mockingMethodCall('methodWithParameters')
 			.withParameterTypes(String.class, Integer.class)

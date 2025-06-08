@@ -61,9 +61,11 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 
 	/**
 	 * @description This must be implemented by extending classes. Developers - implement this method with the work you
-	 * want executed asynchronously.
+	 * want executed asynchronously. The returned Object will be passed as dataPassthrough to the next step.
+	 *
+	 * @return Object - data to pass through to the next step in the process
 	 */
-	abstract public void execute();
+	abstract public Object execute();
 
 	/**
 	 * @description this is a default implementation of an handleError method. It's called by the finalizer if the
@@ -85,23 +87,23 @@ public abstract class QueueableProcess implements Queueable, Database.AllowsCall
 	 */
 	public virtual void execute(QueueableContext context) {
 		// if the queueableContextHistory is null, initialize it.
-		if (this.queueableContextHistory == null) {
-			this.queueableContextHistory = new List<QueueableContext>();
-		}
+		this.queueableContextHistory = this.queueableContextHistory ??
+			new List<QueueableContext>();
 		this.queueableContextHistory.add(context);
 
+		// Call the abstract method `execute` and capture its return value as the dataPassthrough for the next step.
+		Object nextDataPassthrough = execute();
+
 		// create a new instance of the finalizer class. Note that we're passing in the list of remaining steps and the
-		// passthrough data.
+		// returned data from execute() as the passthrough data for the next step.
 		Finalizer nextStep = new EnqueueNextQueueableProcessStep(
 			this.processSteps,
-			this.dataPassthrough,
+			nextDataPassthrough,
 			this.queueableContextHistory,
 			this.finalizerContextHistory
 		);
 		// Attach the finalizer to system context. This will take care of enqueueing the next QueueableProcess step in
 		// the nextStep.
 		System.attachFinalizer(nextStep);
-		// invoke the abstract method `execute`. see the comment above.
-		execute();
 	}
 }

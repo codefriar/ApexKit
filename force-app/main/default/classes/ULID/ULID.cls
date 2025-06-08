@@ -11,11 +11,11 @@
  */
 public with sharing class ULID {
 	/**
-	 * This character set is the complete list of allowed characters in
+	 * @description This character set is the complete list of allowed characters in
 	 * a ULID string. It intentionally does not include characters that
 	 * may be ambiguously read, such as i, l, o, and u characters.
 	 */
-	private static final List<String> CHARACTERSET = new List<String>{
+	private static final List<String> CHARACTER_SET = new List<String>{
 		'0',
 		'1',
 		'2',
@@ -50,14 +50,13 @@ public with sharing class ULID {
 		'Z'
 	};
 	// Calculate this once per transaction to avoid unnecessary math
-	private static final Long CHARACTERSETSIZE = CHARACTERSET.size();
-	// This is equal to 2^48-1 and represents the max timestamp
-	// allowed in a ULID string
+	private static final Long CHARACTER_SET_SIZE = CHARACTER_SET.size();
+	// This is equal to 2^48-1 and represents the max timestamp allowed in a ULID string
 	// private static final Long MAXTIME = 281474976710655L;
 	// This is the number of digits to encode the timestamp into.
-	private static final Long TIMELENGTH = 10;
+	private static final Long TIME_LENGTH = 10;
 	// This is the number of digits of random character to generate
-	private static final Integer RANDOMLENGTH = 16;
+	private static final Integer RANDOM_LENGTH = 16;
 
 	/**
 	 * @description Generates a ULID string according to spec.
@@ -65,8 +64,8 @@ public with sharing class ULID {
 	 * @return  `String`
 	 */
 	public static String generate() {
-		return encodeTimestamp(DateTime.now().getTime(), TIMELENGTH) +
-			generateRandomString(RANDOMLENGTH);
+		return encodeTimestamp(Datetime.now().getTime(), TIME_LENGTH) +
+			generateRandomString(RANDOM_LENGTH);
 	}
 
 	/**
@@ -76,13 +75,14 @@ public with sharing class ULID {
 	 * @param timeLength how many characters of the timestamp to encode
 	 * @return  `String`
 	 */
+	@SuppressWarnings('PMD.UnusedLocalVariable')
 	private static String encodeTimestamp(Long dtSeed, Long timeLength) {
 		Long modulo;
 		String retString = '';
 		for (Long l = timeLength; timeLength > 0; timeLength--) {
-			modulo = Math.mod(dtSeed, CHARACTERSETSIZE);
-			retString = CHARACTERSET[modulo.intValue()] + retString;
-			dtSeed = (dtSeed - modulo) / CHARACTERSETSIZE;
+			modulo = Math.mod(dtSeed, CHARACTER_SET_SIZE);
+			retString = CHARACTER_SET[modulo.intValue()] + retString;
+			dtSeed = (dtSeed - modulo) / CHARACTER_SET_SIZE;
 		}
 		return retString;
 	}
@@ -108,7 +108,7 @@ public with sharing class ULID {
 	 * @return  `String`
 	 */
 	private static String fetchRandomCharacterFromCharacterSet() {
-		Long rand = Math.mod(Math.abs(Crypto.getRandomLong()), CHARACTERSETSIZE);
-		return CHARACTERSET[rand.intValue()];
+		Long rand = Math.mod(Math.abs(Crypto.getRandomLong()), CHARACTER_SET_SIZE);
+		return CHARACTER_SET[rand.intValue()];
 	}
 }
