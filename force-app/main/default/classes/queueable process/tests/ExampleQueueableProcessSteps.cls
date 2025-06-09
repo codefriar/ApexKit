@@ -40,17 +40,21 @@ public with sharing class ExampleQueueableProcessSteps {
 		/**
 		 * @description This is the main execute method required by the QueueableProcess abstract class. This is where
 		 * developers will place the code to execute asynchronously in this step. In this case, all it does is fetch
-		 * an account and increment the shipping street by 1. #riviting.
+		 * an account and increment the shipping street by 1. Returns the incremented dataPassthrough value.
+		 *
+		 * @return Object - the incremented dataPassthrough value for the next step
 		 */
-		public override void execute() {
+		public override Object execute() {
 			Account acct = fetchAccountByIdForDemoPurposes(this.accountId);
 			Integer castedInteger = Integer.valueOf(acct.ShippingStreet);
 			acct.ShippingStreet = String.valueOf(castedInteger + 1);
+			Integer nextDataPassthrough = null;
 			if (this.dataPassthrough != null) {
-				this.dataPassthrough = 1 + (Integer) this.dataPassthrough;
-				acct.BillingStreet = String.valueOf(this.dataPassthrough);
+				nextDataPassthrough = 1 + (Integer) this.dataPassthrough;
+				acct.BillingStreet = String.valueOf(nextDataPassthrough);
 			}
 			Database.update(acct, false, AccessLevel.USER_MODE);
+			return nextDataPassthrough;
 		}
 
 		/**
@@ -96,14 +100,17 @@ public with sharing class ExampleQueueableProcessSteps {
 		/**
 		 * @description This is the main execute method required by the QueueableProcess abstract class. This is where
 		 * developers will place the code they want to execute asynchronously in this step. In this case, all it does
-		 * update the account phone field when the data Passthrough isn't null.
+		 * update the account phone field when the data Passthrough isn't null. Returns the same dataPassthrough value.
+		 *
+		 * @return Object - the same dataPassthrough value for the next step
 		 */
-		public override void execute() {
+		public override Object execute() {
 			Account acct = fetchAccountByIdForDemoPurposes(this.accountId);
 			if (this.dataPassthrough != null) {
 				acct.Phone = String.valueOf(this.dataPassthrough);
 			}
 			Database.update(acct, false, AccessLevel.USER_MODE);
+			return this.dataPassthrough;
 		}
 	}
 

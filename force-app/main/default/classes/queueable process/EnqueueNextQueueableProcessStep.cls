@@ -68,11 +68,17 @@ public with sharing class EnqueueNextQueueableProcessStep implements System.Fina
 		switch on context.getResult() {
 			when SUCCESS {
 				if (this.processSteps.size() > 0) {
+					// Remove the first element from the list - this was constructed using the .then() method.
 					QueueableProcess nextProcessStep = this.processSteps.remove(0);
+					// Set the remaining steps on the next process step.
 					nextProcessStep.processSteps = this.processSteps;
+					// Set the dataPassthrough on the next process step.
 					nextProcessStep.dataPassthrough = dataPassthrough;
+					// Set the queueableContextHistory on the next process step.
 					nextProcessStep.queueableContextHistory = this.queueableContextHistory;
+					// Set the finalizerContextHistory on the next process step.
 					nextProcessStep.finalizerContextHistory = this.finalizerContextHistory;
+					// Enqueue the next process step.
 					System.enqueueJob(nextProcessStep);
 				}
 			}

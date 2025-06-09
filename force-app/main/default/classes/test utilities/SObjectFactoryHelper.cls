@@ -32,6 +32,24 @@ public class SObjectFactoryHelper {
 		Boolean fakeId,
 		Integer iterationCounter
 	) {
+		return mutateCloneToRespectNameAndAutonumberRules(clonedSObject, fakeId, iterationCounter, false);
+	}
+
+	/**
+	 * @description responsible for enforcing a cloned SObject's values honor uniqueness rules for name and
+	 * autonumber fields
+	 * @param clonedSObject SObject a cloned version of the prototyped SObject
+	 * @param fakeId Boolean Populates a fakeId on the object unless it's to be inserted
+	 * @param iterationCounter Integer Counter for ensuring name uniqueness
+	 * @param preventFakeId Boolean Prevents fake ID generation even when fakeId is true
+	 * @return SObject a mutated version of the cloned object with unique name and autonumber fields
+	 */
+	public static SObject mutateCloneToRespectNameAndAutonumberRules(
+		SObject clonedSObject,
+		Boolean fakeId,
+		Integer iterationCounter,
+		Boolean preventFakeId
+	) {
 		String nameField = calculateNameField(clonedSObject);
 		Boolean isNameFieldAutoNumber = nameFieldIsAutoNumber(
 			clonedSObject,
@@ -44,7 +62,7 @@ public class SObjectFactoryHelper {
 				(String) clonedSObject.get(nameField) + ' ' + iterationCounter
 			);
 		}
-		if (fakeId) {
+		if (fakeId && !preventFakeId) {
 			clonedSObject.Id = IdFactory.get(clonedSObject);
 		}
 		return clonedSObject;

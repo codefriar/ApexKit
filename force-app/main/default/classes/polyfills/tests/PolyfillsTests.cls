@@ -162,7 +162,9 @@ private class PolyfillsTests {
 				(List<Contact>) SObjectFactory.createSObjects(
 					new Contact(AccountId = acct.Id),
 					5,
-					false
+					null,
+					false,
+					true
 				)
 			);
 		}
