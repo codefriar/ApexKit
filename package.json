@@ -20,7 +20,7 @@
 		"precommit": "npm run apexdocs && git add docs && lint-staged"
 	},
 	"devDependencies": {
-		"@cparra/apexdocs": "^3.12.1",
+		"@cparra/apexdocs": "^3.12.2",
 		"@lwc/eslint-plugin-lwc": "^3.1.0",
 		"@prettier/plugin-xml": "^3.4.1",
 		"@sa11y/jest": "^7.2.9",
