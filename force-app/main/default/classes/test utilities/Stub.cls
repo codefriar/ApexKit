@@ -84,36 +84,19 @@ public with sharing class Stub implements System.StubProvider {
 		// Creates a method signature object from dependency injected variables
 		// used for comparing the current method call being handled against the
 		// list of MockedMethod objects
-		MethodSignature methodSignature = new MethodSignature(
-			methodName,
-			paramTypes
-		);
+		MethodSignature methodSignature = new MethodSignature(methodName, paramTypes);
 
 		// Iterates over the known list of MockedMethod objects. When it finds
 		// a match to the currently handled method call, it delegates the return
 		// value to the MockedMethod.handleCall() method.
 		for (MockedMethod mockedMethod : mockedMethods) {
-			if (
-				mockedMethod.doMethodSignaturesAndParametersMatch(methodSignature, args)
-			) {
+			if (mockedMethod.doMethodSignaturesAndParametersMatch(methodSignature, args)) {
 				return mockedMethod.handleCall();
 			}
 		}
 
 		// If no matching MockedMethod is found, this exception is thrown.
-		throw new Stub.StubException(
-			methodName +
-				' was called on a Stubbed version of ' +
-				this.objectType.toString() +
-				' but no mocked method matched it\'s signature and parameter' +
-				' values.' +
-				' Known mocks include:  ' +
-				this.mockedMethods +
-				' However the parameter types of this call are: ' +
-				paramTypes +
-				' and the parameter values of this call are: ' +
-				args
-		);
+		throw new Stub.StubException(StubFormatter.formatStubException(methodName, paramTypes, args, mockedMethods));
 	}
 
 	/**
@@ -185,15 +168,8 @@ public with sharing class Stub implements System.StubProvider {
 		 * @return `MethodSignature.Builder` - returns the builder
 		 * object for chaining.
 		 */
-		public MethodSignature.Builder mockingMethodCall(
-			String methodName,
-			List<Type> paramTypes
-		) {
-			MethodSignature.Builder sb = new MethodSignature.Builder(
-				this,
-				methodName,
-				paramTypes
-			);
+		public MethodSignature.Builder mockingMethodCall(String methodName, List<Type> paramTypes) {
+			MethodSignature.Builder sb = new MethodSignature.Builder(this, methodName, paramTypes);
 			signatureBuilders.add(sb);
 			return sb;
 		}
@@ -221,12 +197,8 @@ public with sharing class Stub implements System.StubProvider {
 		 *
 		 * @return `MethodSignature.Builder`
 		 */
-		public MockedMethod.Builder mockingMethodCall(
-			String methodName,
-			Type paramType
-		) {
-			return mockingMethodCall(methodName, new List<Type>{ paramType })
-				.withParameterTypes();
+		public MockedMethod.Builder mockingMethodCall(String methodName, Type paramType) {
+			return mockingMethodCall(methodName, new List<Type>{ paramType }).withParameterTypes();
 		}
 
 		/**
@@ -240,16 +212,8 @@ public with sharing class Stub implements System.StubProvider {
 		 *
 		 * @return `MethodSignature.Builder`
 		 */
-		public MockedMethod.Builder mockingMethodCall(
-			String methodName,
-			Type paramType,
-			Type paramType2
-		) {
-			return mockingMethodCall(
-					methodName,
-					new List<Type>{ paramType, paramType2 }
-				)
-				.withParameterTypes();
+		public MockedMethod.Builder mockingMethodCall(String methodName, Type paramType, Type paramType2) {
+			return mockingMethodCall(methodName, new List<Type>{ paramType, paramType2 }).withParameterTypes();
 		}
 
 		/**
@@ -265,17 +229,8 @@ public with sharing class Stub implements System.StubProvider {
 		 * @return `MethodSignature.Builder`
 		 */
 		@SuppressWarnings('PMD.ExcessiveParameterList')
-		public MockedMethod.Builder mockingMethodCall(
-			String methodName,
-			Type paramType,
-			Type paramType2,
-			Type paramType3
-		) {
-			return mockingMethodCall(
-					methodName,
-					new List<Type>{ paramType, paramType2, paramType3 }
-				)
-				.withParameterTypes();
+		public MockedMethod.Builder mockingMethodCall(String methodName, Type paramType, Type paramType2, Type paramType3) {
+			return mockingMethodCall(methodName, new List<Type>{ paramType, paramType2, paramType3 }).withParameterTypes();
 		}
 
 		/**
@@ -299,10 +254,7 @@ public with sharing class Stub implements System.StubProvider {
 			Type paramType3,
 			Type paramType4
 		) {
-			return mockingMethodCall(
-					methodName,
-					new List<Type>{ paramType, paramType2, paramType3, paramType4 }
-				)
+			return mockingMethodCall(methodName, new List<Type>{ paramType, paramType2, paramType3, paramType4 })
 				.withParameterTypes();
 		}
 
