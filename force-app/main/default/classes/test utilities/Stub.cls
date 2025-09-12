@@ -77,6 +77,10 @@ public with sharing class Stub implements System.StubProvider {
 		List<String> paramNames,
 		List<Object> args
 	) {
+		paramTypes = paramTypes ?? new List<Type>();
+		paramNames = paramNames ?? new List<String>();
+		args = args ?? new List<Object>();
+
 		// Creates a method signature object from dependency injected variables
 		// used for comparing the current method call being handled against the
 		// list of MockedMethod objects
