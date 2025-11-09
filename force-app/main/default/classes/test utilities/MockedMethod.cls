@@ -15,7 +15,9 @@ public with sharing class MockedMethod {
 	 */
 	@TestVisible
 	private MethodSignature methodSignature;
+	@TestVisible
 	private List<Object> expectedParameters;
+	@TestVisible
 	private Object returnValue;
 	private Boolean throwException = false;
 	private List<Id> sObjectIds;
