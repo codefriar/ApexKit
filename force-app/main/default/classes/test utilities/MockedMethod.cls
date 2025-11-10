@@ -13,14 +13,13 @@ public with sharing class MockedMethod {
 	 * @description Every MockedMethod has a methodSignature defining it's
 	 * 'signature' or combination of name, parameter names and parameter types.
 	 */
-	@TestVisible
-	private MethodSignature methodSignature;
-	private List<Object> expectedParameters;
-	private Object returnValue;
-	private Boolean throwException = false;
-	private List<Id> sObjectIds;
-	private Exception customException;
-	private Integer countOfMethodInvocations = 0;
+	public MethodSignature methodSignature;
+  	public List<Object> expectedParameters;
+  	public Object returnValue;
+  	private Boolean throwException = false;
+  	private List<Id> sObjectIds;
+  	private Exception customException;
+  	private Integer countOfMethodInvocations = 0;
 	@TestVisible
 	private static String exceptionMessage = 'Exception thrown by SuperStub.';
 
