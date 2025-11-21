@@ -26,7 +26,7 @@
 		"@sa11y/jest": "^7.4.0",
 		"@salesforce/eslint-config-lwc": "^4.1.1",
 		"@salesforce/eslint-plugin-lightning": "^2.0.0",
-		"@salesforce/sfdx-lwc-jest": "^7.5.0",
+		"@salesforce/sfdx-lwc-jest": "^7.5.1",
 		"eslint": "^9.39.1",
 		"eslint-plugin-import": "^2.32.0",
 		"eslint-plugin-jest": "^28.14.0",
